@@ -318,7 +318,7 @@ pre code {
 
 /* ===== Footer ===== */
 .site-footer {
-  padding: 40px 0;
+  padding: 48px 0;
   background: #12121f;
   margin-top: 0;
   color: #8b92a0;
@@ -326,8 +326,15 @@ pre code {
   border-top: 1px solid #2d2d4a;
 }
 
-.site-footer .container {
-  text-align: center;
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.footer-content {
+  flex: 1;
 }
 
 .site-footer a {
@@ -335,18 +342,17 @@ pre code {
 }
 
 .footer-logo {
-  height: 56px;
+  height: 120px;
   width: auto;
-  margin-bottom: 16px;
-  opacity: 0.85;
+  opacity: 0.6;
+  flex-shrink: 0;
 }
 
 .footer-links {
   display: flex;
-  justify-content: center;
   gap: 24px;
   flex-wrap: wrap;
-  margin: 12px 0;
+  margin: 10px 0;
 }
 
 /* ===== Hero ===== */
@@ -880,6 +886,20 @@ tbody tr:hover {
     width: 38px;
     height: 38px;
     font-size: 1.3rem;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-logo {
+    height: 80px;
+    order: -1;
+  }
+
+  .footer-links {
+    justify-content: center;
   }
 
   /* Hide desktop nav, show hamburger */
