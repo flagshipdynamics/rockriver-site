@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Keyboard Shortcuts — RockTerm Support — Rock River Research</title>
+  <meta name="description" content="Complete reference of keyboard shortcuts in RockTerm for session management, terminal operations, AI features, and general navigation.">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo"><img src="/images/logo.png" alt="Rock River Research"> Rock River Research, LLC</a>
+      <nav>
+        <ul class="nav">
+          <li>
+            <a href="#" class="dropdown-toggle">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/">RockTerm</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" class="dropdown-toggle">Support</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/support/">Support Articles</a></li>
+              <li><a href="/rockterm/getting-started/">Getting Started</a></li>
+              <li><a href="/rockterm/faq/">FAQ</a></li>
+              <li><a href="/rockterm/troubleshooting/">Troubleshooting</a></li>
+              <li><a href="/rockterm/system-requirements/">System Requirements</a></li>
+            </ul>
+          </li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
+    </div>
+  </header>
+
+  <div class="mobile-nav">
+    <div class="mobile-nav-header">
+      <span class="logo">Rock River Research, LLC</span>
+      <button class="mobile-nav-close" aria-label="Close menu">&#10005;</button>
+    </div>
+    <ul>
+      <li>
+        <span>Products</span>
+        <div class="mobile-dropdown">
+          <a href="/rockterm/">RockTerm</a>
+        </div>
+      </li>
+      <li>
+        <span>Support</span>
+        <div class="mobile-dropdown">
+          <a href="/rockterm/support/">Support Articles</a>
+          <a href="/rockterm/getting-started/">Getting Started</a>
+          <a href="/rockterm/faq/">FAQ</a>
+          <a href="/rockterm/troubleshooting/">Troubleshooting</a>
+          <a href="/rockterm/system-requirements/">System Requirements</a>
+        </div>
+      </li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+  </div>
+
+  <main class="page-content">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> <span>&rsaquo;</span>
+        <a href="/rockterm/">RockTerm</a> <span>&rsaquo;</span>
+        <a href="/rockterm/support/">Support</a> <span>&rsaquo;</span>
+        Keyboard Shortcuts
+      </nav>
+
+      <h1>Keyboard Shortcuts</h1>
+      <p class="text-muted">Last updated: April 2026</p>
+
+      <p>This page lists the default keyboard shortcuts in RockTerm. All shortcuts listed here use their default bindings. Shortcuts may be customized in <strong>Settings &gt; Keyboard Shortcuts</strong> &mdash; see the <a href="#customization">Customization</a> section at the bottom of this page.</p>
+
+      <h2>Session Management</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Shortcut</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>Ctrl+T</code></td>
+            <td>Open a new tab (launches the quick-connect dialog)</td>
+          </tr>
+          <tr>
+            <td><code>Ctrl+W</code></td>
+            <td>Close the current tab (prompts for confirmation if session is active)</td>
+          </tr>
+          <tr>
+            <td><code>Ctrl+Tab</code></td>
+            <td>Switch to the next tab</td>
+          </tr>
+          <tr>
+            <td><code>Ctrl+Shift+Tab</code></td>
+            <td>Switch to the previous tab</td>
+          </tr>
+          <tr>
+            <td><code>Ctrl+1</code> through <code>Ctrl+9</code></td>
+            <td>Switch to tab 1&ndash;9 directly</td>
+          </tr>
+          <tr>
+            <td><code>Ctrl+R</code></td>
+            <td>Reconnect the current session (disconnect and re-establish the SSH connection)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Terminal Operations</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Shortcut</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>Ctrl+Shift+C</code></td>
+            <td>Copy selected text to clipboard</td>
+          </tr>
+          <tr>
+            <td><code>Ctrl+Shift+V</code></td>
+            <td>Paste from clipboard into the terminal</td>
+          </tr>
+          <tr>
+            <td><code>Ctrl+Shift+F</code></td>
+            <td>Open the find/search bar to search within scrollback buffer</td>
+          </tr>
+          <tr>
+            <td><code>Ctrl+Shift+K</code></td>
+            <td>Clear the scrollback buffer (does not send anything to the remote host)</td>
+          </tr>
+          <tr>
+            <td><code>Ctrl+Plus (+)</code></td>
+            <td>Increase font size (zoom in)</td>
+          </tr>
+          <tr>
+            <td><code>Ctrl+Minus (-)</code></td>
+            <td>Decrease font size (zoom out)</td>
+          </tr>
+          <tr>
+            <td><code>Ctrl+0</code></td>
+            <td>Reset font size to default</td>
+          </tr>
+          <tr>
+            <td><code>Shift+Page Up</code></td>
+            <td>Scroll up one page in the scrollback buffer</td>
+          </tr>
+          <tr>
+            <td><code>Shift+Page Down</code></td>
+            <td>Scroll down one page in the scrollback buffer</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p><strong>Note on copy and paste:</strong> RockTerm uses <code>Ctrl+Shift+C</code> and <code>Ctrl+Shift+V</code> to avoid conflicts with terminal control sequences. <code>Ctrl+C</code> sends <code>SIGINT</code> to the remote process, and <code>Ctrl+V</code> sends a literal next character. Right-clicking in the terminal viewport will also paste from the clipboard by default.</p>
+
+      <h2>AI Features</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Shortcut</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>Ctrl+Space</code></td>
+            <td>Invoke the AI assistant panel. Opens the AI prompt where you can ask questions about the current session, request command suggestions, or analyze terminal output.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>General</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Shortcut</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>Ctrl+,</code> (comma)</td>
+            <td>Open Settings</td>
+          </tr>
+          <tr>
+            <td><code>Ctrl+Shift+N</code></td>
+            <td>Open the Connection Manager (saved sessions, folders, import/export)</td>
+          </tr>
+          <tr>
+            <td><code>F11</code></td>
+            <td>Toggle fullscreen mode</td>
+          </tr>
+          <tr>
+            <td><code>Alt+Enter</code></td>
+            <td>Toggle fullscreen mode (alternative binding)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 id="customization">Customizing Shortcuts</h2>
+      <p>All keyboard shortcuts in RockTerm can be customized. To modify bindings:</p>
+      <ol>
+        <li>Open <strong>Settings</strong> (<code>Ctrl+,</code>).</li>
+        <li>Navigate to <strong>Keyboard Shortcuts</strong>.</li>
+        <li>Find the action you want to rebind. You can filter the list by typing in the search box.</li>
+        <li>Click the current key binding and press the new key combination you want to assign.</li>
+        <li>If there is a conflict with an existing binding, RockTerm will warn you and offer to remove the conflicting binding.</li>
+      </ol>
+      <p>To restore all shortcuts to their defaults, click <strong>Reset All to Defaults</strong> at the bottom of the keyboard shortcuts settings page.</p>
+      <p><strong>Tip:</strong> If you frequently connect to systems where specific key combinations are needed by remote applications (e.g., <code>Ctrl+Shift+C</code> in a nested terminal multiplexer), rebind the conflicting RockTerm shortcut to avoid interception.</p>
+
+      <h2>Still need help?</h2>
+      <p>If you're still experiencing issues, <a href="/contact/">contact us</a> or email <a href="mailto:support@rockriverresearch.com">support@rockriverresearch.com</a>.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Rock River Research, LLC. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="/privacy/">Privacy Policy</a>
+        <a href="/terms/">Terms of Service</a>
+        <a href="/contact/">Contact</a>
+      </div>
+      <p>Based in Tennessee.</p>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

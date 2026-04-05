@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Multiple Sessions and Tabs — RockTerm Support — Rock River Research</title>
+  <meta name="description" content="Learn how to work with multiple SSH sessions using tabs in RockTerm. Covers opening, switching, closing tabs, and keyboard shortcuts for efficient tab navigation.">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo"><img src="/images/logo.png" alt="Rock River Research"> Rock River Research, LLC</a>
+      <nav>
+        <ul class="nav">
+          <li>
+            <a href="#" class="dropdown-toggle">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/">RockTerm</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" class="dropdown-toggle">Support</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/support/">Support Articles</a></li>
+              <li><a href="/rockterm/getting-started/">Getting Started</a></li>
+              <li><a href="/rockterm/faq/">FAQ</a></li>
+              <li><a href="/rockterm/troubleshooting/">Troubleshooting</a></li>
+              <li><a href="/rockterm/system-requirements/">System Requirements</a></li>
+            </ul>
+          </li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
+    </div>
+  </header>
+
+  <div class="mobile-nav">
+    <div class="mobile-nav-header">
+      <span class="logo">Rock River Research, LLC</span>
+      <button class="mobile-nav-close" aria-label="Close menu">&#10005;</button>
+    </div>
+    <ul>
+      <li>
+        <span>Products</span>
+        <div class="mobile-dropdown">
+          <a href="/rockterm/">RockTerm</a>
+        </div>
+      </li>
+      <li>
+        <span>Support</span>
+        <div class="mobile-dropdown">
+          <a href="/rockterm/support/">Support Articles</a>
+          <a href="/rockterm/getting-started/">Getting Started</a>
+          <a href="/rockterm/faq/">FAQ</a>
+          <a href="/rockterm/troubleshooting/">Troubleshooting</a>
+          <a href="/rockterm/system-requirements/">System Requirements</a>
+        </div>
+      </li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+  </div>
+
+  <main class="page-content">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> <span>&rsaquo;</span>
+        <a href="/rockterm/">RockTerm</a> <span>&rsaquo;</span>
+        <a href="/rockterm/support/">Support</a> <span>&rsaquo;</span>
+        Multiple Sessions and Tabs
+      </nav>
+
+      <h1>Multiple Sessions and Tabs</h1>
+      <p class="text-muted">Last updated: April 2026</p>
+
+      <p>RockTerm supports multiple simultaneous SSH sessions through a tabbed interface. Each tab runs an independent SSH connection, so you can monitor a production router in one tab, configure a switch in another, and tail logs on a Linux server in a third &mdash; all within a single window.</p>
+
+      <h2>How Tabs Work</h2>
+      <p>Every tab in RockTerm represents a fully independent SSH session with its own:</p>
+      <ul>
+        <li><strong>TCP connection</strong> &mdash; each tab opens a separate SSH socket to the remote host</li>
+        <li><strong>Authentication context</strong> &mdash; tabs can connect to different hosts with different credentials</li>
+        <li><strong>Terminal buffer</strong> &mdash; scrollback history is maintained per tab</li>
+        <li><strong>Session state</strong> &mdash; disconnecting or losing connectivity in one tab does not affect others</li>
+      </ul>
+      <p>Tabs are displayed in a horizontal bar across the top of the terminal area. Each tab shows the profile display name (or <code>user@host</code> for Quick Connect sessions). A colored indicator dot on the tab signals the connection state: green for connected, red for disconnected, and yellow for connecting.</p>
+
+      <h2>Opening New Tabs</h2>
+      <p>There are several ways to open a new tab:</p>
+      <ul>
+        <li><strong>From the Connection Manager:</strong> Select a profile and click <strong>Connect</strong>, or double-click a profile. The session opens in a new tab.</li>
+        <li><strong>Keyboard shortcut:</strong> Press <code>Ctrl+T</code> to open a new tab. This launches the Connection Manager so you can select a profile or use Quick Connect.</li>
+        <li><strong>Tab bar:</strong> Click the <strong>+</strong> button at the right end of the tab bar.</li>
+        <li><strong>Menu:</strong> Select <strong>File &gt; New Tab</strong>.</li>
+        <li><strong>Duplicate current tab:</strong> Press <code>Ctrl+Shift+T</code> to open a new tab connected to the same host as the currently active tab. This establishes a fresh SSH session (it does not clone the terminal state).</li>
+      </ul>
+
+      <p>There is no hard limit on the number of open tabs, but each tab consumes memory for its terminal buffer and maintains an active SSH connection. In practice, dozens of tabs work comfortably on modern hardware. If you regularly work with more than 20 simultaneous sessions, ensure your system meets the <a href="/rockterm/system-requirements/">recommended specifications</a>.</p>
+
+      <h2>Switching Between Tabs</h2>
+      <p>Click any tab to make it the active session. The active tab is visually highlighted, and its terminal content fills the main area. You can also switch tabs using keyboard shortcuts (see the reference table below).</p>
+
+      <p>Tabs can be reordered by dragging them along the tab bar. This is useful for grouping related sessions together &mdash; for example, placing all tabs for a specific maintenance window side by side.</p>
+
+      <h2>Closing Tabs</h2>
+      <p>To close a tab, click the <strong>&times;</strong> icon on the tab, or press <code>Ctrl+W</code> while the tab is active. You can also right-click a tab and select <strong>Close Tab</strong>.</p>
+
+      <p>If the tab has an active SSH session (the connection is still established), RockTerm will display a confirmation prompt:</p>
+      <pre><code>This tab has an active SSH session to admin@10.0.1.1.
+Closing it will disconnect the session. Continue?
+
+[Disconnect &amp; Close]    [Cancel]</code></pre>
+
+      <p>This prevents accidentally terminating a session during a critical maintenance window. If the session is already disconnected, the tab closes immediately without a prompt.</p>
+
+      <p>Additional close operations available from the tab right-click menu:</p>
+      <ul>
+        <li><strong>Close Other Tabs</strong> &mdash; closes all tabs except the selected one (with confirmation for active sessions)</li>
+        <li><strong>Close Tabs to the Right</strong> &mdash; closes all tabs to the right of the selected one</li>
+      </ul>
+
+      <h2>Keyboard Shortcuts for Tab Navigation</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Action</th>
+            <th>Shortcut</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>New tab (open Connection Manager)</td>
+            <td><code>Ctrl+T</code></td>
+          </tr>
+          <tr>
+            <td>Duplicate current session in new tab</td>
+            <td><code>Ctrl+Shift+T</code></td>
+          </tr>
+          <tr>
+            <td>Close current tab</td>
+            <td><code>Ctrl+W</code></td>
+          </tr>
+          <tr>
+            <td>Next tab</td>
+            <td><code>Ctrl+Tab</code></td>
+          </tr>
+          <tr>
+            <td>Previous tab</td>
+            <td><code>Ctrl+Shift+Tab</code></td>
+          </tr>
+          <tr>
+            <td>Go to tab 1&ndash;9</td>
+            <td><code>Ctrl+1</code> through <code>Ctrl+9</code></td>
+          </tr>
+          <tr>
+            <td>Go to last tab</td>
+            <td><code>Ctrl+9</code> (if more than 9 tabs open)</td>
+          </tr>
+          <tr>
+            <td>Move tab left</td>
+            <td><code>Ctrl+Shift+PageUp</code></td>
+          </tr>
+          <tr>
+            <td>Move tab right</td>
+            <td><code>Ctrl+Shift+PageDown</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>These shortcuts follow common conventions from web browsers and other tabbed terminal emulators, so they should feel familiar from day one.</p>
+
+      <h2>Still need help?</h2>
+      <p>If you're still experiencing issues, <a href="/contact/">contact us</a> or email <a href="mailto:support@rockriverresearch.com">support@rockriverresearch.com</a>.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Rock River Research, LLC. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="/privacy/">Privacy Policy</a>
+        <a href="/terms/">Terms of Service</a>
+        <a href="/contact/">Contact</a>
+      </div>
+      <p>Based in Tennessee.</p>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

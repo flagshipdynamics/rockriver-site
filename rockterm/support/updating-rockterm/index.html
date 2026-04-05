@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Updating RockTerm — RockTerm Support — Rock River Research</title>
+  <meta name="description" content="How RockTerm updates automatically via the Microsoft Store, how to check for updates manually, and what happens to your settings during an update.">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo"><img src="/images/logo.png" alt="Rock River Research"> Rock River Research, LLC</a>
+      <nav>
+        <ul class="nav">
+          <li>
+            <a href="#" class="dropdown-toggle">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/">RockTerm</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" class="dropdown-toggle">Support</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/support/">Support Articles</a></li>
+              <li><a href="/rockterm/getting-started/">Getting Started</a></li>
+              <li><a href="/rockterm/faq/">FAQ</a></li>
+              <li><a href="/rockterm/troubleshooting/">Troubleshooting</a></li>
+              <li><a href="/rockterm/system-requirements/">System Requirements</a></li>
+            </ul>
+          </li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
+    </div>
+  </header>
+
+  <div class="mobile-nav">
+    <div class="mobile-nav-header">
+      <span class="logo">Rock River Research, LLC</span>
+      <button class="mobile-nav-close" aria-label="Close menu">&#10005;</button>
+    </div>
+    <ul>
+      <li>
+        <span>Products</span>
+        <div class="mobile-dropdown">
+          <a href="/rockterm/">RockTerm</a>
+        </div>
+      </li>
+      <li>
+        <span>Support</span>
+        <div class="mobile-dropdown">
+          <a href="/rockterm/support/">Support Articles</a>
+          <a href="/rockterm/getting-started/">Getting Started</a>
+          <a href="/rockterm/faq/">FAQ</a>
+          <a href="/rockterm/troubleshooting/">Troubleshooting</a>
+          <a href="/rockterm/system-requirements/">System Requirements</a>
+        </div>
+      </li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+  </div>
+
+  <main class="page-content">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> <span>&rsaquo;</span>
+        <a href="/rockterm/">RockTerm</a> <span>&rsaquo;</span>
+        <a href="/rockterm/support/">Support</a> <span>&rsaquo;</span>
+        Updating RockTerm
+      </nav>
+
+      <h1>Updating RockTerm</h1>
+      <p class="text-muted">Last updated: April 2026</p>
+
+      <h2>Automatic Updates via Microsoft Store</h2>
+      <p>RockTerm is distributed through the Microsoft Store, which handles updates automatically. By default, the Microsoft Store downloads and installs app updates in the background when your system is connected to the internet and idle. You do not need to take any action to stay on the latest version.</p>
+      <p>Automatic updates are applied when RockTerm is not running. If RockTerm is open when an update becomes available, the update will be applied the next time you close and reopen the application.</p>
+      <p>To verify that automatic updates are enabled in the Microsoft Store:</p>
+      <ol>
+        <li>Open the <strong>Microsoft Store</strong>.</li>
+        <li>Click your profile icon in the top-right corner and select <strong>App settings</strong> (or <strong>Settings</strong>).</li>
+        <li>Ensure <strong>App updates</strong> is toggled <strong>On</strong>.</li>
+      </ol>
+
+      <h2>Checking for Updates Manually</h2>
+      <p>If you want to check for and install an update immediately rather than waiting for the automatic cycle:</p>
+      <ol>
+        <li>Open the <strong>Microsoft Store</strong>.</li>
+        <li>Click <strong>Library</strong> in the bottom-left corner (on Windows 11) or the three-dot menu and select <strong>Downloads and updates</strong> (on Windows 10).</li>
+        <li>Click <strong>Get updates</strong> in the top-right corner.</li>
+        <li>The Store will check for updates for all installed apps. If an update is available for RockTerm, it will begin downloading immediately.</li>
+        <li>Once the update is downloaded and installed, close and reopen RockTerm to use the new version.</li>
+      </ol>
+      <p>You can verify your current version by opening RockTerm and navigating to <strong>Settings &gt; About</strong>. The version number is displayed at the top of the About page.</p>
+
+      <h2>Changelog</h2>
+      <p>A detailed changelog documenting new features, improvements, bug fixes, and known issues for each release is available at <a href="/rockterm/changelog/">/rockterm/changelog/</a>. We recommend reviewing the changelog after major updates to learn about new features and any changes that may affect your workflow.</p>
+      <p>You can also access the changelog directly from within RockTerm via <strong>Settings &gt; About &gt; What's New</strong>.</p>
+
+      <h2>Settings Preserved After Updates</h2>
+      <p>Updates do <strong>not</strong> modify or reset your user data. The following are preserved across all updates:</p>
+      <ul>
+        <li>Saved connections and connection folders</li>
+        <li>Application settings and preferences</li>
+        <li>Custom keyboard shortcuts</li>
+        <li>Color scheme customizations</li>
+        <li>AI configuration (API key, model preferences)</li>
+        <li>Session logs</li>
+      </ul>
+      <p>In rare cases where an update introduces a new settings format, RockTerm automatically migrates your existing settings to the new format on first launch after the update. A backup of the previous settings is created automatically. If migration fails for any reason, the affected settings revert to their defaults and a notification is shown explaining what happened.</p>
+
+      <h2>Troubleshooting Update Issues</h2>
+      <p>If the Microsoft Store is not updating RockTerm, try the following:</p>
+      <ul>
+        <li><strong>Check your internet connection.</strong> Updates require an active connection to the Microsoft Store servers.</li>
+        <li><strong>Clear the Store cache.</strong> Press <code>Win+R</code>, type <code>wsreset.exe</code>, and press Enter. This resets the Store cache and can resolve stuck downloads.</li>
+        <li><strong>Check for pending Windows updates.</strong> Some Store functionality depends on Windows being up to date. Install any pending updates via <strong>Settings &gt; Windows Update</strong>.</li>
+        <li><strong>Check disk space.</strong> Ensure sufficient free space on your system drive for the update to download and install.</li>
+        <li><strong>Restart and retry.</strong> Restart your computer, open the Microsoft Store, and try <strong>Get updates</strong> again.</li>
+      </ul>
+
+      <h2>Still need help?</h2>
+      <p>If you're still experiencing issues, <a href="/contact/">contact us</a> or email <a href="mailto:support@rockriverresearch.com">support@rockriverresearch.com</a>.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Rock River Research, LLC. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="/privacy/">Privacy Policy</a>
+        <a href="/terms/">Terms of Service</a>
+        <a href="/contact/">Contact</a>
+      </div>
+      <p>Based in Tennessee.</p>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

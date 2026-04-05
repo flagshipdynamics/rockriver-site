@@ -11,7 +11,7 @@
 <body>
   <header class="site-header">
     <div class="container">
-      <a href="/" class="logo">Rock River Research, LLC</a>
+      <a href="/" class="logo"><img src="/images/logo.png" alt="Rock River Research"> Rock River Research, LLC</a>
       <nav>
         <ul class="nav">
           <li>
@@ -23,6 +23,7 @@
           <li>
             <a href="#" class="dropdown-toggle">Support</a>
             <ul class="dropdown-menu">
+              <li><a href="/rockterm/support/">Support Articles</a></li>
               <li><a href="/rockterm/getting-started/">Getting Started</a></li>
               <li><a href="/rockterm/faq/">FAQ</a></li>
               <li><a href="/rockterm/troubleshooting/">Troubleshooting</a></li>
@@ -52,6 +53,7 @@
       <li>
         <span>Support</span>
         <div class="mobile-dropdown">
+          <a href="/rockterm/support/">Support Articles</a>
           <a href="/rockterm/getting-started/">Getting Started</a>
           <a href="/rockterm/faq/">FAQ</a>
           <a href="/rockterm/troubleshooting/">Troubleshooting</a>
@@ -68,7 +70,11 @@
       <h1>RockTerm Support</h1>
       <p>Find answers to common questions, troubleshoot issues, or contact us directly.</p>
 
-      <div class="support-grid">
+      <div class="support-grid" style="margin-bottom: 32px;">
+        <a href="/rockterm/getting-started/" class="support-card">
+          <h3>Getting Started</h3>
+          <p>New to RockTerm? Start here.</p>
+        </a>
         <a href="/rockterm/faq/" class="support-card">
           <h3>Frequently Asked Questions</h3>
           <p>Common questions about RockTerm features, licensing, and usage.</p>
@@ -81,13 +87,113 @@
           <h3>System Requirements</h3>
           <p>Check hardware and software requirements.</p>
         </a>
-        <a href="/rockterm/getting-started/" class="support-card">
-          <h3>Getting Started</h3>
-          <p>New to RockTerm? Start here.</p>
-        </a>
         <a href="/rockterm/changelog/" class="support-card">
           <h3>Changelog</h3>
           <p>See what's new in the latest release.</p>
+        </a>
+      </div>
+
+      <h2>SSH Connections</h2>
+      <div class="support-grid">
+        <a href="/rockterm/support/ssh-connection-refused/" class="support-card">
+          <h3>SSH Connection Refused</h3>
+          <p>What to check when the remote host refuses your connection.</p>
+        </a>
+        <a href="/rockterm/support/ssh-connection-timeout/" class="support-card">
+          <h3>SSH Connection Timeout</h3>
+          <p>Diagnosing slow or timed-out connections.</p>
+        </a>
+        <a href="/rockterm/support/ssh-host-key-verification/" class="support-card">
+          <h3>SSH Host Key Verification</h3>
+          <p>Understanding host key warnings and how to handle them.</p>
+        </a>
+        <a href="/rockterm/support/ssh-key-authentication/" class="support-card">
+          <h3>SSH Key Authentication</h3>
+          <p>Setting up and troubleshooting key-based auth.</p>
+        </a>
+        <a href="/rockterm/support/ssh-agent-forwarding/" class="support-card">
+          <h3>SSH Agent Forwarding</h3>
+          <p>Forwarding keys through jump hosts.</p>
+        </a>
+        <a href="/rockterm/support/proxy-and-jump-host/" class="support-card">
+          <h3>Proxy and Jump Host Configuration</h3>
+          <p>Connecting through bastion hosts and proxies.</p>
+        </a>
+      </div>
+
+      <h2>Connection Management</h2>
+      <div class="support-grid">
+        <a href="/rockterm/support/managing-connection-profiles/" class="support-card">
+          <h3>Managing Connection Profiles</h3>
+          <p>Creating, editing, organizing, and grouping saved connections.</p>
+        </a>
+        <a href="/rockterm/support/multiple-sessions-and-tabs/" class="support-card">
+          <h3>Multiple Sessions and Tabs</h3>
+          <p>Working with multiple SSH sessions simultaneously.</p>
+        </a>
+        <a href="/rockterm/support/import-export-connections/" class="support-card">
+          <h3>Import and Export Connections</h3>
+          <p>Backing up and migrating your connection profiles.</p>
+        </a>
+      </div>
+
+      <h2>AI Features</h2>
+      <div class="support-grid">
+        <a href="/rockterm/support/configuring-ai-features/" class="support-card">
+          <h3>Configuring AI Features</h3>
+          <p>Enabling and setting up AI assistance.</p>
+        </a>
+        <a href="/rockterm/support/ai-api-key-setup/" class="support-card">
+          <h3>AI API Key Setup</h3>
+          <p>Configuring your Anthropic API key for AI features.</p>
+        </a>
+        <a href="/rockterm/support/ai-not-responding/" class="support-card">
+          <h3>AI Not Responding</h3>
+          <p>Troubleshooting AI feature issues.</p>
+        </a>
+        <a href="/rockterm/support/ai-privacy-and-data/" class="support-card">
+          <h3>AI Privacy and Data</h3>
+          <p>Understanding what data is sent and when.</p>
+        </a>
+      </div>
+
+      <h2>Terminal &amp; Display</h2>
+      <div class="support-grid">
+        <a href="/rockterm/support/terminal-fonts-and-display/" class="support-card">
+          <h3>Terminal Fonts and Display</h3>
+          <p>Customizing fonts, colors, and appearance.</p>
+        </a>
+        <a href="/rockterm/support/terminal-encoding-issues/" class="support-card">
+          <h3>Terminal Encoding Issues</h3>
+          <p>Fixing garbled text and character display problems.</p>
+        </a>
+        <a href="/rockterm/support/keyboard-shortcuts/" class="support-card">
+          <h3>Keyboard Shortcuts</h3>
+          <p>Default shortcuts and customization.</p>
+        </a>
+      </div>
+
+      <h2>Installation &amp; Licensing</h2>
+      <div class="support-grid">
+        <a href="/rockterm/support/microsoft-store-installation/" class="support-card">
+          <h3>Microsoft Store Installation</h3>
+          <p>Installing and repairing RockTerm.</p>
+        </a>
+        <a href="/rockterm/support/free-trial-and-licensing/" class="support-card">
+          <h3>Free Trial and Licensing</h3>
+          <p>Trial details, purchasing, and license scope.</p>
+        </a>
+        <a href="/rockterm/support/updating-rockterm/" class="support-card">
+          <h3>Updating RockTerm</h3>
+          <p>How updates work through the Microsoft Store.</p>
+        </a>
+      </div>
+
+      <h2>Diagnostics</h2>
+      <div class="support-grid">
+        <a href="/rockterm/support/logs-and-diagnostics/" class="support-card">
+          <h3>Logs and Diagnostics</h3>
+          <p>Finding logs and gathering diagnostic info for support.</p>
         </a>
       </div>
 

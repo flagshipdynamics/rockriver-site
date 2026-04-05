@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SSH Host Key Verification — RockTerm Support — Rock River Research</title>
+  <meta name="description" content="Understand SSH host key verification in RockTerm. Learn about trust on first use, host key changed warnings, MITM attack prevention, and managing known_hosts.">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo"><img src="/images/logo.png" alt="Rock River Research"> Rock River Research, LLC</a>
+      <nav>
+        <ul class="nav">
+          <li>
+            <a href="#" class="dropdown-toggle">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/">RockTerm</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" class="dropdown-toggle">Support</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/support/">Support Articles</a></li>
+              <li><a href="/rockterm/getting-started/">Getting Started</a></li>
+              <li><a href="/rockterm/faq/">FAQ</a></li>
+              <li><a href="/rockterm/troubleshooting/">Troubleshooting</a></li>
+              <li><a href="/rockterm/system-requirements/">System Requirements</a></li>
+            </ul>
+          </li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
+    </div>
+  </header>
+
+  <div class="mobile-nav">
+    <div class="mobile-nav-header">
+      <span class="logo">Rock River Research, LLC</span>
+      <button class="mobile-nav-close" aria-label="Close menu">&#10005;</button>
+    </div>
+    <ul>
+      <li>
+        <span>Products</span>
+        <div class="mobile-dropdown">
+          <a href="/rockterm/">RockTerm</a>
+        </div>
+      </li>
+      <li>
+        <span>Support</span>
+        <div class="mobile-dropdown">
+          <a href="/rockterm/support/">Support Articles</a>
+          <a href="/rockterm/getting-started/">Getting Started</a>
+          <a href="/rockterm/faq/">FAQ</a>
+          <a href="/rockterm/troubleshooting/">Troubleshooting</a>
+          <a href="/rockterm/system-requirements/">System Requirements</a>
+        </div>
+      </li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+  </div>
+
+  <main class="page-content">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> <span>&rsaquo;</span>
+        <a href="/rockterm/">RockTerm</a> <span>&rsaquo;</span>
+        <a href="/rockterm/support/">Support</a> <span>&rsaquo;</span>
+        SSH Host Key Verification
+      </nav>
+
+      <h1>SSH Host Key Verification</h1>
+      <p class="text-muted">Last updated: April 2026</p>
+
+      <p>Host key verification is a fundamental SSH security mechanism that protects you from connecting to an impersonator instead of your intended server. Every SSH server has a unique cryptographic identity &mdash; its host key. When you connect, RockTerm checks this key against its stored records to ensure you are reaching the genuine server.</p>
+
+      <h2>How Host Key Verification Works</h2>
+      <p>During the SSH handshake, the server presents its public host key to the client. The client then:</p>
+      <ol>
+        <li>Looks up the server's hostname (or IP) in its local <code>known_hosts</code> file.</li>
+        <li>If a matching entry exists, compares the presented key to the stored key.</li>
+        <li>If the keys match, the connection proceeds. If they do not match, the client raises a warning and refuses the connection.</li>
+        <li>If no entry exists (first connection), the client asks the user whether to trust the new key.</li>
+      </ol>
+      <p>The <code>known_hosts</code> file is located at:</p>
+      <ul>
+        <li>Windows: <code>C:\Users\&lt;username&gt;\.ssh\known_hosts</code></li>
+        <li>Linux/macOS: <code>~/.ssh/known_hosts</code></li>
+      </ul>
+
+      <h2>First Connection: Trust on First Use (TOFU)</h2>
+      <p>When you connect to a server for the first time, RockTerm displays a dialog showing the server's host key fingerprint and key type (e.g., ED25519, RSA). You will see something like:</p>
+      <pre><code>The authenticity of host '192.168.1.50 (192.168.1.50)' can't be established.
+ED25519 key fingerprint is SHA256:xR3jK...example...9vZp.
+Are you sure you want to continue connecting?</code></pre>
+      <p>This is normal for a first connection. Ideally, you should verify the fingerprint through an out-of-band channel (e.g., compare it to a value provided by your system administrator, read from a console session, or published in an internal wiki). Once you accept, RockTerm stores the key in <code>known_hosts</code> and will verify it automatically on every future connection.</p>
+
+      <h3>Viewing a Server's Host Key Fingerprint</h3>
+      <p>If you have console or out-of-band access to the server, you can display its host key fingerprints:</p>
+      <pre><code># Show all host key fingerprints
+ssh-keygen -lf /etc/ssh/ssh_host_ed25519_key.pub
+ssh-keygen -lf /etc/ssh/ssh_host_rsa_key.pub</code></pre>
+      <p>Compare the output to what RockTerm displays during the first connection.</p>
+
+      <h2>"Host Key Has Changed" Warning</h2>
+      <p>If you see a warning like the following, it means the server's host key no longer matches the key stored in your <code>known_hosts</code> file:</p>
+      <pre><code>@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
+Someone could be eavesdropping on you right now (man-in-the-middle attack)!</code></pre>
+
+      <p>RockTerm will refuse to connect when this occurs. This is intentional and is the correct behavior.</p>
+
+      <h3>Legitimate Causes</h3>
+      <p>In most operational environments, a host key change has a benign explanation:</p>
+      <ul>
+        <li><strong>Server was rebuilt or reimaged.</strong> A fresh OS installation generates new host keys.</li>
+        <li><strong>SSH was reinstalled.</strong> Removing and reinstalling the OpenSSH server package regenerates host keys unless the old key files were preserved.</li>
+        <li><strong>A different server is now at the same IP address.</strong> Common in environments that reuse IPs from DHCP pools, or after migrating a service to new hardware.</li>
+        <li><strong>The server was restored from a backup</strong> that contained different host keys than the ones you previously connected to.</li>
+        <li><strong>A load balancer or floating IP</strong> now points to a different backend node with its own host keys.</li>
+      </ul>
+
+      <h3>Security Warning: Man-in-the-Middle Attacks</h3>
+      <p>A host key change can also indicate that an attacker has positioned themselves between you and the real server (a man-in-the-middle attack). The attacker intercepts your connection and presents their own key, hoping you will accept it. Once accepted, they can observe and modify all traffic in the session, including passwords, commands, and data.</p>
+      <p><strong>Do not blindly accept a changed host key.</strong> Before clearing the old key, confirm with your team or server administrator that the server was legitimately rebuilt, reinstalled, or replaced.</p>
+
+      <h2>Removing an Old Host Key</h2>
+      <p>Once you have confirmed the host key change is legitimate, you need to remove the stale entry from <code>known_hosts</code> before reconnecting.</p>
+
+      <h3>Using ssh-keygen</h3>
+      <pre><code>ssh-keygen -R hostname</code></pre>
+      <p>This removes all keys associated with the specified hostname or IP. For example:</p>
+      <pre><code>ssh-keygen -R 192.168.1.50
+ssh-keygen -R server.example.com</code></pre>
+      <p>If you connected by both hostname and IP, you may need to remove both entries:</p>
+      <pre><code>ssh-keygen -R 192.168.1.50
+ssh-keygen -R server.example.com</code></pre>
+
+      <h3>Using RockTerm</h3>
+      <p>When RockTerm detects a host key mismatch, it displays a dialog with the old and new key fingerprints. If you are certain the change is legitimate, click <strong>Remove Old Key and Reconnect</strong>. RockTerm will remove the stale entry and prompt you to accept the new key as if it were a first connection.</p>
+
+      <h3>Manual Editing</h3>
+      <p>You can also open the <code>known_hosts</code> file in a text editor and delete the line containing the hostname or IP. Each line follows this format:</p>
+      <pre><code>hostname,ip-address ssh-ed25519 AAAA...key-data...</code></pre>
+      <p>If the file uses hashed hostnames (default on many systems), the hostname field will be a hashed value starting with <code>|1|</code>. In that case, use <code>ssh-keygen -R</code> rather than editing manually.</p>
+
+      <h2>Host Key Types and Algorithms</h2>
+      <p>Modern SSH servers typically generate multiple host keys:</p>
+      <ul>
+        <li><strong>ED25519</strong> &mdash; preferred; small, fast, strong</li>
+        <li><strong>ECDSA</strong> &mdash; supported on most modern systems</li>
+        <li><strong>RSA</strong> &mdash; broadest compatibility, especially with older clients and network devices</li>
+      </ul>
+      <p>RockTerm negotiates the strongest mutually supported algorithm. You can view the key type and fingerprint in the connection details panel after connecting.</p>
+
+      <h2>Best Practices</h2>
+      <ul>
+        <li><strong>Verify fingerprints on first connection</strong> through an out-of-band channel whenever possible.</li>
+        <li><strong>Preserve host keys during server rebuilds.</strong> Back up <code>/etc/ssh/ssh_host_*</code> before reimaging and restore them afterward to avoid triggering warnings for every user.</li>
+        <li><strong>Use configuration management</strong> (Ansible, Puppet, etc.) to deploy consistent host keys across server rebuilds.</li>
+        <li><strong>Investigate every host key warning.</strong> Treat it as a potential security incident until you confirm the cause.</li>
+        <li><strong>Distribute host keys via DNS (SSHFP records)</strong> for environments where out-of-band verification is impractical. Configure <code>VerifyHostKeyDNS yes</code> in your SSH client config.</li>
+      </ul>
+
+      <h2>Still need help?</h2>
+      <p>If you're still experiencing issues, <a href="/contact/">contact us</a> or email <a href="mailto:support@rockriverresearch.com">support@rockriverresearch.com</a>.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Rock River Research, LLC. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="/privacy/">Privacy Policy</a>
+        <a href="/terms/">Terms of Service</a>
+        <a href="/contact/">Contact</a>
+      </div>
+      <p>Based in Tennessee.</p>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

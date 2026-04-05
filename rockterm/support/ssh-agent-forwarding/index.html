@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SSH Agent Forwarding — RockTerm Support — Rock River Research</title>
+  <meta name="description" content="Configure SSH agent forwarding in RockTerm to use local keys through bastion hosts without copying private keys. Covers Windows SSH Agent setup and security considerations.">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo"><img src="/images/logo.png" alt="Rock River Research"> Rock River Research, LLC</a>
+      <nav>
+        <ul class="nav">
+          <li>
+            <a href="#" class="dropdown-toggle">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/">RockTerm</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" class="dropdown-toggle">Support</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/support/">Support Articles</a></li>
+              <li><a href="/rockterm/getting-started/">Getting Started</a></li>
+              <li><a href="/rockterm/faq/">FAQ</a></li>
+              <li><a href="/rockterm/troubleshooting/">Troubleshooting</a></li>
+              <li><a href="/rockterm/system-requirements/">System Requirements</a></li>
+            </ul>
+          </li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
+    </div>
+  </header>
+
+  <div class="mobile-nav">
+    <div class="mobile-nav-header">
+      <span class="logo">Rock River Research, LLC</span>
+      <button class="mobile-nav-close" aria-label="Close menu">&#10005;</button>
+    </div>
+    <ul>
+      <li>
+        <span>Products</span>
+        <div class="mobile-dropdown">
+          <a href="/rockterm/">RockTerm</a>
+        </div>
+      </li>
+      <li>
+        <span>Support</span>
+        <div class="mobile-dropdown">
+          <a href="/rockterm/support/">Support Articles</a>
+          <a href="/rockterm/getting-started/">Getting Started</a>
+          <a href="/rockterm/faq/">FAQ</a>
+          <a href="/rockterm/troubleshooting/">Troubleshooting</a>
+          <a href="/rockterm/system-requirements/">System Requirements</a>
+        </div>
+      </li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+  </div>
+
+  <main class="page-content">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> <span>&rsaquo;</span>
+        <a href="/rockterm/">RockTerm</a> <span>&rsaquo;</span>
+        <a href="/rockterm/support/">Support</a> <span>&rsaquo;</span>
+        SSH Agent Forwarding
+      </nav>
+
+      <h1>SSH Agent Forwarding</h1>
+      <p class="text-muted">Last updated: April 2026</p>
+
+      <p>SSH agent forwarding allows you to use your local SSH private keys to authenticate to a second (or third) server through an intermediate host &mdash; without ever copying your private key to that intermediate host. The private key material never leaves your workstation; instead, authentication requests are forwarded back to your local SSH agent over the encrypted SSH channel.</p>
+
+      <h2>When to Use Agent Forwarding</h2>
+      <p>The most common use case is a <strong>bastion host</strong> (also called a jump host or jump box). In many network architectures, internal servers are not directly reachable from the internet or from your workstation. You first SSH into a bastion host in a DMZ, then SSH from there to internal targets.</p>
+
+      <p>Without agent forwarding, you would need to either:</p>
+      <ul>
+        <li>Copy your private key to the bastion host (a significant security risk &mdash; if the bastion is compromised, your key is exposed).</li>
+        <li>Use password authentication for the second hop (less secure and harder to automate).</li>
+        <li>Generate a separate key pair on the bastion and deploy its public key to all internal hosts (increases key management overhead).</li>
+      </ul>
+      <p>Agent forwarding solves this cleanly. Your workstation holds the private key, and the bastion merely relays authentication challenges back to your local agent.</p>
+
+      <h2>How It Works</h2>
+      <ol>
+        <li>Your local SSH agent holds your private key(s) in memory.</li>
+        <li>When you connect to the bastion with agent forwarding enabled, the SSH client creates a Unix domain socket (or named pipe on Windows) on the bastion that points back to your local agent.</li>
+        <li>When you SSH from the bastion to an internal server, the internal server sends an authentication challenge.</li>
+        <li>The bastion's SSH client forwards this challenge through the socket back to your local agent.</li>
+        <li>Your local agent signs the challenge with your private key and sends the response back through the chain.</li>
+        <li>The internal server verifies the signature and grants access.</li>
+      </ol>
+      <p>At no point does the private key leave your workstation.</p>
+
+      <h2>Setting Up the Windows SSH Agent</h2>
+      <p>RockTerm integrates with the Windows OpenSSH Authentication Agent. Before using agent forwarding, ensure the agent is running and your keys are loaded.</p>
+
+      <h3>Start the OpenSSH Authentication Agent Service</h3>
+      <p>Open PowerShell as Administrator:</p>
+      <pre><code>Get-Service ssh-agent | Select-Object Status, StartType</code></pre>
+      <p>If the service is stopped or disabled:</p>
+      <pre><code>Set-Service -Name ssh-agent -StartupType Automatic
+Start-Service ssh-agent</code></pre>
+
+      <h3>Add Your Key to the Agent</h3>
+      <pre><code>ssh-add C:\Users\&lt;username&gt;\.ssh\id_ed25519</code></pre>
+      <p>You will be prompted for the key's passphrase (if one is set). Once added, the agent holds the decrypted key in memory for the duration of the session.</p>
+
+      <h3>Verify Loaded Keys</h3>
+      <pre><code>ssh-add -l</code></pre>
+      <p>This lists the fingerprints of all keys currently held by the agent.</p>
+
+      <h2>Enabling Agent Forwarding in RockTerm</h2>
+      <ol>
+        <li>Open the connection profile for the bastion host.</li>
+        <li>Navigate to <strong>Connection</strong> &gt; <strong>SSH</strong> &gt; <strong>Authentication</strong>.</li>
+        <li>Check <strong>Enable agent forwarding</strong>.</li>
+        <li>Ensure <strong>Authentication method</strong> is set to <strong>Agent</strong> (or <strong>Public Key</strong> with the agent integration enabled).</li>
+        <li>Connect to the bastion. From there, SSH to internal hosts as usual &mdash; authentication challenges will be forwarded to your local agent automatically.</li>
+      </ol>
+
+      <h3>Verifying Agent Forwarding Is Active</h3>
+      <p>Once connected to the bastion, run:</p>
+      <pre><code>ssh-add -l</code></pre>
+      <p>If agent forwarding is working, you will see your key fingerprint(s) listed &mdash; even though the key is not physically on the bastion. If you see "Could not open a connection to your authentication agent," forwarding is not active.</p>
+      <p>Also check that the <code>SSH_AUTH_SOCK</code> environment variable is set:</p>
+      <pre><code>echo $SSH_AUTH_SOCK</code></pre>
+      <p>It should point to a socket file (e.g., <code>/tmp/ssh-XXXX/agent.PID</code>).</p>
+
+      <h2>Server-Side Requirements</h2>
+      <p>Agent forwarding must be permitted by the SSH server on the bastion host. In <code>/etc/ssh/sshd_config</code>:</p>
+      <pre><code>AllowAgentForwarding yes</code></pre>
+      <p>This is the default on most distributions, but it may be explicitly disabled in hardened configurations. Restart <code>sshd</code> after changes.</p>
+
+      <h2>Security Considerations</h2>
+      <p>Agent forwarding is powerful but introduces a specific risk: <strong>anyone with root access on the intermediate host can use your forwarded agent to authenticate as you</strong> for as long as your session is active.</p>
+
+      <h3>The Risk</h3>
+      <p>When agent forwarding is enabled, the SSH server on the bastion creates a socket file. Any user with root privileges on the bastion can connect to this socket and issue signing requests to your agent &mdash; effectively impersonating you to any server that trusts your key. They cannot extract the private key itself, but they can use it to authenticate while your session is open.</p>
+
+      <h3>Mitigations</h3>
+      <ul>
+        <li><strong>Only forward to trusted hosts.</strong> Never enable agent forwarding when connecting to servers you do not fully trust or control.</li>
+        <li><strong>Use jump host configuration instead.</strong> RockTerm's <a href="/rockterm/support/proxy-and-jump-host/">proxy/jump host feature</a> (using <code>ProxyJump</code>) is a safer alternative because it does not require agent forwarding &mdash; the SSH connection is tunneled through the bastion without exposing your agent.</li>
+        <li><strong>Use key confirmation.</strong> If your SSH agent supports it, enable per-use confirmation so you are prompted each time the agent signs a challenge: <code>ssh-add -c ~/.ssh/id_ed25519</code>.</li>
+        <li><strong>Limit key lifetime in the agent.</strong> Add keys with a time limit: <code>ssh-add -t 3600 ~/.ssh/id_ed25519</code> (key is available for 1 hour only).</li>
+        <li><strong>Remove keys when done.</strong> After your session, clear the agent: <code>ssh-add -D</code>.</li>
+      </ul>
+
+      <h2>Troubleshooting</h2>
+
+      <h3>Agent Forwarding Not Working</h3>
+      <ul>
+        <li>Verify the Windows <code>ssh-agent</code> service is running and your key is loaded (<code>ssh-add -l</code>).</li>
+        <li>Confirm <strong>Enable agent forwarding</strong> is checked in the RockTerm connection profile.</li>
+        <li>Confirm <code>AllowAgentForwarding yes</code> in the bastion's <code>sshd_config</code>.</li>
+        <li>Check that <code>SSH_AUTH_SOCK</code> is set on the bastion after connecting.</li>
+      </ul>
+
+      <h3>"Could not open a connection to your authentication agent"</h3>
+      <p>This message on the bastion means the agent socket was not created. Possible causes:</p>
+      <ul>
+        <li>Agent forwarding is disabled in the client configuration.</li>
+        <li><code>AllowAgentForwarding</code> is set to <code>no</code> on the bastion.</li>
+        <li>A <code>Match</code> block in <code>sshd_config</code> is overriding the global setting for your user.</li>
+      </ul>
+
+      <h2>Still need help?</h2>
+      <p>If you're still experiencing issues, <a href="/contact/">contact us</a> or email <a href="mailto:support@rockriverresearch.com">support@rockriverresearch.com</a>.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Rock River Research, LLC. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="/privacy/">Privacy Policy</a>
+        <a href="/terms/">Terms of Service</a>
+        <a href="/contact/">Contact</a>
+      </div>
+      <p>Based in Tennessee.</p>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

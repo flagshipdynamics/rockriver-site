@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logs and Diagnostics — RockTerm Support — Rock River Research</title>
+  <meta name="description" content="Locate RockTerm log files, enable verbose logging, configure session logging, and prepare diagnostic information for support requests.">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo"><img src="/images/logo.png" alt="Rock River Research"> Rock River Research, LLC</a>
+      <nav>
+        <ul class="nav">
+          <li>
+            <a href="#" class="dropdown-toggle">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/">RockTerm</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" class="dropdown-toggle">Support</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/support/">Support Articles</a></li>
+              <li><a href="/rockterm/getting-started/">Getting Started</a></li>
+              <li><a href="/rockterm/faq/">FAQ</a></li>
+              <li><a href="/rockterm/troubleshooting/">Troubleshooting</a></li>
+              <li><a href="/rockterm/system-requirements/">System Requirements</a></li>
+            </ul>
+          </li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
+    </div>
+  </header>
+
+  <div class="mobile-nav">
+    <div class="mobile-nav-header">
+      <span class="logo">Rock River Research, LLC</span>
+      <button class="mobile-nav-close" aria-label="Close menu">&#10005;</button>
+    </div>
+    <ul>
+      <li>
+        <span>Products</span>
+        <div class="mobile-dropdown">
+          <a href="/rockterm/">RockTerm</a>
+        </div>
+      </li>
+      <li>
+        <span>Support</span>
+        <div class="mobile-dropdown">
+          <a href="/rockterm/support/">Support Articles</a>
+          <a href="/rockterm/getting-started/">Getting Started</a>
+          <a href="/rockterm/faq/">FAQ</a>
+          <a href="/rockterm/troubleshooting/">Troubleshooting</a>
+          <a href="/rockterm/system-requirements/">System Requirements</a>
+        </div>
+      </li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+  </div>
+
+  <main class="page-content">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> <span>&rsaquo;</span>
+        <a href="/rockterm/">RockTerm</a> <span>&rsaquo;</span>
+        <a href="/rockterm/support/">Support</a> <span>&rsaquo;</span>
+        Logs and Diagnostics
+      </nav>
+
+      <h1>Logs and Diagnostics</h1>
+      <p class="text-muted">Last updated: April 2026</p>
+
+      <h2>Log File Location</h2>
+      <p>RockTerm stores application log files in the following directory:</p>
+      <pre><code>%LOCALAPPDATA%\RockTerm\logs\</code></pre>
+      <p>To open this folder, press <code>Win+R</code>, paste the path above, and press Enter. Alternatively, navigate to it in File Explorer. The fully expanded path is typically:</p>
+      <pre><code>C:\Users\&lt;YourUsername&gt;\AppData\Local\RockTerm\logs\</code></pre>
+      <p>Log files are named with the date and rotated daily. Older logs are automatically pruned to prevent excessive disk usage.</p>
+
+      <h2>What Is Recorded in Logs</h2>
+      <p>Application logs contain operational information useful for diagnosing issues:</p>
+      <ul>
+        <li><strong>Connection attempts</strong> &mdash; Hostname, port, protocol version, key exchange algorithm, authentication method used (password, public key, keyboard-interactive), and success/failure status.</li>
+        <li><strong>Errors and exceptions</strong> &mdash; Stack traces, error codes, and descriptions for any failures encountered during operation (e.g., connection timeouts, host key verification failures, channel open failures).</li>
+        <li><strong>Application events</strong> &mdash; Startup and shutdown events, settings changes, update installations, license validation events.</li>
+        <li><strong>SSH protocol events</strong> &mdash; Channel open/close, port forwarding setup, keepalive exchanges, and terminal resize notifications.</li>
+      </ul>
+      <p><strong>Logs do NOT contain:</strong></p>
+      <ul>
+        <li>Terminal output (the data displayed in the terminal viewport)</li>
+        <li>Passwords or passphrases</li>
+        <li>Private key contents</li>
+        <li>API keys</li>
+        <li>Keystrokes or commands you type</li>
+      </ul>
+      <p>Application logs are safe to share with Rock River Research support. However, they do contain hostnames and usernames from your connections. If this is sensitive, redact those fields before sending.</p>
+
+      <h2>Enabling Verbose / Debug Logging</h2>
+      <p>By default, RockTerm logs at the <strong>Info</strong> level. For troubleshooting complex issues, you can enable verbose (debug-level) logging to capture additional detail:</p>
+      <ol>
+        <li>Open <strong>Settings</strong> (<code>Ctrl+,</code>).</li>
+        <li>Navigate to <strong>Advanced &gt; Logging</strong>.</li>
+        <li>Change the <strong>Log Level</strong> from <strong>Info</strong> to <strong>Debug</strong>.</li>
+        <li>Click <strong>Save</strong>. The change takes effect immediately for new connections. Existing sessions continue at the previous log level until reconnected.</li>
+      </ol>
+      <p>Debug logging produces significantly more output and may affect performance on resource-constrained systems. Remember to set the log level back to <strong>Info</strong> after you have captured the diagnostic data you need.</p>
+      <p>At the Debug level, additional information is logged including:</p>
+      <ul>
+        <li>Detailed SSH handshake negotiation (algorithms offered and selected)</li>
+        <li>Terminal escape sequence processing events</li>
+        <li>Window resize and rendering events</li>
+        <li>AI API request/response metadata (not content)</li>
+      </ul>
+
+      <h2>What to Include in a Support Request</h2>
+      <p>When contacting Rock River Research support, include the following information to help us diagnose your issue quickly:</p>
+      <ol>
+        <li><strong>RockTerm version number.</strong> Found in <strong>Settings &gt; About</strong>. Example: <code>1.2.0</code>.</li>
+        <li><strong>Windows version.</strong> Press <code>Win+R</code>, type <code>winver</code>, and press Enter. Provide the full version string, for example: <em>Windows 11 Pro, Version 24H2, Build 26100.1234</em>.</li>
+        <li><strong>Description of the issue.</strong> Explain what you expected to happen and what actually happened.</li>
+        <li><strong>Steps to reproduce.</strong> List the exact steps to trigger the problem. Include the type of remote host if relevant (e.g., "connecting to a Cisco IOS router via SSH on port 22").</li>
+        <li><strong>Log excerpts.</strong> Enable Debug logging, reproduce the issue, and attach the relevant log file from <code>%LOCALAPPDATA%\RockTerm\logs\</code>. If the log is large, include only the time range around when the issue occurred.</li>
+        <li><strong>Screenshots or screen recordings.</strong> If the issue is visual (display corruption, UI glitch, unexpected output), attach a screenshot. Press <code>Win+Shift+S</code> to use the Windows Snipping Tool.</li>
+      </ol>
+      <p>Send support requests to <a href="mailto:support@rockriverresearch.com">support@rockriverresearch.com</a> or use the <a href="/contact/">contact form</a>.</p>
+
+      <h2>Session Logging (Terminal Output to File)</h2>
+      <p>Session logging is separate from application logs. When enabled, session logging saves a copy of all terminal output (everything displayed in the terminal viewport) to a file on disk. This is useful for auditing, record-keeping, or reviewing long-running operations.</p>
+      <p>To enable session logging for a connection:</p>
+      <ol>
+        <li>Open the <strong>Connection Manager</strong> (<code>Ctrl+Shift+N</code>).</li>
+        <li>Select or edit a saved connection.</li>
+        <li>Under the <strong>Logging</strong> section, enable <strong>Session Logging</strong>.</li>
+        <li>Choose a log file path and naming convention. You can use variables like <code>{hostname}</code>, <code>{date}</code>, and <code>{time}</code> in the filename template.</li>
+        <li>Save the connection. Session logging begins automatically each time you connect.</li>
+      </ol>
+      <p>You can also start or stop session logging on-the-fly for the current session from the <strong>Session</strong> menu.</p>
+      <p><strong>Security warning:</strong> Session log files contain the full terminal output, which may include sensitive information such as:</p>
+      <ul>
+        <li>Configuration files displayed via <code>cat</code>, <code>show running-config</code>, or similar commands</li>
+        <li>Environment variables that may contain secrets</li>
+        <li>Passwords that were echoed to the terminal (some devices echo passwords in certain contexts)</li>
+        <li>API keys, tokens, or certificates displayed in the terminal</li>
+      </ul>
+      <p>Store session log files securely and restrict access to authorized personnel. Consider encrypting the directory containing session logs if your organization's security policy requires it. Do not send session log files to support unless explicitly requested and after reviewing their contents for sensitive data.</p>
+
+      <h2>Still need help?</h2>
+      <p>If you're still experiencing issues, <a href="/contact/">contact us</a> or email <a href="mailto:support@rockriverresearch.com">support@rockriverresearch.com</a>.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Rock River Research, LLC. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="/privacy/">Privacy Policy</a>
+        <a href="/terms/">Terms of Service</a>
+        <a href="/contact/">Contact</a>
+      </div>
+      <p>Based in Tennessee.</p>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Configuring AI Features — RockTerm Support — Rock River Research</title>
+  <meta name="description" content="How to enable and use AI-powered assistance in RockTerm. AI can interpret errors, suggest commands, explain output, and help with network device configuration syntax.">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo"><img src="/images/logo.png" alt="Rock River Research"> Rock River Research, LLC</a>
+      <nav>
+        <ul class="nav">
+          <li>
+            <a href="#" class="dropdown-toggle">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/">RockTerm</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" class="dropdown-toggle">Support</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/support/">Support Articles</a></li>
+              <li><a href="/rockterm/getting-started/">Getting Started</a></li>
+              <li><a href="/rockterm/faq/">FAQ</a></li>
+              <li><a href="/rockterm/troubleshooting/">Troubleshooting</a></li>
+              <li><a href="/rockterm/system-requirements/">System Requirements</a></li>
+            </ul>
+          </li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
+    </div>
+  </header>
+
+  <div class="mobile-nav">
+    <div class="mobile-nav-header">
+      <span class="logo">Rock River Research, LLC</span>
+      <button class="mobile-nav-close" aria-label="Close menu">&#10005;</button>
+    </div>
+    <ul>
+      <li>
+        <span>Products</span>
+        <div class="mobile-dropdown">
+          <a href="/rockterm/">RockTerm</a>
+        </div>
+      </li>
+      <li>
+        <span>Support</span>
+        <div class="mobile-dropdown">
+          <a href="/rockterm/support/">Support Articles</a>
+          <a href="/rockterm/getting-started/">Getting Started</a>
+          <a href="/rockterm/faq/">FAQ</a>
+          <a href="/rockterm/troubleshooting/">Troubleshooting</a>
+          <a href="/rockterm/system-requirements/">System Requirements</a>
+        </div>
+      </li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+  </div>
+
+  <main class="page-content">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> <span>&rsaquo;</span>
+        <a href="/rockterm/">RockTerm</a> <span>&rsaquo;</span>
+        <a href="/rockterm/support/">Support</a> <span>&rsaquo;</span>
+        Configuring AI Features
+      </nav>
+
+      <h1>Configuring AI Features</h1>
+      <p class="text-muted">Last updated: April 2026</p>
+
+      <p>RockTerm includes an AI assistant powered by Anthropic's Claude that can help you interpret terminal output, troubleshoot errors, and navigate unfamiliar configuration syntax. This article explains what the AI can do, how to enable it, and how to use it effectively.</p>
+
+      <h2>What AI Can Do</h2>
+      <p>The AI assistant acts as a knowledgeable advisor sitting alongside your terminal session. It can:</p>
+      <ul>
+        <li><strong>Interpret errors</strong> &mdash; explain cryptic error messages from SSH, Linux, Cisco IOS, Junos, and other platforms</li>
+        <li><strong>Suggest commands</strong> &mdash; recommend the right command or syntax for a task you describe in plain language</li>
+        <li><strong>Explain output</strong> &mdash; break down complex output such as routing tables, BGP neighbor summaries, ACL hit counts, or systemd journal logs</li>
+        <li><strong>Help with configuration syntax</strong> &mdash; assist with config blocks for Cisco IOS/IOS-XE/NX-OS, Arista EOS, Juniper Junos, Palo Alto PAN-OS, Linux (iptables, netplan, systemd units), and more</li>
+        <li><strong>Provide context</strong> &mdash; explain what a protocol does, how a feature works, or what the implications of a configuration change might be</li>
+      </ul>
+
+      <h2>Enabling AI Features</h2>
+      <p>AI features are <strong>disabled by default</strong>. To enable them:</p>
+      <ol>
+        <li>Open <strong>Settings</strong> (<code>Ctrl+,</code>)</li>
+        <li>Navigate to the <strong>AI</strong> tab</li>
+        <li>Toggle <strong>Enable AI Assistant</strong> to on</li>
+        <li>Enter your Anthropic API key (see <a href="/rockterm/support/ai-api-key-setup/">AI API Key Setup</a> for details)</li>
+        <li>Click <strong>Save</strong></li>
+      </ol>
+      <p>Once enabled, the AI button appears in the toolbar and the keyboard shortcut becomes active.</p>
+
+      <h2>How to Use the AI Assistant</h2>
+      <p>There are two ways to invoke the AI assistant:</p>
+      <ul>
+        <li><strong>Keyboard shortcut:</strong> Press <code>Ctrl+Shift+A</code> to open the AI panel</li>
+        <li><strong>Toolbar button:</strong> Click the <strong>AI</strong> icon in the terminal toolbar</li>
+      </ul>
+
+      <p>When invoked, the AI panel slides open alongside the terminal. Type your question or prompt in the input field and press <code>Enter</code>. The AI automatically sees the most recent terminal output (approximately the last 200 lines of the active session's scrollback buffer) as context, so you do not need to copy and paste terminal content into your prompt.</p>
+
+      <p>The AI responds in the panel with formatted text, including code blocks you can copy with a single click. The terminal session continues running normally while the AI panel is open &mdash; you can type commands in the terminal and interact with the AI simultaneously.</p>
+
+      <h2>Example Prompts</h2>
+      <p>Here are some practical prompts to get you started:</p>
+
+      <h3>Error Interpretation</h3>
+      <pre><code>What does this error mean?</code></pre>
+      <pre><code>Why am I getting "Permission denied (publickey)" when connecting?</code></pre>
+      <pre><code>Explain the BGP notification message in the output above.</code></pre>
+
+      <h3>Command Assistance</h3>
+      <pre><code>How do I configure OSPF area 0 on this interface?</code></pre>
+      <pre><code>What's the command to show the ARP table on NX-OS?</code></pre>
+      <pre><code>How do I create a static route to 10.10.0.0/16 via 192.168.1.1 on IOS-XE?</code></pre>
+
+      <h3>Output Explanation</h3>
+      <pre><code>Explain this routing table.</code></pre>
+      <pre><code>Are there any problems visible in this BGP summary?</code></pre>
+      <pre><code>What do these syslog messages indicate?</code></pre>
+      <pre><code>Summarize the interface status output above.</code></pre>
+
+      <h3>Configuration Help</h3>
+      <pre><code>Generate a config for an HSRP group on VLAN 100 with priority 110.</code></pre>
+      <pre><code>Write an iptables rule to allow inbound TCP 443 and drop everything else.</code></pre>
+      <pre><code>Help me write a netplan config for a bonded interface with LACP.</code></pre>
+
+      <h2>Limitations</h2>
+      <p>The AI assistant is a powerful tool, but it is important to understand its boundaries:</p>
+      <ul>
+        <li><strong>Advisor, not operator.</strong> The AI provides suggestions and explanations. It cannot execute commands on the remote host. You must review every suggestion and decide whether to apply it.</li>
+        <li><strong>Cannot execute commands.</strong> The AI has no ability to type into the terminal, send keystrokes, or modify the SSH session in any way. It is read-only with respect to the terminal.</li>
+        <li><strong>Always verify before executing.</strong> AI-generated commands and configurations should be treated like advice from a colleague: helpful, but you should verify correctness against vendor documentation and test in a non-production environment when possible.</li>
+        <li><strong>Context window.</strong> The AI sees only the most recent terminal output (approximately 200 lines). If the relevant output has scrolled beyond this window, you can select and copy the text into your prompt manually.</li>
+        <li><strong>No persistent memory.</strong> Each invocation is independent. The AI does not remember previous questions or answers from earlier in your session. If you need to reference a prior conversation, include the relevant context in your new prompt.</li>
+      </ul>
+
+      <h2>Still need help?</h2>
+      <p>If you're still experiencing issues, <a href="/contact/">contact us</a> or email <a href="mailto:support@rockriverresearch.com">support@rockriverresearch.com</a>.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Rock River Research, LLC. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="/privacy/">Privacy Policy</a>
+        <a href="/terms/">Terms of Service</a>
+        <a href="/contact/">Contact</a>
+      </div>
+      <p>Based in Tennessee.</p>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

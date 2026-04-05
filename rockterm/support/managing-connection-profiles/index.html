@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Managing Connection Profiles — RockTerm Support — Rock River Research</title>
+  <meta name="description" content="Learn how to create, organize, edit, duplicate, and delete SSH connection profiles in RockTerm. Covers grouping by environment, quick connect, and authentication methods.">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo"><img src="/images/logo.png" alt="Rock River Research"> Rock River Research, LLC</a>
+      <nav>
+        <ul class="nav">
+          <li>
+            <a href="#" class="dropdown-toggle">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/">RockTerm</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" class="dropdown-toggle">Support</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/support/">Support Articles</a></li>
+              <li><a href="/rockterm/getting-started/">Getting Started</a></li>
+              <li><a href="/rockterm/faq/">FAQ</a></li>
+              <li><a href="/rockterm/troubleshooting/">Troubleshooting</a></li>
+              <li><a href="/rockterm/system-requirements/">System Requirements</a></li>
+            </ul>
+          </li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
+    </div>
+  </header>
+
+  <div class="mobile-nav">
+    <div class="mobile-nav-header">
+      <span class="logo">Rock River Research, LLC</span>
+      <button class="mobile-nav-close" aria-label="Close menu">&#10005;</button>
+    </div>
+    <ul>
+      <li>
+        <span>Products</span>
+        <div class="mobile-dropdown">
+          <a href="/rockterm/">RockTerm</a>
+        </div>
+      </li>
+      <li>
+        <span>Support</span>
+        <div class="mobile-dropdown">
+          <a href="/rockterm/support/">Support Articles</a>
+          <a href="/rockterm/getting-started/">Getting Started</a>
+          <a href="/rockterm/faq/">FAQ</a>
+          <a href="/rockterm/troubleshooting/">Troubleshooting</a>
+          <a href="/rockterm/system-requirements/">System Requirements</a>
+        </div>
+      </li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+  </div>
+
+  <main class="page-content">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> <span>&rsaquo;</span>
+        <a href="/rockterm/">RockTerm</a> <span>&rsaquo;</span>
+        <a href="/rockterm/support/">Support</a> <span>&rsaquo;</span>
+        Managing Connection Profiles
+      </nav>
+
+      <h1>Managing Connection Profiles</h1>
+      <p class="text-muted">Last updated: April 2026</p>
+
+      <p>Connection profiles store all the parameters needed to establish an SSH session, letting you connect to frequently used hosts with a single click. This article covers creating, organizing, editing, and duplicating profiles, as well as using Quick Connect for one-off sessions.</p>
+
+      <h2>Creating a New Profile</h2>
+      <p>To create a connection profile, open the <strong>Connection Manager</strong> by selecting <strong>File &gt; Connection Manager</strong> or pressing <code>Ctrl+Shift+P</code>. Click <strong>New Profile</strong> and fill in the following fields:</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Field</th>
+            <th>Description</th>
+            <th>Example</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Display Name</strong></td>
+            <td>A friendly label shown in the Connection Manager and tab title. Does not affect the connection itself.</td>
+            <td><code>core-rtr-01 (Nashville)</code></td>
+          </tr>
+          <tr>
+            <td><strong>Hostname / IP</strong></td>
+            <td>The FQDN or IP address of the remote host. Both IPv4 and IPv6 addresses are supported.</td>
+            <td><code>10.0.1.1</code> or <code>core-rtr-01.lab.example.com</code></td>
+          </tr>
+          <tr>
+            <td><strong>Port</strong></td>
+            <td>The TCP port for the SSH connection. Defaults to <code>22</code>.</td>
+            <td><code>22</code>, <code>2222</code>, <code>8022</code></td>
+          </tr>
+          <tr>
+            <td><strong>Username</strong></td>
+            <td>The remote user account to authenticate as.</td>
+            <td><code>admin</code>, <code>root</code>, <code>netops</code></td>
+          </tr>
+          <tr>
+            <td><strong>Authentication Method</strong></td>
+            <td>Choose between <strong>Password</strong>, <strong>Key File</strong>, or <strong>Key File + Passphrase</strong>. When set to Password, RockTerm will prompt at connection time (passwords are never stored).</td>
+            <td>&mdash;</td>
+          </tr>
+          <tr>
+            <td><strong>Key File Path</strong></td>
+            <td>Absolute path to the private key file. Shown only when using key-based authentication. Supports OpenSSH, PEM, and PuTTY PPK formats.</td>
+            <td><code>C:\Users\admin\.ssh\id_ed25519</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>Click <strong>Save</strong> to store the profile. It will appear immediately in the Connection Manager list.</p>
+
+      <h2>Organizing Profiles with Groups</h2>
+      <p>When you manage dozens or hundreds of connections, groups keep the Connection Manager navigable. To create a group, click <strong>New Group</strong> in the Connection Manager toolbar and enter a name. Drag and drop profiles into groups, or assign a group when creating or editing a profile.</p>
+
+      <p>Groups can be nested up to three levels deep. Common organizational strategies include:</p>
+      <ul>
+        <li><strong>By environment:</strong> <code>Production</code>, <code>Staging</code>, <code>Development</code>, <code>Lab</code></li>
+        <li><strong>By project:</strong> <code>Project Alpha</code>, <code>DC Migration</code>, <code>PCI Remediation</code></li>
+        <li><strong>By client:</strong> useful for MSP engineers managing multiple customer environments</li>
+        <li><strong>By datacenter or region:</strong> <code>Nashville DC1</code>, <code>Chicago DC2</code>, <code>AWS us-east-1</code></li>
+        <li><strong>By device type:</strong> <code>Routers</code>, <code>Switches</code>, <code>Firewalls</code>, <code>Linux Servers</code>, <code>Jump Hosts</code></li>
+      </ul>
+
+      <p>You can combine strategies using nested groups. For example:</p>
+      <pre><code>Production
+  ├── Nashville DC1
+  │   ├── Routers
+  │   ├── Switches
+  │   └── Firewalls
+  └── Chicago DC2
+      ├── Routers
+      └── Switches
+Staging
+  └── Lab Rack 3
+Development
+  └── AWS us-east-1</code></pre>
+
+      <p>To rename or delete a group, right-click the group name in the Connection Manager. Deleting a group does <strong>not</strong> delete the profiles inside it; they are moved to the top level.</p>
+
+      <h2>Editing and Deleting Profiles</h2>
+      <p>To edit a profile, select it in the Connection Manager and click <strong>Edit</strong>, or simply double-right-click on it. Update any field and click <strong>Save</strong>. Changes do not affect sessions that are already connected; they apply to new connections only.</p>
+
+      <p>To delete a profile, select it and click <strong>Delete</strong>, or press the <code>Delete</code> key. You will be prompted to confirm. Deletion is permanent and cannot be undone, so consider <a href="/rockterm/support/import-export-connections/">exporting your profiles</a> as a backup before bulk cleanup.</p>
+
+      <h2>Duplicating Profiles</h2>
+      <p>Duplicating is the fastest way to create similar profiles. Right-click a profile and select <strong>Duplicate</strong>, or select the profile and press <code>Ctrl+D</code>. The new profile is created with the same settings and a display name appended with <code>(Copy)</code>. Edit the duplicate to change the hostname, port, or any other fields as needed.</p>
+
+      <p>This is particularly useful when onboarding a new rack of devices that share the same credentials and port but differ only by IP address.</p>
+
+      <h2>Quick Connect</h2>
+      <p>For one-off sessions where you do not need a saved profile, use <strong>Quick Connect</strong>. Press <code>Ctrl+Shift+Q</code> or select <strong>File &gt; Quick Connect</strong>. Enter the hostname, port, and username, then click <strong>Connect</strong>. RockTerm will prompt for a password or key file as needed.</p>
+
+      <p>Quick Connect sessions are not saved to the Connection Manager. If you find yourself reconnecting to the same host frequently, create a profile instead.</p>
+
+      <p>You can also invoke Quick Connect from the command bar by typing a connection string in the format:</p>
+      <pre><code>user@hostname:port</code></pre>
+      <p>For example:</p>
+      <pre><code>admin@10.0.1.1:22</code></pre>
+
+      <h2>Still need help?</h2>
+      <p>If you're still experiencing issues, <a href="/contact/">contact us</a> or email <a href="mailto:support@rockriverresearch.com">support@rockriverresearch.com</a>.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Rock River Research, LLC. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="/privacy/">Privacy Policy</a>
+        <a href="/terms/">Terms of Service</a>
+        <a href="/contact/">Contact</a>
+      </div>
+      <p>Based in Tennessee.</p>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

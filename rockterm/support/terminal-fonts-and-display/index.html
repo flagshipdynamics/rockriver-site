@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terminal Fonts and Display — RockTerm Support — Rock River Research</title>
+  <meta name="description" content="Configure terminal fonts, font size, color schemes, and display scaling in RockTerm. Recommended monospace fonts and high-DPI troubleshooting.">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo"><img src="/images/logo.png" alt="Rock River Research"> Rock River Research, LLC</a>
+      <nav>
+        <ul class="nav">
+          <li>
+            <a href="#" class="dropdown-toggle">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/">RockTerm</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" class="dropdown-toggle">Support</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/support/">Support Articles</a></li>
+              <li><a href="/rockterm/getting-started/">Getting Started</a></li>
+              <li><a href="/rockterm/faq/">FAQ</a></li>
+              <li><a href="/rockterm/troubleshooting/">Troubleshooting</a></li>
+              <li><a href="/rockterm/system-requirements/">System Requirements</a></li>
+            </ul>
+          </li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
+    </div>
+  </header>
+
+  <div class="mobile-nav">
+    <div class="mobile-nav-header">
+      <span class="logo">Rock River Research, LLC</span>
+      <button class="mobile-nav-close" aria-label="Close menu">&#10005;</button>
+    </div>
+    <ul>
+      <li>
+        <span>Products</span>
+        <div class="mobile-dropdown">
+          <a href="/rockterm/">RockTerm</a>
+        </div>
+      </li>
+      <li>
+        <span>Support</span>
+        <div class="mobile-dropdown">
+          <a href="/rockterm/support/">Support Articles</a>
+          <a href="/rockterm/getting-started/">Getting Started</a>
+          <a href="/rockterm/faq/">FAQ</a>
+          <a href="/rockterm/troubleshooting/">Troubleshooting</a>
+          <a href="/rockterm/system-requirements/">System Requirements</a>
+        </div>
+      </li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+  </div>
+
+  <main class="page-content">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> <span>&rsaquo;</span>
+        <a href="/rockterm/">RockTerm</a> <span>&rsaquo;</span>
+        <a href="/rockterm/support/">Support</a> <span>&rsaquo;</span>
+        Terminal Fonts and Display
+      </nav>
+
+      <h1>Terminal Fonts and Display</h1>
+      <p class="text-muted">Last updated: April 2026</p>
+
+      <h2>Changing the Terminal Font</h2>
+      <p>To change the font used in the terminal emulator, open <strong>Settings</strong> (<code>Ctrl+,</code>) and navigate to <strong>Appearance &gt; Font</strong>. Select a font from the dropdown list, which is populated from the monospace fonts installed on your system. The change takes effect immediately across all open sessions.</p>
+      <p>You can also configure the font on a per-connection basis. Open the <strong>Connection Manager</strong> (<code>Ctrl+Shift+N</code>), select or edit a saved connection, and expand the <strong>Appearance</strong> section to override the global font setting for that connection.</p>
+
+      <h2>Recommended Monospace Fonts</h2>
+      <p>Terminal emulators require <strong>monospace</strong> (fixed-width) fonts so that columns align correctly, TUI applications render properly, and cursor positioning is accurate. Proportional fonts will cause severe display corruption and are not selectable in RockTerm.</p>
+      <p>The following monospace fonts are recommended:</p>
+      <ul>
+        <li><strong>Cascadia Code</strong> &mdash; Ships with Windows Terminal and is available on most modern Windows 10/11 installations. Includes programming ligatures and a dedicated <em>Cascadia Mono</em> variant without ligatures. An excellent default choice.</li>
+        <li><strong>Consolas</strong> &mdash; Ships with every version of Windows since Vista. A reliable fallback that is always available without installing anything. RockTerm uses Consolas as the default font.</li>
+        <li><strong>JetBrains Mono</strong> &mdash; A free, open-source font from JetBrains designed for developer tooling. Download from <code>https://www.jetbrains.com/lp/mono/</code> and install via Windows font settings. Offers increased letter height and distinctive character forms that reduce ambiguity between similar glyphs (e.g., <code>1</code>, <code>l</code>, <code>I</code>).</li>
+        <li><strong>Fira Code</strong> &mdash; A free, open-source font with extensive programming ligature support. Download from <code>https://github.com/tonsky/FiraCode</code>. Well-suited for reading configuration files and code on remote hosts.</li>
+      </ul>
+      <p>After installing a new font on your system, you may need to restart RockTerm for it to appear in the font list.</p>
+
+      <h2>Font Size Adjustment</h2>
+      <p>The default font size can be set in <strong>Settings &gt; Appearance &gt; Font Size</strong>. The value is specified in points (pt).</p>
+      <p>For quick, temporary zoom adjustments within an active session, use the following shortcuts:</p>
+      <ul>
+        <li><code>Ctrl+Scroll Up</code> &mdash; Increase font size (zoom in)</li>
+        <li><code>Ctrl+Scroll Down</code> &mdash; Decrease font size (zoom out)</li>
+        <li><code>Ctrl+Plus (+)</code> &mdash; Increase font size one step</li>
+        <li><code>Ctrl+Minus (-)</code> &mdash; Decrease font size one step</li>
+        <li><code>Ctrl+0</code> &mdash; Reset to the configured default font size</li>
+      </ul>
+      <p>Session-level zoom changes are not persisted. When you open a new tab or reconnect, the font size reverts to the value configured in settings.</p>
+
+      <h2>Color Scheme Configuration</h2>
+      <p>RockTerm ships with several built-in color schemes and supports custom color definitions. To configure colors, go to <strong>Settings &gt; Appearance &gt; Colors</strong>.</p>
+      <p>Each color scheme defines the following values:</p>
+      <ul>
+        <li><strong>Background</strong> &mdash; The terminal background color. Common choices are pure black (<code>#000000</code>), soft black (<code>#1e1e1e</code>), or dark blue (<code>#0c0c28</code>).</li>
+        <li><strong>Foreground</strong> &mdash; The default text color. Typically white (<code>#ffffff</code>) or light gray (<code>#cccccc</code>).</li>
+        <li><strong>Cursor Color</strong> &mdash; The color of the blinking or steady cursor.</li>
+        <li><strong>Selection Background</strong> &mdash; Highlight color when selecting text in the terminal.</li>
+        <li><strong>16 ANSI Colors</strong> &mdash; The standard set of 8 normal colors and 8 bright colors used by terminal applications. These map to ANSI escape codes 30&ndash;37 (normal) and 90&ndash;97 (bright):
+          <pre><code>Color 0:  Black          Color 8:  Bright Black (Gray)
+Color 1:  Red            Color 9:  Bright Red
+Color 2:  Green          Color 10: Bright Green
+Color 3:  Yellow         Color 11: Bright Yellow
+Color 4:  Blue           Color 12: Bright Blue
+Color 5:  Magenta        Color 13: Bright Magenta
+Color 6:  Cyan           Color 14: Bright Cyan
+Color 7:  White          Color 15: Bright White</code></pre>
+        </li>
+      </ul>
+      <p>Many CLI tools and shell prompts rely on these ANSI colors. If output from tools like <code>ls --color</code>, <code>grep --color</code>, or <code>vim</code> looks wrong, check that your color scheme defines all 16 ANSI colors with sufficient contrast against your background.</p>
+
+      <h2>High DPI and Display Scaling</h2>
+      <p>RockTerm is DPI-aware and respects the Windows display scaling setting (e.g., 100%, 125%, 150%, 200%). In most cases, fonts and UI elements scale automatically and appear crisp at any scaling factor.</p>
+      <p>If you experience display issues such as blurry text, incorrect window sizing, or misaligned UI elements, try the following:</p>
+      <ol>
+        <li><strong>Check your Windows scaling setting.</strong> Go to <strong>Settings &gt; System &gt; Display &gt; Scale</strong> and confirm it is set to a recommended value for your monitor.</li>
+        <li><strong>Restart RockTerm after changing display settings.</strong> Some scaling changes require an application restart to take full effect.</li>
+        <li><strong>Multi-monitor setups with mixed DPI.</strong> If you use multiple monitors at different scaling factors, drag the RockTerm window to the target monitor and then restart the application. Windows per-monitor DPI awareness should handle this automatically, but some edge cases may require a restart.</li>
+        <li><strong>Override DPI behavior (advanced).</strong> If problems persist, right-click the RockTerm shortcut or executable, go to <strong>Properties &gt; Compatibility &gt; Change high DPI settings</strong>, and experiment with the <strong>High DPI scaling override</strong> option. Set it to <em>Application</em> or <em>System (Enhanced)</em>.</li>
+      </ol>
+      <p>If text appears blurry specifically in the terminal viewport but the rest of the UI is sharp, try switching to a different font. Some fonts render poorly at certain sizes and scaling factors. Cascadia Code and Consolas generally perform well across all DPI configurations.</p>
+
+      <h2>Still need help?</h2>
+      <p>If you're still experiencing issues, <a href="/contact/">contact us</a> or email <a href="mailto:support@rockriverresearch.com">support@rockriverresearch.com</a>.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Rock River Research, LLC. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="/privacy/">Privacy Policy</a>
+        <a href="/terms/">Terms of Service</a>
+        <a href="/contact/">Contact</a>
+      </div>
+      <p>Based in Tennessee.</p>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

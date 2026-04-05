@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SSH Key Authentication — RockTerm Support — Rock River Research</title>
+  <meta name="description" content="Set up and troubleshoot SSH key-based authentication in RockTerm. Covers key generation, deployment, RockTerm configuration, permissions, and common issues.">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo"><img src="/images/logo.png" alt="Rock River Research"> Rock River Research, LLC</a>
+      <nav>
+        <ul class="nav">
+          <li>
+            <a href="#" class="dropdown-toggle">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/">RockTerm</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" class="dropdown-toggle">Support</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/support/">Support Articles</a></li>
+              <li><a href="/rockterm/getting-started/">Getting Started</a></li>
+              <li><a href="/rockterm/faq/">FAQ</a></li>
+              <li><a href="/rockterm/troubleshooting/">Troubleshooting</a></li>
+              <li><a href="/rockterm/system-requirements/">System Requirements</a></li>
+            </ul>
+          </li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
+    </div>
+  </header>
+
+  <div class="mobile-nav">
+    <div class="mobile-nav-header">
+      <span class="logo">Rock River Research, LLC</span>
+      <button class="mobile-nav-close" aria-label="Close menu">&#10005;</button>
+    </div>
+    <ul>
+      <li>
+        <span>Products</span>
+        <div class="mobile-dropdown">
+          <a href="/rockterm/">RockTerm</a>
+        </div>
+      </li>
+      <li>
+        <span>Support</span>
+        <div class="mobile-dropdown">
+          <a href="/rockterm/support/">Support Articles</a>
+          <a href="/rockterm/getting-started/">Getting Started</a>
+          <a href="/rockterm/faq/">FAQ</a>
+          <a href="/rockterm/troubleshooting/">Troubleshooting</a>
+          <a href="/rockterm/system-requirements/">System Requirements</a>
+        </div>
+      </li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+  </div>
+
+  <main class="page-content">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> <span>&rsaquo;</span>
+        <a href="/rockterm/">RockTerm</a> <span>&rsaquo;</span>
+        <a href="/rockterm/support/">Support</a> <span>&rsaquo;</span>
+        SSH Key Authentication
+      </nav>
+
+      <h1>SSH Key Authentication</h1>
+      <p class="text-muted">Last updated: April 2026</p>
+
+      <p>SSH key authentication uses asymmetric cryptography to authenticate without transmitting a password over the network. A key pair consists of a private key (kept secret on your workstation) and a public key (placed on every remote host you need to access). This method is more secure than password authentication and enables unattended automation.</p>
+
+      <h2>Generating an SSH Key Pair</h2>
+
+      <h3>Ed25519 (Preferred)</h3>
+      <p>Ed25519 keys are shorter, faster, and considered more secure than RSA for new deployments. Generate one from a terminal or PowerShell prompt:</p>
+      <pre><code>ssh-keygen -t ed25519 -C "yourname@workstation"</code></pre>
+      <p>When prompted for a file location, the default is:</p>
+      <ul>
+        <li>Windows: <code>C:\Users\&lt;username&gt;\.ssh\id_ed25519</code></li>
+        <li>Linux/macOS: <code>~/.ssh/id_ed25519</code></li>
+      </ul>
+      <p>You will be asked for a passphrase. Using a passphrase is strongly recommended &mdash; it encrypts the private key at rest so that a stolen key file alone is not sufficient to authenticate.</p>
+
+      <h3>RSA (Broad Compatibility)</h3>
+      <p>Some older devices (legacy Cisco IOS versions, older embedded systems) do not support Ed25519. In those cases, use RSA with a minimum key size of 4096 bits:</p>
+      <pre><code>ssh-keygen -t rsa -b 4096 -C "yourname@workstation"</code></pre>
+      <p>The default output files are <code>id_rsa</code> (private) and <code>id_rsa.pub</code> (public).</p>
+
+      <h2>Deploying the Public Key to Remote Hosts</h2>
+
+      <h3>Linux / Unix Servers</h3>
+      <p>The public key must be appended to the <code>~/.ssh/authorized_keys</code> file on the remote host. The easiest method from a Linux or macOS workstation is:</p>
+      <pre><code>ssh-copy-id -i ~/.ssh/id_ed25519.pub user@hostname</code></pre>
+      <p>This command connects via password authentication, creates the <code>~/.ssh</code> directory if needed, and appends your public key with the correct permissions.</p>
+
+      <p>If <code>ssh-copy-id</code> is not available (Windows, for example), you can do it manually. First, copy the contents of your public key file, then on the remote host:</p>
+      <pre><code>mkdir -p ~/.ssh
+chmod 700 ~/.ssh
+echo "ssh-ed25519 AAAA...your-key-here... yourname@workstation" >> ~/.ssh/authorized_keys
+chmod 600 ~/.ssh/authorized_keys</code></pre>
+
+      <h3>Cisco IOS</h3>
+      <p>To configure public key authentication on Cisco IOS devices:</p>
+      <pre><code>conf t
+ip ssh pubkey-chain
+  username admin
+    key-string
+      AAAA...paste your public key here...
+    exit
+  exit
+exit</code></pre>
+      <p>Note: Cisco IOS wraps long key strings automatically. Paste the key data (without the <code>ssh-rsa</code> or <code>ssh-ed25519</code> prefix and without the comment suffix) between <code>key-string</code> and the first <code>exit</code>.</p>
+
+      <h3>Windows OpenSSH Server</h3>
+      <p>For standard users, append the public key to <code>C:\Users\&lt;username&gt;\.ssh\authorized_keys</code>. For administrator accounts, use <code>C:\ProgramData\ssh\administrators_authorized_keys</code> instead. Ensure the file ACL grants read access only to the user and SYSTEM.</p>
+
+      <h2>Configuring Key Authentication in RockTerm</h2>
+      <ol>
+        <li>Open the connection profile for the target host (or create a new one).</li>
+        <li>Under <strong>Authentication</strong>, set <strong>Method</strong> to <strong>Public Key</strong>.</li>
+        <li>In the <strong>Private Key</strong> field, browse to your private key file (e.g., <code>C:\Users\&lt;username&gt;\.ssh\id_ed25519</code>).</li>
+        <li>If the key has a passphrase, RockTerm will prompt you at connection time. You can optionally store the passphrase in the RockTerm credential manager.</li>
+        <li>Click <strong>Connect</strong>.</li>
+      </ol>
+      <p>RockTerm supports OpenSSH-format private keys natively. If you have a PuTTY <code>.ppk</code> file, you must convert it first (see below).</p>
+
+      <h2>Troubleshooting Common Issues</h2>
+
+      <h3>Permissions Problems (Linux Remote Host)</h3>
+      <p>OpenSSH is strict about file permissions. If the permissions are too open, the server will silently ignore the <code>authorized_keys</code> file. Verify:</p>
+      <pre><code>ls -la ~/.ssh/
+# Expected:
+# drwx------  .ssh/            (700)
+# -rw-------  authorized_keys  (600)
+# -rw-------  id_ed25519       (600)
+# -rw-r--r--  id_ed25519.pub   (644)</code></pre>
+      <p>Fix permissions:</p>
+      <pre><code>chmod 700 ~/.ssh
+chmod 600 ~/.ssh/authorized_keys</code></pre>
+      <p>Also verify the home directory itself is not group- or world-writable:</p>
+      <pre><code>chmod go-w ~</code></pre>
+
+      <h3>Wrong Key Format (PuTTY .ppk vs OpenSSH)</h3>
+      <p>RockTerm uses the OpenSSH key format. PuTTY's <code>.ppk</code> format is not directly compatible. Convert using PuTTYgen:</p>
+      <ol>
+        <li>Open PuTTYgen and load the <code>.ppk</code> file.</li>
+        <li>Go to <strong>Conversions</strong> &gt; <strong>Export OpenSSH key</strong>.</li>
+        <li>Save the file (e.g., <code>id_rsa_converted</code>) and point RockTerm to this file.</li>
+      </ol>
+      <p>Alternatively, use <code>ssh-keygen</code> to convert:</p>
+      <pre><code>ssh-keygen -i -f key.ppk > key_openssh</code></pre>
+
+      <h3>sshd_config Settings</h3>
+      <p>Ensure the following directives are set in <code>/etc/ssh/sshd_config</code> on the remote host:</p>
+      <pre><code>PubkeyAuthentication yes
+AuthorizedKeysFile .ssh/authorized_keys</code></pre>
+      <p>If you want to disable password authentication entirely (recommended once key auth is working):</p>
+      <pre><code>PasswordAuthentication no</code></pre>
+      <p>Restart the SSH daemon after changes:</p>
+      <pre><code>sudo systemctl restart sshd</code></pre>
+
+      <h3>SELinux Context</h3>
+      <p>On RHEL, CentOS, Fedora, and derivatives with SELinux enforcing, the SSH directory and files need the correct security context. If key authentication fails despite correct permissions, restore the default context:</p>
+      <pre><code>restorecon -Rv ~/.ssh</code></pre>
+      <p>You can verify the current context with:</p>
+      <pre><code>ls -laZ ~/.ssh/</code></pre>
+      <p>The expected type for <code>authorized_keys</code> is <code>ssh_home_t</code>.</p>
+
+      <h3>Verbose Debugging</h3>
+      <p>If key authentication still fails, test from the command line with verbose output to see exactly where the process breaks down:</p>
+      <pre><code>ssh -vvv user@hostname</code></pre>
+      <p>Look for lines such as:</p>
+      <ul>
+        <li><code>Offering public key: /path/to/key</code> &mdash; confirms the client is trying the key</li>
+        <li><code>Server accepted the key</code> &mdash; key auth succeeded</li>
+        <li><code>No more authentication methods to try</code> &mdash; all methods failed</li>
+      </ul>
+      <p>On the server side, check the auth log:</p>
+      <pre><code># Debian/Ubuntu
+sudo tail -f /var/log/auth.log
+
+# RHEL/CentOS
+sudo tail -f /var/log/secure</code></pre>
+
+      <h2>Still need help?</h2>
+      <p>If you're still experiencing issues, <a href="/contact/">contact us</a> or email <a href="mailto:support@rockriverresearch.com">support@rockriverresearch.com</a>.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Rock River Research, LLC. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="/privacy/">Privacy Policy</a>
+        <a href="/terms/">Terms of Service</a>
+        <a href="/contact/">Contact</a>
+      </div>
+      <p>Based in Tennessee.</p>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

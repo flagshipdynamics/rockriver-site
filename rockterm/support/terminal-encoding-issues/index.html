@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terminal Encoding Issues — RockTerm Support — Rock River Research</title>
+  <meta name="description" content="Troubleshoot garbled characters, mojibake, and encoding mismatches in RockTerm SSH sessions. Fix UTF-8 and locale configuration on remote hosts.">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo"><img src="/images/logo.png" alt="Rock River Research"> Rock River Research, LLC</a>
+      <nav>
+        <ul class="nav">
+          <li>
+            <a href="#" class="dropdown-toggle">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/">RockTerm</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" class="dropdown-toggle">Support</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/support/">Support Articles</a></li>
+              <li><a href="/rockterm/getting-started/">Getting Started</a></li>
+              <li><a href="/rockterm/faq/">FAQ</a></li>
+              <li><a href="/rockterm/troubleshooting/">Troubleshooting</a></li>
+              <li><a href="/rockterm/system-requirements/">System Requirements</a></li>
+            </ul>
+          </li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
+    </div>
+  </header>
+
+  <div class="mobile-nav">
+    <div class="mobile-nav-header">
+      <span class="logo">Rock River Research, LLC</span>
+      <button class="mobile-nav-close" aria-label="Close menu">&#10005;</button>
+    </div>
+    <ul>
+      <li>
+        <span>Products</span>
+        <div class="mobile-dropdown">
+          <a href="/rockterm/">RockTerm</a>
+        </div>
+      </li>
+      <li>
+        <span>Support</span>
+        <div class="mobile-dropdown">
+          <a href="/rockterm/support/">Support Articles</a>
+          <a href="/rockterm/getting-started/">Getting Started</a>
+          <a href="/rockterm/faq/">FAQ</a>
+          <a href="/rockterm/troubleshooting/">Troubleshooting</a>
+          <a href="/rockterm/system-requirements/">System Requirements</a>
+        </div>
+      </li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+  </div>
+
+  <main class="page-content">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> <span>&rsaquo;</span>
+        <a href="/rockterm/">RockTerm</a> <span>&rsaquo;</span>
+        <a href="/rockterm/support/">Support</a> <span>&rsaquo;</span>
+        Terminal Encoding Issues
+      </nav>
+
+      <h1>Terminal Encoding Issues</h1>
+      <p class="text-muted">Last updated: April 2026</p>
+
+      <h2>Default Encoding</h2>
+      <p>RockTerm uses <strong>UTF-8</strong> as the default character encoding for all new connections. UTF-8 is the dominant encoding on modern Linux, macOS, and BSD systems, and it supports the full Unicode character set including international characters, symbols, and emoji.</p>
+      <p>Encoding mismatches between RockTerm and the remote host are one of the most common causes of display corruption in terminal sessions.</p>
+
+      <h2>Symptoms of Encoding Problems</h2>
+      <p>If you see any of the following in your terminal output, you likely have an encoding mismatch:</p>
+      <ul>
+        <li><strong>Garbled or scrambled characters</strong> &mdash; Readable text is interspersed with random accented characters or symbols. This is commonly called <em>mojibake</em> and occurs when UTF-8 byte sequences are interpreted as a single-byte encoding (e.g., Latin-1/ISO-8859-1) or vice versa.</li>
+        <li><strong>Question marks (<code>?</code>) or diamonds (<code>&#xfffd;</code>)</strong> &mdash; The Unicode replacement character or plain question marks appear where special characters should be. This indicates the terminal received bytes it could not decode in the current encoding.</li>
+        <li><strong>Empty boxes or rectangles</strong> &mdash; The encoding is correct, but the current font lacks a glyph for the character. This is a font issue rather than an encoding issue. Try switching to a font with broader Unicode coverage, such as Cascadia Code or a Nerd Font variant.</li>
+        <li><strong>Incorrect line-drawing characters</strong> &mdash; TUI applications like <code>htop</code>, <code>mc</code>, or <code>nmtui</code> show letters (e.g., <code>q</code>, <code>x</code>, <code>l</code>) instead of box-drawing lines. This usually indicates the remote application is using VT100 line-drawing mode and the terminal type negotiation failed. Check that the <code>TERM</code> environment variable on the remote host is set to <code>xterm-256color</code>.</li>
+      </ul>
+
+      <h2>Checking the Remote Host Encoding</h2>
+      <p>To determine what encoding the remote host expects, run the following commands after connecting via SSH:</p>
+      <pre><code># Display the current locale settings
+echo $LANG
+locale
+
+# Typical output for a UTF-8 system:
+# LANG=en_US.UTF-8
+# LC_ALL=en_US.UTF-8</code></pre>
+      <p>If the output shows a non-UTF-8 locale (e.g., <code>en_US.ISO-8859-1</code>, <code>C</code>, <code>POSIX</code>, or is empty), there is a mismatch with RockTerm's default UTF-8 encoding.</p>
+      <p>You can also check the available locales on the remote system:</p>
+      <pre><code># List all installed locales
+locale -a | grep -i utf
+
+# Check if en_US.UTF-8 is available
+locale -a | grep en_US.utf8</code></pre>
+
+      <h2>Fixing Encoding Mismatches</h2>
+
+      <h3>Option 1: Change the Remote Host to UTF-8 (Recommended)</h3>
+      <p>The best long-term fix is to configure the remote host to use UTF-8. On most Linux distributions:</p>
+      <pre><code># Set the locale for the current session
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+# To make it permanent, add the above lines to ~/.bashrc or ~/.profile
+
+# On Debian/Ubuntu, you may need to generate the locale first:
+sudo locale-gen en_US.UTF-8
+sudo update-locale LANG=en_US.UTF-8
+
+# On RHEL/CentOS/Rocky:
+sudo localectl set-locale LANG=en_US.UTF-8</code></pre>
+
+      <h3>Option 2: Change RockTerm's Encoding for a Specific Connection</h3>
+      <p>If you cannot change the remote host's encoding (for example, on a legacy system or a managed appliance), you can configure RockTerm to match the remote encoding on a per-connection basis:</p>
+      <ol>
+        <li>Open the <strong>Connection Manager</strong> (<code>Ctrl+Shift+N</code>).</li>
+        <li>Select the connection and click <strong>Edit</strong>.</li>
+        <li>Under the <strong>Terminal</strong> section, change <strong>Character Encoding</strong> to match the remote host (e.g., <code>ISO-8859-1</code>, <code>Windows-1252</code>, <code>EUC-JP</code>, <code>GB2312</code>).</li>
+        <li>Save and reconnect.</li>
+      </ol>
+      <p>This override only affects the selected connection. All other connections continue to use UTF-8.</p>
+
+      <h2>Network Device Output Limitations</h2>
+      <p>When connecting to network devices (routers, switches, firewalls, access points), be aware of the following encoding limitations:</p>
+      <ul>
+        <li>Most network device CLIs (Cisco IOS, Junos, EOS, NX-OS) only output <strong>7-bit ASCII</strong>. They do not support UTF-8 or any extended character set. Encoding settings in RockTerm have minimal impact on these sessions since the output never contains multi-byte characters.</li>
+        <li>Some devices output non-ASCII characters in specific contexts, such as SNMP descriptions, interface aliases, or banner messages that were configured with special characters. If these appear garbled, the device likely stored them in Latin-1 and you should set the connection encoding to <code>ISO-8859-1</code>.</li>
+        <li>Certain older or embedded devices may send <strong>raw 8-bit bytes</strong> that are not valid in any standard encoding. In these cases, garbled output is expected and unavoidable. The data is being transmitted correctly; it simply does not conform to a character encoding standard.</li>
+      </ul>
+
+      <h2>Still need help?</h2>
+      <p>If you're still experiencing issues, <a href="/contact/">contact us</a> or email <a href="mailto:support@rockriverresearch.com">support@rockriverresearch.com</a>.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Rock River Research, LLC. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="/privacy/">Privacy Policy</a>
+        <a href="/terms/">Terms of Service</a>
+        <a href="/contact/">Contact</a>
+      </div>
+      <p>Based in Tennessee.</p>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Import and Export Connections — RockTerm Support — Rock River Research</title>
+  <meta name="description" content="How to export and import RockTerm connection profiles for backup and migration. Includes instructions for migrating saved sessions from PuTTY.">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo"><img src="/images/logo.png" alt="Rock River Research"> Rock River Research, LLC</a>
+      <nav>
+        <ul class="nav">
+          <li>
+            <a href="#" class="dropdown-toggle">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/">RockTerm</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" class="dropdown-toggle">Support</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/support/">Support Articles</a></li>
+              <li><a href="/rockterm/getting-started/">Getting Started</a></li>
+              <li><a href="/rockterm/faq/">FAQ</a></li>
+              <li><a href="/rockterm/troubleshooting/">Troubleshooting</a></li>
+              <li><a href="/rockterm/system-requirements/">System Requirements</a></li>
+            </ul>
+          </li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
+    </div>
+  </header>
+
+  <div class="mobile-nav">
+    <div class="mobile-nav-header">
+      <span class="logo">Rock River Research, LLC</span>
+      <button class="mobile-nav-close" aria-label="Close menu">&#10005;</button>
+    </div>
+    <ul>
+      <li>
+        <span>Products</span>
+        <div class="mobile-dropdown">
+          <a href="/rockterm/">RockTerm</a>
+        </div>
+      </li>
+      <li>
+        <span>Support</span>
+        <div class="mobile-dropdown">
+          <a href="/rockterm/support/">Support Articles</a>
+          <a href="/rockterm/getting-started/">Getting Started</a>
+          <a href="/rockterm/faq/">FAQ</a>
+          <a href="/rockterm/troubleshooting/">Troubleshooting</a>
+          <a href="/rockterm/system-requirements/">System Requirements</a>
+        </div>
+      </li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+  </div>
+
+  <main class="page-content">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> <span>&rsaquo;</span>
+        <a href="/rockterm/">RockTerm</a> <span>&rsaquo;</span>
+        <a href="/rockterm/support/">Support</a> <span>&rsaquo;</span>
+        Import and Export Connections
+      </nav>
+
+      <h1>Import and Export Connections</h1>
+      <p class="text-muted">Last updated: April 2026</p>
+
+      <p>RockTerm provides tools to export your connection profiles for backup, share them with teammates, or migrate them to a new machine. You can also import sessions from PuTTY to streamline the transition to RockTerm.</p>
+
+      <h2>Exporting Profiles</h2>
+      <p>To export all connection profiles, go to <strong>File &gt; Export Connections</strong>. RockTerm will generate a <code>.rockterm-export</code> file (JSON format) containing every profile and group in your Connection Manager.</p>
+
+      <p>The export includes:</p>
+      <ul>
+        <li>Display names, hostnames, ports, and usernames</li>
+        <li>Authentication method settings (password or key-based)</li>
+        <li>Key file paths (the path string only &mdash; private key files themselves are <strong>not</strong> included)</li>
+        <li>Group hierarchy and profile ordering</li>
+      </ul>
+
+      <p>The export does <strong>not</strong> include:</p>
+      <ul>
+        <li>Saved passwords (RockTerm does not store passwords)</li>
+        <li>Private key file contents</li>
+        <li>Application settings (font, color theme, etc.)</li>
+      </ul>
+
+      <p>Store the export file in a secure location. While it does not contain credentials, it does contain hostnames, IP addresses, usernames, and network topology information that may be sensitive.</p>
+
+      <h2>Importing Profiles</h2>
+      <p>To import profiles from an export file, go to <strong>File &gt; Import Connections</strong> and select a <code>.rockterm-export</code> file. RockTerm will parse the file and present a preview of the profiles to be imported.</p>
+
+      <h3>Duplicate Handling</h3>
+      <p>If the import file contains profiles that match existing profiles (same hostname, port, and username), RockTerm will flag them as duplicates and give you three options:</p>
+      <ul>
+        <li><strong>Skip duplicates</strong> &mdash; existing profiles are left unchanged; only new profiles are imported</li>
+        <li><strong>Overwrite duplicates</strong> &mdash; existing profiles are replaced with the imported versions</li>
+        <li><strong>Import as new</strong> &mdash; duplicates are imported alongside existing profiles with <code>(Imported)</code> appended to the display name</li>
+      </ul>
+
+      <p>Group structure from the import file is preserved. If a group with the same name already exists, imported profiles are merged into the existing group.</p>
+
+      <h2>Migrating from PuTTY</h2>
+      <p>RockTerm can import saved sessions directly from a local PuTTY installation. Go to <strong>File &gt; Import from PuTTY</strong>. RockTerm reads the PuTTY session registry entries from:</p>
+
+      <pre><code>HKEY_CURRENT_USER\SOFTWARE\SimonTatham\PuTTY\Sessions</code></pre>
+
+      <p>For each PuTTY session found, RockTerm extracts:</p>
+      <ul>
+        <li>Session name (used as the display name)</li>
+        <li>Hostname and port</li>
+        <li>Username (if saved in the session)</li>
+        <li>Key file path (if configured for public key authentication)</li>
+        <li>Protocol type (only SSH sessions are imported; serial, telnet, and raw sessions are skipped)</li>
+      </ul>
+
+      <p>A preview screen shows all discovered PuTTY sessions with checkboxes, so you can select which ones to import. Imported profiles are placed in a group called <strong>Imported from PuTTY</strong> for easy identification.</p>
+
+      <h3>Notes on PuTTY Migration</h3>
+      <ul>
+        <li>PuTTY stores sessions in the Windows registry. If PuTTY is installed but no sessions are saved, the import will find nothing.</li>
+        <li>If your PuTTY sessions use <code>.ppk</code> key files, RockTerm supports PPK format natively &mdash; no conversion is needed.</li>
+        <li>PuTTY-specific settings (terminal type, color palette, font size, proxy configuration) are not migrated. You can configure these in RockTerm's application settings.</li>
+        <li>If PuTTY sessions were exported to a <code>.reg</code> file on another machine, you must first import that <code>.reg</code> file into the Windows registry before RockTerm can read it.</li>
+      </ul>
+
+      <h2>Other SSH Clients</h2>
+      <p>RockTerm does not currently support direct import from other SSH clients. If you are migrating from one of these applications, you will need to re-create profiles manually or via Quick Connect:</p>
+      <ul>
+        <li><strong>MobaXterm</strong> &mdash; sessions are stored in a proprietary format within <code>MobaXterm.ini</code> or the Windows registry. Manual re-entry is required.</li>
+        <li><strong>SecureCRT</strong> &mdash; sessions are stored as individual <code>.ini</code> files under the SecureCRT configuration folder. Manual re-entry is required.</li>
+        <li><strong>Termius</strong> &mdash; sessions are stored in the cloud and not accessible for local export. Manual re-entry is required.</li>
+        <li><strong>OpenSSH <code>~/.ssh/config</code></strong> &mdash; if you maintain an SSH config file, you can reference it to quickly re-create profiles in RockTerm. Each <code>Host</code> block maps to one profile.</li>
+      </ul>
+
+      <p>If you have a large number of sessions to migrate from an unsupported client, <a href="/contact/">contact support</a> and we can help you find the fastest path forward.</p>
+
+      <h2>Still need help?</h2>
+      <p>If you're still experiencing issues, <a href="/contact/">contact us</a> or email <a href="mailto:support@rockriverresearch.com">support@rockriverresearch.com</a>.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Rock River Research, LLC. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="/privacy/">Privacy Policy</a>
+        <a href="/terms/">Terms of Service</a>
+        <a href="/contact/">Contact</a>
+      </div>
+      <p>Based in Tennessee.</p>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

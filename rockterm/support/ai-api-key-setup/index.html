@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI API Key Setup — RockTerm Support — Rock River Research</title>
+  <meta name="description" content="How to configure your Anthropic API key in RockTerm to enable AI-powered terminal features.">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo"><img src="/images/logo.png" alt="Rock River Research"> Rock River Research, LLC</a>
+      <nav>
+        <ul class="nav">
+          <li>
+            <a href="#" class="dropdown-toggle">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/">RockTerm</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" class="dropdown-toggle">Support</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/support/">Support Articles</a></li>
+              <li><a href="/rockterm/getting-started/">Getting Started</a></li>
+              <li><a href="/rockterm/faq/">FAQ</a></li>
+              <li><a href="/rockterm/troubleshooting/">Troubleshooting</a></li>
+              <li><a href="/rockterm/system-requirements/">System Requirements</a></li>
+            </ul>
+          </li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
+    </div>
+  </header>
+
+  <div class="mobile-nav">
+    <div class="mobile-nav-header">
+      <span class="logo">Rock River Research, LLC</span>
+      <button class="mobile-nav-close" aria-label="Close menu">&#10005;</button>
+    </div>
+    <ul>
+      <li>
+        <span>Products</span>
+        <div class="mobile-dropdown">
+          <a href="/rockterm/">RockTerm</a>
+        </div>
+      </li>
+      <li>
+        <span>Support</span>
+        <div class="mobile-dropdown">
+          <a href="/rockterm/support/">Support Articles</a>
+          <a href="/rockterm/getting-started/">Getting Started</a>
+          <a href="/rockterm/faq/">FAQ</a>
+          <a href="/rockterm/troubleshooting/">Troubleshooting</a>
+          <a href="/rockterm/system-requirements/">System Requirements</a>
+        </div>
+      </li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+  </div>
+
+  <main class="page-content">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> <span>&rsaquo;</span>
+        <a href="/rockterm/">RockTerm</a> <span>&rsaquo;</span>
+        <a href="/rockterm/support/">Support</a> <span>&rsaquo;</span>
+        AI API Key Setup
+      </nav>
+
+      <h1>AI API Key Setup</h1>
+      <p class="text-muted">Last updated: April 2026</p>
+
+      <p>RockTerm's AI features are powered by the Anthropic API. To use them, you need to provide your own Anthropic API key. This article walks you through obtaining a key, entering it in RockTerm, and understanding the associated costs.</p>
+
+      <h2>Getting an Anthropic API Key</h2>
+      <ol>
+        <li>Visit <a href="https://console.anthropic.com" target="_blank" rel="noopener">console.anthropic.com</a> in your web browser.</li>
+        <li>Create an Anthropic account if you do not already have one, or sign in to your existing account.</li>
+        <li>Navigate to the <strong>API Keys</strong> section of the console.</li>
+        <li>Click <strong>Create Key</strong> to generate a new API key.</li>
+        <li>Copy the key immediately. Anthropic will only display the full key once; if you lose it, you will need to generate a new one.</li>
+      </ol>
+      <p>The Anthropic API is a paid service with usage-based pricing. <strong>RockTerm does not charge separately for AI features</strong> &mdash; the only cost is your direct API usage with Anthropic. You can review Anthropic's current pricing on their website.</p>
+
+      <h2>Entering the Key in RockTerm</h2>
+      <ol>
+        <li>Open RockTerm and go to <strong>Settings</strong> (via the menu bar or the keyboard shortcut).</li>
+        <li>Select the <strong>AI</strong> tab in the settings panel.</li>
+        <li>Locate the <strong>Anthropic API Key</strong> field.</li>
+        <li>Paste your API key into the field and click <strong>Save</strong>.</li>
+        <li>AI features will become available immediately. You do not need to restart the application.</li>
+      </ol>
+
+      <h2>API Key Security</h2>
+      <p>Your API key is sensitive information and should be treated like a password. RockTerm handles your key with the following safeguards:</p>
+      <ul>
+        <li><strong>Stored locally.</strong> Your API key is stored on your local machine only. It is never transmitted to Rock River Research or any third party.</li>
+        <li><strong>Transmitted only to Anthropic.</strong> The key is sent exclusively to Anthropic's API endpoint (<code>api.anthropic.com</code>) over HTTPS when you invoke an AI feature.</li>
+        <li><strong>Never logged or cached remotely.</strong> RockTerm does not log your API key to any file, crash report, or analytics service.</li>
+      </ul>
+      <p>As a best practice, treat your API key like a password. Do not share it with others, do not paste it into untrusted applications, and regenerate it promptly if you believe it has been compromised.</p>
+
+      <h2>Usage and Cost</h2>
+      <p>AI queries consume tokens through the Anthropic API. Here is what you should know about costs:</p>
+      <ul>
+        <li><strong>Lightweight usage.</strong> Normal, day-to-day use of RockTerm's AI features is very lightweight. Most users can expect costs of just a few cents per day under typical usage patterns.</li>
+        <li><strong>Token consumption.</strong> Each AI query sends a prompt and receives a response, both of which consume tokens. Longer terminal context or more complex questions will use more tokens.</li>
+        <li><strong>Monitor your usage.</strong> You can view your current API usage and spending at any time by visiting the <a href="https://console.anthropic.com" target="_blank" rel="noopener">Anthropic console</a>.</li>
+        <li><strong>Set spending limits.</strong> Anthropic allows you to configure monthly spending limits in the console. We recommend setting a limit that aligns with your budget to avoid unexpected charges.</li>
+      </ul>
+
+      <h2>Still need help?</h2>
+      <p>If you're still experiencing issues, <a href="/contact/">contact us</a> or email <a href="mailto:support@rockriverresearch.com">support@rockriverresearch.com</a>.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Rock River Research, LLC. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="/privacy/">Privacy Policy</a>
+        <a href="/terms/">Terms of Service</a>
+        <a href="/contact/">Contact</a>
+      </div>
+      <p>Based in Tennessee.</p>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

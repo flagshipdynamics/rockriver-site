@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proxy and Jump Host Configuration — RockTerm Support — Rock River Research</title>
+  <meta name="description" content="Configure proxy and jump host connections in RockTerm. Covers bastion hosts, ProxyJump, HTTP and SOCKS proxies, and multi-hop chained SSH connections.">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo"><img src="/images/logo.png" alt="Rock River Research"> Rock River Research, LLC</a>
+      <nav>
+        <ul class="nav">
+          <li>
+            <a href="#" class="dropdown-toggle">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/">RockTerm</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" class="dropdown-toggle">Support</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/support/">Support Articles</a></li>
+              <li><a href="/rockterm/getting-started/">Getting Started</a></li>
+              <li><a href="/rockterm/faq/">FAQ</a></li>
+              <li><a href="/rockterm/troubleshooting/">Troubleshooting</a></li>
+              <li><a href="/rockterm/system-requirements/">System Requirements</a></li>
+            </ul>
+          </li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
+    </div>
+  </header>
+
+  <div class="mobile-nav">
+    <div class="mobile-nav-header">
+      <span class="logo">Rock River Research, LLC</span>
+      <button class="mobile-nav-close" aria-label="Close menu">&#10005;</button>
+    </div>
+    <ul>
+      <li>
+        <span>Products</span>
+        <div class="mobile-dropdown">
+          <a href="/rockterm/">RockTerm</a>
+        </div>
+      </li>
+      <li>
+        <span>Support</span>
+        <div class="mobile-dropdown">
+          <a href="/rockterm/support/">Support Articles</a>
+          <a href="/rockterm/getting-started/">Getting Started</a>
+          <a href="/rockterm/faq/">FAQ</a>
+          <a href="/rockterm/troubleshooting/">Troubleshooting</a>
+          <a href="/rockterm/system-requirements/">System Requirements</a>
+        </div>
+      </li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+  </div>
+
+  <main class="page-content">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> <span>&rsaquo;</span>
+        <a href="/rockterm/">RockTerm</a> <span>&rsaquo;</span>
+        <a href="/rockterm/support/">Support</a> <span>&rsaquo;</span>
+        Proxy and Jump Host Configuration
+      </nav>
+
+      <h1>Proxy and Jump Host Configuration</h1>
+      <p class="text-muted">Last updated: April 2026</p>
+
+      <p>Many network environments do not allow direct SSH access to internal servers. Instead, connections must pass through an intermediary &mdash; a bastion host (jump host), an HTTP proxy, or a SOCKS proxy. RockTerm supports all of these patterns and can chain multiple hops to reach deeply nested targets.</p>
+
+      <h2>Jump Host / Bastion Host</h2>
+
+      <h3>The Concept</h3>
+      <p>A bastion host (or jump host) is a hardened server placed in a DMZ or perimeter network that acts as a single point of entry for SSH access to internal infrastructure. All SSH traffic to internal servers flows through the bastion, which provides centralized logging, access control, and reduced attack surface.</p>
+
+      <p>A typical topology looks like:</p>
+      <pre><code>Workstation  --SSH-->  Bastion (public IP)  --SSH-->  Internal Server (private IP)</code></pre>
+
+      <h3>Configuring a Jump Host in RockTerm</h3>
+      <p>RockTerm implements jump host connectivity using the same mechanism as OpenSSH's <code>ProxyJump</code> directive. This is more secure than <a href="/rockterm/support/ssh-agent-forwarding/">agent forwarding</a> because the SSH connection to the final destination is tunneled end-to-end through the bastion &mdash; the bastion never sees your authentication credentials for the internal server.</p>
+
+      <ol>
+        <li>Open the connection profile for the <strong>final destination</strong> (the internal server).</li>
+        <li>Navigate to <strong>Connection</strong> &gt; <strong>Proxy / Jump Host</strong>.</li>
+        <li>Set <strong>Proxy Type</strong> to <strong>SSH Jump Host</strong>.</li>
+        <li>Enter the bastion host's address, port, username, and authentication method.</li>
+        <li>The <strong>Destination Host</strong> and <strong>Port</strong> fields should contain the internal server's address as reachable from the bastion (e.g., <code>10.0.1.50</code> port <code>22</code>).</li>
+        <li>Click <strong>Connect</strong>. RockTerm establishes the SSH session to the bastion, then tunnels a second SSH connection through it to the internal server.</li>
+      </ol>
+
+      <p>This is equivalent to the following OpenSSH command:</p>
+      <pre><code>ssh -J user@bastion.example.com user@10.0.1.50</code></pre>
+
+      <p>Or configured in <code>~/.ssh/config</code>:</p>
+      <pre><code>Host internal-server
+    HostName 10.0.1.50
+    User admin
+    ProxyJump user@bastion.example.com</code></pre>
+
+      <h3>Authentication for the Jump Host</h3>
+      <p>The bastion connection supports the same authentication methods as a direct connection: password, public key, or agent-based. You can configure separate credentials for the bastion and the final destination. For example:</p>
+      <ul>
+        <li>Bastion: key-based auth with <code>id_ed25519</code></li>
+        <li>Internal server: different key or password auth</li>
+      </ul>
+
+      <h2>HTTP Proxy</h2>
+      <p>In corporate environments, outbound SSH may be blocked by a firewall, but an HTTP proxy (typically running on port 8080 or 3128) may be available. RockTerm can tunnel SSH through an HTTP proxy using the HTTP CONNECT method.</p>
+
+      <h3>Configuration</h3>
+      <ol>
+        <li>Open the connection profile for the target SSH server.</li>
+        <li>Navigate to <strong>Connection</strong> &gt; <strong>Proxy / Jump Host</strong>.</li>
+        <li>Set <strong>Proxy Type</strong> to <strong>HTTP</strong>.</li>
+        <li>Enter the proxy server address and port (e.g., <code>proxy.corp.example.com:8080</code>).</li>
+        <li>If the proxy requires authentication, enter the username and password.</li>
+        <li>Click <strong>Connect</strong>.</li>
+      </ol>
+
+      <p>This is equivalent to using OpenSSH with <code>ProxyCommand</code>:</p>
+      <pre><code>Host remote-server
+    HostName server.example.com
+    ProxyCommand connect-proxy -H proxy.corp.example.com:8080 %h %p</code></pre>
+
+      <h3>Requirements and Limitations</h3>
+      <ul>
+        <li>The HTTP proxy must support the <code>CONNECT</code> method for the target port (usually port 22 or 443).</li>
+        <li>Many corporate proxies restrict <code>CONNECT</code> to port 443 only. If port 22 is blocked, ask your server administrator to run SSH on port 443, or use an SSH server that listens on both ports.</li>
+        <li>Proxy authentication supports Basic and NTLM methods. Kerberos proxy auth is not currently supported.</li>
+      </ul>
+
+      <h2>SOCKS Proxy</h2>
+      <p>SOCKS proxies (versions 4, 4a, and 5) provide a more general-purpose tunneling mechanism than HTTP CONNECT. SOCKS5 also supports UDP and authentication.</p>
+
+      <h3>Configuration</h3>
+      <ol>
+        <li>Open the connection profile for the target SSH server.</li>
+        <li>Navigate to <strong>Connection</strong> &gt; <strong>Proxy / Jump Host</strong>.</li>
+        <li>Set <strong>Proxy Type</strong> to <strong>SOCKS4</strong> or <strong>SOCKS5</strong>.</li>
+        <li>Enter the SOCKS proxy address and port (e.g., <code>socks.example.com:1080</code>).</li>
+        <li>For SOCKS5, enter username and password if required.</li>
+        <li>Click <strong>Connect</strong>.</li>
+      </ol>
+
+      <h3>Dynamic SOCKS Proxy via SSH</h3>
+      <p>A common pattern is to create a SOCKS proxy using an existing SSH connection. For example, if you have SSH access to an external server, you can create a local SOCKS proxy and route RockTerm connections through it:</p>
+      <pre><code>ssh -D 1080 -f -N user@external-server.example.com</code></pre>
+      <p>This binds a SOCKS5 proxy on <code>localhost:1080</code>. Configure RockTerm to use <code>127.0.0.1:1080</code> as a SOCKS5 proxy, and all connections will be routed through <code>external-server</code>.</p>
+
+      <h2>Chained Connections (Multiple Hops)</h2>
+      <p>Some environments require passing through two or more intermediate hosts to reach the final destination. For example:</p>
+      <pre><code>Workstation --> Bastion A (DMZ) --> Bastion B (Management VLAN) --> Target Server</code></pre>
+
+      <h3>Configuring Multi-Hop in RockTerm</h3>
+      <p>RockTerm supports chaining multiple jump hosts:</p>
+      <ol>
+        <li>Open the connection profile for the final destination.</li>
+        <li>Navigate to <strong>Connection</strong> &gt; <strong>Proxy / Jump Host</strong>.</li>
+        <li>Set <strong>Proxy Type</strong> to <strong>SSH Jump Host</strong>.</li>
+        <li>In the <strong>Jump Host</strong> field, enter a comma-separated list of intermediate hosts in order: <code>user1@bastion-a.example.com,user2@bastion-b.internal</code>.</li>
+        <li>Click <strong>Connect</strong>. RockTerm will chain the connections in sequence.</li>
+      </ol>
+
+      <p>This is equivalent to:</p>
+      <pre><code>ssh -J user1@bastion-a.example.com,user2@bastion-b.internal user3@target-server</code></pre>
+
+      <p>Or in <code>~/.ssh/config</code>:</p>
+      <pre><code>Host target-server
+    HostName 10.0.2.100
+    User user3
+    ProxyJump user1@bastion-a.example.com,user2@bastion-b.internal</code></pre>
+
+      <h3>Authentication Across Hops</h3>
+      <p>Each hop can use independent authentication. RockTerm will prompt for credentials for each hop in sequence. For key-based auth across all hops, ensure your public key is deployed to each intermediate host and the final destination.</p>
+
+      <h2>Combining Proxy Types</h2>
+      <p>In complex environments, you may need to combine proxy types. For example, you might need to go through a corporate HTTP proxy to reach an external bastion, and then jump through that bastion to an internal server:</p>
+      <pre><code>Workstation --> HTTP Proxy (corp) --> Bastion (cloud) --> Internal Server</code></pre>
+      <p>To configure this in RockTerm:</p>
+      <ol>
+        <li>Create a connection profile for the bastion that uses the HTTP proxy.</li>
+        <li>Create a connection profile for the internal server that uses the bastion as a jump host.</li>
+      </ol>
+
+      <h2>Troubleshooting</h2>
+
+      <h3>Connection Through Jump Host Fails</h3>
+      <ul>
+        <li>Verify you can connect to the bastion directly first.</li>
+        <li>From the bastion, verify you can reach the internal server: <code>ssh user@10.0.1.50</code>.</li>
+        <li>Check that the bastion allows TCP forwarding: <code>AllowTcpForwarding yes</code> in <code>sshd_config</code>.</li>
+        <li>Some hardened bastion configurations disable non-interactive forwarding. Check for <code>PermitOpen</code> restrictions in <code>sshd_config</code>.</li>
+      </ul>
+
+      <h3>HTTP Proxy Returns 403 or Connection Reset</h3>
+      <ul>
+        <li>The proxy likely blocks <code>CONNECT</code> to port 22. Try connecting to an SSH server on port 443.</li>
+        <li>Check if proxy authentication is required.</li>
+        <li>Review proxy logs (if you have access) for the specific deny reason.</li>
+      </ul>
+
+      <h3>Slow Performance Through Multiple Hops</h3>
+      <p>Each hop adds latency. For multi-hop connections, the total latency is the sum of all individual hops. If performance is unacceptable:</p>
+      <ul>
+        <li>Reduce the number of hops where possible.</li>
+        <li>Enable SSH compression in RockTerm (<strong>Connection</strong> &gt; <strong>SSH</strong> &gt; <strong>Enable Compression</strong>) to reduce bandwidth on slow links.</li>
+        <li>Consider using a VPN to provide direct access and eliminate intermediate hops.</li>
+      </ul>
+
+      <h2>Still need help?</h2>
+      <p>If you're still experiencing issues, <a href="/contact/">contact us</a> or email <a href="mailto:support@rockriverresearch.com">support@rockriverresearch.com</a>.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Rock River Research, LLC. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="/privacy/">Privacy Policy</a>
+        <a href="/terms/">Terms of Service</a>
+        <a href="/contact/">Contact</a>
+      </div>
+      <p>Based in Tennessee.</p>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

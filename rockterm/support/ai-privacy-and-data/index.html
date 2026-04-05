@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Privacy and Data — RockTerm Support — Rock River Research</title>
+  <meta name="description" content="Understand what data RockTerm's AI features send, when it is sent, and how your privacy is protected.">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo"><img src="/images/logo.png" alt="Rock River Research"> Rock River Research, LLC</a>
+      <nav>
+        <ul class="nav">
+          <li>
+            <a href="#" class="dropdown-toggle">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/">RockTerm</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" class="dropdown-toggle">Support</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/support/">Support Articles</a></li>
+              <li><a href="/rockterm/getting-started/">Getting Started</a></li>
+              <li><a href="/rockterm/faq/">FAQ</a></li>
+              <li><a href="/rockterm/troubleshooting/">Troubleshooting</a></li>
+              <li><a href="/rockterm/system-requirements/">System Requirements</a></li>
+            </ul>
+          </li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
+    </div>
+  </header>
+
+  <div class="mobile-nav">
+    <div class="mobile-nav-header">
+      <span class="logo">Rock River Research, LLC</span>
+      <button class="mobile-nav-close" aria-label="Close menu">&#10005;</button>
+    </div>
+    <ul>
+      <li>
+        <span>Products</span>
+        <div class="mobile-dropdown">
+          <a href="/rockterm/">RockTerm</a>
+        </div>
+      </li>
+      <li>
+        <span>Support</span>
+        <div class="mobile-dropdown">
+          <a href="/rockterm/support/">Support Articles</a>
+          <a href="/rockterm/getting-started/">Getting Started</a>
+          <a href="/rockterm/faq/">FAQ</a>
+          <a href="/rockterm/troubleshooting/">Troubleshooting</a>
+          <a href="/rockterm/system-requirements/">System Requirements</a>
+        </div>
+      </li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+  </div>
+
+  <main class="page-content">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> <span>&rsaquo;</span>
+        <a href="/rockterm/">RockTerm</a> <span>&rsaquo;</span>
+        <a href="/rockterm/support/">Support</a> <span>&rsaquo;</span>
+        AI Privacy and Data
+      </nav>
+
+      <h1>AI Privacy and Data</h1>
+      <p class="text-muted">Last updated: April 2026</p>
+
+      <p>We believe you should have full visibility into what data leaves your machine and when. This article explains exactly how RockTerm's AI features handle your data.</p>
+
+      <h2>When Data Is Sent</h2>
+      <p>RockTerm's AI features operate on an <strong>explicit invocation model only</strong>. Data is sent to the Anthropic API under the following conditions:</p>
+      <ul>
+        <li><strong>Only when you explicitly invoke an AI feature.</strong> No data is ever sent in the background, automatically, or on a schedule.</li>
+        <li><strong>No telemetry.</strong> RockTerm does not collect usage analytics, crash reports, or any form of telemetry that involves transmitting data off your machine.</li>
+        <li><strong>No background communication.</strong> When AI features are idle, RockTerm makes zero network requests to Anthropic or to Rock River Research.</li>
+      </ul>
+
+      <h2>What Is Sent</h2>
+      <p>When you invoke an AI feature, the following data is transmitted to the Anthropic API:</p>
+      <ul>
+        <li><strong>Your prompt.</strong> The question or instruction you type into the AI interface.</li>
+        <li><strong>Recent terminal context.</strong> A portion of your visible terminal output is included to give the AI relevant context for your query. This is limited to what is currently visible or recently displayed in your terminal session.</li>
+      </ul>
+
+      <h2>What Is NOT Sent</h2>
+      <p>RockTerm is designed to protect sensitive authentication information:</p>
+      <ul>
+        <li><strong>SSH passwords are never included.</strong> RockTerm strips password prompts and authentication exchanges from the context sent to the API.</li>
+        <li><strong>SSH private key files are never included.</strong> Key file contents are never read or transmitted as part of AI context.</li>
+        <li><strong>SSH key passphrases are never included.</strong> Passphrase prompts are excluded from AI context.</li>
+      </ul>
+      <p><strong>Important note:</strong> Hostnames, IP addresses, and other connection details that appear in your terminal output <em>may</em> be visible in the context sent to the API. If this is a concern for your environment, see the section on sensitive environments below.</p>
+
+      <h2>Data Retention by Anthropic</h2>
+      <p>Once your data reaches the Anthropic API, it is subject to Anthropic's data handling policies. For full details on how Anthropic stores, processes, and retains API data, please refer to <a href="https://www.anthropic.com/privacy" target="_blank" rel="noopener">Anthropic's privacy policy</a> and their API terms of service.</p>
+      <p>Rock River Research has no control over data retention once it has been transmitted to the Anthropic API.</p>
+
+      <h2>Sensitive Environments</h2>
+      <p>If you work in a government, healthcare, financial, or other regulated environment, consider the following before enabling AI features:</p>
+      <ul>
+        <li><strong>Evaluate your compliance requirements.</strong> Determine whether transmitting terminal context to a third-party API is permitted under your organization's security policies and applicable regulations (e.g., HIPAA, FedRAMP, PCI-DSS).</li>
+        <li><strong>AI can be disabled entirely.</strong> If AI features are not appropriate for your environment, you can leave them disabled. AI features are off by default and RockTerm functions fully without them.</li>
+        <li><strong>Disable for specific sessions.</strong> If you use AI features in some contexts but not others, you can disable AI on a per-session basis. This is useful when connecting to sensitive hosts where terminal output should not leave the machine.</li>
+        <li><strong>Consult your security team.</strong> If you are unsure whether AI features are appropriate for your use case, consult your organization's information security team before enabling them.</li>
+      </ul>
+
+      <h2>Local Data</h2>
+      <p>All RockTerm configuration data remains on your machine:</p>
+      <ul>
+        <li><strong>Settings and preferences</strong> are stored locally and are never transmitted anywhere.</li>
+        <li><strong>Connection profiles</strong> (hostnames, usernames, port configurations) are stored locally and are never sent to Rock River Research or any third party.</li>
+        <li><strong>Session logs</strong>, if enabled, are written to your local filesystem only.</li>
+        <li><strong>Nothing is sent to Rock River Research.</strong> RockTerm makes no network requests to Rock River Research servers under any circumstances.</li>
+      </ul>
+
+      <h2>Still need help?</h2>
+      <p>If you're still experiencing issues, <a href="/contact/">contact us</a> or email <a href="mailto:support@rockriverresearch.com">support@rockriverresearch.com</a>.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Rock River Research, LLC. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="/privacy/">Privacy Policy</a>
+        <a href="/terms/">Terms of Service</a>
+        <a href="/contact/">Contact</a>
+      </div>
+      <p>Based in Tennessee.</p>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

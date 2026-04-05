@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SSH Connection Refused — RockTerm Support — Rock River Research</title>
+  <meta name="description" content="Troubleshoot SSH connection refused errors in RockTerm. Step-by-step guide covering SSH service status, port configuration, firewall rules, and network diagnostics.">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo"><img src="/images/logo.png" alt="Rock River Research"> Rock River Research, LLC</a>
+      <nav>
+        <ul class="nav">
+          <li>
+            <a href="#" class="dropdown-toggle">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/">RockTerm</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" class="dropdown-toggle">Support</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/support/">Support Articles</a></li>
+              <li><a href="/rockterm/getting-started/">Getting Started</a></li>
+              <li><a href="/rockterm/faq/">FAQ</a></li>
+              <li><a href="/rockterm/troubleshooting/">Troubleshooting</a></li>
+              <li><a href="/rockterm/system-requirements/">System Requirements</a></li>
+            </ul>
+          </li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
+    </div>
+  </header>
+
+  <div class="mobile-nav">
+    <div class="mobile-nav-header">
+      <span class="logo">Rock River Research, LLC</span>
+      <button class="mobile-nav-close" aria-label="Close menu">&#10005;</button>
+    </div>
+    <ul>
+      <li>
+        <span>Products</span>
+        <div class="mobile-dropdown">
+          <a href="/rockterm/">RockTerm</a>
+        </div>
+      </li>
+      <li>
+        <span>Support</span>
+        <div class="mobile-dropdown">
+          <a href="/rockterm/support/">Support Articles</a>
+          <a href="/rockterm/getting-started/">Getting Started</a>
+          <a href="/rockterm/faq/">FAQ</a>
+          <a href="/rockterm/troubleshooting/">Troubleshooting</a>
+          <a href="/rockterm/system-requirements/">System Requirements</a>
+        </div>
+      </li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+  </div>
+
+  <main class="page-content">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> <span>&rsaquo;</span>
+        <a href="/rockterm/">RockTerm</a> <span>&rsaquo;</span>
+        <a href="/rockterm/support/">Support</a> <span>&rsaquo;</span>
+        SSH Connection Refused
+      </nav>
+
+      <h1>SSH Connection Refused</h1>
+      <p class="text-muted">Last updated: April 2026</p>
+
+      <p>A "Connection refused" error means the TCP handshake reached the remote host, but no service accepted the connection on the target port. Unlike a timeout (where packets are silently dropped or never arrive), a refused connection produces an immediate RST packet from the remote system. This article walks through the most common causes in order of likelihood.</p>
+
+      <h2>1. SSH Service Not Running</h2>
+      <p>The most common cause is simply that the SSH daemon is not running on the remote host. How you verify this depends on the target platform.</p>
+
+      <h3>Linux (systemd)</h3>
+      <pre><code>systemctl status sshd</code></pre>
+      <p>If the service is inactive or failed, start and enable it:</p>
+      <pre><code>sudo systemctl start sshd
+sudo systemctl enable sshd</code></pre>
+
+      <h3>Linux (SysVinit / Upstart)</h3>
+      <pre><code>service ssh status</code></pre>
+      <p>Start it with:</p>
+      <pre><code>sudo service ssh start</code></pre>
+
+      <h3>Cisco IOS</h3>
+      <p>Verify SSH is enabled and check the version:</p>
+      <pre><code>show ip ssh</code></pre>
+      <p>Confirm VTY lines accept SSH connections:</p>
+      <pre><code>show run | section line vty</code></pre>
+      <p>You should see <code>transport input ssh</code> (or <code>transport input all</code>) under the VTY line configuration. If SSH is not configured, you will need to generate an RSA key pair and set a domain name first:</p>
+      <pre><code>conf t
+ip domain-name example.com
+crypto key generate rsa modulus 2048
+ip ssh version 2
+line vty 0 4
+ transport input ssh
+ login local
+end</code></pre>
+
+      <h3>Windows (OpenSSH Server)</h3>
+      <p>Check the OpenSSH SSH Server service in PowerShell:</p>
+      <pre><code>Get-Service sshd</code></pre>
+      <p>Start and set to automatic:</p>
+      <pre><code>Start-Service sshd
+Set-Service -Name sshd -StartupType Automatic</code></pre>
+
+      <h2>2. Wrong Port</h2>
+      <p>The default SSH port is 22, but many administrators change it for security or operational reasons. If the server listens on a non-standard port and you connect to port 22, you will get "Connection refused."</p>
+
+      <h3>Check the Listening Port on the Remote Host</h3>
+      <p>On modern Linux systems:</p>
+      <pre><code>ss -tlnp | grep ssh</code></pre>
+      <p>On older systems:</p>
+      <pre><code>netstat -tlnp | grep ssh</code></pre>
+      <p>Look for the port number in the <code>Local Address</code> column (e.g., <code>0.0.0.0:2222</code> means SSH is listening on port 2222).</p>
+
+      <h3>Check sshd_config</h3>
+      <pre><code>grep -i "^Port" /etc/ssh/sshd_config</code></pre>
+      <p>If the line reads <code>Port 2222</code>, configure RockTerm to connect on port 2222 instead of the default.</p>
+
+      <h3>Configuring the Port in RockTerm</h3>
+      <p>In your connection profile, set the <strong>Port</strong> field to match the server's listening port. You can also test from the command line:</p>
+      <pre><code>ssh -p 2222 user@hostname</code></pre>
+
+      <h2>3. Firewall Blocking the Connection</h2>
+      <p>A firewall on the remote host, on the local host, or somewhere in the network path may be blocking port 22 (or your configured port). Unlike a silent drop (which causes a timeout), some firewalls send an explicit REJECT, which produces a "Connection refused" error.</p>
+
+      <h3>Linux iptables</h3>
+      <pre><code>sudo iptables -L -n --line-numbers</code></pre>
+      <p>Look for rules that DROP or REJECT traffic on your SSH port. To allow SSH through iptables:</p>
+      <pre><code>sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT</code></pre>
+
+      <h3>Linux firewalld</h3>
+      <pre><code>sudo firewall-cmd --list-all</code></pre>
+      <p>Ensure the <code>ssh</code> service is listed under <code>services</code>. If not:</p>
+      <pre><code>sudo firewall-cmd --permanent --add-service=ssh
+sudo firewall-cmd --reload</code></pre>
+
+      <h3>Cisco ASA</h3>
+      <pre><code>show access-lists</code></pre>
+      <p>Verify that your source IP and destination port 22 are permitted in the relevant access-list applied to the interface.</p>
+
+      <h3>Windows Firewall</h3>
+      <p>Check inbound rules in PowerShell:</p>
+      <pre><code>Get-NetFirewallRule -DisplayName "*SSH*" | Format-Table -AutoSize</code></pre>
+      <p>Or open <strong>Windows Defender Firewall with Advanced Security</strong> and look for an inbound rule allowing TCP port 22. If the OpenSSH Server feature was installed, this rule is typically created automatically.</p>
+
+      <h3>Cloud Security Groups</h3>
+      <p>If the remote host is in AWS, Azure, GCP, or another cloud provider, check the security group or network security group rules. Ensure an inbound rule permits TCP traffic on your SSH port from your source IP address or CIDR range.</p>
+
+      <h2>4. Host-Based Access Restrictions in sshd_config</h2>
+      <p>Even if the SSH daemon is running and the firewall allows traffic, the SSH server itself can refuse connections based on configuration directives in <code>/etc/ssh/sshd_config</code>.</p>
+
+      <h3>AllowUsers and AllowGroups</h3>
+      <p>If <code>AllowUsers</code> or <code>AllowGroups</code> is defined, only the listed users or groups may connect. Everyone else is refused at the authentication stage.</p>
+      <pre><code>grep -i "^Allow\|^Deny" /etc/ssh/sshd_config</code></pre>
+      <p>Example configuration:</p>
+      <pre><code>AllowUsers admin deployer@192.168.1.0/24
+AllowGroups sshusers</code></pre>
+
+      <h3>DenyUsers and DenyGroups</h3>
+      <p>These explicitly block specific users or groups. <code>DenyUsers</code> is processed before <code>AllowUsers</code>.</p>
+
+      <h3>ListenAddress</h3>
+      <p>If <code>ListenAddress</code> is set to a specific IP (e.g., <code>ListenAddress 10.0.0.5</code>), SSH will only accept connections on that interface. Connections to other IP addresses on the same host will be refused.</p>
+      <pre><code>grep -i "^ListenAddress" /etc/ssh/sshd_config</code></pre>
+
+      <p>After making changes to <code>sshd_config</code>, restart the SSH service:</p>
+      <pre><code>sudo systemctl restart sshd</code></pre>
+
+      <h2>5. TCP Wrappers</h2>
+      <p>On older Linux distributions, TCP wrappers (<code>libwrap</code>) can restrict access to services including SSH. This mechanism uses two files:</p>
+      <ul>
+        <li><code>/etc/hosts.allow</code> &mdash; explicitly permitted connections</li>
+        <li><code>/etc/hosts.deny</code> &mdash; explicitly denied connections</li>
+      </ul>
+      <p>Rules in <code>hosts.allow</code> are evaluated first. If a match is found, access is granted. Otherwise, <code>hosts.deny</code> is checked. If <code>hosts.deny</code> contains <code>ALL: ALL</code> and no corresponding allow rule exists for SSH, connections will be refused.</p>
+
+      <h3>Example: Allow SSH from a Specific Subnet</h3>
+      <p>In <code>/etc/hosts.allow</code>:</p>
+      <pre><code>sshd: 192.168.1.0/255.255.255.0</code></pre>
+      <p>In <code>/etc/hosts.deny</code>:</p>
+      <pre><code>sshd: ALL</code></pre>
+
+      <p>Note: TCP wrappers are deprecated on most modern distributions. RHEL 8+ and Ubuntu 20.04+ no longer ship with <code>libwrap</code> support compiled into OpenSSH. Use firewall rules or <code>sshd_config</code> directives instead.</p>
+
+      <h2>6. Network Path Issues</h2>
+      <p>If none of the above apply, the problem may be in the network path between your workstation and the remote host.</p>
+
+      <h3>Basic Connectivity</h3>
+      <pre><code>ping hostname</code></pre>
+      <p>Note: ICMP may be blocked, so a failed ping does not always mean the host is unreachable.</p>
+
+      <h3>Test TCP Connectivity to the SSH Port</h3>
+      <p>From Windows PowerShell:</p>
+      <pre><code>Test-NetConnection -ComputerName hostname -Port 22</code></pre>
+      <p>This will report whether the TCP connection succeeded and display the remote address and latency. Look at the <code>TcpTestSucceeded</code> field in the output.</p>
+
+      <p>From Linux:</p>
+      <pre><code>nc -zv hostname 22</code></pre>
+
+      <h3>Trace the Route</h3>
+      <p>From Windows:</p>
+      <pre><code>tracert hostname</code></pre>
+      <p>From Linux:</p>
+      <pre><code>traceroute hostname</code></pre>
+      <p>Look for where packets stop or where latency spikes. This can identify routing issues or an intermediate firewall that is blocking traffic.</p>
+
+      <h3>NAT and Port Forwarding</h3>
+      <p>If the remote host is behind a NAT device or load balancer, ensure port forwarding is configured correctly. A "Connection refused" can occur if the NAT device receives the SYN but has no translation rule to forward it to the internal host.</p>
+
+      <h2>Quick Checklist</h2>
+      <ol>
+        <li>Is the SSH service running on the remote host? (<code>systemctl status sshd</code>)</li>
+        <li>Are you connecting to the correct port? (<code>ss -tlnp | grep ssh</code>)</li>
+        <li>Is the host firewall allowing inbound SSH? (<code>iptables -L -n</code>, <code>firewall-cmd --list-all</code>)</li>
+        <li>Are cloud security groups or network ACLs permitting the traffic?</li>
+        <li>Does <code>sshd_config</code> restrict access by user, group, or listen address?</li>
+        <li>Are TCP wrappers blocking the connection? (Check <code>/etc/hosts.allow</code> and <code>/etc/hosts.deny</code>)</li>
+        <li>Can you reach the port at all? (<code>Test-NetConnection -ComputerName hostname -Port 22</code>)</li>
+        <li>Is a NAT device or load balancer in the path configured correctly?</li>
+      </ol>
+
+      <h2>Still need help?</h2>
+      <p>If you're still experiencing issues, <a href="/contact/">contact us</a> or email <a href="mailto:support@rockriverresearch.com">support@rockriverresearch.com</a>.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Rock River Research, LLC. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="/privacy/">Privacy Policy</a>
+        <a href="/terms/">Terms of Service</a>
+        <a href="/contact/">Contact</a>
+      </div>
+      <p>Based in Tennessee.</p>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

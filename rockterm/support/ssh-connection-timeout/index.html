@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SSH Connection Timeout — RockTerm Support — Rock River Research</title>
+  <meta name="description" content="Diagnose and fix SSH connection timeout issues in RockTerm. Covers DNS delays, routing problems, firewall drops, keepalive settings, and idle disconnections.">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo"><img src="/images/logo.png" alt="Rock River Research"> Rock River Research, LLC</a>
+      <nav>
+        <ul class="nav">
+          <li>
+            <a href="#" class="dropdown-toggle">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/">RockTerm</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" class="dropdown-toggle">Support</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/support/">Support Articles</a></li>
+              <li><a href="/rockterm/getting-started/">Getting Started</a></li>
+              <li><a href="/rockterm/faq/">FAQ</a></li>
+              <li><a href="/rockterm/troubleshooting/">Troubleshooting</a></li>
+              <li><a href="/rockterm/system-requirements/">System Requirements</a></li>
+            </ul>
+          </li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
+    </div>
+  </header>
+
+  <div class="mobile-nav">
+    <div class="mobile-nav-header">
+      <span class="logo">Rock River Research, LLC</span>
+      <button class="mobile-nav-close" aria-label="Close menu">&#10005;</button>
+    </div>
+    <ul>
+      <li>
+        <span>Products</span>
+        <div class="mobile-dropdown">
+          <a href="/rockterm/">RockTerm</a>
+        </div>
+      </li>
+      <li>
+        <span>Support</span>
+        <div class="mobile-dropdown">
+          <a href="/rockterm/support/">Support Articles</a>
+          <a href="/rockterm/getting-started/">Getting Started</a>
+          <a href="/rockterm/faq/">FAQ</a>
+          <a href="/rockterm/troubleshooting/">Troubleshooting</a>
+          <a href="/rockterm/system-requirements/">System Requirements</a>
+        </div>
+      </li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+  </div>
+
+  <main class="page-content">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> <span>&rsaquo;</span>
+        <a href="/rockterm/">RockTerm</a> <span>&rsaquo;</span>
+        <a href="/rockterm/support/">Support</a> <span>&rsaquo;</span>
+        SSH Connection Timeout
+      </nav>
+
+      <h1>SSH Connection Timeout</h1>
+      <p class="text-muted">Last updated: April 2026</p>
+
+      <p>A connection timeout means RockTerm sent a TCP SYN packet but never received a response. Unlike "Connection refused" (which returns an immediate RST), a timeout indicates that packets are being silently dropped or never reaching the destination. This article covers the most common causes and how to diagnose each one.</p>
+
+      <h2>1. DNS Resolution Delays</h2>
+      <p>If the hostname takes a long time to resolve &mdash; or fails to resolve entirely &mdash; the connection will appear to hang before timing out. This is especially common in environments with misconfigured DNS servers or split-horizon DNS issues.</p>
+
+      <h3>Test DNS Resolution</h3>
+      <p>From Windows PowerShell:</p>
+      <pre><code>Resolve-DnsName server.example.com</code></pre>
+      <p>From a command prompt or Linux terminal:</p>
+      <pre><code>nslookup server.example.com</code></pre>
+      <p>If resolution is slow (more than a few seconds) or returns an error, the issue is DNS-related. Possible fixes:</p>
+      <ul>
+        <li>Use the IP address directly in RockTerm instead of the hostname to bypass DNS entirely.</li>
+        <li>Check your DNS server configuration in your network adapter settings.</li>
+        <li>Try an alternative DNS server (e.g., <code>nslookup server.example.com 8.8.8.8</code>) to rule out a problem with your primary DNS server.</li>
+        <li>Flush your local DNS cache: <code>ipconfig /flushdns</code> (Windows) or <code>sudo systemd-resolve --flush-caches</code> (Linux with systemd-resolved).</li>
+      </ul>
+
+      <h2>2. Network Routing Issues</h2>
+      <p>Even if DNS resolves correctly, packets may not reach the destination due to routing problems, asymmetric routing, or black holes in the network path.</p>
+
+      <h3>Trace the Route</h3>
+      <p>From Windows:</p>
+      <pre><code>tracert server.example.com</code></pre>
+      <p>From Linux:</p>
+      <pre><code>traceroute server.example.com</code></pre>
+      <p>Examine where the trace stops or where you see <code>* * *</code> (request timed out). The last responding hop is usually the point closest to the problem. Common findings:</p>
+      <ul>
+        <li><strong>Trace stops at your default gateway:</strong> local routing issue, check your gateway and subnet configuration.</li>
+        <li><strong>Trace stops at an intermediate router:</strong> a routing policy, ACL, or link failure at that hop.</li>
+        <li><strong>Trace completes but SSH still times out:</strong> a host-level firewall is dropping SSH specifically (ICMP used by traceroute may be allowed while TCP 22 is not).</li>
+      </ul>
+
+      <h3>Test TCP Connectivity Directly</h3>
+      <p>From Windows PowerShell:</p>
+      <pre><code>Test-NetConnection -ComputerName server.example.com -Port 22</code></pre>
+      <p>If <code>TcpTestSucceeded</code> returns <code>False</code> but <code>PingSucceeded</code> returns <code>True</code>, a firewall is specifically blocking TCP port 22.</p>
+
+      <h2>3. Reverse DNS Lookup by sshd</h2>
+      <p>By default, many SSH server configurations perform a reverse DNS lookup on the connecting client's IP address. If the reverse lookup is slow or fails (common with private IPs or misconfigured PTR records), the login prompt will be delayed by 10&ndash;30 seconds or more. This appears to the user as a timeout or a very slow connection.</p>
+
+      <h3>Fix: Disable UseDNS on the Server</h3>
+      <p>Edit <code>/etc/ssh/sshd_config</code> on the remote host:</p>
+      <pre><code>UseDNS no</code></pre>
+      <p>Then restart the SSH service:</p>
+      <pre><code>sudo systemctl restart sshd</code></pre>
+      <p>This has no security impact in most environments. The <code>UseDNS</code> option was historically used to enable hostname-based access control in <code>authorized_keys</code> and <code>sshd_config</code>, but IP-based controls are more reliable.</p>
+
+      <h2>4. Firewall Silently Dropping Packets (DROP vs. REJECT)</h2>
+      <p>Firewalls can be configured to either <strong>REJECT</strong> or <strong>DROP</strong> unwanted traffic:</p>
+      <ul>
+        <li><strong>REJECT</strong> sends an ICMP unreachable or TCP RST back to the client, producing an immediate "Connection refused" error.</li>
+        <li><strong>DROP</strong> silently discards the packet with no response, causing the client to wait until its connection timeout expires.</li>
+      </ul>
+      <p>If you suspect a firewall DROP rule is responsible:</p>
+      <ul>
+        <li>Check the host firewall: <code>sudo iptables -L -n -v</code> (look for DROP rules on port 22).</li>
+        <li>Check cloud security groups (AWS, Azure, GCP) for missing inbound rules.</li>
+        <li>Check intermediate firewalls (Cisco ASA, Palo Alto, etc.) by reviewing deny logs and access-list hit counts.</li>
+      </ul>
+
+      <h2>5. RockTerm Connection Timeout Settings</h2>
+      <p>RockTerm has a configurable connection timeout that controls how long it waits for the initial TCP handshake to complete.</p>
+      <ol>
+        <li>Open <strong>Settings</strong> &gt; <strong>Connection</strong>.</li>
+        <li>Adjust the <strong>Connection Timeout</strong> value. The default is 30 seconds.</li>
+        <li>For hosts on high-latency networks (satellite links, international WAN), consider increasing this to 60 or 90 seconds.</li>
+      </ol>
+      <p>Note: Increasing the timeout does not fix the underlying problem &mdash; it only gives the connection more time to succeed. If connections are consistently slow, investigate the network path.</p>
+
+      <h2>6. Session Keepalive for Idle Disconnections</h2>
+      <p>If your SSH sessions connect successfully but disconnect after a period of inactivity, the issue is not a connection timeout but an idle timeout. Stateful firewalls, NAT devices, and load balancers often drop idle TCP connections after a period (commonly 5&ndash;15 minutes).</p>
+
+      <h3>Client-Side Keepalive (RockTerm)</h3>
+      <p>Configure RockTerm to send periodic keepalive packets:</p>
+      <ol>
+        <li>Open the connection profile for the target host.</li>
+        <li>Under <strong>Connection</strong> &gt; <strong>Keepalive</strong>, enable <strong>Send keepalive packets</strong>.</li>
+        <li>Set the <strong>Interval</strong> to 60 seconds (or lower if your firewall has an aggressive idle timeout).</li>
+      </ol>
+      <p>This is equivalent to setting the following in an OpenSSH <code>~/.ssh/config</code> file:</p>
+      <pre><code>Host *
+    ServerAliveInterval 60
+    ServerAliveCountMax 3</code></pre>
+      <p>This sends a keepalive message every 60 seconds. If 3 consecutive keepalives receive no response, the client disconnects (total dead-peer detection time: 180 seconds).</p>
+
+      <h3>Server-Side Keepalive</h3>
+      <p>You can also configure the SSH server to send keepalives. In <code>/etc/ssh/sshd_config</code>:</p>
+      <pre><code>ClientAliveInterval 60
+ClientAliveCountMax 3</code></pre>
+      <p>Restart <code>sshd</code> after making changes. Using both client-side and server-side keepalives provides the most robust protection against idle disconnections.</p>
+
+      <h3>NAT and Firewall Idle Timeouts</h3>
+      <p>If you manage the network infrastructure, you can also adjust the idle timeout on the stateful device itself. For example, on a Cisco ASA:</p>
+      <pre><code>timeout conn 1:00:00</code></pre>
+      <p>This sets the idle connection timeout to 1 hour. On a Linux firewall using conntrack:</p>
+      <pre><code>sysctl -w net.netfilter.nf_conntrack_tcp_timeout_established=7200</code></pre>
+
+      <h2>Diagnostic Summary</h2>
+      <ul>
+        <li><strong>Timeout on initial connect:</strong> DNS, routing, or firewall DROP rule.</li>
+        <li><strong>Slow connect (10&ndash;30 second delay) then succeeds:</strong> reverse DNS lookup on the server (<code>UseDNS</code>).</li>
+        <li><strong>Connects fine, drops after idle period:</strong> stateful firewall idle timeout; enable keepalives.</li>
+        <li><strong>Intermittent timeouts:</strong> network instability, packet loss, or overloaded intermediate device.</li>
+      </ul>
+
+      <h2>Still need help?</h2>
+      <p>If you're still experiencing issues, <a href="/contact/">contact us</a> or email <a href="mailto:support@rockriverresearch.com">support@rockriverresearch.com</a>.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Rock River Research, LLC. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="/privacy/">Privacy Policy</a>
+        <a href="/terms/">Terms of Service</a>
+        <a href="/contact/">Contact</a>
+      </div>
+      <p>Based in Tennessee.</p>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
