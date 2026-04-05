@@ -331,9 +331,9 @@ body.mobile-nav-open {
 }
 
 .footer-logo {
-  height: 120px;
+  height: 160px;
   width: auto;
-  opacity: 0.6;
+  opacity: 0.85;
   flex-shrink: 0;
 }
 
