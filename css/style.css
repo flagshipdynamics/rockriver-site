@@ -330,10 +330,10 @@ pre code {
 }
 
 .footer-logo {
-  height: 48px;
+  height: 56px;
   width: auto;
-  margin-bottom: 12px;
-  opacity: 0.7;
+  margin-bottom: 16px;
+  opacity: 0.85;
 }
 
 .footer-links {
@@ -572,33 +572,97 @@ tbody tr:hover {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 16px;
+  margin-bottom: 16px;
 }
 
 .support-card {
   background: #ffffff;
   border: 1px solid #e1e4e8;
+  border-left: 3px solid #2563eb;
   border-radius: 8px;
-  padding: 24px;
+  padding: 20px 24px;
   text-decoration: none;
   display: block;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 
 .support-card:hover {
   border-color: #2563eb;
   text-decoration: none;
-  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.1);
+  box-shadow: 0 4px 16px rgba(37, 99, 235, 0.12);
+  transform: translateY(-2px);
 }
 
 .support-card h3 {
+  color: #1a1a2e;
+  font-size: 1.05rem;
+  margin-bottom: 6px;
+}
+
+.support-card:hover h3 {
   color: #2563eb;
-  margin-bottom: 8px;
 }
 
 .support-card p {
-  color: #555e6b;
-  font-size: 0.9rem;
+  color: #6b7280;
+  font-size: 0.88rem;
   margin-bottom: 0;
+  line-height: 1.5;
+}
+
+/* Highlighted top row of support cards */
+.support-grid-highlight {
+  margin-bottom: 40px;
+}
+
+.support-grid-highlight .support-card {
+  border-left: 3px solid #1a1a2e;
+  background: #f8f9fb;
+}
+
+.support-grid-highlight .support-card:hover {
+  border-left-color: #2563eb;
+  background: #ffffff;
+}
+
+/* Section headings on support hub */
+.page-content .support-grid + h2,
+.page-content .support-grid-highlight + h2 {
+  margin-top: 40px;
+}
+
+/* ===== CTA Card ===== */
+.cta-card {
+  background: #1a1a2e;
+  color: #ffffff;
+  border-radius: 12px;
+  padding: 40px;
+  text-align: center;
+  margin-top: 48px;
+}
+
+.cta-card h2 {
+  color: #ffffff;
+  border-bottom: none;
+  margin-top: 0;
+  margin-bottom: 8px;
+}
+
+.cta-card p {
+  color: #cbd5e1;
+  max-width: none;
+  margin-bottom: 20px;
+}
+
+.cta-card .btn-primary {
+  background: #ffffff;
+  color: #1a1a2e;
+  font-weight: 700;
+}
+
+.cta-card .btn-primary:hover {
+  background: #e2e8f0;
 }
 
 /* ===== Changelog ===== */
@@ -683,6 +747,10 @@ tbody tr:hover {
   .breadcrumb {
     font-size: 0.8rem;
     padding: 5px 12px;
+  }
+
+  .cta-card {
+    padding: 28px 20px;
   }
 
   /* Hide desktop nav, show hamburger */
