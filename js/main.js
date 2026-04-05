@@ -8,13 +8,13 @@
 
   toggle.addEventListener('click', function () {
     mobileNav.classList.add('active');
-    document.body.style.overflow = 'hidden';
+    document.body.classList.add('mobile-nav-open');
   });
 
   if (closeBtn) {
     closeBtn.addEventListener('click', function () {
       mobileNav.classList.remove('active');
-      document.body.style.overflow = '';
+      document.body.classList.remove('mobile-nav-open');
     });
   }
 })();
