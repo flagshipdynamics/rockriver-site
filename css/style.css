@@ -151,6 +151,13 @@ pre code {
   width: auto;
 }
 
+.mobile-nav .logo img {
+  height: 28px;
+  width: auto;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
 .site-header .logo:hover {
   text-decoration: none;
   color: #93b4f5;
@@ -314,6 +321,13 @@ pre code {
   color: #93b4f5;
 }
 
+.footer-logo {
+  height: 48px;
+  width: auto;
+  margin-bottom: 12px;
+  opacity: 0.7;
+}
+
 .footer-links {
   display: flex;
   gap: 16px;
@@ -327,6 +341,12 @@ pre code {
   text-align: center;
   background: #f8f9fb;
   border-bottom: 1px solid #e1e4e8;
+}
+
+.hero-logo {
+  height: 120px;
+  width: auto;
+  margin-bottom: 24px;
 }
 
 .hero h1 {
@@ -392,6 +412,12 @@ pre code {
 .breadcrumb span {
   margin: 0 6px;
   color: #8b92a0;
+}
+
+.page-logo {
+  height: 80px;
+  width: auto;
+  margin-bottom: 16px;
 }
 
 /* ===== Page content ===== */
@@ -538,6 +564,10 @@ td {
 
   .hero {
     padding: 48px 0;
+  }
+
+  .hero-logo {
+    height: 80px;
   }
 
   .hero h1 {
