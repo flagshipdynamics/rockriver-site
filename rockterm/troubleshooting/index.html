@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Troubleshooting — RockTerm — Rock River Research</title>
+  <meta name="description" content="Troubleshoot common RockTerm issues.">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Rock River Research, LLC</a>
+      <nav>
+        <ul class="nav">
+          <li>
+            <a href="#" class="dropdown-toggle">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/">RockTerm</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" class="dropdown-toggle">Support</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/getting-started/">Getting Started</a></li>
+              <li><a href="/rockterm/faq/">FAQ</a></li>
+              <li><a href="/rockterm/troubleshooting/">Troubleshooting</a></li>
+              <li><a href="/rockterm/system-requirements/">System Requirements</a></li>
+            </ul>
+          </li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
+    </div>
+  </header>
+
+  <div class="mobile-nav">
+    <div class="mobile-nav-header">
+      <span class="logo">Rock River Research, LLC</span>
+      <button class="mobile-nav-close" aria-label="Close menu">&#10005;</button>
+    </div>
+    <ul>
+      <li>
+        <span>Products</span>
+        <div class="mobile-dropdown">
+          <a href="/rockterm/">RockTerm</a>
+        </div>
+      </li>
+      <li>
+        <span>Support</span>
+        <div class="mobile-dropdown">
+          <a href="/rockterm/getting-started/">Getting Started</a>
+          <a href="/rockterm/faq/">FAQ</a>
+          <a href="/rockterm/troubleshooting/">Troubleshooting</a>
+          <a href="/rockterm/system-requirements/">System Requirements</a>
+        </div>
+      </li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/contact/">Contact</a></li>
+    </ul>
+  </div>
+
+  <main class="page-content">
+    <div class="container">
+      <h1>Troubleshooting</h1>
+
+      <details>
+        <summary>RockTerm won't launch.</summary>
+        <div class="details-content">
+          <p>Try restarting your computer. If the problem persists, try repairing or reinstalling from the Microsoft Store (Settings &rarr; Apps &rarr; RockTerm &rarr; Advanced Options &rarr; Repair/Reset). Ensure your system meets the <a href="/rockterm/system-requirements/">minimum requirements</a>.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>I can't connect to my SSH host.</summary>
+        <div class="details-content">
+          <p>Verify the hostname/IP, port, and credentials. Ensure the remote host is reachable from your network (try <code>ping</code> or <code>Test-NetConnection</code> in PowerShell). Check that your firewall or VPN is not blocking port 22 (or your configured SSH port). Verify your SSH key file path is correct if using key-based authentication.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>AI features are not responding.</summary>
+        <div class="details-content">
+          <p>AI features require an active internet connection. Verify your connection. If the AI provider's API is experiencing downtime, the feature may be temporarily unavailable. Check that AI features are enabled in Settings.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>Terminal text looks wrong or garbled.</summary>
+        <div class="details-content">
+          <p>Try changing the terminal font in Settings. Ensure your terminal encoding is set to UTF-8. Some legacy systems may send output in encodings that require specific configuration.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>The Microsoft Store says the app is not available.</summary>
+        <div class="details-content">
+          <p>Ensure you're running a supported version of Windows. RockTerm requires Windows 10 version 1809 or later. Check that the Microsoft Store is not restricted by your organization's policies.</p>
+        </div>
+      </details>
+
+      <details>
+        <summary>How do I reset RockTerm to default settings?</summary>
+        <div class="details-content">
+          <p>Go to Settings &rarr; Apps &rarr; RockTerm &rarr; Advanced Options &rarr; Reset. This will clear your settings but will not delete saved connection profiles.</p>
+        </div>
+      </details>
+
+      <h2>Still stuck?</h2>
+      <p>Email <a href="mailto:support@rockriverresearch.com">support@rockriverresearch.com</a> with details about your issue.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Rock River Research, LLC. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="/privacy/">Privacy Policy</a>
+        <a href="/terms/">Terms of Service</a>
+        <a href="/contact/">Contact</a>
+      </div>
+      <p>Based in Tennessee.</p>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
