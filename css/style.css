@@ -318,11 +318,16 @@ pre code {
 
 /* ===== Footer ===== */
 .site-footer {
-  padding: 32px 0;
-  background: #1a1a2e;
-  margin-top: 64px;
+  padding: 40px 0;
+  background: #12121f;
+  margin-top: 0;
   color: #8b92a0;
   font-size: 0.9rem;
+  border-top: 1px solid #2d2d4a;
+}
+
+.site-footer .container {
+  text-align: center;
 }
 
 .site-footer a {
@@ -338,9 +343,10 @@ pre code {
 
 .footer-links {
   display: flex;
-  gap: 16px;
+  justify-content: center;
+  gap: 24px;
   flex-wrap: wrap;
-  margin: 8px 0;
+  margin: 12px 0;
 }
 
 /* ===== Hero ===== */
@@ -734,6 +740,38 @@ tbody tr:hover {
   background: #e2e8f0;
 }
 
+/* ===== CTA Section (full-bleed) ===== */
+.cta-section {
+  background: #1a1a2e;
+  color: #ffffff;
+  text-align: center;
+  padding: 64px 0;
+}
+
+.cta-section h2 {
+  color: #ffffff;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.cta-section p {
+  color: #cbd5e1;
+  font-size: 1.1rem;
+  margin-bottom: 24px;
+}
+
+.cta-section .btn-primary {
+  background: #ffffff;
+  color: #1a1a2e;
+  font-weight: 700;
+  padding: 14px 32px;
+  font-size: 1rem;
+}
+
+.cta-section .btn-primary:hover {
+  background: #e2e8f0;
+}
+
 /* ===== Changelog ===== */
 .changelog-entry {
   margin-bottom: 32px;
@@ -820,6 +858,14 @@ tbody tr:hover {
 
   .cta-card {
     padding: 28px 20px;
+  }
+
+  .cta-section {
+    padding: 48px 0;
+  }
+
+  .cta-section h2 {
+    font-size: 1.5rem;
   }
 
   .section-dark {
