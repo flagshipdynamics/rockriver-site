@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RockTerm — Rock River Research</title>
-  <meta name="description" content="RockTerm — a modern terminal emulator with SSH, Telnet, and serial console support plus AI integration for network engineers and sysadmins.">
+  <title>RockTerm — Terminal Emulator for Network Professionals | Rock River Research</title>
+  <meta name="description" content="RockTerm is a Windows-native terminal emulator with SSH, Telnet, and serial console support plus opt-in AI assistance. Built for network engineers and sysadmins. One-time purchase, no subscription.">
   <link rel="canonical" href="https://rockriverresearch.com/rockterm/">
-  <meta property="og:title" content="RockTerm — Rock River Research">
-  <meta property="og:description" content="RockTerm — a modern terminal emulator with SSH, Telnet, and serial console support plus AI integration for network engineers and sysadmins.">
+  <meta property="og:title" content="RockTerm — Terminal Emulator for Network Professionals">
+  <meta property="og:description" content="RockTerm is a Windows-native terminal emulator with SSH, Telnet, and serial console support plus opt-in AI assistance. Built for network engineers and sysadmins.">
   <meta property="og:url" content="https://rockriverresearch.com/rockterm/">
   <meta property="og:image" content="https://rockriverresearch.com/images/logo.png">
   <meta property="og:type" content="website">
@@ -18,7 +18,7 @@
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "RockTerm",
-    "description": "A modern terminal emulator with SSH, Telnet, and serial console support plus AI integration for network engineers and sysadmins.",
+    "description": "A Windows-native terminal emulator with SSH, Telnet, and serial console support plus opt-in AI assistance for network engineers and sysadmins.",
     "url": "https://rockriverresearch.com/rockterm/",
     "applicationCategory": "DeveloperApplication",
     "operatingSystem": "Windows",
@@ -27,7 +27,7 @@
       "price": "0",
       "priceCurrency": "USD",
       "availability": "https://schema.org/InStock",
-      "description": "Free trial available"
+      "description": "Free trial available. One-time purchase."
     },
     "author": {
       "@type": "Organization",
@@ -40,7 +40,7 @@
 <body>
   <header class="site-header">
     <div class="container">
-      <a href="/" class="logo">Rock River Research, LLC</a>
+      <a href="/" class="logo">Rock River Research</a>
       <nav>
         <ul class="nav">
           <li>
@@ -69,7 +69,7 @@
 
   <div class="mobile-nav">
     <div class="mobile-nav-header">
-      <a href="/" class="logo">Rock River Research, LLC</a>
+      <a href="/" class="logo">Rock River Research</a>
       <button class="mobile-nav-close" aria-label="Close menu">&#10005;</button>
     </div>
     <ul>
@@ -94,16 +94,17 @@
     </ul>
   </div>
 
-  <section class="hero">
-    <div class="container hero-split">
-      <div class="hero-text">
-        <h1>RockTerm</h1>
-        <p class="subtitle">A modern terminal emulator with SSH, Telnet, and serial console support — plus integrated AI assistance.</p>
-        <p class="description">Built for network engineers and system administrators who spend their day in the terminal. RockTerm combines fast, reliable SSH, Telnet, and serial connections with AI-powered assistance that understands your infrastructure context. Diagnose issues faster, automate repetitive tasks, and manage connections efficiently.</p>
-        <a href="#" class="btn btn-primary">Get RockTerm on the Microsoft Store</a>
-        <a href="/rockterm/system-requirements/" class="btn btn-secondary">View System Requirements</a>
+  <section class="hero product-hero">
+    <div class="container">
+      <div class="product-hero-content">
+        <h1>The terminal emulator that network professionals actually want to use.</h1>
+        <p class="subtitle">RockTerm combines SSH, Telnet, and serial console in a single native Windows application — with opt-in AI assistance that understands your infrastructure context.</p>
+        <div class="hero-actions">
+          <a href="#" class="btn btn-primary">Get RockTerm on the Microsoft Store</a>
+          <a href="/rockterm/getting-started/" class="btn btn-secondary">Getting Started Guide</a>
+        </div>
+        <p class="hero-meta">Free trial available. One-time purchase. No subscription.</p>
       </div>
-      <img src="/images/logo.png" alt="Rock River Research" class="hero-logo">
     </div>
   </section>
 
@@ -117,37 +118,99 @@
 
   <section class="section">
     <div class="container">
-      <h2 class="section-heading">Features</h2>
+      <div class="product-pitch">
+        <h2>Built for people who manage real infrastructure.</h2>
+        <p>If you spend your day SSH'd into routers, configuring switches over serial, or managing fleets of Linux servers, your terminal emulator matters. RockTerm was designed from the ground up for that reality — not as a general-purpose shell, but as a purpose-built tool for network engineers and sysadmins who need reliable multi-protocol access and efficient connection management.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-border">
+    <div class="container">
+      <h2 class="section-heading">What RockTerm Does</h2>
       <div class="grid-2">
         <div class="feature-card">
-          <div class="feature-icon">&#9000;</div>
-          <h3>AI-Powered Terminal</h3>
-          <p>Get contextual AI assistance right inside your terminal session. Ask questions about command output, get help with configuration syntax, or troubleshoot errors — without leaving your workflow.</p>
+          <div class="feature-icon">&#128274;</div>
+          <h3>SSH, Telnet, and Serial Console</h3>
+          <p>All three protocols in one application. SSH with key-based auth and agent forwarding. Telnet for legacy device access. Serial console with configurable baud rate, data bits, parity, and flow control. No need to juggle separate tools.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">&#9889;</div>
-          <h3>Fast &amp; Native</h3>
-          <p>Built with native UI toolkits for responsive performance. No Electron, no web views. Launches fast, stays fast.</p>
+          <div class="feature-icon">&#9000;</div>
+          <h3>AI-Powered Assistance</h3>
+          <p>Invoke the AI assistant mid-session to interpret error messages, explain routing tables, suggest configuration syntax, or work through unfamiliar log output. The assistant reads your terminal context so you don't have to copy-paste into a browser. Entirely opt-in — uses your own Anthropic API key.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">&#9776;</div>
-          <h3>Connection Management</h3>
-          <p>Organize SSH, Telnet, and serial connections with saved profiles. Group hosts by environment, project, or role. Connect with one click.</p>
+          <h3>Connection Manager</h3>
+          <p>Save and organize connection profiles across all three protocols. Group by environment, client, project, or role. Connect with one click. Import from existing tools and export for backup or team sharing.</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">&#128274;</div>
-          <h3>Multi-Protocol Support</h3>
-          <p>SSH, Telnet, and serial console in one application. SSH key management, agent forwarding, and configurable serial port settings. Your credentials and sessions stay on your machine.</p>
+          <div class="feature-icon">&#9889;</div>
+          <h3>Native Windows Performance</h3>
+          <p>Built with native UI toolkits — not Electron, not a web view. RockTerm launches fast, renders terminal output without lag, and stays responsive even with high-throughput sessions. Designed for long working sessions.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">&#9638;</div>
           <h3>Professional Interface</h3>
-          <p>Clean, modern dark interface designed for extended use. Multiple tabbed sessions, customizable appearance, and a distraction-free layout.</p>
+          <p>Dark theme optimized for extended use. Tabbed sessions with keyboard-driven navigation. Customizable fonts and colors. Resizable layout. Built for people who spend hours in the terminal, not minutes.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">&#8681;</div>
           <h3>Microsoft Store Distribution</h3>
-          <p>Install and update through the Microsoft Store. Clean installation, automatic updates, and easy licensing.</p>
+          <p>Clean install from the Microsoft Store. Automatic updates. Free trial with full functionality so you can evaluate before purchasing. One-time purchase — no recurring charges.</p>
+        </div>
+      </div>
+      <p class="features-link">See the <a href="/rockterm/features/">full feature breakdown</a> for detailed descriptions.</p>
+    </div>
+  </section>
+
+  <section class="section section-border">
+    <div class="container">
+      <h2 class="section-heading">How People Use RockTerm</h2>
+      <div class="workflow-grid">
+        <div class="workflow-card">
+          <h4>Network Operations</h4>
+          <p>SSH into routers and switches, console into new hardware over serial, and manage Telnet sessions for legacy devices — all from one window. Group connections by site or environment. Use AI to quickly interpret show commands, log output, and error messages.</p>
+        </div>
+        <div class="workflow-card">
+          <h4>System Administration</h4>
+          <p>Manage fleets of Linux and Windows servers across tabbed SSH sessions. Jump between production, staging, and development environments with saved connection profiles. Let the AI assistant help debug service failures or parse unfamiliar log formats.</p>
+        </div>
+        <div class="workflow-card">
+          <h4>Infrastructure Lab Work</h4>
+          <p>Console into lab equipment over serial while maintaining SSH sessions to production. Keep all your connections organized without switching between PuTTY, a serial terminal, and a Telnet client. Import existing PuTTY sessions to get started quickly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-border">
+    <div class="container">
+      <h2 class="section-heading">What You're Getting</h2>
+      <div class="trust-grid">
+        <div class="trust-detail">
+          <h4>No Telemetry</h4>
+          <p>RockTerm does not collect usage data, analytics, or diagnostics. Nothing is phoned home. Your sessions, your connections, your data — all local.</p>
+        </div>
+        <div class="trust-detail">
+          <h4>No Subscription</h4>
+          <p>One-time purchase. The license is yours. No annual renewals, no tier upgrades, no surprise charges.</p>
+        </div>
+        <div class="trust-detail">
+          <h4>AI Is Opt-In</h4>
+          <p>AI features are disabled by default. Nothing is sent to any external service unless you explicitly configure your own API key and invoke the assistant. You control what context is shared.</p>
+        </div>
+        <div class="trust-detail">
+          <h4>Free Trial</h4>
+          <p>Full-featured trial so you can evaluate the product in your actual workflow before spending anything. No credit card required.</p>
+        </div>
+        <div class="trust-detail">
+          <h4>Real Documentation</h4>
+          <p>Over 20 support articles covering setup, configuration, troubleshooting, and AI integration. Written for practitioners, not marketing.</p>
+        </div>
+        <div class="trust-detail">
+          <h4>Direct Support</h4>
+          <p>Email the people who build the product. No ticket queues, no chatbots, no support tiers. If something isn't working, we want to know.</p>
         </div>
       </div>
     </div>
@@ -155,9 +218,12 @@
 
   <section class="cta-section">
     <div class="container">
-      <h2>Ready to get started?</h2>
-      <p>Learn how to install RockTerm and make your first connection.</p>
-      <a href="/rockterm/getting-started/" class="btn btn-primary">Getting Started Guide</a>
+      <h2>Try RockTerm free.</h2>
+      <p>Download from the Microsoft Store, make your first connection, and see if it fits your workflow.</p>
+      <div class="cta-actions">
+        <a href="#" class="btn btn-primary">Get RockTerm on the Microsoft Store</a>
+        <a href="/rockterm/system-requirements/" class="btn btn-secondary btn-on-dark">System Requirements</a>
+      </div>
     </div>
   </section>
 
