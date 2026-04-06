@@ -14,7 +14,9 @@
       "Bash(grep -L 'Still need help' /home/aquamarine/Desktop/rockriver-site/rockterm/support/*/index.html)",
       "Bash(grep -l 'Back to Support' /home/aquamarine/Desktop/rockriver-site/rockterm/support/*/index.html)",
       "Bash(grep -c 'Back to Support' /home/aquamarine/Desktop/rockriver-site/rockterm/support/*/index.html)",
-      "Bash(grep -v 'index.html$')"
+      "Bash(grep -v 'index.html$')",
+      "Bash(grep -L 'og:title' /home/aquamarine/Desktop/rockriver-site/**/*.html /home/aquamarine/Desktop/rockriver-site/*.html)",
+      "Bash(grep -L 'robots' /home/aquamarine/Desktop/rockriver-site/**/*.html /home/aquamarine/Desktop/rockriver-site/*.html)"
     ]
   }
 }
