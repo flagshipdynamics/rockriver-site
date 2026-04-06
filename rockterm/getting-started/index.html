@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Getting Started — RockTerm — Rock River Research</title>
-  <meta name="description" content="Get started with RockTerm — installation, setup, and your first SSH connection.">
+  <meta name="description" content="Get started with RockTerm — installation, setup, and your first SSH, Telnet, or serial console connection.">
   <link rel="stylesheet" href="/css/style.css">
   <link rel="icon" href="/favicon.ico">
 </head>
@@ -73,24 +73,40 @@
       <p>Download RockTerm from the <a href="#">Microsoft Store</a>. The free trial includes full functionality so you can evaluate the product before purchasing. Once installed, launch RockTerm from your Start menu or taskbar.</p>
 
       <h2>Step 2: Create a Connection</h2>
-      <p>Open the connection manager from the sidebar or main menu. Click <strong>New Connection</strong>. Enter the following details for your SSH host:</p>
+      <p>Open the connection manager from the sidebar or main menu. Click <strong>New Connection</strong> and choose your connection type:</p>
+
+      <h3>SSH</h3>
       <ul>
         <li><strong>Host</strong> — the hostname or IP address of the remote machine</li>
         <li><strong>Port</strong> — the SSH port (default: 22)</li>
         <li><strong>Username</strong> — your login username</li>
         <li><strong>Authentication</strong> — choose password or SSH key, and provide the key file path if applicable</li>
       </ul>
+
+      <h3>Telnet</h3>
+      <ul>
+        <li><strong>Host</strong> — the hostname or IP address of the target device</li>
+        <li><strong>Port</strong> — the Telnet port (default: 23)</li>
+      </ul>
+
+      <h3>Serial Console</h3>
+      <ul>
+        <li><strong>COM Port</strong> — select the serial port (e.g., COM3)</li>
+        <li><strong>Baud Rate</strong> — the connection speed (common values: 9600, 115200)</li>
+        <li><strong>Data Bits / Stop Bits / Parity</strong> — configure as required by your device (defaults: 8, 1, None)</li>
+      </ul>
+
       <p>Save the profile. You can organize connections into groups for different environments or projects.</p>
 
       <h2>Step 3: Connect</h2>
-      <p>Select your saved connection from the connection manager and click <strong>Connect</strong>. RockTerm opens a new terminal tab with your SSH session. You can open multiple connections in separate tabs and switch between them.</p>
+      <p>Select your saved connection from the connection manager and click <strong>Connect</strong>. RockTerm opens a new terminal tab with your session. You can open multiple connections in separate tabs and switch between them — mixing SSH, Telnet, and serial sessions as needed.</p>
 
       <h2>Step 4: Using AI Assistance</h2>
       <p>With an active terminal session, invoke the AI assistant using the AI button in the toolbar or the configured keyboard shortcut. The assistant can see your recent terminal output and provide contextual help. Ask it about error messages, command syntax, configuration questions, or have it explain complex output.</p>
 
       <h2>Tips</h2>
       <ul>
-        <li>Organize connections into groups for different environments (production, staging, lab).</li>
+        <li>Organize SSH, Telnet, and serial connections into groups for different environments (production, staging, lab).</li>
         <li>Customize your terminal font and colors in Settings.</li>
         <li>AI features require an active internet connection for the AI provider API.</li>
       </ul>
