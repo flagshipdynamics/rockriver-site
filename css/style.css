@@ -509,6 +509,21 @@ body.mobile-nav-open {
   color: #c0c4cc;
 }
 
+.back-link {
+  margin-top: 48px;
+  margin-bottom: 8px;
+}
+
+.back-link a {
+  color: #2563eb;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.back-link a:hover {
+  text-decoration: underline;
+}
+
 .page-logo {
   height: 80px;
   width: auto;
