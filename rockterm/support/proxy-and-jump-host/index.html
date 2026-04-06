@@ -141,6 +141,10 @@
       <pre><code>ssh -D 1080 -f -N user@external-server.example.com</code></pre>
       <p>This binds a SOCKS5 proxy on <code>localhost:1080</code>. Configure RockTerm to use <code>127.0.0.1:1080</code> as a SOCKS5 proxy, and all connections will be routed through <code>external-server</code>.</p>
 
+      <div class="article-screenshot">
+        <img src="/images/rockterm-port-forwarding.png" alt="RockTerm port forwarding configuration dialog">
+      </div>
+
       <h2>Chained Connections (Multiple Hops)</h2>
       <p>Some environments require passing through two or more intermediate hosts to reach the final destination. For example:</p>
       <pre><code>Workstation --> Bastion A (DMZ) --> Bastion B (Management VLAN) --> Target Server</code></pre>

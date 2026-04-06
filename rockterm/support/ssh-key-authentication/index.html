@@ -119,6 +119,10 @@ exit</code></pre>
 
       <h2>Troubleshooting Common Issues</h2>
 
+      <div class="article-screenshot">
+        <img src="/images/rockterm-ssh-auth-failure.png" alt="RockTerm SSH authentication failure dialog">
+      </div>
+
       <h3>Permissions Problems (Linux Remote Host)</h3>
       <p>OpenSSH is strict about file permissions. If the permissions are too open, the server will silently ignore the <code>authorized_keys</code> file. Verify:</p>
       <pre><code>ls -la ~/.ssh/
