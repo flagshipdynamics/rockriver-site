@@ -630,6 +630,7 @@ body.mobile-nav-open {
 /* ===== Article screenshot ===== */
 .article-screenshot {
   margin: 24px 0;
+  max-width: 480px;
   border-radius: 8px;
   overflow: hidden;
   border: 1px solid #e1e4e8;
