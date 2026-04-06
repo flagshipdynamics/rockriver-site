@@ -19,15 +19,19 @@
   <header class="site-header">
     <div class="container">
       <a href="/" class="logo">Rock River Research</a>
-      <nav>
-        <ul class="nav">
-          <li>
+      <nav class="site-nav">
+        <div class="nav-header">
+          <a href="/" class="logo">Rock River Research</a>
+          <button class="nav-close" aria-label="Close menu">&#10005;</button>
+        </div>
+        <ul>
+          <li class="has-dropdown">
             <a href="#" class="dropdown-toggle">Products</a>
             <ul class="dropdown-menu">
               <li><a href="/rockterm/">RockTerm</a></li>
             </ul>
           </li>
-          <li>
+          <li class="has-dropdown">
             <a href="#" class="dropdown-toggle">Support</a>
             <ul class="dropdown-menu">
               <li><a href="/rockterm/support/">Support Articles</a></li>
@@ -44,34 +48,6 @@
       <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
     </div>
   </header>
-
-  <div class="mobile-nav">
-    <div class="mobile-nav-header">
-      <a href="/" class="logo">Rock River Research</a>
-      <button class="mobile-nav-close" aria-label="Close menu">&#10005;</button>
-    </div>
-    <ul>
-      <li>
-        <span>Products</span>
-        <div class="mobile-dropdown">
-          <a href="/rockterm/">RockTerm</a>
-        </div>
-      </li>
-      <li>
-        <span>Support</span>
-        <div class="mobile-dropdown">
-          <a href="/rockterm/support/">Support Articles</a>
-          <a href="/rockterm/getting-started/">Getting Started</a>
-          <a href="/rockterm/faq/">FAQ</a>
-          <a href="/rockterm/troubleshooting/">Troubleshooting</a>
-          <a href="/rockterm/system-requirements/">System Requirements</a>
-        </div>
-      </li>
-      <li><a href="/about/">About</a></li>
-      <li><a href="/contact/">Contact</a></li>
-    </ul>
-  </div>
-
   <main class="page-content">
     <div class="container">
       <h1>About Rock River Research</h1>
