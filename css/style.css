@@ -470,10 +470,10 @@ body.mobile-nav-open {
 }
 
 /* ===== Product logo ===== */
-.product-logo {
-  height: 140px;
+.product-logo-sm {
+  height: 72px;
   width: auto;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 /* ===== Product Pitch (RockTerm page) ===== */
