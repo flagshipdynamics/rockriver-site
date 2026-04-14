@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow">
   <title>Features — RockTerm — Rock River Research</title>
-  <meta name="description" content="RockTerm features — SSH, Telnet, and serial console support, AI terminal assistance, connection management, and more.">
+  <meta name="description" content="RockTerm features — SSH, Telnet, serial, and local shell in a tabbed MDI workspace with Session Manager, Button Bar, Script Manager, port forwarding, 10 color themes, highlight rules, and a dockable AI assistant supporting Anthropic Claude and OpenAI GPT.">
   <link rel="canonical" href="https://rockriverresearch.com/rockterm/features/">
   <meta property="og:title" content="Features — RockTerm — Rock River Research">
-  <meta property="og:description" content="RockTerm features — SSH, Telnet, and serial console support, AI terminal assistance, connection management, and more.">
+  <meta property="og:description" content="RockTerm features — SSH, Telnet, serial, and local shell in a tabbed MDI workspace with Session Manager, Button Bar, Script Manager, port forwarding, 10 color themes, highlight rules, and a dockable AI assistant supporting Anthropic Claude and OpenAI GPT.">
   <meta property="og:url" content="https://rockriverresearch.com/rockterm/features/">
   <meta property="og:image" content="https://rockriverresearch.com/images/logo.png">
   <meta property="og:type" content="website">
@@ -52,27 +52,91 @@
     <div class="container">
       <h1>Features</h1>
 
-      <h2>AI Integration</h2>
-      <p>RockTerm's AI assistant lives inside your terminal session. When you need help, invoke the assistant and it reads your recent terminal output to provide contextual guidance. It can interpret error messages, suggest commands, explain complex output like routing tables or interface configurations, and help you work through unfamiliar log formats.</p>
-      <p>AI features are entirely opt-in. Nothing is sent to any external AI provider unless you explicitly trigger the assistant. When you do, only the relevant terminal context is transmitted — and you can see exactly what's being sent. The AI understands networking context: BGP neighbor tables, OSPF adjacencies, firewall rules, interface stats, and more.</p>
+      <h2>Connectivity</h2>
 
-      <h2>SSH Terminal</h2>
-      <p>RockTerm provides fast, reliable terminal emulation with full support for standard SSH connections. Authenticate with passwords or SSH keys, configure terminal settings like font, colors, and scrollback buffer size, and run multiple simultaneous sessions in tabs. The terminal renders quickly and handles high-throughput output without lag.</p>
+      <h3>SSH</h3>
+      <p>Fast, reliable SSH via paramiko with password and key-based authentication, host key verification, SSH agent forwarding, and per-session port forwarding (local, remote, and dynamic tunnels). Handles high-throughput output without lag and stays responsive in long-running sessions.</p>
 
-      <h2>Telnet</h2>
-      <p>Full Telnet support for connecting to legacy systems, network devices, and equipment that requires Telnet access. RockTerm handles Telnet sessions with the same tabbed interface, connection profiles, and AI assistance available to SSH connections.</p>
+      <h3>Telnet</h3>
+      <p>Full Telnet support for legacy network devices, console servers, and equipment that still speaks Telnet. Telnet sessions share the same workspace, connection profiles, scripting, and AI assistance as SSH.</p>
 
-      <h2>Serial Console</h2>
-      <p>Connect directly to network equipment, embedded systems, and infrastructure devices over serial (COM) ports. Configure baud rate, data bits, parity, stop bits, and flow control. Serial console sessions integrate into the same interface as SSH and Telnet — manage all your connections from one place.</p>
+      <h3>Serial Console</h3>
+      <p>Connect directly to network equipment, embedded systems, and infrastructure gear over serial (COM) ports. Configure baud rate, data bits, parity, stop bits, and flow control — or let <strong>Auto-Detect</strong> probe the port across common settings until it finds one that produces readable output. No more guessing 9600 vs 115200 or whether parity is Even or None.</p>
 
-      <h2>Connection Manager</h2>
-      <p>Save connection profiles for SSH, Telnet, and serial connections. Organize profiles into groups — by environment, project, client, or however you work. Quick-connect to any saved host with a single click. Import and export connection lists for backup or sharing across machines.</p>
+      <h3>Local Shell</h3>
+      <p>Open a native local shell in the same workspace as your remote sessions. Uses native PTY on Linux and macOS and ConPTY (via pywinpty) on Windows, so everything behaves the way your OS expects.</p>
 
-      <h2>Interface</h2>
-      <p>A dark theme optimized for extended terminal use. Resizable panes let you view multiple sessions side by side. Customize your font family, font size, and color scheme. The interface is keyboard-driven with configurable shortcuts, so you can stay in your workflow without reaching for the mouse.</p>
+      <h2>Workspace</h2>
 
-      <h2>Microsoft Store Integration</h2>
-      <p>RockTerm is installed directly from the Microsoft Store. Updates are delivered automatically. A free trial is available so you can evaluate the full product before purchasing. When you're ready, it's a one-time purchase — no subscription, no recurring charges.</p>
+      <h3>Tabbed MDI Canvas</h3>
+      <p>Each tab holds an independent canvas of floating, resizable terminal sub-windows. Tile them, cascade them, split them, or focus-jump between them. Mix SSH, Telnet, serial, and local shell sessions on the same canvas — whatever matches the shape of the work.</p>
+
+      <h3>Session Manager</h3>
+      <p>A left-side dock with a tree of saved sessions organized into folders. Double-click to open. The dock is lockable to the edge with a custom title bar so it can't be torn off by accident.</p>
+
+      <h3>Button Bar</h3>
+      <p>Per-session quick-command buttons for the keystrokes you type over and over: <code>show run</code>, <code>reload</code>, <code>enable</code>, <code>write memory</code>, whatever your workflow needs. Buttons are stored per saved session, so the right commands follow the right device.</p>
+
+      <h3>Script Manager</h3>
+      <p>Expect-style automation scripts with a built-in editor (syntax-highlighted), runner, and import/export. Automate repetitive sequences against network devices and servers. Launch it with <code>Ctrl+Shift+S</code> or <code>F5</code>.</p>
+
+      <h3>Port Forwarding</h3>
+      <p>Configure local, remote, and dynamic SSH tunnels per saved connection. Bring up tunnels alongside the session without leaving the app.</p>
+
+      <h2>Terminal</h2>
+
+      <h3>Full VT Emulation</h3>
+      <p>Terminal rendering is backed by pyte with correct resize semantics, scrollback, and ANSI handling. Output is preserved across resize events and focus changes — no more prompt duplication or stale screen fragments when you tile, cascade, or maximize.</p>
+
+      <h3>Highlight Rules</h3>
+      <p>Colorize terminal output in real time — errors in red, warnings in amber, interface up/down events, Cisco and networking patterns, syslog levels. Rules live in JSON files, ship with sensible defaults, and can be edited through a built-in GUI editor with live preview. Your edits layer over the bundled defaults without modifying them.</p>
+
+      <h3>Color Themes</h3>
+      <p>Ten built-in terminal color palettes: <strong>Default Dark</strong>, <strong>Default Light</strong>, <strong>Solarized Dark</strong>, <strong>Solarized Light</strong>, <strong>Dracula</strong>, <strong>Gruvbox Dark</strong>, <strong>Nord</strong>, <strong>Monokai</strong>, <strong>Tomorrow Night</strong>, and <strong>Cisco Console</strong>. A GUI theme editor (<code>Preferences &rarr; Appearance &rarr; Edit Themes</code>) lets you rename, duplicate, and live-preview custom palettes. Themes are JSON files — drop-in and portable.</p>
+
+      <h3>MDI Wallpaper</h3>
+      <p>Set a background image on the canvas. The wallpaper scales cleanly when you maximize, resize, or tile sub-windows — no tiling artifacts, no stale fragments.</p>
+
+      <h3>Everyday Niceties</h3>
+      <ul>
+        <li>Zoom in / zoom out / reset zoom</li>
+        <li>Copy on selection, paste from clipboard, <code>Ctrl+Shift+C</code> / <code>Ctrl+Shift+V</code> shortcuts</li>
+        <li>Send break to serial devices</li>
+        <li>Session logging with ANSI escape stripping for clean log files</li>
+      </ul>
+
+      <h2>AI Assistant</h2>
+
+      <h3>Persistent Right-Side Dock</h3>
+      <p>The AI assistant lives in a dockable panel on the right side of the main window. Chat history persists across session switches and theme changes, so you can walk back through a conversation instead of losing it the moment the dialog closes.</p>
+
+      <h3>Two Providers</h3>
+      <p>RockTerm supports both <strong>Anthropic Claude</strong> and <strong>OpenAI GPT</strong>. Choose your provider, model, and API key in <code>Edit &rarr; Preferences &rarr; AI Assistant</code>. You bring your own key; RockTerm never proxies your data through a third party.</p>
+
+      <h3>Context-Aware</h3>
+      <p>Right-click selected terminal output and send it to the assistant along with recent scrollback. Every context block that gets sent to the model is recorded in the chat history as a distinct block right before the user question, so past conversations stay interpretable when you re-open them later.</p>
+
+      <h3>Quick Prompts and Safety Rails</h3>
+      <p>One-click <strong>Explain</strong>, <strong>Fix Error</strong>, and <strong>Summarize</strong> prompts. <strong>Copy Last</strong> copies the latest response to your clipboard. <strong>Send to Terminal</strong> routes text into the active terminal — behind a confirmation dialog so nothing gets typed into a live session by accident. Rate limits, quota exhaustion, and billing errors surface as friendly messages instead of raw HTTP errors.</p>
+
+      <h2>Theming &amp; UX</h2>
+
+      <h3>Light and Dark UI Themes</h3>
+      <p>Toggle between light and dark UI themes with <code>View &rarr; Theme</code>. Changes apply live to every dock, dialog, menu, and terminal — no restart, no stale stylesheets. On Windows 10/11, the title bar darkens to match.</p>
+
+      <h3>Secret Manager</h3>
+      <p>An AES-encrypted credential vault unlocked with a master password. Saved session credentials are stored in the vault, so you are never trading convenience for plaintext passwords on disk.</p>
+
+      <h3>Polished Connection Dialog</h3>
+      <p>The New Connection dialog uses accent-tinted icon badges, refined typography, and keyboard-focus rings. Small details, but they make daily use feel like a tool rather than a toy.</p>
+
+      <h2>Distribution</h2>
+
+      <h3>Microsoft Store</h3>
+      <p>RockTerm ships as a signed MSIX package through the Microsoft Store. Updates are delivered automatically. A free trial is available so you can evaluate the full product before purchasing. One-time purchase — no subscription, no recurring charges.</p>
+
+      <h3>No Telemetry</h3>
+      <p>RockTerm does not collect usage data, analytics, or crash telemetry. Your sessions, your connections, and your API keys stay on your machine. The only outbound traffic comes from the things you explicitly initiate: the SSH/Telnet/serial sessions themselves, and AI requests you consciously send.</p>
     </div>
   </main>
 

@@ -62,52 +62,75 @@
 
       <p>If RockTerm's AI features are not responding, returning errors, or timing out, work through the following troubleshooting steps in order. Most issues can be resolved quickly.</p>
 
+      <p>Before you start, check which provider is active. The top of the AI Assistant panel shows the current <strong>Provider</strong> and <strong>Model</strong>. RockTerm supports both <strong>Anthropic Claude</strong> (<code>api.anthropic.com</code>) and <strong>OpenAI GPT</strong> (<code>api.openai.com</code>) &mdash; the troubleshooting steps below apply to whichever provider you selected in <code>Edit &rarr; Preferences &rarr; AI Assistant</code>.</p>
+
       <h2>1. Check Your Internet Connection</h2>
-      <p>RockTerm's AI features require an active internet connection to communicate with the Anthropic API over HTTPS.</p>
+      <p>RockTerm's AI features require an active internet connection to the provider you selected.</p>
       <ul>
         <li>Verify that your machine can reach external websites.</li>
-        <li>Confirm that HTTPS traffic to <code>api.anthropic.com</code> is not blocked. You can test this by running:<br>
-          <code>curl https://api.anthropic.com</code></li>
+        <li>Confirm that HTTPS traffic to the provider endpoint is not blocked:
+          <ul>
+            <li><code>curl https://api.anthropic.com</code> (Anthropic)</li>
+            <li><code>curl https://api.openai.com</code> (OpenAI)</li>
+          </ul>
+        </li>
         <li>If you are on a restricted network, see the firewall and proxy section below.</li>
       </ul>
 
       <h2>2. Verify Your API Key</h2>
       <p>An invalid, expired, or revoked API key will prevent AI features from functioning.</p>
       <ul>
-        <li>Open <strong>Settings &gt; AI</strong> in RockTerm and confirm that an API key is entered.</li>
+        <li>Open <strong>Edit &rarr; Preferences &rarr; AI Assistant</strong> and confirm that a key is entered for the active provider.</li>
         <li>Check that the key has not been accidentally truncated or modified.</li>
-        <li>Sign in to <a href="https://console.anthropic.com" target="_blank" rel="noopener">console.anthropic.com</a> and verify that the key is still active.</li>
-        <li>If you are unsure whether the key is valid, generate a new API key from the Anthropic console, enter it in RockTerm, and try again.</li>
+        <li>Sign in to the provider's console and verify that the key is still active:
+          <ul>
+            <li><a href="https://console.anthropic.com" target="_blank" rel="noopener">console.anthropic.com</a></li>
+            <li><a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener">platform.openai.com/api-keys</a></li>
+          </ul>
+        </li>
+        <li>If you are unsure whether the key is valid, generate a new one, paste it into RockTerm, and try again.</li>
       </ul>
 
-      <h2>3. Check for API Rate Limits or Billing Issues</h2>
-      <p>Anthropic enforces rate limits and requires an active billing arrangement.</p>
+      <h2>3. Check for Rate Limits or Billing Issues</h2>
+      <p>Both providers enforce rate limits and require an active billing arrangement. If RockTerm detects a rate-limit, quota, or billing error, the AI panel shows a friendly message explaining what happened &mdash; but the underlying fix is on the provider side.</p>
       <ul>
-        <li>Visit the <a href="https://console.anthropic.com" target="_blank" rel="noopener">Anthropic dashboard</a> and check for any alerts or warnings on your account.</li>
+        <li>Visit your provider's dashboard and check for alerts or warnings:
+          <ul>
+            <li><a href="https://console.anthropic.com" target="_blank" rel="noopener">Anthropic console</a></li>
+            <li><a href="https://platform.openai.com/usage" target="_blank" rel="noopener">OpenAI usage dashboard</a></li>
+          </ul>
+        </li>
         <li>Verify that your account has a valid payment method on file and that you have not exceeded your spending limit.</li>
         <li>If you have hit a rate limit, wait a few minutes and try again. Rate limits typically reset after a short period.</li>
+        <li>If the problem persists, try switching to the other provider in Preferences as a workaround while you resolve the account issue.</li>
       </ul>
 
       <h2>4. Corporate Firewall or Proxy</h2>
-      <p>If you are on a corporate or institutional network, security policies may block outbound HTTPS requests to <code>api.anthropic.com</code>.</p>
+      <p>If you are on a corporate or institutional network, security policies may block outbound HTTPS requests to the provider API endpoint.</p>
       <ul>
-        <li>Contact your network administrator to confirm that traffic to <code>api.anthropic.com</code> (port 443) is permitted.</li>
+        <li>Contact your network administrator to confirm that traffic to <code>api.anthropic.com</code> or <code>api.openai.com</code> (port 443) is permitted.</li>
         <li>If your network requires a proxy, ensure that your system's proxy settings are configured correctly. RockTerm respects the system-level proxy configuration.</li>
-        <li>Some deep packet inspection (DPI) systems can interfere with API traffic. If you suspect this is the case, work with your IT department to whitelist the Anthropic API endpoint.</li>
+        <li>Some deep packet inspection (DPI) systems can interfere with API traffic. If you suspect this is the case, work with your IT department to whitelist the relevant endpoint.</li>
       </ul>
 
-      <h2>5. Check for an Anthropic API Outage</h2>
-      <p>On rare occasions, the Anthropic API may experience service disruptions.</p>
+      <h2>5. Check for a Provider Outage</h2>
+      <p>On rare occasions, the provider API may experience service disruptions.</p>
       <ul>
-        <li>Visit <a href="https://status.anthropic.com" target="_blank" rel="noopener">status.anthropic.com</a> to check for any ongoing incidents or maintenance windows.</li>
-        <li>If there is a reported outage, wait for Anthropic to resolve the issue and try again later.</li>
+        <li>Visit the provider status page:
+          <ul>
+            <li><a href="https://status.anthropic.com" target="_blank" rel="noopener">status.anthropic.com</a></li>
+            <li><a href="https://status.openai.com" target="_blank" rel="noopener">status.openai.com</a></li>
+          </ul>
+        </li>
+        <li>If there is a reported outage, wait for the provider to resolve the issue and try again. In the meantime, switching to the other provider in Preferences is often the fastest workaround.</li>
       </ul>
 
-      <h2>6. Confirm AI Features Are Enabled</h2>
-      <p>AI features in RockTerm are <strong>disabled by default</strong> and must be turned on before use.</p>
+      <h2>6. Confirm the AI Assistant Is Configured</h2>
+      <p>AI features require a provider, model, and API key before they will respond.</p>
       <ul>
-        <li>Open <strong>Settings &gt; AI</strong> in RockTerm.</li>
-        <li>Ensure the <strong>Enable AI Features</strong> toggle is switched on.</li>
+        <li>Open <strong>Edit &rarr; Preferences &rarr; AI Assistant</strong>.</li>
+        <li>Verify that <strong>Provider</strong>, <strong>Model</strong>, and <strong>API Key</strong> are all set.</li>
+        <li>Open the panel with <code>Ctrl+Shift+I</code> or <code>View &rarr; AI Assistant</code> and confirm the top bar shows the provider and model you expect.</li>
         <li>If you recently updated RockTerm, verify that your AI settings were preserved. In some cases, a major update may reset preferences to their defaults.</li>
       </ul>
 

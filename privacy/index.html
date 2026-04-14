@@ -56,7 +56,7 @@
 
       <h2>Information We Collect</h2>
       <p>RockTerm does not collect personal data. We do not use telemetry, usage analytics, or tracking of any kind. The software does not phone home, transmit diagnostics, or gather behavioral data.</p>
-      <p>RockTerm includes optional AI integration features that, when explicitly initiated by the user, may send terminal context to a third-party AI provider (Anthropic's Claude API) to generate responses. No data is sent to any external service unless you explicitly invoke the AI assistant. You are always in control of when and whether AI features are used.</p>
+      <p>RockTerm includes optional AI integration features that, when explicitly initiated by the user, may send terminal context to a third-party AI provider (Anthropic Claude or OpenAI, depending on which provider you configured) to generate responses. No data is sent to any external service unless you explicitly invoke the AI assistant. You are always in control of which provider you use, and when and whether AI features are used at all.</p>
 
       <h2>Microsoft Store</h2>
       <p>RockTerm is distributed through the Microsoft Store. Purchases, licensing, and account management are handled entirely by Microsoft. Microsoft collects payment information, account details, and other data in accordance with their own privacy policy. Rock River Research does not receive or store your payment details, Microsoft account information, or billing data.</p>
@@ -65,8 +65,8 @@
       <p>All user data — including SSH connection profiles, application settings, and session history — is stored locally on your machine. Nothing is transmitted to Rock River Research servers. We do not operate servers that receive, store, or process your data.</p>
 
       <h2>Third-Party Services</h2>
-      <p>When you use RockTerm's AI features, the data you send to the AI assistant is transmitted to the third-party AI provider (currently Anthropic). That data is governed by the AI provider's own privacy policy and terms of service. Rock River Research does not control how the AI provider processes your data.</p>
-      <p>You can disable AI features entirely in RockTerm's settings. When AI features are disabled, no data is sent to any third-party service.</p>
+      <p>When you use RockTerm's AI features, the data you send to the AI assistant is transmitted directly from your machine to the third-party AI provider you selected &mdash; either Anthropic (<code>api.anthropic.com</code>) or OpenAI (<code>api.openai.com</code>). Requests are never proxied through any Rock River Research server. That data is governed by the selected provider's own privacy policy and terms of service. Rock River Research does not control how the AI provider processes your data.</p>
+      <p>You can disable AI features entirely by leaving the provider unconfigured in RockTerm's settings. When AI features are not configured, no data is sent to any third-party service.</p>
 
       <h2>Children's Privacy</h2>
       <p>RockTerm is not designed for or directed at children under the age of 13. We do not knowingly collect information from children under 13.</p>

@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow">
   <title>Free Trial and Licensing — RockTerm Support — Rock River Research</title>
-  <meta name="description" content="RockTerm free trial details, licensing model, Microsoft Store purchase, commercial use policy, and AI feature billing through Anthropic API keys.">
+  <meta name="description" content="RockTerm free trial details, licensing model, Microsoft Store purchase, commercial use policy, and AI feature billing through Anthropic Claude or OpenAI API keys.">
   <link rel="canonical" href="https://rockriverresearch.com/rockterm/support/free-trial-and-licensing/">
   <meta property="og:title" content="Free Trial and Licensing — RockTerm Support — Rock River Research">
-  <meta property="og:description" content="RockTerm free trial details, licensing model, Microsoft Store purchase, commercial use policy, and AI feature billing through Anthropic API keys.">
+  <meta property="og:description" content="RockTerm free trial details, licensing model, Microsoft Store purchase, commercial use policy, and AI feature billing through Anthropic Claude or OpenAI API keys.">
   <meta property="og:url" content="https://rockriverresearch.com/rockterm/support/free-trial-and-licensing/">
   <meta property="og:image" content="https://rockriverresearch.com/images/logo.png">
   <meta property="og:type" content="website">
@@ -88,15 +88,15 @@
       <p>For bulk deployments across an organization, consider using the <strong>Microsoft Store for Business</strong> or <strong>Microsoft Intune</strong> to manage license distribution and installation across multiple user accounts.</p>
 
       <h2>AI Feature Costs</h2>
-      <p>RockTerm's AI-assisted terminal features (command suggestions, output analysis, natural language queries) are powered by Anthropic's Claude API. These features require you to provide your own Anthropic API key, configured in <strong>Settings &gt; AI &gt; API Key</strong>.</p>
+      <p>RockTerm's AI-assisted terminal features (command suggestions, output analysis, natural language queries) support two providers: <strong>Anthropic Claude</strong> and <strong>OpenAI GPT</strong>. You choose which provider to use and supply your own API key in <strong>Edit &rarr; Preferences &rarr; AI Assistant</strong>.</p>
       <p>Key points about AI costs:</p>
       <ul>
-        <li><strong>Billed separately by Anthropic.</strong> AI usage is billed directly by Anthropic to your Anthropic account. Rock River Research does not charge for AI usage, does not proxy API calls, and does not mark up Anthropic's pricing.</li>
-        <li><strong>You control costs.</strong> You can set spending limits and usage alerts in your Anthropic account dashboard at <code>https://console.anthropic.com</code>.</li>
-        <li><strong>AI features are optional.</strong> RockTerm is a fully functional terminal emulator without an API key configured. The AI features are an enhancement, not a requirement. If you do not configure an API key, all AI-related UI elements are hidden.</li>
-        <li><strong>API key security.</strong> Your Anthropic API key is stored locally on your device and is never transmitted to Rock River Research servers. It is only sent directly to Anthropic's API endpoints when you use AI features.</li>
+        <li><strong>Billed separately by your chosen provider.</strong> AI usage is billed directly by Anthropic or OpenAI to your account with that provider. Rock River Research does not charge for AI usage, does not proxy API calls, and does not mark up either provider's pricing.</li>
+        <li><strong>You control costs.</strong> Set spending limits and usage alerts in your provider's dashboard &mdash; <a href="https://console.anthropic.com" target="_blank" rel="noopener">console.anthropic.com</a> for Anthropic, or <a href="https://platform.openai.com/usage" target="_blank" rel="noopener">platform.openai.com/usage</a> for OpenAI.</li>
+        <li><strong>AI features are optional.</strong> RockTerm is a fully functional terminal emulator without a provider configured. The AI features are an enhancement, not a requirement. If you do not configure a provider, no AI requests are ever made.</li>
+        <li><strong>API key security.</strong> Your API key is stored locally on your device and is never transmitted to Rock River Research servers. It is only sent directly to the provider's API endpoint (<code>api.anthropic.com</code> or <code>api.openai.com</code>) when you use AI features.</li>
       </ul>
-      <p>For information on Anthropic's API pricing, visit <code>https://www.anthropic.com/pricing</code>.</p>
+      <p>For current API pricing, visit <a href="https://www.anthropic.com/pricing" target="_blank" rel="noopener">anthropic.com/pricing</a> or <a href="https://openai.com/pricing" target="_blank" rel="noopener">openai.com/pricing</a>.</p>
 
       <p class="back-link"><a href="/rockterm/support/">&larr; Back to Support Articles</a></p>
 

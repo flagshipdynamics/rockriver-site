@@ -62,19 +62,22 @@
 
       <p>We believe you should have full visibility into what data leaves your machine and when. This article explains exactly how RockTerm's AI features handle your data.</p>
 
+      <h2>Which Provider</h2>
+      <p>RockTerm supports two AI providers: <strong>Anthropic Claude</strong> and <strong>OpenAI GPT</strong>. You choose which one to use in <strong>Edit &rarr; Preferences &rarr; AI Assistant</strong> and supply your own API key. AI requests go <strong>directly from your machine to the provider you selected</strong> &mdash; they are never proxied through any Rock River Research server. The endpoint is <code>api.anthropic.com</code> for Anthropic and <code>api.openai.com</code> for OpenAI.</p>
+
       <h2>When Data Is Sent</h2>
-      <p>RockTerm's AI features operate on an <strong>explicit invocation model only</strong>. Data is sent to the Anthropic API under the following conditions:</p>
+      <p>RockTerm's AI features operate on an <strong>explicit invocation model only</strong>. Data is sent to the provider API under the following conditions:</p>
       <ul>
         <li><strong>Only when you explicitly invoke an AI feature.</strong> No data is ever sent in the background, automatically, or on a schedule.</li>
         <li><strong>No telemetry.</strong> RockTerm does not collect usage analytics, crash reports, or any form of telemetry that involves transmitting data off your machine.</li>
-        <li><strong>No background communication.</strong> When AI features are idle, RockTerm makes zero network requests to Anthropic or to Rock River Research.</li>
+        <li><strong>No background communication.</strong> When the AI panel is idle, RockTerm makes zero network requests to Anthropic, OpenAI, or Rock River Research.</li>
       </ul>
 
       <h2>What Is Sent</h2>
-      <p>When you invoke an AI feature, the following data is transmitted to the Anthropic API:</p>
+      <p>When you submit a question from the AI panel, the following data is transmitted to the provider you selected:</p>
       <ul>
-        <li><strong>Your prompt.</strong> The question or instruction you type into the AI interface.</li>
-        <li><strong>Recent terminal context.</strong> A portion of your visible terminal output is included to give the AI relevant context for your query. This is limited to what is currently visible or recently displayed in your terminal session.</li>
+        <li><strong>Your prompt.</strong> The question or instruction you type into the AI panel.</li>
+        <li><strong>Terminal context (if included).</strong> If the <strong>Include terminal context</strong> checkbox is enabled, a portion of recent scrollback from the active session is attached. If you right-clicked a selection and sent it to the panel, only that selection is attached. Both forms of context are visible in the panel before you submit, and they are also recorded in the chat history right before your question so past conversations stay interpretable.</li>
       </ul>
 
       <h2>What Is NOT Sent</h2>
@@ -86,9 +89,13 @@
       </ul>
       <p><strong>Important note:</strong> Hostnames, IP addresses, and other connection details that appear in your terminal output <em>may</em> be visible in the context sent to the API. If this is a concern for your environment, see the section on sensitive environments below.</p>
 
-      <h2>Data Retention by Anthropic</h2>
-      <p>Once your data reaches the Anthropic API, it is subject to Anthropic's data handling policies. For full details on how Anthropic stores, processes, and retains API data, please refer to <a href="https://www.anthropic.com/privacy" target="_blank" rel="noopener">Anthropic's privacy policy</a> and their API terms of service.</p>
-      <p>Rock River Research has no control over data retention once it has been transmitted to the Anthropic API.</p>
+      <h2>Data Retention by the Provider</h2>
+      <p>Once your data reaches the provider API, it is subject to that provider's data handling policies. For full details on how each provider stores, processes, and retains API data, refer to their privacy policies and API terms of service:</p>
+      <ul>
+        <li><a href="https://www.anthropic.com/privacy" target="_blank" rel="noopener">Anthropic Privacy Policy</a></li>
+        <li><a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener">OpenAI Privacy Policy</a> and <a href="https://openai.com/policies/api-data-usage-policies" target="_blank" rel="noopener">API Data Usage Policies</a></li>
+      </ul>
+      <p>Rock River Research has no control over data retention once it has been transmitted to the provider API. If privacy or data retention is a concern for your environment, review the terms of whichever provider you plan to use before enabling AI features.</p>
 
       <h2>Sensitive Environments</h2>
       <p>If you work in a government, healthcare, financial, or other regulated environment, consider the following before enabling AI features:</p>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>Serial Auto-Detect — RockTerm Support — Rock River Research</title>
+  <meta name="description" content="Automatically detect serial port settings in RockTerm. Auto-Detect probes baud rate, data bits, parity, stop bits, and flow control so you don't have to guess.">
+  <link rel="canonical" href="https://rockriverresearch.com/rockterm/support/serial-auto-detect/">
+  <meta property="og:title" content="Serial Auto-Detect — RockTerm Support — Rock River Research">
+  <meta property="og:description" content="Automatically detect serial port settings in RockTerm. Auto-Detect probes baud rate, data bits, parity, stop bits, and flow control so you don't have to guess.">
+  <meta property="og:url" content="https://rockriverresearch.com/rockterm/support/serial-auto-detect/">
+  <meta property="og:image" content="https://rockriverresearch.com/images/logo.png">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Rock River Research</a>
+      <nav class="site-nav">
+        <div class="nav-header">
+          <a href="/" class="logo">Rock River Research</a>
+          <button class="nav-close" aria-label="Close menu">&#10005;</button>
+        </div>
+        <ul>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/">RockTerm</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Support</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/support/">Support Articles</a></li>
+              <li><a href="/rockterm/getting-started/">Getting Started</a></li>
+              <li><a href="/rockterm/faq/">FAQ</a></li>
+              <li><a href="/rockterm/troubleshooting/">Troubleshooting</a></li>
+              <li><a href="/rockterm/system-requirements/">System Requirements</a></li>
+            </ul>
+          </li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
+    </div>
+  </header>
+  <main class="page-content">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> <span>&rsaquo;</span>
+        <a href="/rockterm/">RockTerm</a> <span>&rsaquo;</span>
+        <a href="/rockterm/support/">Support</a> <span>&rsaquo;</span>
+        Serial Auto-Detect
+      </nav>
+
+      <h1>Serial Auto-Detect</h1>
+      <p class="text-muted">Last updated: April 2026</p>
+
+      <p>When connecting to an unfamiliar serial device, you may not know the correct baud rate, data bits, parity, or flow control settings. Manually trying every combination is tedious and error-prone. RockTerm's Auto-Detect feature solves this by probing the port with common setting combinations and analyzing the response to find the correct configuration automatically.</p>
+
+      <h2>How It Works</h2>
+      <p>Auto-Detect opens the serial port with each candidate configuration, sends a carriage return to prompt the device to respond, and reads whatever comes back. A scoring algorithm evaluates the response based on:</p>
+      <ul>
+        <li><strong>Printable character ratio</strong> &mdash; Correct settings produce readable ASCII text. Wrong settings produce random bytes and control characters.</li>
+        <li><strong>Keyword recognition</strong> &mdash; The engine looks for common terminal keywords: <code>login</code>, <code>password</code>, <code>router</code>, <code>switch</code>, <code>cisco</code>, <code>console</code>, <code>welcome</code>, <code>u-boot</code>, and others.</li>
+        <li><strong>Prompt detection</strong> &mdash; Characters like <code>&gt;</code>, <code>#</code>, <code>$</code>, and <code>:</code> are strong indicators of a working connection.</li>
+        <li><strong>Corruption markers</strong> &mdash; Streams of null bytes (<code>0x00</code>) or <code>0xFF</code> are penalized heavily, as these are reliable signs of wrong baud rate or parity settings.</li>
+      </ul>
+
+      <h2>What Gets Tested</h2>
+      <p>RockTerm tests approximately 60 setting combinations, ordered by probability so the most common configurations are tried first:</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Priority</th>
+            <th>Configuration</th>
+            <th>Covers</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Tier 1</td>
+            <td>All standard baud rates with 8N1, no flow control</td>
+            <td>Most modern devices, Cisco, Juniper, Linux consoles, embedded systems</td>
+          </tr>
+          <tr>
+            <td>Tier 2</td>
+            <td>All standard baud rates with 7E1</td>
+            <td>Legacy terminals, PLCs, industrial equipment</td>
+          </tr>
+          <tr>
+            <td>Tier 3</td>
+            <td>All standard baud rates with 7O1</td>
+            <td>Older industrial and point-of-sale systems</td>
+          </tr>
+          <tr>
+            <td>Tier 4</td>
+            <td>8N1 with RTS/CTS and XON/XOFF flow control</td>
+            <td>Devices requiring hardware or software flow control</td>
+          </tr>
+          <tr>
+            <td>Tier 5</td>
+            <td>Rare baud rates (230400, 460800, 921600, 300, 600) with 8N1</td>
+            <td>High-speed embedded devices, very old equipment</td>
+          </tr>
+          <tr>
+            <td>Tier 6&ndash;7</td>
+            <td>8E1, 8O1, and 2-stop-bit variants</td>
+            <td>Uncommon configurations</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>Standard baud rates tested: 9600, 115200, 19200, 38400, 57600, 4800, 2400, and 1200.</p>
+
+      <p>If a high-confidence match is found during Tier 1 testing, the remaining tiers are skipped. A full scan of all 60 combinations typically completes in under 30 seconds.</p>
+
+      <h2>Using Auto-Detect</h2>
+      <ol>
+        <li>Open the serial connection dialog (<strong>File &rarr; Connect &rarr; Serial</strong> or press <strong>Alt+S</strong>).</li>
+        <li>Select the correct <strong>COM port</strong> from the dropdown. If you're not sure which port, unplug and replug the serial adapter and click <strong>Refresh</strong> to see which port appears.</li>
+        <li>Click the <strong>Auto-Detect</strong> button.</li>
+        <li>In the Auto-Detect dialog, click <strong>Start Detection</strong>.</li>
+        <li>RockTerm will begin probing. The progress bar shows which configuration is currently being tested, and the <strong>Best Match</strong> panel updates in real time as better matches are found.</li>
+        <li>When detection completes, review the results:
+          <ul>
+            <li><strong>Green confidence score</strong> &mdash; High confidence. The settings are almost certainly correct.</li>
+            <li><strong>Yellow confidence score</strong> &mdash; Moderate confidence. The settings are likely correct but you may want to verify.</li>
+            <li><strong>Red confidence score</strong> &mdash; Low confidence. The device may not be responding, or the correct settings were not in the test set.</li>
+          </ul>
+        </li>
+        <li>Click <strong>Use These Settings</strong> to apply the detected configuration to the connection dialog, then click <strong>Connect</strong>.</li>
+      </ol>
+
+      <h2>Tips for Best Results</h2>
+      <ul>
+        <li><strong>Power on the device first.</strong> Auto-Detect works by reading the device's response. A powered-off device produces no data to analyze.</li>
+        <li><strong>Devices that send unsolicited output</strong> (boot messages, login prompts, periodic status updates) are detected fastest and with highest confidence.</li>
+        <li><strong>Quiet devices</strong> that only respond to specific commands may take longer or produce lower confidence scores. Auto-Detect sends a carriage return to try to provoke a response, but some devices require a specific key sequence.</li>
+        <li><strong>Close other applications</strong> that might be using the serial port. Only one application can access a COM port at a time.</li>
+        <li><strong>Check your cable.</strong> A null modem cable, straight-through cable, or USB-to-serial adapter must match what the device expects. Auto-Detect cannot compensate for incorrect cabling.</li>
+      </ul>
+
+      <h2>When Auto-Detect Doesn't Find a Match</h2>
+      <p>If Auto-Detect reports no data received or a very low confidence score:</p>
+      <ul>
+        <li>Verify the device is powered on and connected to the correct port.</li>
+        <li>Try pressing Enter or the space bar on the device's physical console (if accessible) to generate output, then run Auto-Detect again.</li>
+        <li>Check that you selected the right COM port &mdash; unplug the adapter, click Refresh, replug, and click Refresh again to identify the correct port by elimination.</li>
+        <li>Some devices require specific baud rates outside the common set (e.g., 14400 or 28800). In those cases, consult the device documentation and configure the settings manually.</li>
+        <li>If using a USB-to-serial adapter, ensure the driver is installed. Check Device Manager (Windows) or <code>dmesg | grep tty</code> (Linux) to confirm the adapter is recognized.</li>
+      </ul>
+
+      <p class="back-link"><a href="/rockterm/support/">&larr; Back to Support Articles</a></p>
+
+      <h2>Still need help?</h2>
+      <p>If you're still experiencing issues, <a href="/contact/">contact us</a> or email <a href="mailto:info@rockriverresearch.com">info@rockriverresearch.com</a>.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-content">
+          <p>&copy; 2026 Rock River Research, LLC. All rights reserved.</p>
+          <div class="footer-links">
+            <a href="/privacy/">Privacy Policy</a>
+            <a href="/terms/">Terms of Service</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </div>
+        <img src="/images/logo.png" alt="Rock River Research" class="footer-logo">
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

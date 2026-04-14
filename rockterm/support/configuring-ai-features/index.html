@@ -60,7 +60,7 @@
       <h1>Configuring AI Features</h1>
       <p class="text-muted">Last updated: April 2026</p>
 
-      <p>RockTerm includes an AI assistant powered by Anthropic's Claude that can help you interpret terminal output, troubleshoot errors, and navigate unfamiliar configuration syntax. This article explains what the AI can do, how to enable it, and how to use it effectively.</p>
+      <p>RockTerm includes an AI assistant that can help you interpret terminal output, troubleshoot errors, and navigate unfamiliar configuration syntax. The assistant supports two providers: <strong>Anthropic Claude</strong> and <strong>OpenAI GPT</strong>. You choose which one to use and supply your own API key. This article explains what the AI can do, how to enable it, and how to use it effectively.</p>
 
       <h2>What AI Can Do</h2>
       <p>The AI assistant acts as a knowledgeable advisor sitting alongside your terminal session. It can:</p>
@@ -73,26 +73,44 @@
       </ul>
 
       <h2>Enabling AI Features</h2>
-      <p>AI features are <strong>disabled by default</strong>. To enable them:</p>
+      <p>AI features require you to configure a provider and API key before they can be used. To set them up:</p>
       <ol>
-        <li>Open <strong>Settings</strong> (<code>Ctrl+,</code>)</li>
-        <li>Navigate to the <strong>AI</strong> tab</li>
-        <li>Toggle <strong>Enable AI Assistant</strong> to on</li>
-        <li>Enter your Anthropic API key (see <a href="/rockterm/support/ai-api-key-setup/">AI API Key Setup</a> for details)</li>
+        <li>Open <strong>Edit &rarr; Preferences</strong></li>
+        <li>Navigate to the <strong>AI Assistant</strong> tab</li>
+        <li>Select a <strong>Provider</strong>: <em>Anthropic</em> or <em>OpenAI</em></li>
+        <li>Select a <strong>Model</strong> from the provider's available list</li>
+        <li>Enter your API key (see <a href="/rockterm/support/ai-api-key-setup/">AI API Key Setup</a> for details on obtaining one)</li>
         <li>Click <strong>Save</strong></li>
       </ol>
-      <p>Once enabled, the AI button appears in the toolbar and the keyboard shortcut becomes active.</p>
+      <p>Once configured, open the AI Assistant panel from <code>View &rarr; AI Assistant</code> or with <code>Ctrl+Shift+I</code>.</p>
 
       <h2>How to Use the AI Assistant</h2>
-      <p>There are two ways to invoke the AI assistant:</p>
+      <p>The AI assistant is a persistent right-side dock panel. There are several ways to invoke it:</p>
       <ul>
-        <li><strong>Keyboard shortcut:</strong> Press <code>Ctrl+Shift+A</code> to open the AI panel</li>
-        <li><strong>Toolbar button:</strong> Click the <strong>AI</strong> icon in the terminal toolbar</li>
+        <li><strong>Keyboard shortcut:</strong> Press <code>Ctrl+Shift+I</code> to toggle the panel.</li>
+        <li><strong>View menu:</strong> <code>View &rarr; AI Assistant</code>.</li>
+        <li><strong>Right-click a terminal selection:</strong> Select terminal output, right-click, and choose <strong>Send to AI Assistant</strong>. The selected text is captured as context for your next question.</li>
       </ul>
 
-      <p>When invoked, the AI panel slides open alongside the terminal. Type your question or prompt in the input field and press <code>Enter</code>. The AI automatically sees the most recent terminal output (approximately the last 200 lines of the active session's scrollback buffer) as context, so you do not need to copy and paste terminal content into your prompt.</p>
+      <p>The panel's top bar shows the active provider and model so you always know which service your queries will hit. Type your question in the input field at the bottom and press <code>Enter</code> or click <strong>Submit</strong>.</p>
 
-      <p>The AI responds in the panel with formatted text, including code blocks you can copy with a single click. The terminal session continues running normally while the AI panel is open &mdash; you can type commands in the terminal and interact with the AI simultaneously.</p>
+      <h3>Terminal Context</h3>
+      <p>When you submit a question, RockTerm optionally includes recent terminal output as context so the model understands what you are asking about. There are two kinds of context:</p>
+      <ul>
+        <li><strong>Selected text</strong> &mdash; if you right-clicked a selection, that exact text is sent.</li>
+        <li><strong>Recent scrollback</strong> &mdash; the last few hundred lines of the active session, toggleable with an <strong>Include terminal context</strong> checkbox in the panel.</li>
+      </ul>
+      <p>Both are visible in the panel before you submit, so you can see exactly what will be sent. Every context block that gets sent to the model is also recorded in the chat history as a distinct block right before your question, so past conversations stay interpretable when you re-open them later.</p>
+
+      <h3>Quick Prompts and Actions</h3>
+      <ul>
+        <li><strong>Explain</strong>, <strong>Fix Error</strong>, and <strong>Summarize</strong> buttons insert one-click prompts with the captured context.</li>
+        <li><strong>Copy Last</strong> copies the most recent AI response to your clipboard.</li>
+        <li><strong>Send to Terminal</strong> routes text from the response into the active terminal &mdash; behind a confirmation dialog, so nothing gets typed into a live session by accident.</li>
+        <li><strong>Clear Chat</strong> empties the history if you want a fresh conversation.</li>
+      </ul>
+
+      <p>The panel, its history, and the terminal session all stay alive together. You can type commands in the terminal and interact with the AI simultaneously, and chat history persists across session switches and theme changes until you clear it.</p>
 
       <h2>Example Prompts</h2>
       <p>Here are some practical prompts to get you started:</p>
@@ -121,11 +139,11 @@
       <h2>Limitations</h2>
       <p>The AI assistant is a powerful tool, but it is important to understand its boundaries:</p>
       <ul>
-        <li><strong>Advisor, not operator.</strong> The AI provides suggestions and explanations. It cannot execute commands on the remote host. You must review every suggestion and decide whether to apply it.</li>
-        <li><strong>Cannot execute commands.</strong> The AI has no ability to type into the terminal, send keystrokes, or modify the SSH session in any way. It is read-only with respect to the terminal.</li>
+        <li><strong>Advisor, not operator.</strong> The AI provides suggestions and explanations. It does not execute commands on the remote host on its own. Even <strong>Send to Terminal</strong> shows a confirmation dialog before anything is typed, so you always review and approve.</li>
         <li><strong>Always verify before executing.</strong> AI-generated commands and configurations should be treated like advice from a colleague: helpful, but you should verify correctness against vendor documentation and test in a non-production environment when possible.</li>
-        <li><strong>Context window.</strong> The AI sees only the most recent terminal output (approximately 200 lines). If the relevant output has scrolled beyond this window, you can select and copy the text into your prompt manually.</li>
-        <li><strong>No persistent memory.</strong> Each invocation is independent. The AI does not remember previous questions or answers from earlier in your session. If you need to reference a prior conversation, include the relevant context in your new prompt.</li>
+        <li><strong>Context window.</strong> The assistant captures a window of recent scrollback or your explicit selection. If the relevant output has scrolled beyond what the panel captures, select the specific lines you care about and right-click <strong>Send to AI Assistant</strong>.</li>
+        <li><strong>Chat history is local.</strong> The panel's chat history lives on your machine. It persists while RockTerm is running and across session/theme changes, but it is not synced across machines. <strong>Clear Chat</strong> wipes it.</li>
+        <li><strong>Rate limits and quotas.</strong> If you hit a provider rate limit or run out of quota, the panel shows a friendly message explaining the situation. Wait a moment and try again for rate limits; check your billing dashboard for quota issues.</li>
       </ul>
 
       <p class="back-link"><a href="/rockterm/support/">&larr; Back to Support Articles</a></p>

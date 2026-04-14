@@ -40,7 +40,7 @@
         "name": "What does the AI integration do?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The AI assistant can read your terminal context and provide help — interpreting error messages, suggesting commands, explaining output, and answering technical questions. AI features are opt-in. Nothing is sent to any external service unless you explicitly ask the AI for help."
+          "text": "The AI assistant is a persistent right-side dock panel with chat history. Right-click terminal output to send it as context, or use quick prompts like Explain, Fix Error, and Summarize. It can interpret error messages, suggest commands, explain routing tables or log output, and answer technical questions. Every context block that gets sent to the model is recorded in the chat history, so past conversations stay interpretable. AI features are opt-in and nothing is sent to any external service unless you explicitly invoke the assistant."
         }
       },
       {
@@ -48,7 +48,7 @@
         "name": "Which AI provider does RockTerm use?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "RockTerm integrates with Anthropic's Claude API for AI features."
+          "text": "RockTerm supports both Anthropic Claude and OpenAI GPT. You choose the provider, model, and API key in Edit > Preferences > AI Assistant. You bring your own API key — RockTerm never proxies your data through a third party."
         }
       },
       {
@@ -157,14 +157,15 @@
       <details>
         <summary>What does the AI integration do?</summary>
         <div class="details-content">
-          <p>The AI assistant can read your terminal context and provide help — interpreting error messages, suggesting commands, explaining output, and answering technical questions. AI features are opt-in. Nothing is sent to any external service unless you explicitly ask the AI for help.</p>
+          <p>The AI assistant is a persistent right-side dock panel with chat history that survives session switches and theme changes. Right-click terminal output to send it as context, or use quick prompts like <strong>Explain</strong>, <strong>Fix Error</strong>, and <strong>Summarize</strong>. It can interpret error messages, suggest commands, explain routing tables and log output, and answer technical questions.</p>
+          <p>Every context block that gets sent to the model is recorded in the chat history as a distinct block before your question, so past conversations stay interpretable when you re-open them. AI features are opt-in — nothing is sent to any external service unless you explicitly invoke the assistant.</p>
         </div>
       </details>
 
       <details>
         <summary>Which AI provider does RockTerm use?</summary>
         <div class="details-content">
-          <p>RockTerm integrates with Anthropic's Claude API for AI features.</p>
+          <p>RockTerm supports <strong>both Anthropic Claude and OpenAI GPT</strong>. You choose the provider, model, and API key in <strong>Edit &rarr; Preferences &rarr; AI Assistant</strong>. You bring your own API key &mdash; RockTerm never proxies your data through a third party, so AI requests go directly from your machine to whichever provider you configured.</p>
         </div>
       </details>
 

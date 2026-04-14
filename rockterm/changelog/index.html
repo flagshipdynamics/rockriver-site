@@ -52,16 +52,117 @@
     <div class="container">
       <h1>Changelog</h1>
 
+      <p>Release notes and version history for RockTerm. Format follows <a href="https://keepachangelog.com/en/1.1.0/" target="_blank" rel="noopener">Keep a Changelog</a>; versions follow <a href="https://semver.org/spec/v2.0.0.html" target="_blank" rel="noopener">semantic versioning</a>.</p>
+
       <div class="changelog-entry">
-        <h2>v1.0.0 — April 2026</h2>
+        <h2>Unreleased</h2>
+
+        <h3>Added</h3>
         <ul>
-          <li>Initial release</li>
-          <li>SSH terminal emulation with tabbed sessions</li>
-          <li>AI-powered terminal assistance via Anthropic Claude</li>
-          <li>Connection manager with saved profiles and groups</li>
-          <li>Key-based and password authentication</li>
-          <li>Customizable terminal appearance</li>
-          <li>Microsoft Store distribution with free trial</li>
+          <li><strong>AI Assistant</strong> — right-side dock widget with persistent chat history, configurable Anthropic Claude and OpenAI providers, terminal-context capture from selection or recent scrollback, quick-prompt buttons (Explain / Fix Error / Summarize), Copy Last, and Send to Terminal with a confirmation dialog so nothing gets typed into a live session by accident. Rate-limit and quota errors surface as friendly messages.</li>
+          <li><strong>AI chat history now includes the terminal context</strong> that was sent to the LLM, rendered as a distinct muted-monospace block right before each user question. Previous conversations stay interpretable on re-open.</li>
+          <li><strong>Serial Auto-Detect</strong> — probes a serial port across common baud rates and framings until it finds one that produces readable output.</li>
+          <li><strong>MDI canvas wallpaper</strong> — user-selectable background image per canvas.</li>
+          <li><strong>10 built-in terminal color schemes</strong>: Default Dark/Light, Solarized Dark/Light, Dracula, Gruvbox Dark, Nord, Monokai, Tomorrow Night, Cisco Console.</li>
+          <li><strong>GUI Theme Editor</strong> (<code>Preferences &rarr; Appearance &rarr; Edit Themes</code>) with left-list / right-form / live-preview layout. Supports rename, delete, duplicate, and round-trip-safe save. The preferences combo and the persisted theme setting stay in sync with renames and deletes.</li>
+          <li><strong>GUI Highlight Rule Editor</strong> with inline rule name editing, per-file dirty tracking, bundled-template protection, and live preview.</li>
+          <li><strong>JSON-backed themes and highlight rules</strong> with user-directory overrides that layer on top of bundled defaults without modifying them.</li>
+          <li><strong>Dark Windows title bar</strong> on Windows 10/11 when the dark theme is active.</li>
+        </ul>
+
+        <h3>Changed</h3>
+        <ul>
+          <li>Project renamed to <strong>RockTerm 26</strong>. Publisher info and Windows build artifacts updated to match.</li>
+          <li><strong>Windows executable</strong> is now <code>RockTerm26.exe</code> (previously <code>TerminalEmulator.exe</code>). PyInstaller, MSIX staging, AppxManifest, and GitHub release artifacts all updated.</li>
+          <li><strong>New Connection dialog</strong> redesigned with accent-tinted icon badges, subtle tile borders, right-chevron affordance, refined typography, wider layout, and keyboard-focus rings.</li>
+          <li><strong>Serial Connection dialog</strong>: Auto-Detect button moved from the Port group into the Settings group, matching what it actually affects.</li>
+          <li><strong>Script Manager</strong> now re-themes live when <code>View &rarr; Theme</code> is toggled. Previously the cached dialog kept its original colors.</li>
+        </ul>
+
+        <h3>Fixed</h3>
+        <ul>
+          <li><strong>Wallpaper garbage on maximize</strong> — the MDI canvas no longer tiles or shows stale fragments of the background image when the window is maximized or resized. The canvas is now a <code>QMdiArea</code> subclass that paints the wallpaper against the live viewport size, eliminating the race between resize events and brush updates.</li>
+          <li>AI Assist UX polish: safer Send-to-Terminal flow, friendly rate-limit / quota error messages, docs dialog theming.</li>
+          <li>SSH freeze that blocked the whole app until TCP timeout.</li>
+          <li><code>AttributeError</code> from stale <code>tab_widget</code> references in the main window after the switch to the MDI canvas.</li>
+          <li>Theme toggle gaps across preferences, dialogs, and Tools menu items.</li>
+        </ul>
+      </div>
+
+      <div class="changelog-entry">
+        <h2>v0.1.4 — February 2026</h2>
+        <ul>
+          <li>Version bump ahead of the post-rename release cycle.</li>
+        </ul>
+      </div>
+
+      <div class="changelog-entry">
+        <h2>v0.1.3</h2>
+
+        <h3>Added</h3>
+        <ul>
+          <li><strong>MSIX packaging</strong> for Microsoft Store distribution, with CI build, optional signing, and an automated Store-submission job gated on version tags.</li>
+          <li>Artifact cleanup step in CI to stay under GitHub's storage quota.</li>
+        </ul>
+
+        <h3>Changed</h3>
+        <ul>
+          <li><strong>Session Manager dock</strong> locked to the dock edge with a custom title bar so it can't be accidentally torn off.</li>
+          <li>Linux and macOS builds temporarily removed from CI while Windows is the primary target.</li>
+        </ul>
+
+        <h3>Fixed</h3>
+        <ul>
+          <li>MSIX build locating <code>makeappx.exe</code> directly inside the Windows SDK rather than assuming a specific SDK directory layout.</li>
+          <li>Publisher display name aligned with the Partner Center registration.</li>
+          <li>Session Manager light-mode styling and menu bar revert on theme toggle.</li>
+          <li>Log ANSI escape stripping for clean session logs.</li>
+        </ul>
+      </div>
+
+      <div class="changelog-entry">
+        <h2>v0.1.2</h2>
+
+        <h3>Added</h3>
+        <ul>
+          <li><strong>Light / dark UI theme</strong> toggle via <code>View &rarr; Theme</code>, applied live to every dialog, dock, menu, and terminal.</li>
+        </ul>
+      </div>
+
+      <div class="changelog-entry">
+        <h2>v0.1.1</h2>
+
+        <h3>Added</h3>
+        <ul>
+          <li><strong>Windows local shell</strong> support via <code>pywinpty</code> (ConPTY).</li>
+        </ul>
+
+        <h3>Fixed</h3>
+        <ul>
+          <li>Button Bar UX: no master password prompt for plain text buttons, application icon added.</li>
+        </ul>
+      </div>
+
+      <div class="changelog-entry">
+        <h2>v0.1.0</h2>
+        <p>Initial tagged release. Multi-session terminal emulator with MDI canvas and floating sub-windows, SSH via paramiko, Telnet, serial, local PTY shell, Session Manager dock, preferences dialog, and <code>pyte</code>-based VT emulation.</p>
+
+        <h3>Added</h3>
+        <ul>
+          <li>Button Bar with per-session quick-command buttons.</li>
+          <li>Secret Manager — AES-encrypted credential vault with master password.</li>
+          <li>Save Session feature and Active Connections list.</li>
+          <li>Serial utilities, zoom in/out, send break.</li>
+          <li>"+ Window" button opens the connection-type dialog instead of spawning a new application instance.</li>
+          <li>CI/CD builds for Linux and Windows via PyInstaller.</li>
+        </ul>
+
+        <h3>Fixed</h3>
+        <ul>
+          <li><strong>Prompt duplication</strong> across focus changes, window resizes, and tile / cascade operations. Root cause traced to <code>pyte.screen.resize()</code> clearing screen content and <code>setStyleSheet()</code> triggering relayout during focus changes. Fixed by debouncing resize operations, suppressing resize during tile / cascade, preserving screen content across resizes, and removing <code>setStyleSheet()</code> from focus handlers.</li>
+          <li>Windows builds: guarded Unix-only <code>pty</code>/<code>termios</code>/<code>fcntl</code> imports so the module loads on Windows.</li>
+          <li>Serial settings being dropped in code paths outside the dedicated dialog.</li>
+          <li>Session-logging blank lines and the <code>Ctrl+Shift+C</code> copy shortcut.</li>
         </ul>
       </div>
     </div>

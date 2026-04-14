@@ -56,7 +56,7 @@
       <p>Download RockTerm from the <a href="#">Microsoft Store</a>. The free trial includes full functionality so you can evaluate the product before purchasing. Once installed, launch RockTerm from your Start menu or taskbar.</p>
 
       <h2>Step 2: Create a Connection</h2>
-      <p>Open the connection manager from the sidebar or main menu. Click <strong>New Connection</strong> and choose your connection type:</p>
+      <p>The <strong>Session Manager</strong> lives on the left side of the window as a lockable dock. Press <code>Ctrl+Shift+N</code> or click <strong>New Connection</strong> to open the connection dialog, then choose your connection type from the tiles:</p>
 
       <h3>SSH</h3>
       <ul>
@@ -82,20 +82,36 @@
         <li><strong>Baud Rate</strong> — the connection speed (common values: 9600, 115200)</li>
         <li><strong>Data Bits / Stop Bits / Parity</strong> — configure as required by your device (defaults: 8, 1, None)</li>
       </ul>
+      <p>If you don't know the correct serial settings, click <strong>Auto-Detect</strong> in the serial connection dialog. RockTerm will probe the port and determine the correct baud rate, data bits, parity, and flow control automatically. See the <a href="/rockterm/support/serial-auto-detect/">Serial Auto-Detect</a> guide for details.</p>
 
       <p>Save the profile. You can organize connections into groups for different environments or projects.</p>
 
       <h2>Step 3: Connect</h2>
-      <p>Select your saved connection from the connection manager and click <strong>Connect</strong>. RockTerm opens a new terminal tab with your session. You can open multiple connections in separate tabs and switch between them — mixing SSH, Telnet, and serial sessions as needed.</p>
+      <p>Double-click a saved session in the Session Manager, or click <strong>Connect</strong> from the New Connection dialog. RockTerm opens the session as a floating sub-window inside the <strong>MDI canvas</strong> — each tab holds an independent canvas of resizable, tileable terminal windows. You can open multiple connections across tabs and mix SSH, Telnet, serial, and local shells as needed. Tile, cascade, split, or focus-jump between sub-windows with the View menu.</p>
 
-      <h2>Step 4: Using AI Assistance</h2>
-      <p>With an active terminal session, invoke the AI assistant using the AI button in the toolbar or the configured keyboard shortcut. The assistant can see your recent terminal output and provide contextual help. Ask it about error messages, command syntax, configuration questions, or have it explain complex output.</p>
+      <h2>Step 4: Enable the AI Assistant (Optional)</h2>
+      <p>The AI assistant lives in a dockable panel on the right side of the window. Toggle it with <code>Ctrl+Shift+I</code> or <code>View &rarr; AI Assistant</code>. Before it can answer questions, configure a provider in <strong>Edit &rarr; Preferences &rarr; AI Assistant</strong>:</p>
+      <ul>
+        <li><strong>Provider</strong> — choose <strong>Anthropic Claude</strong> or <strong>OpenAI GPT</strong>.</li>
+        <li><strong>Model</strong> — pick a model the provider offers.</li>
+        <li><strong>API key</strong> — paste your own key. Requests go directly from your machine to the provider.</li>
+      </ul>
+      <p>Once configured, you can right-click selected terminal output and <strong>Send to AI Assistant</strong> to ask a question with that context, or use the quick-prompt buttons (<strong>Explain</strong>, <strong>Fix Error</strong>, <strong>Summarize</strong>). Chat history persists across session switches and theme changes, and every context block that gets sent to the model is recorded in the history so you can re-read past conversations.</p>
+
+      <h2>Step 5: Customize Your Workspace</h2>
+      <ul>
+        <li><strong>Theme</strong> &mdash; <code>View &rarr; Theme</code> toggles between light and dark UI themes live. <code>Preferences &rarr; Appearance &rarr; Edit Themes</code> opens a GUI theme editor with 10 built-in palettes (Default, Solarized, Dracula, Gruvbox, Nord, Monokai, Tomorrow Night, Cisco Console, and more).</li>
+        <li><strong>Highlight rules</strong> &mdash; colorize terminal output in real time (errors, warnings, interface events, syslog levels). Edit them from <code>Preferences &rarr; Highlighting &rarr; Edit Rules</code> with live preview.</li>
+        <li><strong>Button Bar</strong> &mdash; per-session quick-command buttons for repetitive keystrokes (<code>show run</code>, <code>reload</code>, etc.).</li>
+        <li><strong>Script Manager</strong> &mdash; expect-style automation scripts with a built-in editor and runner. <code>Ctrl+Shift+S</code> or <code>F5</code>.</li>
+        <li><strong>Wallpaper</strong> &mdash; set a background image on the MDI canvas for a personalized look.</li>
+      </ul>
 
       <h2>Tips</h2>
       <ul>
-        <li>Organize SSH, Telnet, and serial connections into groups for different environments (production, staging, lab).</li>
-        <li>Customize your terminal font and colors in Settings.</li>
-        <li>AI features require an active internet connection for the AI provider API.</li>
+        <li>Organize SSH, Telnet, and serial sessions into folders in the Session Manager for different environments (production, staging, lab).</li>
+        <li>Saved credentials are kept in an AES-encrypted <strong>Secret Manager</strong> vault unlocked with a master password.</li>
+        <li>AI features require an active internet connection to the provider you selected. No AI requests are made in the background &mdash; only when you explicitly invoke the assistant.</li>
       </ul>
     </div>
   </main>
