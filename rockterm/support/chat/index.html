@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>AI Support Chat — RockTerm — Rock River Research</title>
+  <meta name="description" content="Chat with RockTerm AI support for help with terminal emulator issues.">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/favicon.ico">
+  <style>
+    .chat-gate {
+      max-width: 560px;
+      margin: 0 auto;
+      text-align: center;
+      padding: 40px 0;
+    }
+    .chat-gate h1 {
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+    }
+    .chat-gate .gate-description {
+      color: #4b5563;
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+    .gate-checklist {
+      text-align: left;
+      background: #f8f9fb;
+      border: 1px solid #e1e4e8;
+      border-radius: 10px;
+      padding: 24px 28px;
+      margin-bottom: 28px;
+    }
+    .gate-checklist p {
+      font-weight: 600;
+      color: #1a1a2e;
+      margin-bottom: 12px;
+      font-size: 0.95rem;
+    }
+    .gate-checklist label {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 8px 0;
+      color: #4b5563;
+      font-size: 0.92rem;
+      cursor: pointer;
+      line-height: 1.5;
+    }
+    .gate-checklist input[type="checkbox"] {
+      margin-top: 3px;
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      accent-color: #2563eb;
+    }
+    .gate-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      background: #2563eb;
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      opacity: 0.5;
+      pointer-events: none;
+    }
+    .gate-btn.enabled {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .gate-btn.enabled:hover {
+      background: #1d4ed8;
+    }
+    .gate-alt {
+      margin-top: 20px;
+      font-size: 0.88rem;
+      color: #6b7280;
+    }
+    .gate-alt a {
+      color: #2563eb;
+    }
+
+    /* Chat UI */
+    .chat-container {
+      display: none;
+      max-width: 720px;
+      margin: 0 auto;
+      height: calc(100vh - 200px);
+      min-height: 480px;
+      max-height: 700px;
+      flex-direction: column;
+      border: 1px solid #e1e4e8;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    }
+    .chat-container.active {
+      display: flex;
+    }
+    .chat-header {
+      background: #1a1a2e;
+      color: #ffffff;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+    .chat-header-dot {
+      width: 8px;
+      height: 8px;
+      background: #22c55e;
+      border-radius: 50%;
+    }
+    .chat-header-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    .chat-header-subtitle {
+      font-size: 0.8rem;
+      color: #94a3b8;
+      margin-left: auto;
+    }
+    .chat-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 20px;
+      background: #fafbfc;
+    }
+    .chat-message {
+      margin-bottom: 16px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .chat-message.user {
+      flex-direction: row-reverse;
+    }
+    .chat-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+    .chat-message.assistant .chat-avatar {
+      background: #eef2ff;
+      color: #2563eb;
+    }
+    .chat-message.user .chat-avatar {
+      background: #1a1a2e;
+      color: #ffffff;
+    }
+    .chat-bubble {
+      max-width: 80%;
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-size: 0.92rem;
+      line-height: 1.6;
+      word-wrap: break-word;
+    }
+    .chat-message.assistant .chat-bubble {
+      background: #ffffff;
+      border: 1px solid #e1e4e8;
+      color: #374151;
+      border-top-left-radius: 4px;
+    }
+    .chat-message.user .chat-bubble {
+      background: #2563eb;
+      color: #ffffff;
+      border-top-right-radius: 4px;
+    }
+    .chat-bubble p {
+      margin: 0 0 8px;
+      color: inherit;
+      max-width: none;
+    }
+    .chat-bubble p:last-child {
+      margin-bottom: 0;
+    }
+    .chat-bubble code {
+      background: rgba(0,0,0,0.06);
+      padding: 1px 4px;
+      border-radius: 3px;
+      font-size: 0.85em;
+      border: none;
+      color: inherit;
+    }
+    .chat-message.user .chat-bubble code {
+      background: rgba(255,255,255,0.2);
+    }
+    .chat-typing {
+      display: none;
+      margin-bottom: 16px;
+      align-items: center;
+      gap: 10px;
+    }
+    .chat-typing.active {
+      display: flex;
+    }
+    .typing-dots {
+      display: flex;
+      gap: 4px;
+      padding: 12px 16px;
+      background: #ffffff;
+      border: 1px solid #e1e4e8;
+      border-radius: 12px;
+      border-top-left-radius: 4px;
+    }
+    .typing-dots span {
+      width: 6px;
+      height: 6px;
+      background: #94a3b8;
+      border-radius: 50%;
+      animation: typing 1.2s infinite;
+    }
+    .typing-dots span:nth-child(2) { animation-delay: 0.2s; }
+    .typing-dots span:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes typing {
+      0%, 60%, 100% { opacity: 0.3; transform: translateY(0); }
+      30% { opacity: 1; transform: translateY(-3px); }
+    }
+    .chat-input-area {
+      padding: 16px 20px;
+      background: #ffffff;
+      border-top: 1px solid #e1e4e8;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+    .chat-input-area textarea {
+      flex: 1;
+      padding: 10px 14px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-family: inherit;
+      resize: none;
+      outline: none;
+      line-height: 1.5;
+      max-height: 100px;
+      transition: border-color 0.2s;
+    }
+    .chat-input-area textarea:focus {
+      border-color: #2563eb;
+    }
+    .chat-send-btn {
+      padding: 10px 16px;
+      background: #2563eb;
+      color: #ffffff;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      align-self: flex-end;
+    }
+    .chat-send-btn:hover {
+      background: #1d4ed8;
+    }
+    .chat-send-btn:disabled {
+      background: #94a3b8;
+      cursor: not-allowed;
+    }
+    .chat-disclaimer {
+      text-align: center;
+      font-size: 0.78rem;
+      color: #9ca3af;
+      padding: 8px 20px 12px;
+      background: #ffffff;
+    }
+    .chat-error {
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      color: #dc2626;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      margin-bottom: 12px;
+      display: none;
+    }
+    .chat-error.active {
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .chat-container {
+        height: calc(100vh - 160px);
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+      }
+      .chat-bubble { max-width: 90%; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Rock River Research</a>
+      <nav class="site-nav">
+        <div class="nav-header">
+          <a href="/" class="logo">Rock River Research</a>
+          <button class="nav-close" aria-label="Close menu">&#10005;</button>
+        </div>
+        <ul>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/">RockTerm</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Support</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/support/">Support Center</a></li>
+              <li><a href="/rockterm/getting-started/">Getting Started</a></li>
+              <li><a href="/rockterm/faq/">FAQ</a></li>
+              <li><a href="/rockterm/troubleshooting/">Troubleshooting</a></li>
+            </ul>
+          </li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
+    </div>
+  </header>
+
+  <main class="page-content">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="/rockterm/support/">Support</a> <span>&rsaquo;</span> AI Chat
+      </div>
+
+      <!-- Gate -->
+      <div class="chat-gate" id="chat-gate">
+        <h1>Chat with AI Support</h1>
+        <p class="gate-description">
+          Our AI assistant can help with RockTerm configuration, troubleshooting, and feature questions.
+          Before starting, please confirm you've checked our existing resources.
+        </p>
+        <div class="gate-checklist">
+          <p>I've already checked:</p>
+          <label><input type="checkbox" class="gate-check"> The <a href="/rockterm/support/">support articles</a> for my topic</label>
+          <label><input type="checkbox" class="gate-check"> The <a href="/rockterm/faq/">FAQ</a> for common questions</label>
+          <label><input type="checkbox" class="gate-check"> The <a href="/rockterm/troubleshooting/">troubleshooting guide</a> for error solutions</label>
+        </div>
+        <button class="gate-btn" id="gate-start">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          Start Chat
+        </button>
+        <p class="gate-alt">
+          Prefer human support? <a href="mailto:info@rockriverresearch.com">Email us</a> instead.
+        </p>
+      </div>
+
+      <!-- Chat -->
+      <div class="chat-container" id="chat-container">
+        <div class="chat-header">
+          <div class="chat-header-dot"></div>
+          <span class="chat-header-title">RockTerm AI Support</span>
+          <span class="chat-header-subtitle">Typically responds instantly</span>
+        </div>
+        <div class="chat-messages" id="chat-messages">
+          <div class="chat-message assistant">
+            <div class="chat-avatar">RT</div>
+            <div class="chat-bubble">
+              <p>Hi! I'm the RockTerm support assistant. I can help with connection setup, troubleshooting, configuration, and feature questions.</p>
+              <p>What can I help you with?</p>
+            </div>
+          </div>
+          <div class="chat-typing" id="chat-typing">
+            <div class="chat-avatar" style="background:#eef2ff;color:#2563eb;">RT</div>
+            <div class="typing-dots"><span></span><span></span><span></span></div>
+          </div>
+        </div>
+        <div class="chat-input-area">
+          <div class="chat-error" id="chat-error"></div>
+          <div style="display:flex;gap:10px;width:100%;">
+            <textarea id="chat-input" placeholder="Describe your issue..." rows="1"></textarea>
+            <button class="chat-send-btn" id="chat-send">Send</button>
+          </div>
+        </div>
+        <div class="chat-disclaimer">
+          AI responses may not always be accurate. Never share passwords, keys, or credentials here.
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-content">
+          <p>&copy; 2026 Rock River Research, LLC. All rights reserved.</p>
+          <div class="footer-links">
+            <a href="/privacy/">Privacy Policy</a>
+            <a href="/terms/">Terms of Service</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </div>
+        <img src="/images/logo.png" alt="Rock River Research" class="footer-logo">
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script>
+  (function() {
+    var gate = document.getElementById('chat-gate');
+    var container = document.getElementById('chat-container');
+    var startBtn = document.getElementById('gate-start');
+    var checks = document.querySelectorAll('.gate-check');
+    var input = document.getElementById('chat-input');
+    var sendBtn = document.getElementById('chat-send');
+    var messages = document.getElementById('chat-messages');
+    var typing = document.getElementById('chat-typing');
+    var errorEl = document.getElementById('chat-error');
+    var sending = false;
+
+    // Gate logic
+    function updateGate() {
+      var allChecked = true;
+      for (var i = 0; i < checks.length; i++) {
+        if (!checks[i].checked) { allChecked = false; break; }
+      }
+      if (allChecked) {
+        startBtn.classList.add('enabled');
+      } else {
+        startBtn.classList.remove('enabled');
+      }
+    }
+    for (var i = 0; i < checks.length; i++) {
+      checks[i].addEventListener('change', updateGate);
+    }
+
+    startBtn.addEventListener('click', function() {
+      if (!startBtn.classList.contains('enabled')) return;
+      gate.style.display = 'none';
+      container.classList.add('active');
+      input.focus();
+    });
+
+    // Auto-resize textarea
+    input.addEventListener('input', function() {
+      this.style.height = 'auto';
+      this.style.height = Math.min(this.scrollHeight, 100) + 'px';
+    });
+
+    // Send on Enter (Shift+Enter for newline)
+    input.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault();
+        sendMessage();
+      }
+    });
+    sendBtn.addEventListener('click', sendMessage);
+
+    function sendMessage() {
+      if (sending) return;
+      var text = input.value.trim();
+      if (!text) return;
+      if (text.length > 4000) {
+        showError('Message is too long (max 4000 characters).');
+        return;
+      }
+      hideError();
+
+      appendMessage('user', text);
+      input.value = '';
+      input.style.height = 'auto';
+      sendBtn.disabled = true;
+      sending = true;
+      typing.classList.add('active');
+      scrollToBottom();
+
+      fetch('/api/support-chat', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({
+          message: text,
+          pageUrl: window.location.href
+        })
+      })
+      .then(function(res) { return res.json(); })
+      .then(function(data) {
+        typing.classList.remove('active');
+        sending = false;
+        sendBtn.disabled = false;
+        if (data.error) {
+          showError(data.error);
+        } else if (data.answer) {
+          appendMessage('assistant', data.answer);
+        } else {
+          showError('Unexpected response. Please try again.');
+        }
+      })
+      .catch(function() {
+        typing.classList.remove('active');
+        sending = false;
+        sendBtn.disabled = false;
+        showError('Could not reach support. Please try again or email us.');
+      });
+    }
+
+    function appendMessage(role, text) {
+      var wrapper = document.createElement('div');
+      wrapper.className = 'chat-message ' + role;
+
+      var avatar = document.createElement('div');
+      avatar.className = 'chat-avatar';
+      avatar.textContent = role === 'assistant' ? 'RT' : 'You';
+
+      var bubble = document.createElement('div');
+      bubble.className = 'chat-bubble';
+      bubble.innerHTML = formatText(text);
+
+      wrapper.appendChild(avatar);
+      wrapper.appendChild(bubble);
+      messages.insertBefore(wrapper, typing);
+      scrollToBottom();
+    }
+
+    function formatText(text) {
+      var escaped = text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+      // Inline code
+      escaped = escaped.replace(/`([^`]+)`/g, '<code>$1</code>');
+      // Bold
+      escaped = escaped.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+      // Paragraphs
+      var paragraphs = escaped.split(/\n\n+/);
+      return paragraphs.map(function(p) {
+        return '<p>' + p.replace(/\n/g, '<br>') + '</p>';
+      }).join('');
+    }
+
+    function scrollToBottom() {
+      messages.scrollTop = messages.scrollHeight;
+    }
+
+    function showError(msg) {
+      errorEl.textContent = msg;
+      errorEl.classList.add('active');
+    }
+
+    function hideError() {
+      errorEl.classList.remove('active');
+    }
+  })();
+  </script>
+</body>
+</html>
