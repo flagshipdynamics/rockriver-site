@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow">
   <title>RockTerm — Terminal Emulator for Network Professionals | Rock River Research</title>
-  <meta name="description" content="RockTerm is a Windows-native terminal emulator with SSH, Telnet, and serial console support, built-in network tools (subnet calculator, CIDR reference, regex lab, and more), plus opt-in AI assistance. Built for network engineers and sysadmins. One-time purchase, no subscription.">
+  <meta name="description" content="RockTerm is a Windows-native terminal emulator with SSH, Telnet, Serial, RDP, SFTP, Zmodem, TFTP, expect scripting, session logging, port forwarding, built-in network tools, and opt-in AI assistance. 110+ features for network engineers and sysadmins. One-time purchase, no subscription.">
   <link rel="canonical" href="https://rockriverresearch.com/rockterm/">
   <meta property="og:title" content="RockTerm — Terminal Emulator for Network Professionals">
   <meta property="og:description" content="RockTerm is a Windows-native terminal emulator with SSH, Telnet, and serial console support, built-in network tools, plus opt-in AI assistance. Built for network engineers and sysadmins.">
@@ -110,41 +110,56 @@
       <div class="grid-2">
         <div class="feature-card">
           <div class="feature-icon">&#128274;</div>
-          <h3>SSH, Telnet, and Serial Console</h3>
-          <p>All three protocols in one application. SSH with key-based auth and agent forwarding. Telnet for legacy device access. Serial console with configurable baud rate, data bits, parity, and flow control &mdash; or let Auto-Detect figure out the right settings for you. No need to juggle separate tools.</p>
+          <h3>SSH, Telnet, Serial, RDP &amp; Raw</h3>
+          <p>Five protocols in one application. SSH2 with full cipher suite, key-based auth, agent forwarding, OpenSSH certificates, and jump host chaining. Telnet for legacy access. Serial with Auto-Detect. RDP in tabs. Raw sockets for protocol troubleshooting. No more juggling separate tools.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#128194;</div>
+          <h3>File Transfer</h3>
+          <p>Built-in SFTP browser, Zmodem (with auto-detect), Xmodem, Ymodem, ASCII transfer, and a full TFTP server for firmware and config pulls. Drag and drop files onto a session to upload. Transfer protocols for every scenario network engineers actually encounter.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#9881;</div>
+          <h3>Scripting &amp; Automation</h3>
+          <p>Expect-style scripting engine with Python support, a syntax-highlighted editor, script recorder, and triggers that fire on pattern matches. Auto-logon, login scripts, and post-connect commands. Automate the repetitive work so you can focus on the interesting problems.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#9776;</div>
+          <h3>Session Management</h3>
+          <p>Save and organize connections into folders. Batch-edit sessions. Import from CSV, JSON, or other tools. Named credential and firewall profiles. Layout snapshots to save and restore your workspace. Active sessions manager for bulk operations across dozens of connections.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">&#9000;</div>
           <h3>AI-Powered Assistance</h3>
-          <p>A persistent right-side dock with chat history. Invoke the assistant mid-session to interpret error messages, explain routing tables, suggest configuration syntax, or work through unfamiliar log output. Right-click terminal output to send it as context. Supports both <strong>Anthropic Claude</strong> and <strong>OpenAI GPT</strong> — bring your own API key. Entirely opt-in.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">&#9776;</div>
-          <h3>Connection Manager</h3>
-          <p>Save and organize connection profiles across all three protocols. Group by environment, client, project, or role. Connect with one click. Import from existing tools and export for backup or team sharing.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">&#9889;</div>
-          <h3>Native Windows Performance</h3>
-          <p>Built with native UI toolkits — not Electron, not a web view. RockTerm launches fast, renders terminal output without lag, and stays responsive even with high-throughput sessions. Designed for long working sessions.</p>
+          <p>A persistent dock with chat history. Right-click terminal output to send it as context. Interpret error messages, explain routing tables, debug configs. Supports <strong>Anthropic Claude</strong> and <strong>OpenAI GPT</strong> &mdash; bring your own API key. Entirely opt-in.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">&#128218;</div>
           <h3>Built-In Network Tools</h3>
-          <p>Subnet calculator, subnet splitter, wildcard converter, route summarization, CIDR reference, IPv6 prefix splitter, EUI-64 helper, prefix-list generator, regex lab, log extractor, SSH key manager, and a port forwarding wizard — all under the Network menu, no extra apps needed.</p>
+          <p>Subnet calculator, subnet splitter, wildcard converter, route summarization, CIDR reference, IPv6 prefix splitter, EUI-64 helper, prefix-list generator, regex lab, log extractor, SSH key manager, and a port forwarding wizard &mdash; all under the Network menu.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#128203;</div>
+          <h3>Logging &amp; Auditing</h3>
+          <p>Session logging to file with ANSI stripping, log rotation by date and size, dynamic filename templates with session variables, and custom connect/disconnect messages. Auto-start logging on connect or from the command line. Built for compliance-conscious environments.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#128272;</div>
+          <h3>Security &amp; Credentials</h3>
+          <p>AES-encrypted credential vault with master password. Named credential profiles mapped to sessions. Host key verification with a graphical manager. Session locking to prevent typing when you step away. In-memory credential caching for seamless reconnects.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">&#9638;</div>
           <h3>Professional Interface</h3>
-          <p>Tabbed MDI canvas with floating, tileable sub-windows. Left-side Session Manager dock and right-side AI Assistant dock. Live-toggle light and dark UI themes. 10 built-in terminal color palettes plus a GUI theme editor. Built for people who spend hours in the terminal, not minutes.</p>
+          <p>Tabbed MDI canvas with floating, tileable sub-windows. Button bar, command window, and command manager for fast input. 24-bit truecolor, hex view, highlight rules, 10 color schemes plus a theme editor. Keyboard mapping with a graphical editor. Built for people who spend hours in the terminal.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">&#8681;</div>
-          <h3>Microsoft Store Distribution</h3>
-          <p>Clean install from the Microsoft Store. Automatic updates. Free trial with full functionality so you can evaluate before purchasing. One-time purchase — no recurring charges.</p>
+          <h3>Microsoft Store</h3>
+          <p>Clean install from the Microsoft Store. Automatic updates. Free trial with full functionality. One-time purchase &mdash; no subscription, no recurring charges. Command-line launch options for integration with your existing scripts and workflows.</p>
         </div>
       </div>
-      <p class="features-link">See the <a href="/rockterm/features/">full feature breakdown</a> for detailed descriptions.</p>
+      <p class="features-link">See the <a href="/rockterm/features/">complete feature list (110+)</a> for detailed descriptions.</p>
     </div>
   </section>
 
@@ -189,8 +204,8 @@
           <p>Full-featured trial so you can evaluate the product in your actual workflow before spending anything. No credit card required.</p>
         </div>
         <div class="trust-detail">
-          <h4>Real Documentation</h4>
-          <p>Over 20 support articles covering setup, configuration, troubleshooting, and AI integration. Written for practitioners, not marketing.</p>
+          <h4>Documentation &amp; Video Tutorials</h4>
+          <p>Over 20 support articles plus <a href="/rockterm/tutorials/">video tutorials</a> showing features in action. Written and recorded for practitioners, not marketing.</p>
         </div>
         <div class="trust-detail">
           <h4>Direct Support</h4>

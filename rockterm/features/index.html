@@ -5,15 +5,68 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow">
   <title>Features — RockTerm — Rock River Research</title>
-  <meta name="description" content="RockTerm features — SSH, Telnet, serial, and local shell in a tabbed MDI workspace with Session Manager, Button Bar, Script Manager, port forwarding, built-in network tools (subnet calculator, CIDR reference, regex lab, and more), 10 color themes, highlight rules, and a dockable AI assistant supporting Anthropic Claude and OpenAI GPT.">
+  <meta name="description" content="RockTerm features — SSH, Telnet, serial, RDP, and local shell with file transfer (SFTP, Zmodem, TFTP), expect scripting, session logging, port forwarding, built-in network tools, credential management, and AI assistance. 110+ features for network engineers and sysadmins.">
   <link rel="canonical" href="https://rockriverresearch.com/rockterm/features/">
   <meta property="og:title" content="Features — RockTerm — Rock River Research">
-  <meta property="og:description" content="RockTerm features — SSH, Telnet, serial, and local shell in a tabbed MDI workspace with Session Manager, Button Bar, Script Manager, port forwarding, built-in network tools (subnet calculator, CIDR reference, regex lab, and more), 10 color themes, highlight rules, and a dockable AI assistant supporting Anthropic Claude and OpenAI GPT.">
+  <meta property="og:description" content="RockTerm features — 110+ capabilities across SSH, file transfer, scripting, logging, network tools, and AI assistance. Built for network engineers and sysadmins.">
   <meta property="og:url" content="https://rockriverresearch.com/rockterm/features/">
   <meta property="og:image" content="https://rockriverresearch.com/images/logo.png">
   <meta property="og:type" content="website">
   <link rel="stylesheet" href="/css/style.css">
   <link rel="icon" href="/favicon.ico">
+  <style>
+    .features-toc {
+      background: #f8f9fa;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 1.5rem 2rem;
+      margin: 1.5rem 0 2.5rem;
+    }
+    .features-toc h2 {
+      font-size: 1rem;
+      margin: 0 0 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #666;
+    }
+    .features-toc ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 0.4rem 1.5rem;
+    }
+    .features-toc a {
+      color: #2563eb;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+    .features-toc a:hover {
+      text-decoration: underline;
+    }
+    .feature-section {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid #e0e0e0;
+    }
+    .feature-section:first-of-type {
+      border-top: none;
+      padding-top: 0;
+    }
+    .feature-section > h2 {
+      margin-bottom: 1.5rem;
+    }
+    .feature-section h3 {
+      margin-top: 1.75rem;
+    }
+    .feature-section ul {
+      margin-top: 0.5rem;
+    }
+    .feature-section ul li {
+      margin-bottom: 0.35rem;
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -52,129 +105,329 @@
   <main class="page-content">
     <div class="container">
       <h1>Features</h1>
+      <p>RockTerm ships with 110+ features across connectivity, file transfer, scripting, session management, logging, security, and built-in network tools. Everything below is shipping today.</p>
 
-      <h2>Connectivity</h2>
+      <div class="features-toc">
+        <h2>Jump to section</h2>
+        <ul>
+          <li><a href="#connectivity">Connectivity</a></li>
+          <li><a href="#session-management">Session Management</a></li>
+          <li><a href="#workspace">Workspace &amp; Interface</a></li>
+          <li><a href="#terminal">Terminal Emulation</a></li>
+          <li><a href="#file-transfer">File Transfer</a></li>
+          <li><a href="#scripting">Scripting &amp; Automation</a></li>
+          <li><a href="#logging">Logging</a></li>
+          <li><a href="#security">Security &amp; Credentials</a></li>
+          <li><a href="#network-tools">Network Tools</a></li>
+          <li><a href="#keyboard">Keyboard &amp; Input</a></li>
+          <li><a href="#appearance">Appearance &amp; Display</a></li>
+          <li><a href="#ai">AI Assistant</a></li>
+          <li><a href="#distribution">Distribution &amp; Platform</a></li>
+        </ul>
+      </div>
 
-      <h3>SSH</h3>
-      <p>Fast, reliable SSH via paramiko with password and key-based authentication, host key verification, SSH agent forwarding, and per-session port forwarding (local, remote, and dynamic tunnels). Handles high-throughput output without lag and stays responsive in long-running sessions.</p>
+      <div class="feature-section" id="connectivity">
+        <h2>Connectivity</h2>
 
-      <h3>Telnet</h3>
-      <p>Full Telnet support for legacy network devices, console servers, and equipment that still speaks Telnet. Telnet sessions share the same workspace, connection profiles, scripting, and AI assistance as SSH.</p>
+        <h3>SSH</h3>
+        <p>Full SSH2 via paramiko with a complete cipher suite (AES-GCM, AES-CTR 128/192/256, Twofish, 3DES). Authentication options include password, public key (RSA, Ed25519, ECDSA), keyboard-interactive, OpenSSH certificates, and SSH agent with forwarding. Host key verification with a graphical key manager for viewing, importing, and exporting fingerprints.</p>
+        <ul>
+          <li><strong>Port Forwarding</strong> &mdash; local, remote, and dynamic (SOCKS) tunnels with a visual manager and step-by-step wizard</li>
+          <li><strong>Jump Host / Bastion</strong> &mdash; chain through intermediate SSH servers with ProxyJump support</li>
+          <li><strong>Proxy Support</strong> &mdash; HTTP CONNECT and SOCKS 4/5 proxies, plus ProxyCommand with <code>%h/%p</code> substitution</li>
+          <li><strong>Data Compression</strong> &mdash; zlib compression levels 1&ndash;9 for bandwidth-constrained links</li>
+          <li><strong>Modern Key Exchange</strong> &mdash; DH Group15/17 with SHA-512, selectable in the connection dialog</li>
+        </ul>
 
-      <h3>Serial Console</h3>
-      <p>Connect directly to network equipment, embedded systems, and infrastructure gear over serial (COM) ports. Configure baud rate, data bits, parity, stop bits, and flow control — or let <strong>Auto-Detect</strong> probe the port across common settings until it finds one that produces readable output. No more guessing 9600 vs 115200 or whether parity is Even or None.</p>
+        <h3>Telnet</h3>
+        <p>Full Telnet support for legacy network devices, console servers, and equipment that still speaks Telnet. Sessions share the same workspace, connection profiles, scripting, and AI assistance as SSH.</p>
 
-      <h3>Local Shell</h3>
-      <p>Open a native local shell in the same workspace as your remote sessions. Uses native PTY on Linux and macOS and ConPTY (via pywinpty) on Windows, so everything behaves the way your OS expects.</p>
+        <h3>Serial Console</h3>
+        <p>Connect directly to network equipment, embedded systems, and infrastructure gear over RS-232 serial ports. Configure baud rate, data bits, parity, stop bits, and flow control &mdash; or let <strong>Auto-Detect</strong> probe the port across common settings until it finds readable output.</p>
 
-      <h2>Workspace</h2>
+        <h3>RDP</h3>
+        <p>Remote Desktop Protocol sessions in the same tabbed workspace as your terminal sessions. Managed through the session manager with saved credentials.</p>
 
-      <h3>Tabbed MDI Canvas</h3>
-      <p>Each tab holds an independent canvas of floating, resizable terminal sub-windows. Tile them, cascade them, split them, or focus-jump between them. Mix SSH, Telnet, serial, and local shell sessions on the same canvas — whatever matches the shape of the work.</p>
+        <h3>Raw Protocol</h3>
+        <p>Minimal-interpretation raw socket connections for protocol troubleshooting and custom TCP services.</p>
 
-      <h3>Session Manager</h3>
-      <p>A left-side dock with a tree of saved sessions organized into folders. Double-click to open. The dock is lockable to the edge with a custom title bar so it can't be torn off by accident.</p>
+        <h3>Local Shell</h3>
+        <p>Open a native local shell in the same workspace as your remote sessions. Uses ConPTY on Windows and native PTY on Linux/macOS.</p>
+      </div>
 
-      <h3>Button Bar</h3>
-      <p>Per-session quick-command buttons for the keystrokes you type over and over: <code>show run</code>, <code>reload</code>, <code>enable</code>, <code>write memory</code>, whatever your workflow needs. Buttons are stored per saved session, so the right commands follow the right device.</p>
+      <div class="feature-section" id="session-management">
+        <h2>Session Management</h2>
 
-      <h3>Script Manager</h3>
-      <p>Expect-style automation scripts with a built-in editor (syntax-highlighted), runner, and import/export. Automate repetitive sequences against network devices and servers. Launch it with <code>Ctrl+Shift+S</code> or <code>F5</code>.</p>
+        <h3>Session Manager</h3>
+        <p>A dockable panel with a tree view of saved sessions organized into folders. Search and filter by name. Double-click to connect. The dock is lockable to the window edge so it can't be torn off by accident.</p>
 
-      <h3>Port Forwarding</h3>
-      <p>Configure local, remote, and dynamic SSH tunnels per saved connection. Bring up tunnels alongside the session without leaving the app.</p>
+        <h3>Batch Operations</h3>
+        <ul>
+          <li><strong>Multiple Session Editing</strong> &mdash; select multiple sessions and batch-edit username, port, credential profiles, firewall profiles, keymap, remote command, or move to a different folder</li>
+          <li><strong>Active Sessions Manager</strong> &mdash; view all open sessions with status indicators, filter bar, session count, and bulk disconnect (selected or all)</li>
+          <li><strong>Import/Export</strong> &mdash; back up session configs as JSON, or import from other tools</li>
+          <li><strong>CSV/TSV Import Wizard</strong> &mdash; three-page wizard with auto-delimiter detection, column-to-field mapping, preview table, and bulk import</li>
+        </ul>
 
-      <h2>Network Tools</h2>
-      <p>A built-in toolkit under the <strong>Network</strong> menu for the calculations, conversions, and generators that network engineers reach for constantly — without leaving the application.</p>
+        <h3>Profiles &amp; Reuse</h3>
+        <ul>
+          <li><strong>Named Credential Profiles</strong> &mdash; reusable credential sets with encrypted password storage, mapped to sessions</li>
+          <li><strong>Named Firewall Profiles</strong> &mdash; reusable HTTP CONNECT / SOCKS4 / SOCKS5 proxy configurations, auto-fill on selection</li>
+          <li><strong>Snapshots</strong> &mdash; save and restore named layouts including session configs and window geometry</li>
+          <li><strong>Connect on Startup</strong> &mdash; automatically restore your previous session layout when the app launches</li>
+        </ul>
+      </div>
 
-      <h3>IPv4</h3>
-      <ul>
-        <li><strong>Subnet Calculator</strong> — enter an address and mask, get network, broadcast, host range, and usable count</li>
-        <li><strong>Subnet Splitter</strong> — divide a network into smaller subnets by count or prefix length</li>
-        <li><strong>Wildcard Converter</strong> — convert between subnet masks and wildcard masks</li>
-        <li><strong>Route Summarization</strong> — find the shortest summary route for a list of networks</li>
-        <li><strong>CIDR Reference</strong> — quick-reference table of CIDR prefixes, subnet masks, and host counts</li>
-      </ul>
+      <div class="feature-section" id="workspace">
+        <h2>Workspace &amp; Interface</h2>
 
-      <h3>IPv6</h3>
-      <ul>
-        <li><strong>IPv6 Prefix Splitter</strong> — split an IPv6 prefix into smaller allocations</li>
-        <li><strong>EUI-64 Helper</strong> — generate EUI-64 interface identifiers from MAC addresses</li>
-      </ul>
+        <h3>Tabbed MDI Canvas</h3>
+        <p>Each tab holds an independent canvas of floating, resizable terminal sub-windows. Tile, cascade, split, or focus-jump between them. Tab groups let you organize sessions into switchable sets. Tab status indicators show connection state and background activity at a glance.</p>
 
-      <h3>Config</h3>
-      <ul>
-        <li><strong>Prefix-List Generator</strong> — build prefix-list statements from a list of networks</li>
-      </ul>
+        <h3>Command Input</h3>
+        <ul>
+          <li><strong>Button Bar</strong> &mdash; dockable bar with color-coded command buttons for one-click access to frequently used commands, passwords, and scripts</li>
+          <li><strong>Command Window</strong> &mdash; multi-line text composition dock with history, send to active session, all sessions, or selected sessions</li>
+          <li><strong>Command Manager</strong> &mdash; dockable command organizer with folders, filter bar, and context-menu management</li>
+          <li><strong>Command Snippets</strong> &mdash; pre-built command library with keyboard shortcuts</li>
+          <li><strong>Connect Bar</strong> &mdash; autocomplete connection bar populated from saved sessions and recent history</li>
+          <li><strong>Send to All/Selected</strong> &mdash; broadcast commands to subsets of sessions with a checkable session list</li>
+        </ul>
 
-      <h3>Log Analysis</h3>
-      <ul>
-        <li><strong>Regex Lab</strong> — test and refine regular expressions against sample text with live match highlighting</li>
-        <li><strong>Log Extractor</strong> — pull structured data from log output using patterns</li>
-      </ul>
+        <h3>Clipboard</h3>
+        <ul>
+          <li><strong>Block Selection</strong> &mdash; Alt+click for rectangular column selection</li>
+          <li><strong>ANSI Color Preservation</strong> &mdash; paste into rich-text apps with terminal colors intact</li>
+          <li><strong>Multi-Line Paste Dialog</strong> &mdash; editable confirmation with line count before pasting into a live session</li>
+          <li><strong>Auto-Copy on Select</strong> &mdash; selected text is automatically copied to clipboard</li>
+          <li><strong>Configurable Paste</strong> &mdash; right-click and middle-click paste triggers</li>
+        </ul>
+      </div>
 
-      <h3>SSH</h3>
-      <ul>
-        <li><strong>Port Forwarding</strong> — view and manage active SSH tunnels across sessions</li>
-        <li><strong>Port Forwarding Wizard</strong> — step-by-step setup for local, remote, and dynamic tunnels</li>
-        <li><strong>SSH Key Manager</strong> — generate, import, and manage SSH key pairs</li>
-        <li><strong>Manage Passwords</strong> — access the credential vault for saved session passwords</li>
-      </ul>
+      <div class="feature-section" id="terminal">
+        <h2>Terminal Emulation</h2>
 
-      <h2>Terminal</h2>
+        <h3>Emulation Modes</h3>
+        <p>VT100/VT102, VT220/VT320, Xterm, ANSI/SCO ANSI, and Linux console emulation. Backed by pyte with correct resize semantics, scrollback preservation, and stable rendering across resize, tile, and cascade events.</p>
 
-      <h3>Full VT Emulation</h3>
-      <p>Terminal rendering is backed by pyte with correct resize semantics, scrollback, and ANSI handling. Output is preserved across resize events and focus changes — no more prompt duplication or stale screen fragments when you tile, cascade, or maximize.</p>
+        <h3>Display Capabilities</h3>
+        <ul>
+          <li><strong>24-Bit True Color</strong> &mdash; full RGB truecolor rendering</li>
+          <li><strong>256-Color Palette</strong> &mdash; extended ANSI color support</li>
+          <li><strong>Unicode &amp; CJK</strong> &mdash; proper double-width rendering for Chinese, Japanese, and Korean characters</li>
+          <li><strong>Double-Width/Height Characters</strong> &mdash; DEC DECDWL and DECDHL special character rendering</li>
+          <li><strong>80/132-Column Switching</strong> &mdash; DECCOLM auto-detection with PTY resize propagation</li>
+          <li><strong>Text Rewrapping</strong> &mdash; intelligent line rewrap on window resize that preserves short lines</li>
+          <li><strong>Configurable Scrollback</strong> &mdash; adjustable history buffer depth</li>
+        </ul>
 
-      <h3>Highlight Rules</h3>
-      <p>Colorize terminal output in real time — errors in red, warnings in amber, interface up/down events, Cisco and networking patterns, syslog levels. Rules live in JSON files, ship with sensible defaults, and can be edited through a built-in GUI editor with live preview. Your edits layer over the bundled defaults without modifying them.</p>
+        <h3>Hex View</h3>
+        <p>Toggle hex display for serial and protocol debugging. See raw byte values alongside ASCII representation &mdash; essential for diagnosing encoding issues and protocol-level problems.</p>
 
-      <h3>Color Themes</h3>
-      <p>Ten built-in terminal color palettes: <strong>Default Dark</strong>, <strong>Default Light</strong>, <strong>Solarized Dark</strong>, <strong>Solarized Light</strong>, <strong>Dracula</strong>, <strong>Gruvbox Dark</strong>, <strong>Nord</strong>, <strong>Monokai</strong>, <strong>Tomorrow Night</strong>, and <strong>Cisco Console</strong>. A GUI theme editor (<code>Preferences &rarr; Appearance &rarr; Edit Themes</code>) lets you rename, duplicate, and live-preview custom palettes. Themes are JSON files — drop-in and portable.</p>
+        <h3>Scratchpad</h3>
+        <p>A dockable notes tab with autosave and timestamp insertion. Keep scratch notes, command drafts, and reference text alongside your sessions without switching to a separate editor.</p>
 
-      <h3>MDI Wallpaper</h3>
-      <p>Set a background image on the canvas. The wallpaper scales cleanly when you maximize, resize, or tile sub-windows — no tiling artifacts, no stale fragments.</p>
+        <h3>Highlight Rules</h3>
+        <p>Colorize terminal output in real time. Errors in red, warnings in amber, interface up/down events, syslog levels &mdash; whatever patterns matter to your workflow. Rules support both literal strings and regular expressions. Edit through a built-in GUI editor with live preview, or define an ad-hoc highlight from the toolbar for quick temporary matches.</p>
 
-      <h3>Everyday Niceties</h3>
-      <ul>
-        <li>Zoom in / zoom out / reset zoom</li>
-        <li>Copy on selection, paste from clipboard, <code>Ctrl+Shift+C</code> / <code>Ctrl+Shift+V</code> shortcuts</li>
-        <li>Send break to serial devices</li>
-        <li>Session logging with ANSI escape stripping for clean log files</li>
-      </ul>
+        <h3>URL Detection</h3>
+        <p>URLs in terminal output are clickable. Ctrl+click to open in your browser, or right-click for a context menu. Right-click selected text to search Google directly.</p>
+      </div>
 
-      <h2>AI Assistant</h2>
+      <div class="feature-section" id="file-transfer">
+        <h2>File Transfer</h2>
 
-      <h3>Persistent Right-Side Dock</h3>
-      <p>The AI assistant lives in a dockable panel on the right side of the main window. Chat history persists across session switches and theme changes, so you can walk back through a conversation instead of losing it the moment the dialog closes.</p>
+        <h3>SFTP Browser</h3>
+        <p>A dockable SFTP panel that reuses the active SSH transport. Browse remote directories, upload, download, delete, and create folders &mdash; all with a progress bar and themed interface. No separate SFTP client needed.</p>
 
-      <h3>Two Providers</h3>
-      <p>RockTerm supports both <strong>Anthropic Claude</strong> and <strong>OpenAI GPT</strong>. Choose your provider, model, and API key in <code>Edit &rarr; Preferences &rarr; AI Assistant</code>. You bring your own key; RockTerm never proxies your data through a third party.</p>
+        <h3>Zmodem</h3>
+        <p>Auto-detect incoming Zmodem transfers and receive files automatically. Initiate sends from the File Transfer menu or with <code>Ctrl+Alt+S</code>. The go-to protocol for quick file transfers over an existing terminal session.</p>
 
-      <h3>Context-Aware</h3>
-      <p>Right-click selected terminal output and send it to the assistant along with recent scrollback. Every context block that gets sent to the model is recorded in the chat history as a distinct block right before the user question, so past conversations stay interpretable when you re-open them later.</p>
+        <h3>Xmodem &amp; Ymodem</h3>
+        <p>Send and receive files with Xmodem or Ymodem for devices and systems that require these protocols. Accessible from the File Transfer menu.</p>
 
-      <h3>Quick Prompts and Safety Rails</h3>
-      <p>One-click <strong>Explain</strong>, <strong>Fix Error</strong>, and <strong>Summarize</strong> prompts. <strong>Copy Last</strong> copies the latest response to your clipboard. <strong>Send to Terminal</strong> routes text into the active terminal — behind a confirmation dialog so nothing gets typed into a live session by accident. Rate limits, quota exhaustion, and billing errors surface as friendly messages instead of raw HTTP errors.</p>
+        <h3>Built-In TFTP Server</h3>
+        <p>An RFC 1350-compliant TFTP server in a dockable panel. Configurable root directory, port, and bind address. Transfer table and log view for monitoring activity. Path traversal protection built in. Essential for firmware upgrades and configuration pulls on network equipment.</p>
 
-      <h2>Theming &amp; UX</h2>
+        <h3>Drag-and-Drop Transfer</h3>
+        <p>Drop files directly onto a terminal session. For SSH sessions, choose between SFTP upload (with remote directory prompt) or Zmodem send. No menus, no dialogs &mdash; just drag and drop.</p>
 
-      <h3>Light and Dark UI Themes</h3>
-      <p>Toggle between light and dark UI themes with <code>View &rarr; Theme</code>. Changes apply live to every dock, dialog, menu, and terminal — no restart, no stale stylesheets. On Windows 10/11, the title bar darkens to match.</p>
+        <h3>ASCII Transfer</h3>
+        <p>Send and receive plain ASCII files for configuration deployment and output capture.</p>
+      </div>
 
-      <h3>Secret Manager</h3>
-      <p>An AES-encrypted credential vault unlocked with a master password. Saved session credentials are stored in the vault, so you are never trading convenience for plaintext passwords on disk.</p>
+      <div class="feature-section" id="scripting">
+        <h2>Scripting &amp; Automation</h2>
 
-      <h3>Polished Connection Dialog</h3>
-      <p>The New Connection dialog uses accent-tinted icon badges, refined typography, and keyboard-focus rings. Small details, but they make daily use feel like a tool rather than a toy.</p>
+        <h3>Expect Engine</h3>
+        <p>Full expect-style scripting with pattern matching and automation. Write scripts that wait for prompts, send commands, handle branching, and automate repetitive sequences across network devices and servers.</p>
 
-      <h2>Distribution</h2>
+        <h3>Python Scripting</h3>
+        <p>Scripts with a <code>#!python</code> shebang run as Python with access to the session context. Use the expect engine for simple automation and Python for anything more complex.</p>
 
-      <h3>Microsoft Store</h3>
-      <p>RockTerm ships as a signed MSIX package through the Microsoft Store. Updates are delivered automatically. A free trial is available so you can evaluate the full product before purchasing. One-time purchase — no subscription, no recurring charges.</p>
+        <h3>Script Editor</h3>
+        <p>A syntax-highlighted in-app editor with a built-in runner. Write, test, import, and export scripts without leaving the application. Launch with <code>F5</code> or <code>Ctrl+Shift+S</code>.</p>
 
-      <h3>No Telemetry</h3>
-      <p>RockTerm does not collect usage data, analytics, or crash telemetry. Your sessions, your connections, and your API keys stay on your machine. The only outbound traffic comes from the things you explicitly initiate: the SSH/Telnet/serial sessions themselves, and AI requests you consciously send.</p>
+        <h3>Script Recorder</h3>
+        <p>Record your keystrokes into a script with <code>Ctrl+Shift+R</code>. Replay it later or edit the generated script to fine-tune the automation.</p>
+
+        <h3>Triggers</h3>
+        <p>Define pattern-based triggers that fire automatically when matching text appears in terminal output. Use triggers for auto-responses, alerts, highlighting, or launching scripts on specific events.</p>
+
+        <h3>Login Scripts &amp; Auto-Logon</h3>
+        <p>Assign scripts that run automatically on connect. Auto-logon detects username and password prompts and fills credentials from saved profiles. Post-connect remote commands execute after authentication completes.</p>
+
+        <h3>Paste Delays</h3>
+        <p>Configurable per-character and per-line delays when sending text to sessions. Prevents buffer overruns on devices that can't handle full-speed input.</p>
+      </div>
+
+      <div class="feature-section" id="logging">
+        <h2>Logging</h2>
+
+        <h3>Session Logging</h3>
+        <p>Log terminal output to file with ANSI escape stripping for clean, readable log files. Start logging manually, automatically on connect, or from the command line with <code>--log</code>.</p>
+
+        <h3>Log Rotation</h3>
+        <p>Rotate logs at midnight, by file size, or both. Old logs are renamed with timestamps so nothing is overwritten.</p>
+
+        <h3>Filename Templates</h3>
+        <p>Dynamic log filenames with parameter substitution: <code>{user}</code>, <code>{host}</code>, <code>{port}</code>, <code>{date}</code>, <code>{time}</code>, <code>{datetime}</code>, <code>{type}</code>. Organize logs by session, date, or connection type without manual file management.</p>
+
+        <h3>Custom Log Messages</h3>
+        <p>Configurable connect and disconnect messages written to the log. Record when sessions opened and closed with whatever context your audit process requires.</p>
+      </div>
+
+      <div class="feature-section" id="security">
+        <h2>Security &amp; Credentials</h2>
+
+        <h3>Credential Vault</h3>
+        <p>An AES-encrypted vault unlocked with a master password. Session credentials are stored encrypted on disk &mdash; never in plaintext. Named credential profiles can be mapped to multiple sessions for consistent access management.</p>
+
+        <h3>SSH Key Management</h3>
+        <p>Generate RSA and Ed25519 key pairs, import existing keys, convert between formats, and upload public keys to servers. OpenSSH certificate files are auto-loaded alongside private keys for certificate-authority environments.</p>
+
+        <h3>Host Key Verification</h3>
+        <p>Graphical host key manager for viewing, importing, exporting, and deleting known host fingerprints. First-connect prompts show the full fingerprint for manual verification.</p>
+
+        <h3>Session Locking</h3>
+        <p>Password-protect any session with <code>Ctrl+Alt+L</code>. Locked sessions prevent typing and cannot be closed until unlocked. Useful for stepping away from an active session without disconnecting.</p>
+
+        <h3>In-Session Credential Caching</h3>
+        <p>Passwords and passphrases are cached in memory for the duration of the app session. Reconnecting to the same host auto-fills credentials without re-prompting.</p>
+
+        <h3>Anti-Idle</h3>
+        <p>Periodic keep-alive packets prevent idle disconnections on SSH and Telnet sessions. Configurable per session.</p>
+      </div>
+
+      <div class="feature-section" id="network-tools">
+        <h2>Network Tools</h2>
+        <p>A built-in toolkit under the <strong>Network</strong> menu for the calculations, conversions, and generators that network engineers reach for constantly.</p>
+
+        <h3>IPv4</h3>
+        <ul>
+          <li><strong>Subnet Calculator</strong> &mdash; enter an address and mask, get network, broadcast, host range, and usable count</li>
+          <li><strong>Subnet Splitter</strong> &mdash; divide a network into smaller subnets by count or prefix length</li>
+          <li><strong>Wildcard Converter</strong> &mdash; convert between subnet masks and wildcard masks</li>
+          <li><strong>Route Summarization</strong> &mdash; find the shortest summary route for a list of networks</li>
+          <li><strong>CIDR Reference</strong> &mdash; quick-reference table of CIDR prefixes, subnet masks, and host counts</li>
+        </ul>
+
+        <h3>IPv6</h3>
+        <ul>
+          <li><strong>IPv6 Prefix Splitter</strong> &mdash; split an IPv6 prefix into smaller allocations</li>
+          <li><strong>EUI-64 Helper</strong> &mdash; generate EUI-64 interface identifiers from MAC addresses</li>
+        </ul>
+
+        <h3>Configuration</h3>
+        <ul>
+          <li><strong>Prefix-List Generator</strong> &mdash; build prefix-list statements from a list of networks</li>
+        </ul>
+
+        <h3>Log Analysis</h3>
+        <ul>
+          <li><strong>Regex Lab</strong> &mdash; test and refine regular expressions against sample text with live match highlighting</li>
+          <li><strong>Log Extractor</strong> &mdash; pull structured data from log output using patterns</li>
+        </ul>
+
+        <h3>SSH Tools</h3>
+        <ul>
+          <li><strong>Port Forwarding Manager</strong> &mdash; view and manage active SSH tunnels across sessions</li>
+          <li><strong>Port Forwarding Wizard</strong> &mdash; step-by-step setup for local, remote, and dynamic tunnels with traffic-flow diagrams</li>
+          <li><strong>SSH Key Manager</strong> &mdash; generate, import, convert, and manage SSH key pairs</li>
+          <li><strong>Credential Manager</strong> &mdash; access the credential vault for saved session passwords and profiles</li>
+        </ul>
+      </div>
+
+      <div class="feature-section" id="keyboard">
+        <h2>Keyboard &amp; Input</h2>
+
+        <h3>Keyboard Mapping</h3>
+        <p>Per-session key mappings with named profiles. A graphical keyboard editor shows the full layout with color-coded indicators for mapped keys. Click a key to assign an action. Export and import <code>.keymap.json</code> files to share configurations between machines.</p>
+
+        <h3>Emacs Mode</h3>
+        <p>Alt-as-Meta key mode sends <code>ESC+key</code> for Alt combinations. Enable globally in Preferences for Emacs-native key bindings across all sessions.</p>
+      </div>
+
+      <div class="feature-section" id="appearance">
+        <h2>Appearance &amp; Display</h2>
+
+        <h3>Themes</h3>
+        <p>Light and dark UI themes with live toggle &mdash; no restart required. On Windows 10/11 the title bar darkens to match. System theme detection follows your OS preference automatically.</p>
+
+        <h3>Color Schemes</h3>
+        <p>Ten built-in terminal color palettes: Default Dark, Default Light, Solarized Dark, Solarized Light, Dracula, Gruvbox Dark, Nord, Monokai, Tomorrow Night, and Cisco Console. A GUI theme editor lets you rename, duplicate, and live-preview custom palettes. Themes are portable JSON files.</p>
+
+        <h3>Alpha Transparency</h3>
+        <p>Adjustable window opacity from 20% to 100% with live preview. Set in Preferences &rarr; Appearance.</p>
+
+        <h3>MDI Wallpaper</h3>
+        <p>Set a background image on the canvas. Scales cleanly across resize, tile, and cascade operations.</p>
+
+        <h3>Font Scaling</h3>
+        <p>Zoom in, zoom out, and reset zoom on terminal text. Dynamic font sizing adapts to your display and preference.</p>
+
+        <h3>Printing</h3>
+        <ul>
+          <li><strong>Print Screen / Selection</strong> &mdash; print terminal contents with monospace rendering and session info header</li>
+          <li><strong>Host-Based Printing</strong> &mdash; pass-through printing via MC5/MC4 escape sequences from remote hosts</li>
+        </ul>
+      </div>
+
+      <div class="feature-section" id="ai">
+        <h2>AI Assistant</h2>
+
+        <h3>Persistent Dock</h3>
+        <p>The AI assistant lives in a dockable panel on the right side of the window. Chat history persists across session switches and theme changes.</p>
+
+        <h3>Two Providers</h3>
+        <p>Supports <strong>Anthropic Claude</strong> and <strong>OpenAI GPT</strong>. Choose your provider, model, and API key in Preferences. You bring your own key &mdash; RockTerm never proxies your data through a third party.</p>
+
+        <h3>Context-Aware</h3>
+        <p>Right-click selected terminal output and send it to the assistant with recent scrollback. Context blocks are recorded in chat history so past conversations stay interpretable.</p>
+
+        <h3>Quick Prompts</h3>
+        <p>One-click Explain, Fix Error, and Summarize prompts. Copy Last copies the response to clipboard. Send to Terminal routes text into the active session behind a confirmation dialog. Rate limits and quota errors surface as friendly messages.</p>
+
+        <h3>Entirely Opt-In</h3>
+        <p>AI features are disabled by default. Nothing is sent to any external service unless you configure an API key and invoke the assistant. You control what context is shared.</p>
+      </div>
+
+      <div class="feature-section" id="distribution">
+        <h2>Distribution &amp; Platform</h2>
+
+        <h3>Microsoft Store</h3>
+        <p>Signed MSIX package through the Microsoft Store. Automatic updates. Free trial with full functionality. One-time purchase &mdash; no subscription.</p>
+
+        <h3>Command-Line Options</h3>
+        <p>Launch sessions from the command line or scripts: <code>--ssh</code>, <code>--telnet</code>, <code>--raw</code>, <code>--serial</code>, <code>--session NAME</code>, with flags for username, password, key file, and log file.</p>
+
+        <h3>Accessibility</h3>
+        <p>Accessible names and descriptions on all major widgets &mdash; terminals, session tree, docks, and dialogs. Focus policies and screen reader hints for Section 508 compliance.</p>
+
+        <h3>No Telemetry</h3>
+        <p>RockTerm does not collect usage data, analytics, or crash telemetry. Your sessions, connections, and API keys stay on your machine. The only outbound traffic comes from the things you explicitly initiate.</p>
+      </div>
+
     </div>
   </main>
 
