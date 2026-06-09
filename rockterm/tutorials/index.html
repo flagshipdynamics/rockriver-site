@@ -4,16 +4,55 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow">
-  <title>Contact — Rock River Research</title>
-  <meta name="description" content="Contact Rock River Research for support, feedback, or inquiries.">
-  <link rel="canonical" href="https://rockriverresearch.com/contact/">
-  <meta property="og:title" content="Contact — Rock River Research">
-  <meta property="og:description" content="Contact Rock River Research for support, feedback, or inquiries.">
-  <meta property="og:url" content="https://rockriverresearch.com/contact/">
+  <title>Video Tutorials — RockTerm — Rock River Research</title>
+  <meta name="description" content="Watch video tutorials for RockTerm — see SSH connections, button bars, scripting, port forwarding, and more in action.">
+  <link rel="canonical" href="https://rockriverresearch.com/rockterm/tutorials/">
+  <meta property="og:title" content="Video Tutorials — RockTerm — Rock River Research">
+  <meta property="og:description" content="Watch video tutorials for RockTerm — see SSH connections, button bars, scripting, port forwarding, and more in action.">
+  <meta property="og:url" content="https://rockriverresearch.com/rockterm/tutorials/">
   <meta property="og:image" content="https://rockriverresearch.com/images/logo.png">
   <meta property="og:type" content="website">
   <link rel="stylesheet" href="/css/style.css">
   <link rel="icon" href="/favicon.ico">
+  <style>
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .video-card {
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      overflow: hidden;
+      transition: box-shadow 0.2s;
+    }
+    .video-card:hover {
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    }
+    .video-card a {
+      text-decoration: none;
+      color: inherit;
+    }
+    .video-card img {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+      display: block;
+    }
+    .video-card-body {
+      padding: 1rem 1.25rem;
+    }
+    .video-card-body h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1.1rem;
+    }
+    .video-card-body p {
+      margin: 0;
+      color: #666;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -51,10 +90,22 @@
   </header>
   <main class="page-content">
     <div class="container">
-      <h1>Contact Us</h1>
-      <p>For general inquiries: <a href="mailto:contact@rockriverresearch.com">contact@rockriverresearch.com</a></p>
-      <p>For RockTerm support: <a href="mailto:info@rockriverresearch.com">info@rockriverresearch.com</a></p>
-      <p>For RockTerm technical support, please visit our <a href="/rockterm/support/">support page</a> for FAQs and troubleshooting guides before reaching out.</p>
+      <h1>Video Tutorials</h1>
+      <p>See RockTerm in action. Each tutorial walks through a feature with a live demo so you can see exactly how it works.</p>
+
+      <div class="video-grid">
+
+        <div class="video-card">
+          <a href="/rockterm/tutorials/button-bar-demo/">
+            <img src="https://i.ytimg.com/vi/0_NRQtx7a94/hqdefault.jpg" alt="RockTerm Button Bar Demo" loading="lazy">
+            <div class="video-card-body">
+              <h3>Button Bar</h3>
+              <p>Create color-coded command buttons for one-click access to your most-used commands, passwords, and scripts.</p>
+            </div>
+          </a>
+        </div>
+
+      </div>
     </div>
   </main>
 
