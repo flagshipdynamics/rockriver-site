@@ -881,6 +881,53 @@ body.mobile-nav-open {
   margin-bottom: 16px;
 }
 
+/* ===== Page Hero (interior pages) ===== */
+.page-hero {
+  background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(37, 99, 235, 0.12), transparent),
+              linear-gradient(180deg, #0d0d1a 0%, #131327 100%);
+  padding: 56px 0 48px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.page-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 32px 32px;
+  pointer-events: none;
+}
+
+.page-hero h1 {
+  color: #ffffff;
+  font-size: 2.2rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+  position: relative;
+}
+
+.page-hero-subtitle {
+  color: #94a3b8;
+  font-size: 1.1rem;
+  margin-bottom: 0;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .page-hero {
+    padding: 40px 0 32px;
+  }
+  .page-hero h1 {
+    font-size: 1.6rem;
+  }
+}
+
 /* ===== Page content ===== */
 .page-content {
   padding: 48px 0;

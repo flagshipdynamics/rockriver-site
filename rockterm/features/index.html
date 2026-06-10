@@ -102,9 +102,15 @@
       <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
     </div>
   </header>
-  <main class="page-content">
+  
+  <section class="page-hero">
     <div class="container">
       <h1>Features</h1>
+      <p class="page-hero-subtitle">Everything RockTerm ships, in detail.</p>
+    </div>
+  </section>
+  <main class="page-content">
+    <div class="container">
       <p>RockTerm ships with 110+ features across connectivity, file transfer, scripting, session management, logging, security, and built-in network tools. Everything below is shipping today.</p>
 
       <div class="features-toc">
@@ -126,7 +132,7 @@
         </ul>
       </div>
 
-      <div class="feature-section" id="connectivity">
+      <div class="feature-section reveal" id="connectivity">
         <h2>Connectivity</h2>
 
         <h3>SSH</h3>
@@ -155,7 +161,7 @@
         <p>Open a native local shell in the same workspace as your remote sessions. Uses ConPTY on Windows and native PTY on Linux/macOS.</p>
       </div>
 
-      <div class="feature-section" id="session-management">
+      <div class="feature-section reveal" id="session-management">
         <h2>Session Management</h2>
 
         <h3>Session Manager</h3>
@@ -178,7 +184,7 @@
         </ul>
       </div>
 
-      <div class="feature-section" id="workspace">
+      <div class="feature-section reveal" id="workspace">
         <h2>Workspace &amp; Interface</h2>
 
         <h3>Tabbed MDI Canvas</h3>
@@ -204,7 +210,7 @@
         </ul>
       </div>
 
-      <div class="feature-section" id="terminal">
+      <div class="feature-section reveal" id="terminal">
         <h2>Terminal Emulation</h2>
 
         <h3>Emulation Modes</h3>
@@ -234,7 +240,7 @@
         <p>URLs in terminal output are clickable. Ctrl+click to open in your browser, or right-click for a context menu. Right-click selected text to search Google directly.</p>
       </div>
 
-      <div class="feature-section" id="file-transfer">
+      <div class="feature-section reveal" id="file-transfer">
         <h2>File Transfer</h2>
 
         <h3>SFTP Browser</h3>
@@ -256,7 +262,7 @@
         <p>Send and receive plain ASCII files for configuration deployment and output capture.</p>
       </div>
 
-      <div class="feature-section" id="scripting">
+      <div class="feature-section reveal" id="scripting">
         <h2>Scripting &amp; Automation</h2>
 
         <h3>Expect Engine</h3>
@@ -281,7 +287,7 @@
         <p>Configurable per-character and per-line delays when sending text to sessions. Prevents buffer overruns on devices that can't handle full-speed input.</p>
       </div>
 
-      <div class="feature-section" id="logging">
+      <div class="feature-section reveal" id="logging">
         <h2>Logging</h2>
 
         <h3>Session Logging</h3>
@@ -297,7 +303,7 @@
         <p>Configurable connect and disconnect messages written to the log. Record when sessions opened and closed with whatever context your audit process requires.</p>
       </div>
 
-      <div class="feature-section" id="security">
+      <div class="feature-section reveal" id="security">
         <h2>Security &amp; Credentials</h2>
 
         <h3>Credential Vault</h3>
@@ -319,7 +325,7 @@
         <p>Periodic keep-alive packets prevent idle disconnections on SSH and Telnet sessions. Configurable per session.</p>
       </div>
 
-      <div class="feature-section" id="network-tools">
+      <div class="feature-section reveal" id="network-tools">
         <h2>Network Tools</h2>
         <p>A built-in toolkit under the <strong>Network</strong> menu for the calculations, conversions, and generators that network engineers reach for constantly.</p>
 
@@ -358,7 +364,7 @@
         </ul>
       </div>
 
-      <div class="feature-section" id="keyboard">
+      <div class="feature-section reveal" id="keyboard">
         <h2>Keyboard &amp; Input</h2>
 
         <h3>Keyboard Mapping</h3>
@@ -368,7 +374,7 @@
         <p>Alt-as-Meta key mode sends <code>ESC+key</code> for Alt combinations. Enable globally in Preferences for Emacs-native key bindings across all sessions.</p>
       </div>
 
-      <div class="feature-section" id="appearance">
+      <div class="feature-section reveal" id="appearance">
         <h2>Appearance &amp; Display</h2>
 
         <h3>Themes</h3>
@@ -393,7 +399,7 @@
         </ul>
       </div>
 
-      <div class="feature-section" id="ai">
+      <div class="feature-section reveal" id="ai">
         <h2>AI Assistant</h2>
 
         <h3>Persistent Dock</h3>
@@ -412,7 +418,7 @@
         <p>AI features are disabled by default. Nothing is sent to any external service unless you configure an API key and invoke the assistant. You control what context is shared.</p>
       </div>
 
-      <div class="feature-section" id="distribution">
+      <div class="feature-section reveal" id="distribution">
         <h2>Distribution &amp; Platform</h2>
 
         <h3>Microsoft Store</h3>

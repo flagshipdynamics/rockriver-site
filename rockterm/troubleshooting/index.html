@@ -49,46 +49,51 @@
       <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
     </div>
   </header>
-  <main class="page-content">
+  
+  <section class="page-hero">
     <div class="container">
       <h1>Troubleshooting</h1>
-
-      <details>
+      <p class="page-hero-subtitle">Fix common issues fast.</p>
+    </div>
+  </section>
+  <main class="page-content">
+    <div class="container">
+      <details class="reveal">
         <summary>RockTerm won't launch.</summary>
         <div class="details-content">
           <p>Try restarting your computer. If the problem persists, try repairing or reinstalling from the Microsoft Store (Settings &rarr; Apps &rarr; RockTerm &rarr; Advanced Options &rarr; Repair/Reset). Ensure your system meets the <a href="/rockterm/system-requirements/">minimum requirements</a>.</p>
         </div>
       </details>
 
-      <details>
+      <details class="reveal">
         <summary>I can't connect to my SSH host.</summary>
         <div class="details-content">
           <p>Verify the hostname/IP, port, and credentials. Ensure the remote host is reachable from your network (try <code>ping</code> or <code>Test-NetConnection</code> in PowerShell). Check that your firewall or VPN is not blocking port 22 (or your configured SSH port). Verify your SSH key file path is correct if using key-based authentication.</p>
         </div>
       </details>
 
-      <details>
+      <details class="reveal">
         <summary>AI features are not responding.</summary>
         <div class="details-content">
           <p>AI features require an active internet connection. Verify your connection. If the AI provider's API is experiencing downtime, the feature may be temporarily unavailable. Check that AI features are enabled in Settings.</p>
         </div>
       </details>
 
-      <details>
+      <details class="reveal">
         <summary>Terminal text looks wrong or garbled.</summary>
         <div class="details-content">
           <p>Try changing the terminal font in Settings. Ensure your terminal encoding is set to UTF-8. Some legacy systems may send output in encodings that require specific configuration.</p>
         </div>
       </details>
 
-      <details>
+      <details class="reveal">
         <summary>The Microsoft Store says the app is not available.</summary>
         <div class="details-content">
           <p>Ensure you're running a supported version of Windows. RockTerm requires Windows 10 version 1809 or later. Check that the Microsoft Store is not restricted by your organization's policies.</p>
         </div>
       </details>
 
-      <details>
+      <details class="reveal">
         <summary>How do I reset RockTerm to default settings?</summary>
         <div class="details-content">
           <p>Go to Settings &rarr; Apps &rarr; RockTerm &rarr; Advanced Options &rarr; Reset. This will clear your settings but will not delete saved connection profiles.</p>
