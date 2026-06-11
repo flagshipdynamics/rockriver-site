@@ -17,27 +17,54 @@
   <style>
     .compare-hero-stats {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
       margin: 2.5rem 0 0;
+    }
+    @media (max-width: 600px) {
+      .compare-hero-stats { grid-template-columns: 1fr; }
     }
     .stat-card {
       background: #1a1a2e;
       border: 1px solid #2d2d4a;
-      border-radius: 8px;
-      padding: 1.5rem;
+      border-radius: 10px;
+      padding: 2rem 1.5rem;
       text-align: center;
     }
-    .stat-card .number {
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: #93b4f5;
-      line-height: 1.2;
+    .stat-card.stat-winner {
+      border-color: #6ee7b7;
+      box-shadow: 0 0 20px rgba(110, 231, 183, 0.08);
     }
-    .stat-card .label {
+    .stat-card.stat-loser {
+      border-color: #ef4444;
+      box-shadow: 0 0 20px rgba(239, 68, 68, 0.06);
+    }
+    .stat-card .stat-brand {
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.5rem;
+    }
+    .stat-card.stat-winner .stat-brand { color: #6ee7b7; }
+    .stat-card.stat-loser .stat-brand { color: #ef4444; }
+    .stat-card .stat-big {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #e2e8f0;
+      line-height: 1.1;
+    }
+    .stat-card .stat-type {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #e2e8f0;
+      margin-top: 0.25rem;
+    }
+    .stat-card .stat-detail {
       color: #94a3b8;
-      font-size: 0.9rem;
-      margin-top: 0.35rem;
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+      line-height: 1.5;
     }
 
     .pricing-showdown {
@@ -251,17 +278,17 @@
       <p>Termius is a popular SSH client with cloud sync and mobile apps. RockTerm is a full-featured terminal emulator built for network professionals who manage real infrastructure. Here's how they compare.</p>
 
       <div class="compare-hero-stats">
-        <div class="stat-card reveal">
-          <div class="number">$149.99</div>
-          <div class="label">RockTerm &mdash; one-time, forever</div>
+        <div class="stat-card stat-winner reveal">
+          <div class="stat-brand">RockTerm</div>
+          <div class="stat-big">$149.99</div>
+          <div class="stat-type">One-time purchase</div>
+          <div class="stat-detail">Total cost over 3 years: <strong style="color:#6ee7b7;">$149.99</strong><br>110+ features. Your data stays local.</div>
         </div>
-        <div class="stat-card reveal reveal-delay-1">
-          <div class="number">$120+/yr</div>
-          <div class="label">Termius Pro &mdash; per user, every year</div>
-        </div>
-        <div class="stat-card reveal reveal-delay-2">
-          <div class="number">110+</div>
-          <div class="label">RockTerm features</div>
+        <div class="stat-card stat-loser reveal reveal-delay-1">
+          <div class="stat-brand">Termius Pro</div>
+          <div class="stat-big">$360</div>
+          <div class="stat-type">Over 3 years (per user)</div>
+          <div class="stat-detail">$10/month &times; 36 months = <strong style="color:#ef4444;">$360 per user</strong><br>Team plan: $720/user. Business: $1,080/user.</div>
         </div>
       </div>
 
@@ -281,15 +308,16 @@
             <strong>Year 2 cost: $0. Year 3 cost: $0.</strong>
           </div>
         </div>
-        <div class="pricing-card reveal reveal-delay-1">
+        <div class="pricing-card reveal reveal-delay-1" style="border-color: #ef4444;">
           <h3>Termius</h3>
-          <div class="price">$10 &ndash; $30</div>
-          <div class="price-note">Per user / month (billed annually)</div>
+          <div class="price" style="color: #ef4444;">$120 &ndash; $360</div>
+          <div class="price-note">Per user, <strong>per year</strong>, every year</div>
           <div class="price-detail">
             <strong>Pro:</strong> $120/year per user<br>
             <strong>Team:</strong> $240/year per user<br>
             <strong>Business:</strong> $360/year per user<br>
-            <strong>Enterprise:</strong> Custom pricing
+            <strong>Enterprise:</strong> Custom pricing<br>
+            <strong style="color: #ef4444;">Year 2 cost: same. Year 3 cost: same.</strong>
           </div>
         </div>
       </div>
