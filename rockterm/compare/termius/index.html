@@ -485,7 +485,18 @@
       <!-- Fair note -->
       <div class="fair-note reveal">
         <h4>Where Termius wins</h4>
-        <p>Termius runs on macOS, Linux, iOS, and Android in addition to Windows. If you need to SSH from your phone or sync sessions across a MacBook and an iPad, Termius does that well. It also supports Mosh for high-latency connections and offers real-time session sharing for team collaboration. RockTerm is Windows-only and keeps everything local &mdash; that's a deliberate design decision, but it means no mobile access and no cloud sync.</p>
+        <p>Termius runs on macOS, Linux, iOS, and Android in addition to Windows. If you need to SSH from your phone or sync sessions across a MacBook and an iPad, Termius does that. It also supports Mosh for high-latency connections and offers real-time session sharing for team collaboration.</p>
+        <p>RockTerm is Windows-only and keeps everything local &mdash; and that's a deliberate security decision, not a missing feature. Here's why:</p>
+        <p>Cloud-synced credentials are a high-value target. When a vendor stores your SSH keys, passwords, and session bookmarks on their servers, a single breach exposes every connection you've ever saved &mdash; across every device. This isn't hypothetical; credential-syncing services have been breached before, and terminal emulators hold the keys to production infrastructure.</p>
+        <p>RockTerm's local-only architecture aligns with real-world security standards and best practices:</p>
+        <ul style="margin: 0.75rem 0 1rem 1.5rem; color: #94a3b8; line-height: 1.8;">
+          <li><strong style="color: #e2e8f0;">NIST SP 800-53 (SC-28, SC-12)</strong> &mdash; Recommends protecting credentials at rest and minimizing key distribution. Local-only storage eliminates the third-party sync vector entirely.</li>
+          <li><strong style="color: #e2e8f0;">CIS Controls v8 (Control 6)</strong> &mdash; Calls for centralized credential management under your organization's control, not a SaaS vendor's cloud.</li>
+          <li><strong style="color: #e2e8f0;">Zero Trust Architecture (NIST SP 800-207)</strong> &mdash; A core Zero Trust principle: minimize implicit trust in third-party intermediaries. Your SSH keys should not transit or reside on infrastructure you don't own.</li>
+          <li><strong style="color: #e2e8f0;">SOC 2 / ISO 27001</strong> &mdash; Both frameworks require documented control over sensitive credential storage. Local storage with AES encryption under a master password you control is straightforward to audit and certify.</li>
+          <li><strong style="color: #e2e8f0;">PCI DSS Requirement 8</strong> &mdash; Mandates strong access-credential management. Syncing credentials to a vendor cloud introduces a shared-responsibility gap that complicates PCI compliance.</li>
+        </ul>
+        <p>RockTerm encrypts your credential vault locally with AES under a master password that never leaves your machine. No cloud account, no sync servers, no vendor breach surface. If your security posture matters &mdash; and if you're managing network infrastructure, it does &mdash; keeping credentials local isn't a limitation. It's the point.</p>
       </div>
 
       <!-- CTA -->
