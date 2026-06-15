@@ -17,7 +17,11 @@
       "Bash(grep -v 'index.html$')",
       "Bash(grep -L 'og:title' /home/aquamarine/Desktop/rockriver-site/**/*.html /home/aquamarine/Desktop/rockriver-site/*.html)",
       "Bash(grep -L 'robots' /home/aquamarine/Desktop/rockriver-site/**/*.html /home/aquamarine/Desktop/rockriver-site/*.html)",
-      "Bash(find /home/aquamarine/Desktop/rockriver-site -name '*.html' -exec sed -i 's/support@rockriverresearch\\\\.com/info@rockriverresearch.com/g' {} +)"
+      "Bash(find /home/aquamarine/Desktop/rockriver-site -name '*.html' -exec sed -i 's/support@rockriverresearch\\\\.com/info@rockriverresearch.com/g' {} +)",
+      "Bash(python3 -m http.server 8888)",
+      "Bash(git -C /home/aquamarine/Desktop/rockriver-site status)",
+      "Bash(git -C /home/aquamarine/Desktop/rockriver-site diff)",
+      "Bash(git -C /home/aquamarine/Desktop/rockriver-site log --oneline -5)"
     ]
   }
 }
