@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>RockTerm vs SecureCRT — Feature Comparison | Rock River Research</title>
+  <meta name="description" content="Compare RockTerm vs SecureCRT side by side. RockTerm includes SFTP and 12 network tools at $149.99 one-time — no renewal fees, no add-ons. See the full feature comparison.">
+  <link rel="canonical" href="https://rockriverresearch.com/rockterm/compare/securecrt/">
+  <meta property="og:title" content="RockTerm vs SecureCRT — Feature Comparison">
+  <meta property="og:description" content="Compare RockTerm vs SecureCRT side by side. SFTP included, 12 network tools, AI assistant, no renewal fees.">
+  <meta property="og:url" content="https://rockriverresearch.com/rockterm/compare/securecrt/">
+  <meta property="og:image" content="https://rockriverresearch.com/images/logo.png">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/favicon.ico">
+  <style>
+    .compare-hero-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin: 2.5rem 0 0;
+    }
+    @media (max-width: 600px) {
+      .compare-hero-stats { grid-template-columns: 1fr; }
+    }
+    .stat-card {
+      background: #1a1a2e;
+      border: 1px solid #2d2d4a;
+      border-radius: 10px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+    .stat-card.stat-winner {
+      border-color: #6ee7b7;
+      box-shadow: 0 0 20px rgba(110, 231, 183, 0.08);
+    }
+    .stat-card.stat-loser {
+      border-color: #ef4444;
+      box-shadow: 0 0 20px rgba(239, 68, 68, 0.06);
+    }
+    .stat-card .stat-brand {
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.5rem;
+    }
+    .stat-card.stat-winner .stat-brand { color: #6ee7b7; }
+    .stat-card.stat-loser .stat-brand { color: #ef4444; }
+    .stat-card .stat-big {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #e2e8f0;
+      line-height: 1.1;
+    }
+    .stat-card .stat-type {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #e2e8f0;
+      margin-top: 0.25rem;
+    }
+    .stat-card .stat-detail {
+      color: #94a3b8;
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+      line-height: 1.5;
+    }
+
+    .pricing-showdown {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    @media (max-width: 700px) {
+      .pricing-showdown { grid-template-columns: 1fr; }
+    }
+    .pricing-card {
+      background: #1a1a2e;
+      border: 1px solid #2d2d4a;
+      border-radius: 10px;
+      padding: 2rem;
+      text-align: center;
+    }
+    .pricing-card.highlight {
+      border-color: #93b4f5;
+      box-shadow: 0 0 24px rgba(147, 180, 245, 0.08);
+    }
+    .pricing-card h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1.3rem;
+    }
+    .pricing-card .price {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #e2e8f0;
+      margin: 0.75rem 0 0.25rem;
+    }
+    .pricing-card .price-note {
+      color: #94a3b8;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+    .pricing-card .price-detail {
+      color: #94a3b8;
+      font-size: 0.85rem;
+      line-height: 1.6;
+    }
+    .pricing-card .price-detail strong {
+      color: #e2e8f0;
+    }
+
+    .savings-banner {
+      background: linear-gradient(135deg, #1a2e1a, #1a1a2e);
+      border: 1px solid #2d4a2d;
+      border-radius: 10px;
+      padding: 2rem;
+      text-align: center;
+      margin: 2rem 0;
+    }
+    .savings-banner h3 {
+      color: #6ee7b7;
+      font-size: 1.5rem;
+      margin: 0 0 0.5rem;
+    }
+    .savings-banner p {
+      color: #94a3b8;
+      margin: 0;
+    }
+    .savings-banner .save-amount {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #6ee7b7;
+    }
+
+    .compare-table-wrap {
+      overflow-x: auto;
+      margin: 2rem 0;
+    }
+    .compare-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+    .compare-table th,
+    .compare-table td {
+      padding: 0.75rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid #2d2d4a;
+    }
+    .compare-table thead th {
+      background: #1a1a2e;
+      color: #e2e8f0;
+      font-weight: 600;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+    .compare-table thead th:first-child {
+      border-radius: 8px 0 0 0;
+    }
+    .compare-table thead th:last-child {
+      border-radius: 0 8px 0 0;
+    }
+    .compare-table tbody tr:hover {
+      background: rgba(147, 180, 245, 0.04);
+    }
+    .compare-table td:first-child {
+      color: #e2e8f0;
+      font-weight: 500;
+    }
+    .compare-table .yes {
+      color: #6ee7b7;
+      font-weight: 600;
+    }
+    .compare-table .no {
+      color: #64748b;
+    }
+    .compare-table .partial {
+      color: #fbbf24;
+    }
+    .compare-table .category-row td {
+      background: #131328;
+      color: #93b4f5;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding-top: 1.25rem;
+      border-bottom: 2px solid #2d2d4a;
+    }
+
+    .advantage-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .advantage-card {
+      background: #1a1a2e;
+      border: 1px solid #2d2d4a;
+      border-radius: 8px;
+      padding: 1.5rem;
+    }
+    .advantage-card h4 {
+      margin: 0 0 0.5rem;
+      color: #e2e8f0;
+    }
+    .advantage-card p {
+      margin: 0;
+      color: #94a3b8;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .fair-note {
+      background: #1a1a2e;
+      border: 1px solid #2d2d4a;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 2rem 0;
+      color: #94a3b8;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+    .fair-note h4 {
+      color: #e2e8f0;
+      margin: 0 0 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Rock River Research</a>
+      <nav class="site-nav">
+        <div class="nav-header">
+          <a href="/" class="logo">Rock River Research</a>
+          <button class="nav-close" aria-label="Close menu">&#10005;</button>
+        </div>
+        <ul>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/">RockTerm</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Support</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/support/">Support Articles</a></li>
+              <li><a href="/rockterm/getting-started/">Getting Started</a></li>
+              <li><a href="/rockterm/tutorials/">Video Tutorials</a></li>
+              <li><a href="/rockterm/faq/">FAQ</a></li>
+              <li><a href="/rockterm/troubleshooting/">Troubleshooting</a></li>
+              <li><a href="/rockterm/system-requirements/">System Requirements</a></li>
+            </ul>
+          </li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>RockTerm vs SecureCRT</h1>
+      <p class="page-hero-subtitle">Same caliber of terminal emulator. SFTP included. No renewal fees.</p>
+    </div>
+  </section>
+
+  <main class="page-content">
+    <div class="container">
+
+      <p>SecureCRT by VanDyke Software has been the gold standard for network professionals for over two decades. RockTerm is built for the same audience &mdash; engineers who manage routers, switches, firewalls, and servers every day &mdash; with built-in network tools, AI assistance, and a simpler pricing model.</p>
+
+      <div class="compare-hero-stats">
+        <div class="stat-card stat-winner reveal">
+          <div class="stat-brand">RockTerm</div>
+          <div class="stat-big">$149.99</div>
+          <div class="stat-type">One-time purchase</div>
+          <div class="stat-detail">Total cost over 3 years: <strong style="color:#6ee7b7;">$149.99</strong><br>SFTP included. No renewal fees. Ever.</div>
+        </div>
+        <div class="stat-card stat-loser reveal reveal-delay-1">
+          <div class="stat-brand">SecureCRT + SecureFX</div>
+          <div class="stat-big">$233</div>
+          <div class="stat-type">Over 3 years (with renewals)</div>
+          <div class="stat-detail">$129 + $52/yr renewals = <strong style="color:#ef4444;">$233 per user</strong><br>SecureCRT alone (no SFTP): $215 over 3 years.</div>
+        </div>
+      </div>
+
+      <!-- Pricing showdown -->
+      <h2 class="reveal">The Real Cost</h2>
+      <p>SecureCRT charges $119 for the terminal alone. SFTP requires a separate product (SecureFX, $59.95) or the $129 bundle. Either way, you pay annual renewal fees to keep getting updates.</p>
+
+      <div class="pricing-showdown">
+        <div class="pricing-card highlight reveal">
+          <h3>RockTerm</h3>
+          <div class="price">$149.99</div>
+          <div class="price-note">One-time purchase. Done.</div>
+          <div class="price-detail">
+            SFTP, Zmodem, Xmodem, Ymodem, TFTP &mdash; all included.<br>
+            No add-on products. No renewal fees.<br>
+            Free trial with full functionality.<br>
+            <strong>Year 2 cost: $0. Year 3 cost: $0.</strong>
+          </div>
+        </div>
+        <div class="pricing-card reveal reveal-delay-1" style="border-color: #ef4444;">
+          <h3>SecureCRT + SecureFX</h3>
+          <div class="price" style="color: #ef4444;">$129 + $52/yr</div>
+          <div class="price-note">Per user, plus annual renewal</div>
+          <div class="price-detail">
+            <strong>Bundle (1-year updates):</strong> $129<br>
+            <strong>Annual renewal:</strong> $52/year<br>
+            <strong>SecureCRT alone:</strong> $119 + $48/yr renewal<br>
+            <strong>3-year prepay bundle:</strong> $206<br>
+            <strong style="color: #ef4444;">Stop paying, stop getting updates.</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="savings-banner reveal">
+        <h3>Save over 3 years</h3>
+        <p>One RockTerm license vs SecureCRT + SecureFX bundle with renewals:</p>
+        <p class="save-amount">You save $83.01</p>
+        <p>That's $129 + $52 + $52 = $233 for SecureCRT+SecureFX, minus RockTerm's $149.99.</p>
+        <p style="margin-top: 0.75rem;">With a 5-person team, you'd spend <strong>$1,165 over 3 years</strong> on SecureCRT+SecureFX.<br>Five RockTerm licenses: <strong>$749.95 total</strong>. You save <strong>$415.05</strong>.</p>
+      </div>
+
+      <!-- Feature comparison table -->
+      <h2 class="reveal">Feature-by-Feature Comparison</h2>
+      <p>Green = included. Yellow = partial or limited. Gray = not available.</p>
+
+      <div class="compare-table-wrap">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>RockTerm ($149.99)</th>
+              <th>SecureCRT (from $119)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Protocols -->
+            <tr class="category-row"><td colspan="3">Protocols</td></tr>
+            <tr><td>SSH2</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+            <tr><td>SSH1</td><td class="no">No (deprecated)</td><td class="yes">Yes</td></tr>
+            <tr><td>Telnet</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+            <tr><td>Telnet/TLS</td><td class="no">No</td><td class="yes">Yes</td></tr>
+            <tr><td>Serial (RS-232)</td><td class="yes">Yes &mdash; full config, auto-detect</td><td class="yes">Yes</td></tr>
+            <tr><td>RDP (Remote Desktop)</td><td class="yes">Yes &mdash; in tabs</td><td class="yes">Yes</td></tr>
+            <tr><td>Raw Sockets</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+            <tr><td>Named Pipes (VM)</td><td class="no">No</td><td class="yes">Yes (Windows)</td></tr>
+            <tr><td>Local Shell</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+
+            <!-- SSH -->
+            <tr class="category-row"><td colspan="3">SSH Capabilities</td></tr>
+            <tr><td>Public Key Auth (RSA, Ed25519, ECDSA)</td><td class="yes">Yes</td><td class="yes">Yes (up to 16,384-bit RSA)</td></tr>
+            <tr><td>OpenSSH Certificate Auth</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+            <tr><td>Kerberos v5 (GSSAPI)</td><td class="no">No</td><td class="yes">Yes</td></tr>
+            <tr><td>X.509 / Smart Card (PIV/CAC)</td><td class="no">No</td><td class="yes">Yes</td></tr>
+            <tr><td>Keyboard Interactive Auth</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+            <tr><td>SSH Agent Forwarding</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+            <tr><td>Jump Host / Bastion</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+            <tr><td>Dynamic Port Forwarding (SOCKS)</td><td class="yes">Yes &mdash; SOCKS4/4a/5</td><td class="yes">Yes</td></tr>
+            <tr><td>Local &amp; Remote Port Forwarding</td><td class="yes">Yes &mdash; with wizard</td><td class="yes">Yes</td></tr>
+            <tr><td>X11 Forwarding</td><td class="no">No</td><td class="yes">Yes</td></tr>
+            <tr><td>Full Cipher/KEX/MAC Selection</td><td class="yes">Yes &mdash; per algorithm</td><td class="yes">Yes</td></tr>
+            <tr><td>ChaCha20/Poly1305</td><td class="no">No</td><td class="yes">Yes</td></tr>
+            <tr><td>FIPS 140-2 Mode</td><td class="no">No</td><td class="yes">Yes</td></tr>
+            <tr><td>SSH Key Manager</td><td class="yes">Yes &mdash; generate, convert, upload</td><td class="yes">Yes</td></tr>
+            <tr><td>Host Key Manager</td><td class="yes">Yes &mdash; view, export, delete</td><td class="yes">Yes</td></tr>
+
+            <!-- File Transfer -->
+            <tr class="category-row"><td colspan="3">File Transfer</td></tr>
+            <tr><td>SFTP Browser</td><td class="yes">Yes &mdash; dockable panel, included</td><td class="partial">Requires SecureFX (+$59.95)</td></tr>
+            <tr><td>Zmodem (auto-detect)</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+            <tr><td>Xmodem</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+            <tr><td>Ymodem</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+            <tr><td>ASCII File Transfer</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+            <tr><td>Built-in TFTP Server</td><td class="yes">Yes &mdash; RFC 1350</td><td class="yes">Yes</td></tr>
+            <tr><td>Kermit</td><td class="no">No</td><td class="yes">Yes</td></tr>
+            <tr><td>Drag-and-Drop File Upload</td><td class="yes">Yes</td><td class="yes">Yes (with SecureFX)</td></tr>
+
+            <!-- Scripting & Automation -->
+            <tr class="category-row"><td colspan="3">Scripting &amp; Automation</td></tr>
+            <tr><td>Expect-Style Scripting</td><td class="yes">Yes &mdash; full engine</td><td class="yes">Yes</td></tr>
+            <tr><td>Python Scripting</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+            <tr><td>VBScript / JScript</td><td class="no">No</td><td class="yes">Yes (Windows)</td></tr>
+            <tr><td>Script Recorder</td><td class="yes">Yes &mdash; records send/expect pairs</td><td class="yes">Yes &mdash; Python or VBScript</td></tr>
+            <tr><td>Script Editor (syntax-highlighted)</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+            <tr><td>Triggers (pattern-based actions)</td><td class="yes">Yes</td><td class="partial">Via scripting</td></tr>
+            <tr><td>Auto-Login Scripts</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+            <tr><td>Post-Connect Commands</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+            <tr><td>Command Snippets</td><td class="yes">Yes &mdash; with shortcuts</td><td class="yes">Yes &mdash; command manager</td></tr>
+
+            <!-- Network Tools -->
+            <tr class="category-row"><td colspan="3">Built-In Network Tools</td></tr>
+            <tr><td>Subnet Calculator</td><td class="yes">Yes</td><td class="no">No</td></tr>
+            <tr><td>Subnet Splitter</td><td class="yes">Yes</td><td class="no">No</td></tr>
+            <tr><td>Route Summarization</td><td class="yes">Yes</td><td class="no">No</td></tr>
+            <tr><td>Wildcard Converter</td><td class="yes">Yes</td><td class="no">No</td></tr>
+            <tr><td>CIDR Reference</td><td class="yes">Yes</td><td class="no">No</td></tr>
+            <tr><td>IPv6 Prefix Splitter</td><td class="yes">Yes</td><td class="no">No</td></tr>
+            <tr><td>EUI-64 Helper</td><td class="yes">Yes</td><td class="no">No</td></tr>
+            <tr><td>Prefix-List Generator</td><td class="yes">Yes</td><td class="no">No</td></tr>
+            <tr><td>Regex Lab</td><td class="yes">Yes</td><td class="no">No</td></tr>
+            <tr><td>Log Extractor</td><td class="yes">Yes</td><td class="no">No</td></tr>
+
+            <!-- Session Management -->
+            <tr class="category-row"><td colspan="3">Session Management</td></tr>
+            <tr><td>Session Manager (tree view)</td><td class="yes">Yes &mdash; folders, search, filter</td><td class="yes">Yes &mdash; folders, filter</td></tr>
+            <tr><td>Batch Edit Sessions</td><td class="yes">Yes &mdash; multi-select</td><td class="yes">Yes</td></tr>
+            <tr><td>CSV/TSV Import Wizard</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+            <tr><td>Import from PuTTY/SecureCRT</td><td class="yes">Yes</td><td class="partial">PuTTY only</td></tr>
+            <tr><td>Named Credential Profiles</td><td class="yes">Yes &mdash; encrypted vault</td><td class="yes">Yes</td></tr>
+            <tr><td>Named Firewall/Proxy Profiles</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+            <tr><td>Layout Snapshots</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+            <tr><td>Active Sessions Manager</td><td class="yes">Yes &mdash; bulk ops</td><td class="yes">Yes</td></tr>
+            <tr><td>Connect on Startup</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+            <tr><td>Dependent Sessions</td><td class="no">No</td><td class="yes">Yes</td></tr>
+            <tr><td>Personal Data Folder</td><td class="no">No</td><td class="yes">Yes</td></tr>
+
+            <!-- UI -->
+            <tr class="category-row"><td colspan="3">Interface &amp; Display</td></tr>
+            <tr><td>Tabbed Sessions</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+            <tr><td>Tiled / Split Pane View</td><td class="yes">Yes &mdash; MDI with floating tiles</td><td class="yes">Yes</td></tr>
+            <tr><td>Tab Groups</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+            <tr><td>Tab Status Indicators</td><td class="yes">Yes &mdash; connected/activity dots</td><td class="yes">Yes</td></tr>
+            <tr><td>Drag-Drop Tabs Between Windows</td><td class="no">No</td><td class="yes">Yes</td></tr>
+            <tr><td>Session Locking</td><td class="yes">Yes &mdash; password protect</td><td class="yes">Yes</td></tr>
+            <tr><td>Hex View</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+            <tr><td>24-bit Truecolor</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+            <tr><td>Color Schemes (10+ built-in)</td><td class="yes">Yes + theme editor</td><td class="yes">Yes + Solarized</td></tr>
+            <tr><td>Button Bar</td><td class="yes">Yes &mdash; color-coded commands</td><td class="yes">Yes &mdash; icons + colors</td></tr>
+            <tr><td>Command Window (multi-line)</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+            <tr><td>Command Manager (folders)</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+            <tr><td>Scratchpad</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+            <tr><td>Send to All/Selected Sessions</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+            <tr><td>Alpha Transparency</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+
+            <!-- Terminal Emulation -->
+            <tr class="category-row"><td colspan="3">Terminal Emulation</td></tr>
+            <tr><td>VT100/VT102/VT220</td><td class="yes">Yes</td><td class="yes">Yes (+ VT320)</td></tr>
+            <tr><td>ANSI / Xterm</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+            <tr><td>Linux Console</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+            <tr><td>TN3270 (Mainframe)</td><td class="no">No</td><td class="yes">Yes</td></tr>
+            <tr><td>Wyse 50/60</td><td class="no">No</td><td class="yes">Yes</td></tr>
+            <tr><td>TVI910/TVI925</td><td class="no">No</td><td class="yes">Yes</td></tr>
+            <tr><td>SCO ANSI</td><td class="no">No</td><td class="yes">Yes</td></tr>
+
+            <!-- Keyboard -->
+            <tr class="category-row"><td colspan="3">Keyboard &amp; Input</td></tr>
+            <tr><td>Custom Key Mappings</td><td class="yes">Yes &mdash; per session</td><td class="yes">Yes &mdash; per session</td></tr>
+            <tr><td>Graphical Keyboard Editor</td><td class="yes">Yes</td><td class="yes">Yes (Windows)</td></tr>
+            <tr><td>Shareable Keymap Files</td><td class="yes">Yes &mdash; export/import</td><td class="yes">Yes</td></tr>
+            <tr><td>Emacs Mode (Alt as Meta)</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+
+            <!-- Logging -->
+            <tr class="category-row"><td colspan="3">Logging &amp; Auditing</td></tr>
+            <tr><td>Session Logging to File</td><td class="yes">Yes &mdash; ANSI stripping</td><td class="yes">Yes</td></tr>
+            <tr><td>Log Rotation (date &amp; size)</td><td class="yes">Yes</td><td class="yes">Yes (at midnight)</td></tr>
+            <tr><td>Dynamic Filename Templates</td><td class="yes">Yes &mdash; {host}, {date}, etc.</td><td class="yes">Yes</td></tr>
+            <tr><td>Auto-Start Logging on Connect</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+            <tr><td>Command-Line Log Option</td><td class="yes">Yes &mdash; --log flag</td><td class="yes">Yes</td></tr>
+
+            <!-- Highlighting -->
+            <tr class="category-row"><td colspan="3">Highlighting &amp; Pattern Matching</td></tr>
+            <tr><td>Real-Time Keyword Highlighting</td><td class="yes">Yes &mdash; regex support</td><td class="yes">Yes &mdash; regex support</td></tr>
+            <tr><td>Ad Hoc Quick Highlight</td><td class="yes">Yes &mdash; toolbar field</td><td class="no">No</td></tr>
+
+            <!-- AI -->
+            <tr class="category-row"><td colspan="3">AI Assistance</td></tr>
+            <tr><td>Built-In AI Panel</td><td class="yes">Yes &mdash; docked chat</td><td class="no">No</td></tr>
+            <tr><td>Right-Click Send as Context</td><td class="yes">Yes</td><td class="no">No</td></tr>
+            <tr><td>Multi-Turn Chat History</td><td class="yes">Yes</td><td class="no">No</td></tr>
+            <tr><td>Choose Your AI Provider</td><td class="yes">Yes &mdash; Claude or GPT</td><td class="no">No</td></tr>
+            <tr><td>AI Opt-In (disabled by default)</td><td class="yes">Yes &mdash; your key, your choice</td><td class="no">N/A</td></tr>
+
+            <!-- Privacy -->
+            <tr class="category-row"><td colspan="3">Privacy &amp; Data</td></tr>
+            <tr><td>All Data Stays Local</td><td class="yes">Yes &mdash; no cloud, no telemetry</td><td class="yes">Yes &mdash; local config</td></tr>
+            <tr><td>No Telemetry</td><td class="yes">Yes</td><td class="yes">Yes (update checks only)</td></tr>
+            <tr><td>Encrypted Local Credential Vault</td><td class="yes">Yes &mdash; AES</td><td class="yes">Yes</td></tr>
+
+            <!-- Misc -->
+            <tr class="category-row"><td colspan="3">Other</td></tr>
+            <tr><td>Anti-Idle / Keep-Alive</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+            <tr><td>URL Click-to-Open</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+            <tr><td>Multi-Line Paste Confirmation</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+            <tr><td>Block (Column) Selection</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+            <tr><td>ANSI Color Copy to Clipboard</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+            <tr><td>Host-Based Printing</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+            <tr><td>Print Screen/Selection</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+            <tr><td>IPv6 Support</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+            <tr><td>Section 508 Accessibility</td><td class="yes">Yes</td><td class="yes">Yes (VPAT)</td></tr>
+            <tr><td>Cross-Platform</td><td class="no">Windows only</td><td class="yes">Windows, macOS, Linux</td></tr>
+            <tr><td>MSI/Group Policy Deployment</td><td class="no">MSIX (Microsoft Store)</td><td class="yes">Yes &mdash; MSI</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Key advantages -->
+      <h2 class="reveal">Where RockTerm Pulls Ahead</h2>
+
+      <div class="advantage-grid">
+        <div class="advantage-card reveal">
+          <h4>SFTP Is Included</h4>
+          <p>SecureCRT charges $59.95 extra for SecureFX to get SFTP, or $129 for the bundle. RockTerm includes a full SFTP browser in a dockable panel at no extra cost. One product, one price.</p>
+        </div>
+        <div class="advantage-card reveal reveal-delay-1">
+          <h4>12 Built-In Network Tools</h4>
+          <p>Subnet calculator, subnet splitter, route summarization, wildcard converter, CIDR reference, IPv6 prefix splitter, EUI-64 helper, prefix-list generator, regex lab, and log extractor. SecureCRT has none of these &mdash; you'd need separate tools or web apps.</p>
+        </div>
+        <div class="advantage-card reveal">
+          <h4>Built-In AI Assistant</h4>
+          <p>Right-click terminal output, send it to the AI panel, and get instant help interpreting errors, explaining commands, or troubleshooting. Works with Claude or GPT using your own API key. SecureCRT has no AI capabilities.</p>
+        </div>
+        <div class="advantage-card reveal reveal-delay-1">
+          <h4>No Renewal Fees</h4>
+          <p>SecureCRT charges $48&ndash;$52 per year to keep getting updates. Stop paying and you're stuck on your current version. RockTerm is $149.99 once &mdash; updates are included, no annual renewals.</p>
+        </div>
+        <div class="advantage-card reveal">
+          <h4>Built-In Trigger System</h4>
+          <p>Create triggers that fire on regex pattern matches &mdash; auto-respond to prompts, highlight text, send notifications, run scripts, or disconnect. SecureCRT can do some of this through scripting, but RockTerm has a dedicated GUI-driven trigger manager.</p>
+        </div>
+        <div class="advantage-card reveal reveal-delay-1">
+          <h4>Import Your SecureCRT Sessions</h4>
+          <p>Switching doesn't mean starting over. RockTerm has a built-in SecureCRT session importer that reads your existing session files and converts them &mdash; hosts, ports, credentials, and folders.</p>
+        </div>
+      </div>
+
+      <!-- Fair note -->
+      <div class="fair-note reveal">
+        <h4>Where SecureCRT has the edge</h4>
+        <p>SecureCRT has been in active development since 1998. That 27-year head start shows in a few areas:</p>
+        <ul style="margin: 0.75rem 0 1rem 1.5rem; color: #94a3b8; line-height: 1.8;">
+          <li><strong style="color: #e2e8f0;">Cross-platform</strong> &mdash; SecureCRT runs on Windows, macOS, and Linux. RockTerm is Windows-only.</li>
+          <li><strong style="color: #e2e8f0;">Legacy terminal emulation</strong> &mdash; If you need TN3270 (IBM mainframes), Wyse 50/60, or TVI910/925, SecureCRT supports those. RockTerm focuses on VT/ANSI/Xterm.</li>
+          <li><strong style="color: #e2e8f0;">FIPS 140-2 &amp; Smart Card auth</strong> &mdash; Government and military environments that require FIPS compliance or X.509/PIV/CAC smart card authentication are well served by SecureCRT. RockTerm doesn't support these yet.</li>
+          <li><strong style="color: #e2e8f0;">VBScript/JScript</strong> &mdash; SecureCRT supports VBScript and JScript in addition to Python. If you have legacy VBScripts, they'll run in SecureCRT but not in RockTerm.</li>
+          <li><strong style="color: #e2e8f0;">Enterprise deployment</strong> &mdash; MSI installers and Group Policy deployment make SecureCRT straightforward to roll out across an enterprise. RockTerm distributes through the Microsoft Store.</li>
+        </ul>
+        <p>If those specific features are requirements for your environment, SecureCRT is a proven choice. For the majority of network engineers and sysadmins &mdash; people who SSH into switches, configure firewalls, manage servers, and need practical daily tools &mdash; RockTerm delivers more functionality at a lower total cost.</p>
+      </div>
+
+      <!-- CTA -->
+      <section class="cta-section" style="margin: 3rem -1rem 0; border-radius: 10px;">
+        <div class="container">
+          <h2 class="reveal">Same job. More tools. Less money.</h2>
+          <p class="reveal reveal-delay-1">Download the free trial and bring your SecureCRT sessions with you.</p>
+          <div class="cta-actions reveal reveal-delay-2">
+            <a href="#" class="btn btn-primary btn-lg">Get RockTerm on the Microsoft Store</a>
+            <a href="/rockterm/features/" class="btn btn-secondary btn-on-dark">Full Feature List</a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-content">
+          <p>&copy; 2026 Rock River Research, LLC. All rights reserved.</p>
+          <div class="footer-links">
+            <a href="/privacy/">Privacy Policy</a>
+            <a href="/terms/">Terms of Service</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </div>
+        <img src="/images/logo.png" alt="Rock River Research" class="footer-logo">
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
