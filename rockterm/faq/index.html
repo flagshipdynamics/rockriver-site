@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow">
   <title>FAQ — RockTerm — Rock River Research</title>
-  <meta name="description" content="Frequently asked questions about RockTerm.">
+  <meta name="description" content="Frequently asked questions about RockTerm — pricing, features, protocols, AI integration, file transfers, scripting, security, and support.">
   <link rel="canonical" href="https://rockriverresearch.com/rockterm/faq/">
   <meta property="og:title" content="FAQ — RockTerm — Rock River Research">
-  <meta property="og:description" content="Frequently asked questions about RockTerm.">
+  <meta property="og:description" content="Frequently asked questions about RockTerm — pricing, features, protocols, AI integration, file transfers, scripting, security, and support.">
   <meta property="og:url" content="https://rockriverresearch.com/rockterm/faq/">
   <meta property="og:image" content="https://rockriverresearch.com/images/logo.png">
   <meta property="og:type" content="website">
@@ -24,7 +24,15 @@
         "name": "What is RockTerm?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "RockTerm is a modern terminal emulator for Windows with SSH, Telnet, and serial console support, plus integrated AI assistance. It's built for network engineers, sysadmins, and technical professionals who need a fast, reliable terminal client."
+          "text": "RockTerm is a professional terminal emulator for Windows built for network engineers, system administrators, and infrastructure teams. It supports SSH, Telnet, serial console, and raw TCP connections with features like tabbed and split-pane sessions, an encrypted credential vault, SFTP and TFTP file transfers, an expect-style scripting engine, configurable triggers, a button bar, key mapping, and an optional AI assistant. It is distributed through the Microsoft Store as a one-time purchase with no subscription."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What protocols does RockTerm support?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "SSH (with public key, password, and SSH agent authentication), Telnet, serial console (with full baud/parity/flow control configuration and auto-detect), raw TCP, RDP (launches the native Windows client), and local shell. File transfer protocols include SFTP, TFTP, Zmodem, Ymodem, and Xmodem."
         }
       },
       {
@@ -32,15 +40,39 @@
         "name": "How much does RockTerm cost?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "RockTerm is a one-time purchase through the Microsoft Store. A free trial is available so you can evaluate the full product before buying. There is no subscription."
+          "text": "RockTerm is a one-time purchase through the Microsoft Store. A free trial is available so you can evaluate the full product before buying. There is no subscription and no renewal fees. Your purchase includes all updates within the major version you bought."
         }
       },
       {
         "@type": "Question",
-        "name": "What does the AI integration do?",
+        "name": "Does RockTerm support file transfers?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The AI assistant is a persistent right-side dock panel with chat history. Right-click terminal output to send it as context, or use quick prompts like Explain, Fix Error, and Summarize. It can interpret error messages, suggest commands, explain routing tables or log output, and answer technical questions. Every context block that gets sent to the model is recorded in the chat history, so past conversations stay interpretable. AI features are opt-in and nothing is sent to any external service unless you explicitly invoke the assistant."
+          "text": "Yes. RockTerm includes a dockable SFTP browser that uses the active SSH session, a built-in TFTP server, and support for Zmodem, Ymodem, and Xmodem transfers. You can also send ASCII files and capture session output to a file."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I import sessions from SecureCRT or PuTTY?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. RockTerm includes import wizards for SecureCRT sessions, PuTTY sessions, and CSV/TSV files. You can also export your RockTerm sessions to JSON for backup or transfer."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does RockTerm support scripting and automation?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. RockTerm includes a SecureCRT-compatible expect engine with expect, send, sleep, conditional logic, and embedded Python support. It also has a configurable trigger system for automatic actions on pattern matches, and a button bar for one-click commands."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What does the AI assistant do?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The AI assistant is an opt-in dockable panel that connects to Anthropic Claude or OpenAI using your own API key. Right-click terminal output to send it as context, or use quick prompts like Explain, Fix Error, and Summarize. It maintains multi-turn chat history that survives session switches. AI features are entirely opt-in and nothing is sent to any external service unless you explicitly invoke the assistant."
         }
       },
       {
@@ -48,7 +80,7 @@
         "name": "Which AI provider does RockTerm use?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "RockTerm supports both Anthropic Claude and OpenAI GPT. You choose the provider, model, and API key in Edit > Preferences > AI Assistant. You bring your own API key — RockTerm never proxies your data through a third party."
+          "text": "RockTerm supports both Anthropic Claude and OpenAI. You choose the provider, model, and API key in Edit > Preferences > AI Assistant. You bring your own API key — RockTerm sends requests directly from your machine to your chosen provider. The AI feature is billed by your provider based on your usage, completely separate from your RockTerm license."
         }
       },
       {
@@ -56,7 +88,15 @@
         "name": "Does RockTerm collect my data?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. RockTerm does not collect telemetry, usage data, or analytics. All your connection profiles and settings are stored locally on your machine."
+          "text": "No. RockTerm does not collect telemetry, usage data, or analytics. There is no license server, no cloud account, and no phone-home mechanism. All connection profiles, credentials, and settings are stored locally on your machine in an encrypted vault."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How are my credentials stored?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "RockTerm uses an encrypted credential vault with Fernet symmetric encryption and PBKDF2 key derivation from a master password that is never stored. You can create named credential profiles and reuse them across sessions without re-entering passwords."
         }
       },
       {
@@ -69,10 +109,10 @@
       },
       {
         "@type": "Question",
-        "name": "Can I use RockTerm for commercial/work purposes?",
+        "name": "Can I use RockTerm for commercial or work purposes?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. The license permits both personal and commercial use."
+          "text": "Yes. The license permits both personal and commercial use. There is no separate enterprise edition or per-seat licensing — one purchase covers you."
         }
       },
       {
@@ -80,7 +120,7 @@
         "name": "How do I get updates?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Updates are delivered through the Microsoft Store automatically. Your purchase includes all updates — bug fixes, security patches, and new features — for the major version you bought (currently 1.x). There are no renewal fees. See the Updates and Support Policy for details."
+          "text": "Updates are delivered automatically through the Microsoft Store. Your purchase includes all updates — bug fixes, security patches, and new features — for the major version you bought (e.g., all 1.x releases). There are no renewal fees."
         }
       },
       {
@@ -88,23 +128,23 @@
         "name": "What happens if Rock River Research shuts down?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "RockTerm is fully local — no license server, no cloud dependency, no online activation. Even if development stops entirely, your purchased copy continues to work indefinitely."
+          "text": "RockTerm is fully local — no license server, no cloud dependency, no online activation. Even if development stops entirely, your purchased copy continues to work indefinitely. There is no server to go offline and no subscription to lapse."
         }
       },
       {
         "@type": "Question",
-        "name": "Where are my connection profiles stored?",
+        "name": "Who makes RockTerm?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Locally on your machine. RockTerm does not sync data to any cloud service."
+          "text": "RockTerm is made by Rock River Research, LLC, an American software company incorporated in Wyoming. All development and support is done in the United States."
         }
       },
       {
         "@type": "Question",
-        "name": "I found a bug or have a feature request. How do I report it?",
+        "name": "How do I report a bug or request a feature?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Email support@rockriverresearch.com with details about the issue or your suggestion."
+          "text": "Email support@rockriverresearch.com with details about the issue or your suggestion. You can also try the AI Support Chat on our website for immediate help with common questions."
         }
       }
     ]
@@ -157,39 +197,28 @@
   </section>
   <main class="page-content">
     <div class="container">
+
+      <h2>General</h2>
+
       <details class="reveal">
         <summary>What is RockTerm?</summary>
         <div class="details-content">
-          <p>RockTerm is a modern terminal emulator for Windows with SSH, Telnet, and serial console support, plus integrated AI assistance. It's built for network engineers, sysadmins, and technical professionals who need a fast, reliable terminal client.</p>
+          <p>RockTerm is a professional terminal emulator for Windows built for network engineers, system administrators, and infrastructure teams. It supports SSH, Telnet, serial console, and raw TCP connections with features including tabbed and split-pane sessions, an encrypted credential vault, SFTP and TFTP file transfers, an expect-style scripting engine, configurable triggers, a button bar, key mapping, network tools, and an optional AI assistant.</p>
+          <p>It is distributed through the Microsoft Store as a one-time purchase with no subscription. RockTerm is designed, built, and supported entirely in the United States by <a href="/about/">Rock River Research, LLC</a>.</p>
         </div>
       </details>
 
       <details class="reveal">
         <summary>How much does RockTerm cost?</summary>
         <div class="details-content">
-          <p>RockTerm is a one-time purchase through the Microsoft Store. A free trial is available so you can evaluate the full product before buying. There is no subscription.</p>
+          <p>RockTerm is a one-time purchase through the Microsoft Store. A free trial is available so you can evaluate the full product before buying. There is no subscription, no renewal fees, and no separate enterprise edition. Your purchase includes all updates within the major version you bought (e.g., all 1.x releases). See our <a href="/rockterm/support/updates-and-support-policy/">Support &amp; Updates Policy</a> for details.</p>
         </div>
       </details>
 
       <details class="reveal">
-        <summary>What does the AI integration do?</summary>
+        <summary>Can I use RockTerm for commercial or work purposes?</summary>
         <div class="details-content">
-          <p>The AI assistant is a persistent right-side dock panel with chat history that survives session switches and theme changes. Right-click terminal output to send it as context, or use quick prompts like <strong>Explain</strong>, <strong>Fix Error</strong>, and <strong>Summarize</strong>. It can interpret error messages, suggest commands, explain routing tables and log output, and answer technical questions.</p>
-          <p>Every context block that gets sent to the model is recorded in the chat history as a distinct block before your question, so past conversations stay interpretable when you re-open them. AI features are opt-in — nothing is sent to any external service unless you explicitly invoke the assistant.</p>
-        </div>
-      </details>
-
-      <details class="reveal">
-        <summary>Which AI provider does RockTerm use?</summary>
-        <div class="details-content">
-          <p>RockTerm supports <strong>both Anthropic Claude and OpenAI GPT</strong>. You choose the provider, model, and API key in <strong>Edit &rarr; Preferences &rarr; AI Assistant</strong>. You bring your own API key &mdash; RockTerm never proxies your data through a third party, so AI requests go directly from your machine to whichever provider you configured.</p>
-        </div>
-      </details>
-
-      <details class="reveal">
-        <summary>Does RockTerm collect my data?</summary>
-        <div class="details-content">
-          <p>No. RockTerm does not collect telemetry, usage data, or analytics. All your connection profiles and settings are stored locally on your machine. See our <a href="/privacy/">Privacy Policy</a> for details.</p>
+          <p>Yes. The license permits both personal and commercial use. There is no separate enterprise edition or per-seat licensing &mdash; one purchase covers you.</p>
         </div>
       </details>
 
@@ -201,39 +230,163 @@
       </details>
 
       <details class="reveal">
-        <summary>Can I use RockTerm for commercial/work purposes?</summary>
+        <summary>Who makes RockTerm?</summary>
         <div class="details-content">
-          <p>Yes. The license permits both personal and commercial use.</p>
+          <p>RockTerm is made by <a href="/about/">Rock River Research, LLC</a>, an American software company incorporated in Wyoming. All development and support is handled in the United States.</p>
+        </div>
+      </details>
+
+      <h2>Features</h2>
+
+      <details class="reveal">
+        <summary>What protocols does RockTerm support?</summary>
+        <div class="details-content">
+          <p><strong>Connection protocols:</strong> SSH (with public key, password, and SSH agent/Pageant authentication, plus agent forwarding and compression), Telnet, serial console (with full baud rate, data bits, parity, stop bits, flow control configuration, and auto-detect), raw TCP, RDP (launches the native Windows client), and local shell.</p>
+          <p><strong>File transfer protocols:</strong> SFTP (dockable browser using the active SSH session), built-in TFTP server, Zmodem, Ymodem, and Xmodem. You can also send ASCII files directly and capture session output to a file.</p>
         </div>
       </details>
 
       <details class="reveal">
-        <summary>How do I get updates?</summary>
+        <summary>Can I import sessions from SecureCRT or PuTTY?</summary>
         <div class="details-content">
-          <p>Updates are delivered through the Microsoft Store automatically. Your purchase includes all updates &mdash; bug fixes, security patches, and new features &mdash; for the major version you bought (currently 1.x). There are no renewal fees. See the <a href="/rockterm/support/updates-and-support-policy/">Updates and Support Policy</a> for details.</p>
+          <p>Yes. RockTerm includes import wizards for <strong>SecureCRT sessions</strong>, <strong>PuTTY sessions</strong>, and <strong>CSV/TSV files</strong>. You can also export your RockTerm sessions to JSON for backup or migration. The session manager supports a folder-based tree structure with drag-and-drop reordering, color-coded tabs by protocol type, and per-session settings for keymaps, highlight rules, and credential profiles.</p>
         </div>
       </details>
 
       <details class="reveal">
-        <summary>What happens if Rock River Research shuts down?</summary>
+        <summary>Does RockTerm support scripting and automation?</summary>
         <div class="details-content">
-          <p>RockTerm is fully local &mdash; no license server, no cloud dependency, no online activation. Even if development stops entirely, your purchased copy continues to work indefinitely. There is no server to go offline and no subscription to lapse.</p>
+          <p>Yes. RockTerm includes several automation tools:</p>
+          <ul>
+            <li><strong>Expect engine</strong> &mdash; SecureCRT-compatible scripting with <code>expect</code>, <code>send</code>, <code>sleep</code>, conditional logic, labels, and embedded Python support with full terminal API bindings.</li>
+            <li><strong>Trigger system</strong> &mdash; Regex pattern matching on terminal output with automatic actions: send text, highlight, beep, log to file, or run an expect script. Supports one-shot triggers, delays, and per-session assignment.</li>
+            <li><strong>Button bar</strong> &mdash; Configurable clickable buttons for one-click commands. Supports Send Text, Send Text + Enter, and Send Password (from the encrypted vault) with custom colors per button.</li>
+            <li><strong>Command manager</strong> &mdash; A dockable tree-based command organizer with folders, filtering, and keyboard shortcuts for frequently used commands.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="reveal">
+        <summary>What are the Network Tools?</summary>
+        <div class="details-content">
+          <p>RockTerm includes a built-in Network Tools panel with utilities that network engineers use daily: subnet calculator, subnet splitter, route summarization, CIDR reference, IPv6 prefix splitter, prefix-list generator, and a log parser for syslog, BGP, and OSPF output. These run entirely locally &mdash; no web lookups required.</p>
+        </div>
+      </details>
+
+      <details class="reveal">
+        <summary>Does RockTerm support split panes and tabs?</summary>
+        <div class="details-content">
+          <p>Yes. RockTerm supports tabbed sessions with color-coded tabs by protocol type, split-pane views, and an MDI canvas mode where terminal windows float freely over a customizable wallpaper background. You can also duplicate sessions, reconnect dropped connections, and lock sessions to prevent accidental input.</p>
+        </div>
+      </details>
+
+      <details class="reveal">
+        <summary>Can I customize key mappings?</summary>
+        <div class="details-content">
+          <p>Yes. RockTerm supports per-session keymap profiles where you can map any key combination to a custom byte sequence sent to the remote host. A visual keyboard widget highlights mapped keys and lets you click to select and bind. Named keymap profiles are stored in settings and can be assigned per session.</p>
+        </div>
+      </details>
+
+      <h2>AI Assistant</h2>
+
+      <details class="reveal">
+        <summary>What does the AI assistant do?</summary>
+        <div class="details-content">
+          <p>The AI assistant is an opt-in dockable panel that connects to Anthropic Claude or OpenAI using your own API key. Right-click terminal output to send it as context, or use quick prompts like <strong>Explain</strong>, <strong>Fix Error</strong>, and <strong>Summarize</strong>. It can interpret error messages, suggest commands, explain routing tables or log output, and answer technical questions.</p>
+          <p>The assistant maintains multi-turn chat history that survives session switches and theme changes. Every context block sent to the model is recorded in the chat as a distinct block, so past conversations stay interpretable when you return to them. AI features are entirely opt-in &mdash; nothing is sent to any external service unless you explicitly invoke the assistant.</p>
+        </div>
+      </details>
+
+      <details class="reveal">
+        <summary>Which AI provider does RockTerm use?</summary>
+        <div class="details-content">
+          <p>RockTerm supports <strong>both Anthropic Claude and OpenAI</strong>. You choose the provider, model, and API key in <strong>Edit &rarr; Preferences &rarr; AI Assistant</strong>. You bring your own API key &mdash; RockTerm sends requests directly from your machine to your chosen provider with no intermediary.</p>
+        </div>
+      </details>
+
+      <details class="reveal">
+        <summary>Does the AI feature cost extra?</summary>
+        <div class="details-content">
+          <p>The AI assistant is included in RockTerm at no additional charge. However, it requires your own API key from Anthropic or OpenAI, and those providers bill you directly based on your usage. This is completely separate from your RockTerm license. If you don&rsquo;t use the AI feature, you pay nothing beyond the one-time purchase price.</p>
+        </div>
+      </details>
+
+      <h2>Privacy &amp; Security</h2>
+
+      <details class="reveal">
+        <summary>Does RockTerm collect my data?</summary>
+        <div class="details-content">
+          <p>No. RockTerm does not collect telemetry, usage data, or analytics. There is no license server, no cloud account, and no phone-home mechanism. The only network connection RockTerm makes is the optional AI assistant, which talks directly to your chosen provider using your own API key &mdash; and that feature is off by default. See our <a href="/privacy/">Privacy Policy</a> for details.</p>
+        </div>
+      </details>
+
+      <details class="reveal">
+        <summary>How are my credentials stored?</summary>
+        <div class="details-content">
+          <p>RockTerm uses an encrypted credential vault with Fernet symmetric encryption and PBKDF2 key derivation from a master password. The master password is never stored on disk. You can create named credential profiles and reuse them across sessions without re-entering passwords. SSH keys can be managed, generated, and converted (PuTTY PPK and PKCS#8 to OpenSSH) through the built-in key manager.</p>
         </div>
       </details>
 
       <details class="reveal">
         <summary>Where are my connection profiles stored?</summary>
         <div class="details-content">
-          <p>Locally on your machine. RockTerm does not sync data to any cloud service.</p>
+          <p>Locally on your machine. Connection profiles, credentials, settings, keymaps, highlight rules, and all other configuration data are stored in a local directory. RockTerm does not sync data to any cloud service. You can export sessions to JSON for backup or transfer to another machine.</p>
         </div>
       </details>
 
       <details class="reveal">
-        <summary>I found a bug or have a feature request. How do I report it?</summary>
+        <summary>Does RockTerm support SSH tunneling and port forwarding?</summary>
         <div class="details-content">
-          <p>Email <a href="mailto:support@rockriverresearch.com">support@rockriverresearch.com</a> with details about the issue or your suggestion.</p>
+          <p>Yes. RockTerm supports local and remote port forwarding, SOCKS proxy (SSH dynamic tunneling), HTTP CONNECT proxy, ProxyCommand, and jump host (bastion host) connections with separate credentials. A port forwarding wizard walks you through the setup step by step.</p>
         </div>
       </details>
+
+      <h2>Licensing &amp; Updates</h2>
+
+      <details class="reveal">
+        <summary>How do I get updates?</summary>
+        <div class="details-content">
+          <p>Updates are delivered automatically through the Microsoft Store. Your purchase includes all updates &mdash; bug fixes, security patches, and new features &mdash; for the major version you bought (e.g., all 1.x releases). There are no renewal fees. You can also force a check anytime in the Microsoft Store under <strong>Library &rarr; Get Updates</strong>. See the <a href="/rockterm/support/updates-and-support-policy/">Support &amp; Updates Policy</a> for full details.</p>
+        </div>
+      </details>
+
+      <details class="reveal">
+        <summary>Will there be a paid upgrade to version 2.0?</summary>
+        <div class="details-content">
+          <p>If we ever release a major new version (e.g., RockTerm 2.0), it may be offered as a separate paid upgrade. Any such upgrade would be entirely optional &mdash; your existing 1.x license continues to work and receive security patches regardless. We will never disable or revoke a version you already paid for. See the <a href="/rockterm/support/updates-and-support-policy/">Support &amp; Updates Policy</a> for details.</p>
+        </div>
+      </details>
+
+      <details class="reveal">
+        <summary>What happens if Rock River Research shuts down?</summary>
+        <div class="details-content">
+          <p>RockTerm is fully local &mdash; no license server, no cloud dependency, no online activation. Even if development stops entirely, your purchased copy continues to work indefinitely. There is no server to go offline and no subscription to lapse. Your data stays on your machine in open formats.</p>
+        </div>
+      </details>
+
+      <h2>Support</h2>
+
+      <details class="reveal">
+        <summary>How do I get help with RockTerm?</summary>
+        <div class="details-content">
+          <p>Several options, from fastest to most personal:</p>
+          <ul>
+            <li><strong><a href="/rockterm/support/">Support articles</a></strong> &mdash; step-by-step guides for installation, configuration, and features.</li>
+            <li><strong><a href="/rockterm/support/chat/">AI Support Chat</a></strong> &mdash; get instant answers from our AI assistant, trained on RockTerm documentation.</li>
+            <li><strong><a href="/rockterm/tutorials/">Video tutorials</a></strong> &mdash; watch common workflows demonstrated.</li>
+            <li><strong><a href="/rockterm/troubleshooting/">Troubleshooting</a></strong> &mdash; solutions for connection problems, display issues, and error messages.</li>
+            <li><strong>Email</strong> &mdash; reach us at support@rockriverresearch.com for anything the self-service resources don&rsquo;t cover. You&rsquo;ll hear back from a real person in the United States.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="reveal">
+        <summary>How do I report a bug or request a feature?</summary>
+        <div class="details-content">
+          <p>Email support@rockriverresearch.com with details about the issue or your suggestion. Include the RockTerm version number (found in <strong>Help &rarr; About</strong>), what you were doing when the issue occurred, and any error messages you saw. Screenshots are always helpful.</p>
+        </div>
+      </details>
+
     </div>
   </main>
 
