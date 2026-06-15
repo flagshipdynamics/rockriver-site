@@ -63,7 +63,25 @@
       <p>Release notes and version history for RockTerm. Format follows <a href="https://keepachangelog.com/en/1.1.0/" target="_blank" rel="noopener">Keep a Changelog</a>; versions follow <a href="https://semver.org/spec/v2.0.0.html" target="_blank" rel="noopener">semantic versioning</a>.</p>
 
       <div class="changelog-entry">
-        <h2>v0.2.0 — April 2026</h2>
+        <h2>v1.0.0 &mdash; June 2026</h2>
+        <p>First public release on the Microsoft Store.</p>
+
+        <h3>Changed</h3>
+        <ul>
+          <li>Version bumped to 1.0.0 for Store launch.</li>
+          <li>Product name simplified from &ldquo;RockTerm 26&rdquo; to &ldquo;RockTerm&rdquo; across all source, packaging, CI, and documentation.</li>
+          <li>Windows executable renamed from <code>RockTerm26.exe</code> to <code>RockTerm.exe</code>.</li>
+          <li>Support email changed to <a href="mailto:support@rockriverresearch.com">support@rockriverresearch.com</a>.</li>
+        </ul>
+
+        <h3>Added</h3>
+        <ul>
+          <li><strong>Support token system</strong> &mdash; Help &rarr; Copy Support Token generates a signed token encoding license status, machine fingerprint, app version, and timestamp. Users paste this into support emails to verify their license.</li>
+        </ul>
+      </div>
+
+      <div class="changelog-entry">
+        <h2>v0.2.0 &mdash; April 2026</h2>
 
         <h3>Added</h3>
         <ul>
@@ -80,8 +98,8 @@
 
         <h3>Changed</h3>
         <ul>
-          <li>Project renamed to <strong>RockTerm 26</strong>. Publisher info and Windows build artifacts updated to match.</li>
-          <li><strong>Windows executable</strong> is now <code>RockTerm26.exe</code> (previously <code>TerminalEmulator.exe</code>). PyInstaller, MSIX staging, AppxManifest, and GitHub release artifacts all updated.</li>
+          <li>Project renamed to <strong>RockTerm</strong>. Publisher info and Windows build artifacts updated to match.</li>
+          <li><strong>Windows executable</strong> is now <code>RockTerm.exe</code> (previously <code>TerminalEmulator.exe</code>). PyInstaller, MSIX staging, AppxManifest, and GitHub release artifacts all updated.</li>
           <li><strong>New Connection dialog</strong> redesigned with accent-tinted icon badges, subtle tile borders, right-chevron affordance, refined typography, wider layout, and keyboard-focus rings.</li>
           <li><strong>Serial Connection dialog</strong>: Auto-Detect button moved from the Port group into the Settings group, matching what it actually affects.</li>
           <li><strong>Script Manager</strong> now re-themes live when <code>View &rarr; Theme</code> is toggled. Previously the cached dialog kept its original colors.</li>
