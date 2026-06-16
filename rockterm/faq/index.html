@@ -88,7 +88,7 @@
         "name": "Does RockTerm collect my data?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. RockTerm does not collect telemetry, usage data, or analytics. There is no license server, no cloud account, and no phone-home mechanism. All connection profiles, credentials, and settings are stored locally on your machine in an encrypted vault."
+          "text": "No. RockTerm does not collect telemetry, usage data, or analytics. There is no license server, no cloud account, and no phone-home mechanism. All connection profiles, credentials, and settings are stored locally on your machine by default. If you store your data directory in a cloud-synced folder (OneDrive, Dropbox, etc.), that is your choice — local-only storage is a core product feature, and cloud syncing is a voluntary override."
         }
       },
       {
@@ -317,7 +317,8 @@
       <details class="reveal">
         <summary>Does RockTerm collect my data?</summary>
         <div class="details-content">
-          <p>No. RockTerm does not collect telemetry, usage data, or analytics. There is no license server, no cloud account, and no phone-home mechanism. The only network connection RockTerm makes is the optional AI assistant, which talks directly to your chosen provider using your own API key &mdash; and that feature is off by default. See our <a href="/privacy/">Privacy Policy</a> for details.</p>
+          <p>No. RockTerm does not collect telemetry, usage data, or analytics. There is no license server, no cloud account, and no phone-home mechanism. All your data is stored locally on your device by default. The only network connection RockTerm makes is the optional AI assistant, which talks directly to your chosen provider using your own API key &mdash; and that feature is off by default.</p>
+          <p>Note: if you store your RockTerm data directory in a cloud-synced folder (OneDrive, Dropbox, etc.), your data will be uploaded to that provider. That is your choice and responsibility &mdash; local-only storage is a core feature of the product. See our <a href="/privacy/">Privacy Policy</a> for details.</p>
         </div>
       </details>
 
@@ -332,6 +333,7 @@
         <summary>Where are my connection profiles stored?</summary>
         <div class="details-content">
           <p>Locally on your machine. Connection profiles, credentials, settings, keymaps, highlight rules, and all other configuration data are stored in a local directory. RockTerm does not sync data to any cloud service. You can export sessions to JSON for backup or transfer to another machine.</p>
+          <p><strong>Important:</strong> If you move or store your RockTerm data directory inside a cloud-synced folder (OneDrive, Dropbox, Google Drive, etc.), your data will be uploaded to that cloud provider. This is your choice &mdash; RockTerm's local-only data storage is a core feature of the product, and placing data in a cloud-synced location is a voluntary override of that design. See our <a href="/privacy/">Privacy Policy</a> for details.</p>
         </div>
       </details>
 
