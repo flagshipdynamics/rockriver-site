@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>Features — RockWiFi Pro — Rock River Research</title>
+  <meta name="description" content="RockWiFi Pro features — Wi-Fi survey heatmaps, AP locator with trilateration, connection diagnostics, DNS comparison, latency monitoring, flight recorder, and exportable reports. 9 tools for Wi-Fi professionals.">
+  <link rel="canonical" href="https://rockriverresearch.com/rockwifi-pro/features/">
+  <meta property="og:title" content="Features — RockWiFi Pro — Rock River Research">
+  <meta property="og:description" content="RockWiFi Pro features — 9 professional Wi-Fi survey, diagnostic, and reporting tools in a single Windows desktop app.">
+  <meta property="og:url" content="https://rockriverresearch.com/rockwifi-pro/features/">
+  <meta property="og:image" content="https://rockriverresearch.com/images/logo.png">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Rock River Research</a>
+      <nav class="site-nav">
+        <div class="nav-header">
+          <a href="/" class="logo">Rock River Research</a>
+          <button class="nav-close" aria-label="Close menu">&#10005;</button>
+        </div>
+        <ul>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/">RockTerm</a></li>
+              <li><a href="/rockwifi-pro/">RockWiFi Pro</a></li>
+              <li><a href="/rockterm/compare/securecrt/">vs SecureCRT</a></li>
+              <li><a href="/rockterm/compare/termius/">vs Termius</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Support</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/support/">Support Articles</a></li>
+              <li><a href="/rockterm/getting-started/">Getting Started</a></li>
+              <li><a href="/rockterm/tutorials/">Video Tutorials</a></li>
+              <li><a href="/rockterm/faq/">FAQ</a></li>
+              <li><a href="/rockterm/troubleshooting/">Troubleshooting</a></li>
+              <li><a href="/rockterm/system-requirements/">System Requirements</a></li>
+              <li><a href="/rockterm/support/updates-and-support-policy/">Support &amp; Updates</a></li>
+            </ul>
+          </li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>RockWiFi Pro Features</h1>
+      <p class="page-hero-subtitle">Everything RockWiFi Pro ships, in detail.</p>
+    </div>
+  </section>
+
+  <main class="page-content">
+    <div class="container">
+      <p>RockWiFi Pro ships with 9 integrated tools for Wi-Fi surveying, network diagnostics, and reporting. Everything below is shipping in v1.0.</p>
+
+      <h2>Dashboard</h2>
+      <p>The main screen and launch point for every tool. Shows a live Wi-Fi status card with your current SSID, signal strength in both percentage and dBm, frequency band, channel, and a scrolling real-time signal chart. Quick-launch buttons for all 9 tools are pinned to the dashboard so you never need to dig through menus.</p>
+
+      <h2>Survey &amp; Heatmaps</h2>
+      <p>The headline feature. Import a floor plan image or use OpenStreetMap tiles for outdoor surveys. Walk the space and click to drop signal samples at your location on the map. RockWiFi Pro builds a color-coded heatmap using Kriging interpolation to fill in the gaps between sample points.</p>
+      <ul>
+        <li><strong>Multi-sample clustering</strong> &mdash; multiple samples at the same location are averaged for accuracy</li>
+        <li><strong>Guided tour mode</strong> &mdash; follow a prompted path for consistent, repeatable coverage walks</li>
+        <li><strong>Floor plan import</strong> &mdash; load PNG, JPG, or BMP floor plans and scale them to real-world dimensions</li>
+        <li><strong>OpenStreetMap integration</strong> &mdash; survey outdoor areas using live map tiles without needing a floor plan</li>
+        <li><strong>Heatmap export</strong> &mdash; save the completed heatmap as part of an HTML report for client deliverables</li>
+      </ul>
+
+      <h2>AP Locator</h2>
+      <p>Physically locate any access point in the building. A hot/cold signal gauge shows real-time signal strength as you walk toward (or away from) the target AP. Pin positions on the floor plan and use trilateration to narrow down the location.</p>
+      <ul>
+        <li><strong>Signal gauge</strong> &mdash; real-time hot/cold indicator that responds as you move</li>
+        <li><strong>Trilateration</strong> &mdash; pin 3+ positions with known signal readings to triangulate the AP's location on the floor plan</li>
+        <li><strong>Channel congestion chart</strong> &mdash; see which channels are crowded and which are clear at the current location</li>
+      </ul>
+
+      <h2>Connection Check</h2>
+      <p>A full-stack connectivity diagnostic that tests each layer in sequence: Wi-Fi adapter status, gateway reachability, internet connectivity, DNS resolution, latency, jitter, and packet loss. One click tells you exactly where the connection breaks &mdash; is it the adapter, the gateway, DNS, or the internet?</p>
+
+      <h2>Target Test</h2>
+      <p>Probe a specific host or port using multiple methods:</p>
+      <ul>
+        <li><strong>Ping</strong> &mdash; ICMP echo with round-trip time</li>
+        <li><strong>TCP connect</strong> &mdash; test whether a specific port is open and responding</li>
+        <li><strong>HTTP</strong> &mdash; send an HTTP request and inspect the response code, headers, and timing</li>
+        <li><strong>Traceroute</strong> &mdash; map the path to the target and identify where latency or loss occurs</li>
+        <li><strong>TLS certificate inspection</strong> &mdash; view certificate details, expiration, chain validity, and cipher suite</li>
+      </ul>
+
+      <h2>DNS Compare</h2>
+      <p>Query multiple DNS resolvers simultaneously and compare the results side-by-side. Built-in presets for system resolver, Google (8.8.8.8), Cloudflare (1.1.1.1), and Quad9 (9.9.9.9), plus custom resolver support. Spot DNS filtering, hijacking, propagation delays, or stale records without leaving the app.</p>
+
+      <h2>Latency Monitor</h2>
+      <p>Continuous ping to one or more targets with a live scrolling chart. Tracks round-trip time, jitter, and packet loss over time with min/max/average and percentile statistics (P50, P95, P99). Leave it running during a meeting, a firmware upgrade, or overnight &mdash; come back with a complete timeline of network behavior.</p>
+
+      <h2>Flight Recorder</h2>
+      <p>Background logging of connectivity metrics for post-incident analysis. Flight Recorder captures latency, packet loss, DNS resolution times, and connection state changes at configurable intervals. When something goes wrong at 2 AM, you have the data to prove what happened and when.</p>
+
+      <h2>Reports &amp; History</h2>
+      <p>Browse past diagnostic results, survey data, and latency logs. Export any result as an HTML report or plain text. HTML reports are self-contained, professional, and readable in any browser &mdash; attach them to tickets, email them to clients, or archive them for compliance.</p>
+
+      <h2>Application Design</h2>
+
+      <h3>Local-First</h3>
+      <p>All data &mdash; surveys, heatmaps, diagnostic results, settings &mdash; is stored locally on your machine. Nothing is transmitted to Rock River Research or any third-party service. No cloud account, no sign-up, no sync.</p>
+
+      <h3>Light and Dark Themes</h3>
+      <p>Toggle between light and dark UI themes. Dark theme (background #1a1a1a, accent #0078d4) is the default. Changes apply immediately with no restart required.</p>
+
+      <h3>Windows Native</h3>
+      <p>Built with Python and PyQt6 for responsive, native-feeling performance on Windows. Not a web wrapper.</p>
+
+      <h3>Microsoft Store Distribution</h3>
+      <p>Clean install from the Microsoft Store. Automatic updates. Free trial with full functionality. One-time purchase &mdash; no subscription.</p>
+
+      <div class="cta-card" style="margin-top: 56px;">
+        <h2>Try RockWiFi Pro free.</h2>
+        <p>Download from the Microsoft Store and run your first survey.</p>
+        <a href="#" class="btn btn-primary">Get RockWiFi Pro on the Microsoft Store</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-content">
+          <p>&copy; 2026 Rock River Research, LLC. All rights reserved.</p>
+          <div class="footer-links">
+            <a href="/privacy/">Privacy Policy</a>
+            <a href="/terms/">Terms of Service</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </div>
+        <img src="/images/logo.png" alt="Rock River Research" class="footer-logo">
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
