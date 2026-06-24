@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>Heatmap Not Rendering — RockWiFi Pro Support — Rock River Research</title>
+  <meta name="description" content="Troubleshooting guide for heatmap rendering issues in RockWiFi Pro — blank heatmaps, missing colors, slow rendering, and interpolation problems.">
+  <link rel="canonical" href="https://rockriverresearch.com/rockwifi-pro/support/heatmap-not-rendering/">
+  <meta property="og:title" content="Heatmap Not Rendering — RockWiFi Pro Support — Rock River Research">
+  <meta property="og:description" content="Troubleshooting guide for heatmap rendering issues in RockWiFi Pro — blank heatmaps, missing colors, slow rendering, and interpolation problems.">
+  <meta property="og:url" content="https://rockriverresearch.com/rockwifi-pro/support/heatmap-not-rendering/">
+  <meta property="og:image" content="https://rockriverresearch.com/images/logo.png">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Rock River Research</a>
+      <nav class="site-nav">
+        <div class="nav-header">
+          <a href="/" class="logo">Rock River Research</a>
+          <button class="nav-close" aria-label="Close menu">&#10005;</button>
+        </div>
+        <ul>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/">RockTerm</a></li>
+              <li><a href="/rockwifi-pro/">RockWiFi Pro</a></li>
+              <li><a href="/rockterm/compare/securecrt/">vs SecureCRT</a></li>
+              <li><a href="/rockterm/compare/termius/">vs Termius</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Support</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/support/">RockTerm Support</a></li>
+              <li><a href="/rockterm/getting-started/">Getting Started (RockTerm)</a></li>
+              <li><a href="/rockterm/faq/">RockTerm FAQ</a></li>
+              <li><a href="/rockwifi-pro/support/">RockWiFi Pro Support</a></li>
+              <li><a href="/rockwifi-pro/getting-started/">Getting Started (RockWiFi)</a></li>
+              <li><a href="/rockwifi-pro/faq/">RockWiFi FAQ</a></li>
+            </ul>
+          </li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Heatmap Not Rendering</h1>
+      <p class="page-hero-subtitle">RockWiFi Pro Support</p>
+    </div>
+  </section>
+  <main class="page-content">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> <span>&rsaquo;</span>
+        <a href="/rockwifi-pro/">RockWiFi Pro</a> <span>&rsaquo;</span>
+        <a href="/rockwifi-pro/support/">Support</a> <span>&rsaquo;</span>
+        Heatmap Not Rendering
+      </nav>
+
+      <p>If the heatmap in your Wi-Fi survey isn't displaying correctly, this guide walks through the most common causes and fixes.</p>
+
+      <h2>Not Enough Samples</h2>
+      <p>The heatmap requires at least three sample points to render. If you've only dropped one or two samples, the interpolation engine doesn't have enough data to generate a continuous surface.</p>
+      <ul>
+        <li><strong>Fix:</strong> Drop at least 3 samples in different locations on your floor plan. For a useful heatmap, aim for 15&ndash;30 samples spread across the survey area.</li>
+        <li>Check the <strong>Sample Density</strong> layer to see where you have coverage and where gaps remain.</li>
+      </ul>
+
+      <h2>Samples Too Close Together</h2>
+      <p>If all your samples are clustered in one small area, the heatmap can only render that region. The rest of the floor plan will remain blank because there's no data to interpolate from.</p>
+      <ul>
+        <li><strong>Fix:</strong> Spread samples across the entire survey area. Cover corners, hallways, and the perimeter &mdash; not just the center.</li>
+        <li>Use <strong>Guided Tour</strong> with auto-grid to ensure even coverage.</li>
+      </ul>
+
+      <h2>No Floor Plan Loaded</h2>
+      <p>The heatmap renders on top of the floor plan image. If no floor plan is imported, samples will appear as dots but the heatmap overlay won't display.</p>
+      <ul>
+        <li><strong>Fix:</strong> Click <strong>Import Floor Plan</strong> and select a PNG, JPG, or BMP image of your floor plan or site layout. You can also capture a map from OpenStreetMap.</li>
+      </ul>
+
+      <h2>Heatmap Rendering Is Slow</h2>
+      <p>Kriging interpolation (the default) is more accurate than IDW but more computationally intensive. With large surveys (50+ samples on a high-resolution floor plan), rendering may take several seconds.</p>
+      <ul>
+        <li>A progress indicator appears while Kriging computes. The IDW preview displays immediately as a placeholder.</li>
+        <li>If rendering consistently takes too long, check that your system meets the <a href="/rockwifi-pro/system-requirements/">recommended requirements</a> (8 GB RAM for large surveys).</li>
+      </ul>
+
+      <h2>Heatmap Shows Unexpected Colors</h2>
+      <p>If the heatmap colors don't match what you expect:</p>
+      <ul>
+        <li><strong>Check the active layer.</strong> Each layer (Signal Strength, SNR, Channel Overlap, AP Count, Sample Density) uses a different color scale. Make sure you're viewing the layer you intend.</li>
+        <li><strong>Understand the scale.</strong> Signal Strength uses green for strong (&gt; &minus;50 dBm) through red for weak (&lt; &minus;75 dBm). The legend in the corner shows the current scale.</li>
+        <li><strong>Calibration matters.</strong> Without calibration, the interpolation estimates distances in pixel units, which can distort the heatmap if the floor plan image is very large or very small. <a href="/rockwifi-pro/support/survey-calibration/">Calibrate your floor plan</a> for best results.</li>
+      </ul>
+
+      <h2>Confidence Overlay Is Mostly Transparent</h2>
+      <p>The confidence overlay shows where interpolation is well-supported by nearby samples. Large transparent areas mean those regions have no nearby data points and the heatmap values there are extrapolated (less reliable).</p>
+      <ul>
+        <li><strong>Fix:</strong> Add more samples in the transparent areas. The confidence overlay is a guide for where to collect more data.</li>
+      </ul>
+
+      <h2>Heatmap Disappears After Reloading a Survey</h2>
+      <p>When you load a saved survey, the heatmap needs to regenerate from the stored samples. This happens automatically but may take a moment for large surveys.</p>
+      <ul>
+        <li>Wait a few seconds after loading &mdash; the heatmap should appear once interpolation completes.</li>
+        <li>If it doesn't appear, verify the survey has samples by checking the sample count in the survey info panel.</li>
+      </ul>
+
+      <h2>Still Not Working?</h2>
+      <ul>
+        <li>Try switching between heatmap layers to force a re-render.</li>
+        <li>Close and reopen the Wi-Fi Survey panel.</li>
+        <li>Restart RockWiFi Pro.</li>
+      </ul>
+
+      <p class="back-link"><a href="/rockwifi-pro/support/">&larr; Back to RockWiFi Pro Support</a></p>
+
+      <h2>Still need help?</h2>
+      <p>If you're still experiencing issues, <a href="/contact/">contact us</a> or email <a href="mailto:support@rockriverresearch.com">support@rockriverresearch.com</a>.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-content">
+          <p>&copy; 2026 Rock River Research, LLC. All rights reserved.</p>
+          <div class="footer-links">
+            <a href="/privacy/">Privacy Policy</a>
+            <a href="/terms/">Terms of Service</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </div>
+        <img src="/images/logo.png" alt="Rock River Research" class="footer-logo">
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>Understanding Heatmap Layers — RockWiFi Pro Support — Rock River Research</title>
+  <meta name="description" content="Guide to RockWiFi Pro's heatmap visualization layers — signal strength, sample density, SNR, channel overlap, and AP count explained.">
+  <link rel="canonical" href="https://rockriverresearch.com/rockwifi-pro/support/heatmap-layers/">
+  <meta property="og:title" content="Understanding Heatmap Layers — RockWiFi Pro Support — Rock River Research">
+  <meta property="og:description" content="Guide to RockWiFi Pro's heatmap visualization layers — signal strength, sample density, SNR, channel overlap, and AP count explained.">
+  <meta property="og:url" content="https://rockriverresearch.com/rockwifi-pro/support/heatmap-layers/">
+  <meta property="og:image" content="https://rockriverresearch.com/images/logo.png">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Rock River Research</a>
+      <nav class="site-nav">
+        <div class="nav-header">
+          <a href="/" class="logo">Rock River Research</a>
+          <button class="nav-close" aria-label="Close menu">&#10005;</button>
+        </div>
+        <ul>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/">RockTerm</a></li>
+              <li><a href="/rockwifi-pro/">RockWiFi Pro</a></li>
+              <li><a href="/rockterm/compare/securecrt/">vs SecureCRT</a></li>
+              <li><a href="/rockterm/compare/termius/">vs Termius</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Support</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/support/">RockTerm Support</a></li>
+              <li><a href="/rockterm/getting-started/">Getting Started (RockTerm)</a></li>
+              <li><a href="/rockterm/faq/">RockTerm FAQ</a></li>
+              <li><a href="/rockwifi-pro/support/">RockWiFi Pro Support</a></li>
+              <li><a href="/rockwifi-pro/getting-started/">Getting Started (RockWiFi)</a></li>
+              <li><a href="/rockwifi-pro/faq/">RockWiFi FAQ</a></li>
+            </ul>
+          </li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Understanding Heatmap Layers</h1>
+      <p class="page-hero-subtitle">RockWiFi Pro Support</p>
+    </div>
+  </section>
+  <main class="page-content">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> <span>&rsaquo;</span>
+        <a href="/rockwifi-pro/">RockWiFi Pro</a> <span>&rsaquo;</span>
+        <a href="/rockwifi-pro/support/">Support</a> <span>&rsaquo;</span>
+        Understanding Heatmap Layers
+      </nav>
+
+      <p>RockWiFi Pro's heatmap view offers multiple visualization layers, each highlighting a different aspect of your wireless environment. Switch between layers using the toolbar above the survey canvas.</p>
+
+      <h2>Signal Strength (dBm)</h2>
+      <p>The primary layer. Shows received signal power across the survey area. This is what most clients care about.</p>
+      <ul>
+        <li><strong>Green (-30 to -50 dBm)</strong> &mdash; Excellent signal</li>
+        <li><strong>Yellow (-50 to -67 dBm)</strong> &mdash; Good signal</li>
+        <li><strong>Orange (-67 to -75 dBm)</strong> &mdash; Fair signal</li>
+        <li><strong>Red (below -75 dBm)</strong> &mdash; Poor signal</li>
+      </ul>
+
+      <h2>Sample Density</h2>
+      <p>Shows where you've taken enough samples for confident results. Dense areas are well-mapped; sparse areas may have interpolation artifacts. Use this layer to decide where to add more samples before finalizing a survey.</p>
+
+      <h2>SNR (Signal-to-Noise Ratio)</h2>
+      <p>Signal minus estimated noise floor. More meaningful than raw signal strength because it accounts for the RF environment.</p>
+      <ul>
+        <li><strong>Above 40 dB</strong> &mdash; Excellent</li>
+        <li><strong>25&ndash;40 dB</strong> &mdash; Good for data</li>
+        <li><strong>15&ndash;25 dB</strong> &mdash; Marginal</li>
+        <li><strong>Below 15 dB</strong> &mdash; Expect connection issues</li>
+      </ul>
+
+      <h2>Channel Overlap</h2>
+      <p>Shows how many APs have overlapping channels at each sample point. High overlap means co-channel interference, which degrades throughput even when signal strength is adequate. This layer is useful for identifying areas where neighboring APs fight for the same spectrum.</p>
+
+      <h2>AP Count</h2>
+      <p>Number of visible access points at each sample location. Very high counts may indicate over-deployment; very low counts indicate dead zones. Compare this layer with Signal Strength to distinguish between "no signal" and "signal from too many competing APs."</p>
+
+      <h2>Confidence Overlay</h2>
+      <p>Toggle this to see where the Kriging interpolation is confident vs. uncertain. Semi-transparent circles indicate areas where predictions are based on nearby samples. Large gaps mean more samples are needed. This overlay can be combined with any other layer.</p>
+
+      <h2>Kriging vs IDW</h2>
+      <p>RockWiFi Pro uses two interpolation methods:</p>
+      <ul>
+        <li><strong>Kriging (default)</strong> &mdash; Uses Gaussian Process Regression for smooth, statistically-grounded interpolation with confidence estimates. This is the final output method.</li>
+        <li><strong>IDW (Inverse Distance Weighting)</strong> &mdash; Faster but less accurate. Used as a live preview while Kriging computes in the background.</li>
+      </ul>
+
+      <h2>Reading the legend</h2>
+      <p>Each layer has its own color scale and units. The legend updates automatically when you switch layers. Hover over any point on the heatmap to see the exact interpolated value at that location.</p>
+
+      <h2>Tips</h2>
+      <ul>
+        <li>Always check sample density after completing a survey.</li>
+        <li>If confidence is low in critical areas, go back and add more samples.</li>
+        <li>Use Channel Overlap alongside Signal Strength to get the full picture &mdash; strong signal with high overlap still means poor performance.</li>
+      </ul>
+
+      <p class="back-link"><a href="/rockwifi-pro/support/">&larr; Back to RockWiFi Pro Support</a></p>
+
+      <h2>Still need help?</h2>
+      <p>If you're still experiencing issues, <a href="/contact/">contact us</a> or email <a href="mailto:support@rockriverresearch.com">support@rockriverresearch.com</a>.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-content">
+          <p>&copy; 2026 Rock River Research, LLC. All rights reserved.</p>
+          <div class="footer-links">
+            <a href="/privacy/">Privacy Policy</a>
+            <a href="/terms/">Terms of Service</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </div>
+        <img src="/images/logo.png" alt="Rock River Research" class="footer-logo">
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

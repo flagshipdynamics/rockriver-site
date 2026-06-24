@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>Using Guided Tour Mode — RockWiFi Pro Support — Rock River Research</title>
+  <meta name="description" content="How to use RockWiFi Pro's Guided Tour for systematic Wi-Fi surveys — defining waypoints, auto-grid generation, and walking the route.">
+  <link rel="canonical" href="https://rockriverresearch.com/rockwifi-pro/support/guided-tour-mode/">
+  <meta property="og:title" content="Using Guided Tour Mode — RockWiFi Pro Support — Rock River Research">
+  <meta property="og:description" content="How to use RockWiFi Pro's Guided Tour for systematic Wi-Fi surveys — defining waypoints, auto-grid generation, and walking the route.">
+  <meta property="og:url" content="https://rockriverresearch.com/rockwifi-pro/support/guided-tour-mode/">
+  <meta property="og:image" content="https://rockriverresearch.com/images/logo.png">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Rock River Research</a>
+      <nav class="site-nav">
+        <div class="nav-header">
+          <a href="/" class="logo">Rock River Research</a>
+          <button class="nav-close" aria-label="Close menu">&#10005;</button>
+        </div>
+        <ul>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/">RockTerm</a></li>
+              <li><a href="/rockwifi-pro/">RockWiFi Pro</a></li>
+              <li><a href="/rockterm/compare/securecrt/">vs SecureCRT</a></li>
+              <li><a href="/rockterm/compare/termius/">vs Termius</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Support</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/support/">RockTerm Support</a></li>
+              <li><a href="/rockterm/getting-started/">Getting Started (RockTerm)</a></li>
+              <li><a href="/rockterm/faq/">RockTerm FAQ</a></li>
+              <li><a href="/rockwifi-pro/support/">RockWiFi Pro Support</a></li>
+              <li><a href="/rockwifi-pro/getting-started/">Getting Started (RockWiFi)</a></li>
+              <li><a href="/rockwifi-pro/faq/">RockWiFi FAQ</a></li>
+            </ul>
+          </li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Using Guided Tour Mode</h1>
+      <p class="page-hero-subtitle">RockWiFi Pro Support</p>
+    </div>
+  </section>
+  <main class="page-content">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> <span>&rsaquo;</span>
+        <a href="/rockwifi-pro/">RockWiFi Pro</a> <span>&rsaquo;</span>
+        <a href="/rockwifi-pro/support/">Support</a> <span>&rsaquo;</span>
+        Using Guided Tour Mode
+      </nav>
+
+      <h2>What is Guided Tour?</h2>
+      <p>Guided Tour is a structured survey mode where you define waypoints on your floor plan, then walk through them in order. It ensures complete, systematic coverage of your space instead of ad-hoc sampling. Every waypoint captures a Wi-Fi measurement at a known location, producing consistent and repeatable survey data.</p>
+
+      <h2>Setting Up a Tour</h2>
+      <ol>
+        <li>Open <strong>Wi-Fi Survey</strong> and import your floor plan.</li>
+        <li>Calibrate the floor plan (required for Auto Grid &mdash; see the <a href="/rockwifi-pro/support/">calibration article</a>).</li>
+        <li>Click <strong>Guided Tour</strong> in the toolbar.</li>
+        <li>Either manually click waypoints on the map, or click <strong>Auto Grid</strong> and enter spacing in meters (e.g., 3m for detailed coverage, 5m for a quick overview).</li>
+      </ol>
+
+      <h2>Auto Grid</h2>
+      <p>Auto Grid generates evenly-spaced waypoints across your floor plan based on your calibration. A 3-meter grid gives thorough coverage for most offices. The grid respects the floor plan boundaries, so waypoints are only placed within the drawn area.</p>
+
+      <h2>Running the Tour</h2>
+      <ol>
+        <li>Click <strong>Start Tour</strong> &mdash; the first waypoint highlights with a pulse animation.</li>
+        <li>Walk to the highlighted waypoint.</li>
+        <li>Click near the waypoint (or click <strong>Next</strong>) &mdash; a sample is captured and the next waypoint highlights.</li>
+        <li>Use <strong>Skip</strong> to bypass inaccessible points (locked rooms, etc.).</li>
+        <li>The progress bar shows your completion percentage.</li>
+      </ol>
+
+      <h2>Tour States</h2>
+      <p>A tour moves through four states:</p>
+      <ul>
+        <li><strong>Editing</strong> &mdash; adding or removing waypoints</li>
+        <li><strong>Ready</strong> &mdash; waypoints are set, ready to begin</li>
+        <li><strong>Running</strong> &mdash; walking the route and capturing samples</li>
+        <li><strong>Complete</strong> &mdash; all waypoints have been sampled or skipped</li>
+      </ul>
+
+      <h2>Persistence</h2>
+      <p>Waypoints are saved with the survey file. However, tour progress resets when you reload, so plan to complete the walk in one session.</p>
+
+      <h2>Tips</h2>
+      <ul>
+        <li>Plan your walking route before starting &mdash; order waypoints to minimize backtracking.</li>
+        <li>A 3m grid in a 1,000 sq ft office gives roughly 30 waypoints, taking about 10&ndash;15 minutes to walk.</li>
+        <li>Start near the entrance and work systematically toward the far end of the space.</li>
+      </ul>
+
+      <p class="back-link"><a href="/rockwifi-pro/support/">&larr; Back to Support Articles</a></p>
+
+      <h2>Still need help?</h2>
+      <p>If you're still experiencing issues, <a href="/contact/">contact us</a> or email <a href="mailto:support@rockriverresearch.com">support@rockriverresearch.com</a>.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-content">
+          <p>&copy; 2026 Rock River Research, LLC. All rights reserved.</p>
+          <div class="footer-links">
+            <a href="/privacy/">Privacy Policy</a>
+            <a href="/terms/">Terms of Service</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </div>
+        <img src="/images/logo.png" alt="Rock River Research" class="footer-logo">
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

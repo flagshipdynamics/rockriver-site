@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>Understanding Wi-Fi Standards (Wi-Fi 4/5/6/7) — RockWiFi Pro Support — Rock River Research</title>
+  <meta name="description" content="Learn how RockWiFi Pro detects and reports Wi-Fi standards from 802.11n through 802.11be, what each generation offers, and how to interpret standard information in the app.">
+  <link rel="canonical" href="https://rockriverresearch.com/rockwifi-pro/support/understanding-wifi-standards/">
+  <meta property="og:title" content="Understanding Wi-Fi Standards (Wi-Fi 4/5/6/7) — RockWiFi Pro Support — Rock River Research">
+  <meta property="og:description" content="Learn how RockWiFi Pro detects and reports Wi-Fi standards from 802.11n through 802.11be, what each generation offers, and how to interpret standard information in the app.">
+  <meta property="og:url" content="https://rockriverresearch.com/rockwifi-pro/support/understanding-wifi-standards/">
+  <meta property="og:image" content="https://rockriverresearch.com/images/logo.png">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Rock River Research</a>
+      <nav class="site-nav">
+        <div class="nav-header">
+          <a href="/" class="logo">Rock River Research</a>
+          <button class="nav-close" aria-label="Close menu">&#10005;</button>
+        </div>
+        <ul>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/">RockTerm</a></li>
+              <li><a href="/rockwifi-pro/">RockWiFi Pro</a></li>
+              <li><a href="/rockterm/compare/securecrt/">vs SecureCRT</a></li>
+              <li><a href="/rockterm/compare/termius/">vs Termius</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Support</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/support/">RockTerm Support</a></li>
+              <li><a href="/rockterm/getting-started/">Getting Started (RockTerm)</a></li>
+              <li><a href="/rockterm/faq/">RockTerm FAQ</a></li>
+              <li><a href="/rockwifi-pro/support/">RockWiFi Pro Support</a></li>
+              <li><a href="/rockwifi-pro/getting-started/">Getting Started (RockWiFi)</a></li>
+              <li><a href="/rockwifi-pro/faq/">RockWiFi FAQ</a></li>
+            </ul>
+          </li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Understanding Wi-Fi Standards (Wi-Fi 4/5/6/7)</h1>
+      <p class="page-hero-subtitle">RockWiFi Pro Support</p>
+    </div>
+  </section>
+  <main class="page-content">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> <span>&rsaquo;</span>
+        <a href="/rockwifi-pro/">RockWiFi Pro</a> <span>&rsaquo;</span>
+        <a href="/rockwifi-pro/support/">Support</a> <span>&rsaquo;</span>
+        Understanding Wi-Fi Standards
+      </nav>
+
+      <p>Every access point your network serves broadcasts which 802.11 standard it supports. Knowing the standard tells you the maximum throughput, channel width, and feature set available on that AP &mdash; and whether your network is being held back by legacy hardware. RockWiFi Pro detects and reports the Wi-Fi standard for every BSS it discovers, giving you instant visibility into your deployment's generational mix.</p>
+
+      <h2>What Are Wi-Fi Standards and Why They Matter</h2>
+
+      <p>The IEEE 802.11 family of standards defines how wireless devices communicate. Each generation increases maximum throughput, introduces new modulation techniques, and adds features that improve performance in dense environments. The Wi-Fi Alliance assigns marketing names (Wi-Fi 4, 5, 6, 7) to make generations easier to reference.</p>
+
+      <p>For IT professionals and MSPs, knowing the standard mix across a deployment answers critical questions:</p>
+      <ul>
+        <li><strong>Capacity planning</strong> &mdash; Are your APs capable of the throughput your users need?</li>
+        <li><strong>Upgrade prioritization</strong> &mdash; Which sites are still running legacy hardware?</li>
+        <li><strong>Troubleshooting</strong> &mdash; Is a slow connection caused by a Wi-Fi 4 AP on a congested 2.4 GHz channel?</li>
+        <li><strong>Client compatibility</strong> &mdash; Can your APs serve the newest (and oldest) devices on the network?</li>
+      </ul>
+
+      <h2>Current Wi-Fi Standards</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Marketing Name</th>
+            <th>IEEE Standard</th>
+            <th>Year</th>
+            <th>Max Throughput</th>
+            <th>Channel Widths</th>
+            <th>Key Features</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Wi-Fi 4</strong></td>
+            <td>802.11n</td>
+            <td>2009</td>
+            <td>Up to 600 Mbps</td>
+            <td>20 / 40 MHz</td>
+            <td>MIMO, channel bonding, both 2.4 &amp; 5 GHz</td>
+          </tr>
+          <tr>
+            <td><strong>Wi-Fi 5</strong></td>
+            <td>802.11ac</td>
+            <td>2013</td>
+            <td>Up to 3.5 Gbps</td>
+            <td>80 / 160 MHz</td>
+            <td>MU-MIMO (downlink), 256-QAM, 5 GHz only</td>
+          </tr>
+          <tr>
+            <td><strong>Wi-Fi 6</strong></td>
+            <td>802.11ax</td>
+            <td>2019</td>
+            <td>Up to 9.6 Gbps</td>
+            <td>20 / 40 / 80 / 160 MHz</td>
+            <td>OFDMA, BSS Coloring, TWT, 1024-QAM, both bands</td>
+          </tr>
+          <tr>
+            <td><strong>Wi-Fi 6E</strong></td>
+            <td>802.11ax (6 GHz)</td>
+            <td>2021</td>
+            <td>Up to 9.6 Gbps</td>
+            <td>20 / 40 / 80 / 160 MHz</td>
+            <td>Same as Wi-Fi 6, extended into the 6 GHz band</td>
+          </tr>
+          <tr>
+            <td><strong>Wi-Fi 7</strong></td>
+            <td>802.11be</td>
+            <td>2024</td>
+            <td>Up to 46 Gbps</td>
+            <td>Up to 320 MHz</td>
+            <td>MLO, 4096-QAM, 320 MHz channels, preamble puncturing</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Legacy Standards</h2>
+
+      <p>You may still encounter these older standards in the field, particularly on aging infrastructure or specialized devices:</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>IEEE Standard</th>
+            <th>Band</th>
+            <th>Max Throughput</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>802.11a</strong></td>
+            <td>5 GHz</td>
+            <td>54 Mbps</td>
+            <td>First 5 GHz standard (1999). OFDM modulation.</td>
+          </tr>
+          <tr>
+            <td><strong>802.11b</strong></td>
+            <td>2.4 GHz</td>
+            <td>11 Mbps</td>
+            <td>First widely adopted standard (1999). DSSS modulation.</td>
+          </tr>
+          <tr>
+            <td><strong>802.11g</strong></td>
+            <td>2.4 GHz</td>
+            <td>54 Mbps</td>
+            <td>Brought OFDM to 2.4 GHz (2003). Backward compatible with 802.11b.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>Any AP still running 802.11a, b, or g exclusively is a strong candidate for replacement. These standards lack MIMO, modern QAM levels, and wide-channel support, and they can drag down the performance of newer devices sharing the same airspace.</p>
+
+      <h2>How RockWiFi Pro Detects Standards</h2>
+
+      <p>RockWiFi Pro determines the Wi-Fi standard from <strong>802.11 Information Elements (IEs)</strong> included in each BSS entry returned by the operating system's scan results. The detection logic checks for specific capability IEs:</p>
+
+      <ul>
+        <li><strong>HT Capabilities IE</strong> &mdash; Present on 802.11n (Wi-Fi 4) and above. Indicates support for High Throughput features: MIMO spatial streams, 40 MHz channels, short guard interval.</li>
+        <li><strong>VHT Capabilities IE</strong> &mdash; Present on 802.11ac (Wi-Fi 5) and above. Indicates Very High Throughput: 80/160 MHz channels, 256-QAM, MU-MIMO.</li>
+        <li><strong>HE Capabilities IE</strong> &mdash; Present on 802.11ax (Wi-Fi 6/6E). Indicates High Efficiency: OFDMA, BSS Coloring, TWT, 1024-QAM.</li>
+        <li><strong>EHT Capabilities IE</strong> &mdash; Present on 802.11be (Wi-Fi 7). Indicates Extremely High Throughput: 320 MHz, 4096-QAM, MLO, preamble puncturing.</li>
+      </ul>
+
+      <p>RockWiFi Pro assigns the highest standard the AP advertises. For example, if an AP includes HT, VHT, and HE capability IEs, it is reported as Wi-Fi 6 (802.11ax). If only HT is present, it is reported as Wi-Fi 4 (802.11n).</p>
+
+      <h2>Where Standards Appear in the App</h2>
+
+      <p>Standard information surfaces throughout RockWiFi Pro so you always have context on what generation of hardware you're looking at:</p>
+
+      <ul>
+        <li><strong>Dashboard</strong> &mdash; The connected network card shows the standard of your current AP. The standards distribution chart breaks down the mix across all visible APs.</li>
+        <li><strong>UltraScan tiles</strong> &mdash; Each AP tile displays its detected standard with a color-coded badge. Sort and filter by standard to quickly isolate legacy or next-gen APs.</li>
+        <li><strong>AP Locator</strong> &mdash; The target AP's standard is shown alongside signal strength and channel information as you walk a space.</li>
+        <li><strong>Signal Strip</strong> &mdash; Standard is listed in the AP detail row, making it easy to spot during real-time monitoring.</li>
+        <li><strong>Connection Check</strong> &mdash; The detail view includes the standard for the connected AP, useful for correlating throughput results with AP capability.</li>
+        <li><strong>Flight Recorder</strong> &mdash; Standard changes are captured as events, so you can see if a roaming event moved you from a Wi-Fi 6 AP to a Wi-Fi 5 AP.</li>
+        <li><strong>Congestion Panel AP tiles</strong> &mdash; Each AP in the channel overlap view shows its standard to help you understand which APs contribute modern features like BSS Coloring.</li>
+        <li><strong>Reports</strong> &mdash; UltraScan HTML and PDF reports include per-AP standard data, aggregate standard distribution charts, and standard-related findings.</li>
+      </ul>
+
+      <h2>What the Findings Engine Flags</h2>
+
+      <p>RockWiFi Pro's findings engine automatically analyzes the standards mix in your scan results and generates actionable alerts:</p>
+
+      <ul>
+        <li><strong>Legacy standard warnings</strong> &mdash; If APs are detected running only 802.11n or older, a finding is generated recommending hardware replacement. Legacy APs reduce overall network performance and lack modern security and efficiency features.</li>
+        <li><strong>Wi-Fi 7 upgrade opportunities</strong> &mdash; When a site has Wi-Fi 5 or Wi-Fi 6 APs but no Wi-Fi 7 deployment, the findings engine highlights the potential benefits of upgrading: 320 MHz channels, MLO for latency-sensitive applications, and 4096-QAM for higher throughput.</li>
+        <li><strong>Partial deployment alerts</strong> &mdash; If a site has a mix of standards (for example, some Wi-Fi 6 and some Wi-Fi 5 APs), a finding flags the inconsistency. Partial deployments can create uneven user experiences and complicate troubleshooting.</li>
+      </ul>
+
+      <p>These findings appear in the Findings panel within the app and are included in generated reports, giving you documentation ready to share with clients or management.</p>
+
+      <p class="back-link"><a href="/rockwifi-pro/support/">&larr; Back to RockWiFi Pro Support</a></p>
+
+      <h2>Still need help?</h2>
+      <p>If you have questions about Wi-Fi standard detection or need help interpreting results, <a href="/contact/">contact us</a> or email <a href="mailto:support@rockriverresearch.com">support@rockriverresearch.com</a>.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-content">
+          <p>&copy; 2026 Rock River Research, LLC. All rights reserved.</p>
+          <div class="footer-links">
+            <a href="/privacy/">Privacy Policy</a>
+            <a href="/terms/">Terms of Service</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </div>
+        <img src="/images/logo.png" alt="Rock River Research" class="footer-logo">
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

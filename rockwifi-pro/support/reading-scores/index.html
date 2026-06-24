@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>Understanding Report Scores — RockWiFi Pro Support — Rock River Research</title>
+  <meta name="description" content="How RockWiFi Pro calculates network scores — coverage, congestion, SNR, roaming, and overall health explained.">
+  <link rel="canonical" href="https://rockriverresearch.com/rockwifi-pro/support/reading-scores/">
+  <meta property="og:title" content="Understanding Report Scores — RockWiFi Pro Support — Rock River Research">
+  <meta property="og:description" content="How RockWiFi Pro calculates network scores — coverage, congestion, SNR, roaming, and overall health explained.">
+  <meta property="og:url" content="https://rockriverresearch.com/rockwifi-pro/support/reading-scores/">
+  <meta property="og:image" content="https://rockriverresearch.com/images/logo.png">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Rock River Research</a>
+      <nav class="site-nav">
+        <div class="nav-header">
+          <a href="/" class="logo">Rock River Research</a>
+          <button class="nav-close" aria-label="Close menu">&#10005;</button>
+        </div>
+        <ul>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/">RockTerm</a></li>
+              <li><a href="/rockwifi-pro/">RockWiFi Pro</a></li>
+              <li><a href="/rockterm/compare/securecrt/">vs SecureCRT</a></li>
+              <li><a href="/rockterm/compare/termius/">vs Termius</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Support</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/support/">RockTerm Support</a></li>
+              <li><a href="/rockterm/getting-started/">Getting Started (RockTerm)</a></li>
+              <li><a href="/rockterm/faq/">RockTerm FAQ</a></li>
+              <li><a href="/rockwifi-pro/support/">RockWiFi Pro Support</a></li>
+              <li><a href="/rockwifi-pro/getting-started/">Getting Started (RockWiFi)</a></li>
+              <li><a href="/rockwifi-pro/faq/">RockWiFi FAQ</a></li>
+            </ul>
+          </li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Understanding Report Scores</h1>
+      <p class="page-hero-subtitle">RockWiFi Pro Support</p>
+    </div>
+  </section>
+  <main class="page-content">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> <span>&rsaquo;</span>
+        <a href="/rockwifi-pro/">RockWiFi Pro</a> <span>&rsaquo;</span>
+        <a href="/rockwifi-pro/support/">Support</a> <span>&rsaquo;</span>
+        Understanding Report Scores
+      </nav>
+
+      <p>RockWiFi Pro evaluates your Wi-Fi environment across multiple dimensions and produces scores that summarize network quality at a glance. This article explains what each score measures and how they combine into an overall rating.</p>
+
+      <h2>Score Categories</h2>
+
+      <h3>Coverage Score</h3>
+      <p>Based on signal strength distribution across your survey samples. The score reflects what percentage of your space has adequate coverage:</p>
+      <ul>
+        <li><strong>Above &minus;50 dBm</strong> &mdash; Excellent signal</li>
+        <li><strong>&minus;50 to &minus;67 dBm</strong> &mdash; Good signal</li>
+        <li><strong>&minus;67 to &minus;75 dBm</strong> &mdash; Fair signal</li>
+        <li><strong>Below &minus;75 dBm</strong> &mdash; Poor signal</li>
+      </ul>
+
+      <h3>Congestion Score</h3>
+      <p>Based on channel utilization and co-channel AP density. Low overlap and low airtime usage result in a high score. This accounts for all three bands (2.4 GHz, 5 GHz, and 6 GHz).</p>
+
+      <h3>SNR Score</h3>
+      <p>Signal-to-noise ratio across the environment. Higher SNR means a cleaner, more reliable signal. This score penalizes areas where the noise floor is close to the signal level, which causes retransmissions and reduced throughput.</p>
+
+      <h3>Roaming Score</h3>
+      <p>Measures how well your APs overlap for seamless client handoff. It checks signal overlap between adjacent APs, consistent SSID configuration, and band steering support.</p>
+
+      <h3>Network Health Score</h3>
+      <p>Overall connectivity health from the Connection Check tool. Adapter status, gateway reachability, internet access, and DNS resolution all factor into this score.</p>
+
+      <h2>Overall Score</h2>
+      <p>The overall score is a weighted composite of all category scores. The weights reflect the relative importance of each category to real-world user experience. A network with strong coverage but severe congestion will score lower overall than one with balanced, moderate scores across the board.</p>
+
+      <h2>Score Ranges</h2>
+      <ul>
+        <li><strong>90&ndash;100</strong> &mdash; Excellent</li>
+        <li><strong>75&ndash;89</strong> &mdash; Good</li>
+        <li><strong>60&ndash;74</strong> &mdash; Fair</li>
+        <li><strong>40&ndash;59</strong> &mdash; Poor</li>
+        <li><strong>Below 40</strong> &mdash; Critical</li>
+      </ul>
+
+      <h2>Tips</h2>
+      <ul>
+        <li>Focus on your lowest-scoring category first &mdash; that is the bottleneck. A site with 95 coverage but 40 congestion still has real problems for users.</li>
+        <li>Use the findings section to understand <em>why</em> a score is low and what specific actions to take.</li>
+        <li>Re-scan after making changes to verify improvement and track progress over time.</li>
+      </ul>
+
+      <p class="back-link"><a href="/rockwifi-pro/support/">&larr; Back to Support Articles</a></p>
+
+      <h2>Still need help?</h2>
+      <p>If you're still experiencing issues, <a href="/contact/">contact us</a> or email <a href="mailto:support@rockriverresearch.com">support@rockriverresearch.com</a>.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-content">
+          <p>&copy; 2026 Rock River Research, LLC. All rights reserved.</p>
+          <div class="footer-links">
+            <a href="/privacy/">Privacy Policy</a>
+            <a href="/terms/">Terms of Service</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </div>
+        <img src="/images/logo.png" alt="Rock River Research" class="footer-logo">
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

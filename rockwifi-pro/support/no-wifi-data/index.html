@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>No Wi-Fi Data Showing — RockWiFi Pro Support — Rock River Research</title>
+  <meta name="description" content="Troubleshooting guide when RockWiFi Pro doesn't display Wi-Fi scan data, signal information, or nearby access points.">
+  <link rel="canonical" href="https://rockriverresearch.com/rockwifi-pro/support/no-wifi-data/">
+  <meta property="og:title" content="No Wi-Fi Data Showing — RockWiFi Pro Support — Rock River Research">
+  <meta property="og:description" content="Troubleshooting guide when RockWiFi Pro doesn't display Wi-Fi scan data, signal information, or nearby access points.">
+  <meta property="og:url" content="https://rockriverresearch.com/rockwifi-pro/support/no-wifi-data/">
+  <meta property="og:image" content="https://rockriverresearch.com/images/logo.png">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Rock River Research</a>
+      <nav class="site-nav">
+        <div class="nav-header">
+          <a href="/" class="logo">Rock River Research</a>
+          <button class="nav-close" aria-label="Close menu">&#10005;</button>
+        </div>
+        <ul>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/">RockTerm</a></li>
+              <li><a href="/rockwifi-pro/">RockWiFi Pro</a></li>
+              <li><a href="/rockterm/compare/securecrt/">vs SecureCRT</a></li>
+              <li><a href="/rockterm/compare/termius/">vs Termius</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Support</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/support/">RockTerm Support</a></li>
+              <li><a href="/rockterm/getting-started/">Getting Started (RockTerm)</a></li>
+              <li><a href="/rockterm/faq/">RockTerm FAQ</a></li>
+              <li><a href="/rockwifi-pro/support/">RockWiFi Pro Support</a></li>
+              <li><a href="/rockwifi-pro/getting-started/">Getting Started (RockWiFi)</a></li>
+              <li><a href="/rockwifi-pro/faq/">RockWiFi FAQ</a></li>
+            </ul>
+          </li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>No Wi-Fi Data Showing</h1>
+      <p class="page-hero-subtitle">RockWiFi Pro Support</p>
+    </div>
+  </section>
+  <main class="page-content">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> <span>&rsaquo;</span>
+        <a href="/rockwifi-pro/">RockWiFi Pro</a> <span>&rsaquo;</span>
+        <a href="/rockwifi-pro/support/">Support</a> <span>&rsaquo;</span>
+        No Wi-Fi Data Showing
+      </nav>
+
+      <p>If RockWiFi Pro is not displaying Wi-Fi scan data, signal information, or nearby access points, work through the steps below to identify and resolve the issue.</p>
+
+      <h2>Check Your Wi-Fi Adapter</h2>
+      <p>Make sure Wi-Fi is turned on. Some laptops have a hardware switch or Fn key combination that toggles the wireless radio. You can verify the adapter status in <strong>Windows Settings &gt; Network &amp; Internet &gt; Wi-Fi</strong>.</p>
+
+      <h2>Are You Connected to Wi-Fi?</h2>
+      <p>The Dashboard requires an active Wi-Fi connection to show your current network's details. If you are connected via Ethernet only, the dashboard will appear blank. Connect to a Wi-Fi network first, then check the dashboard again.</p>
+
+      <h2>Windows Wi-Fi Service</h2>
+      <p>The WLAN AutoConfig service must be running for Wi-Fi scanning to work. To check:</p>
+      <ol>
+        <li>Open <strong>Services</strong> (press <kbd>Win+R</kbd>, type <code>services.msc</code>, press Enter).</li>
+        <li>Find <strong>WLAN AutoConfig</strong> in the list.</li>
+        <li>Ensure the status is <strong>Running</strong> and the startup type is set to <strong>Automatic</strong>.</li>
+        <li>If it is stopped, right-click and select <strong>Start</strong>.</li>
+      </ol>
+
+      <h2>Adapter Compatibility</h2>
+      <p>RockWiFi Pro works with any Windows-compatible Wi-Fi adapter. If your adapter does not appear in Device Manager under <strong>Network adapters</strong>, the driver may need to be updated or reinstalled. Check your laptop manufacturer's support site for the latest driver.</p>
+
+      <h2>Scan Results Empty</h2>
+      <p>If the Dashboard shows your connection details but UltraScan or the Congestion panel shows no APs, try these steps:</p>
+      <ol>
+        <li>Wait 5&ndash;10 seconds &mdash; the first scan after launch takes a moment to complete.</li>
+        <li>Verify that airplane mode is off.</li>
+        <li>Try disconnecting and reconnecting to your Wi-Fi network.</li>
+        <li>Restart the app.</li>
+      </ol>
+
+      <h2>6 GHz Band Not Showing</h2>
+      <p>Scanning the 6 GHz band requires both <strong>Windows 11</strong> and a <strong>Wi-Fi 6E or Wi-Fi 7 adapter</strong>. If you do not have both, 6 GHz APs will not appear in scan results even if they are broadcasting nearby. This is a Windows platform limitation, not a RockWiFi Pro restriction.</p>
+
+      <h2>Virtual Adapters</h2>
+      <p>Some VPN software creates virtual Wi-Fi adapters that can interfere with scanning. If you see unexpected results or empty scans, check whether a VPN virtual adapter is active in your network settings and try disabling it temporarily.</p>
+
+      <h2>Still Stuck?</h2>
+      <p>If none of the above resolves the issue, <a href="/contact/">contact support</a> with the following information:</p>
+      <ul>
+        <li>Your Windows version (e.g., Windows 11 23H2)</li>
+        <li>Your Wi-Fi adapter model (found in Device Manager under Network adapters)</li>
+        <li>A screenshot of the issue</li>
+      </ul>
+      <p>You can also email <a href="mailto:support@rockriverresearch.com">support@rockriverresearch.com</a> directly.</p>
+
+      <p class="back-link"><a href="/rockwifi-pro/support/">&larr; Back to Support Articles</a></p>
+
+      <h2>Still need help?</h2>
+      <p>If you're still experiencing issues, <a href="/contact/">contact us</a> or email <a href="mailto:support@rockriverresearch.com">support@rockriverresearch.com</a>.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-content">
+          <p>&copy; 2026 Rock River Research, LLC. All rights reserved.</p>
+          <div class="footer-links">
+            <a href="/privacy/">Privacy Policy</a>
+            <a href="/terms/">Terms of Service</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </div>
+        <img src="/images/logo.png" alt="Rock River Research" class="footer-logo">
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

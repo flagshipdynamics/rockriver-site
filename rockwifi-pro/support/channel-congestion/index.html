@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>Reading the Channel Congestion Panel — RockWiFi Pro Support — Rock River Research</title>
+  <meta name="description" content="How to read RockWiFi Pro's Channel Congestion panel. Understand spectrum visualizations across 2.4 GHz, 5 GHz, and 6 GHz bands, congestion ratings, and channel recommendations.">
+  <link rel="canonical" href="https://rockriverresearch.com/rockwifi-pro/support/channel-congestion/">
+  <meta property="og:title" content="Reading the Channel Congestion Panel — RockWiFi Pro Support — Rock River Research">
+  <meta property="og:description" content="How to read RockWiFi Pro's Channel Congestion panel. Understand spectrum visualizations across 2.4 GHz, 5 GHz, and 6 GHz bands, congestion ratings, and channel recommendations.">
+  <meta property="og:url" content="https://rockriverresearch.com/rockwifi-pro/support/channel-congestion/">
+  <meta property="og:image" content="https://rockriverresearch.com/images/logo.png">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Rock River Research</a>
+      <nav class="site-nav">
+        <div class="nav-header">
+          <a href="/" class="logo">Rock River Research</a>
+          <button class="nav-close" aria-label="Close menu">&#10005;</button>
+        </div>
+        <ul>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/">RockTerm</a></li>
+              <li><a href="/rockwifi-pro/">RockWiFi Pro</a></li>
+              <li><a href="/rockterm/compare/securecrt/">vs SecureCRT</a></li>
+              <li><a href="/rockterm/compare/termius/">vs Termius</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Support</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/support/">RockTerm Support</a></li>
+              <li><a href="/rockterm/getting-started/">Getting Started (RockTerm)</a></li>
+              <li><a href="/rockterm/faq/">RockTerm FAQ</a></li>
+              <li><a href="/rockwifi-pro/support/">RockWiFi Pro Support</a></li>
+              <li><a href="/rockwifi-pro/getting-started/">Getting Started (RockWiFi)</a></li>
+              <li><a href="/rockwifi-pro/faq/">RockWiFi FAQ</a></li>
+            </ul>
+          </li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Reading the Channel Congestion Panel</h1>
+      <p class="page-hero-subtitle">RockWiFi Pro Support</p>
+    </div>
+  </section>
+  <main class="page-content">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> <span>&rsaquo;</span>
+        <a href="/rockwifi-pro/">RockWiFi Pro</a> <span>&rsaquo;</span>
+        <a href="/rockwifi-pro/support/">Support</a> <span>&rsaquo;</span>
+        Reading the Channel Congestion Panel
+      </nav>
+
+      <p>The Channel Congestion panel provides a real-time spectrum visualization of all visible access points across the 2.4 GHz, 5 GHz, and 6 GHz bands. It shows you exactly which channels are crowded, where interference exists, and which channels are best for your environment.</p>
+
+      <h2>2.4 GHz Spectrum</h2>
+      <p>The 2.4 GHz chart displays spectral curves showing the 22 MHz footprint of each access point. In this band, only channels 1, 6, and 11 are non-overlapping &mdash; any other channel choice will create adjacent-channel interference with neighbors. When curves overlap visually on the chart, that overlap represents real interference between those APs.</p>
+      <p>Because there are only three non-overlapping channels, 2.4 GHz is often the most congested band. Use this chart to quickly see how many APs compete on each channel.</p>
+
+      <h2>5 GHz Spectrum</h2>
+      <p>The 5 GHz chart displays narrow bars for each access point, organized across the UNII-1 through UNII-3 bands. The shaded regions correspond to each UNII band, and the gaps between them represent real reserved frequencies that cannot be used for Wi-Fi.</p>
+      <p>Wider channels (40, 80, and 160 MHz) are shown proportionally wider in the chart. A single 160 MHz AP occupies the same visual space as eight 20 MHz channels, making it easy to see how much spectrum a wide-channel AP consumes.</p>
+
+      <h2>6 GHz Spectrum (Wi-Fi 7)</h2>
+      <p>The 6 GHz chart covers the UNII-5 through UNII-8 bands &mdash; 1200 MHz of clean spectrum with no legacy Wi-Fi devices. Wi-Fi 7 access points using 320 MHz channels appear as very wide curves on the chart, but even these ultra-wide channels leave plenty of room in 6 GHz.</p>
+      <p>Because only Wi-Fi 6E and Wi-Fi 7 devices operate in 6 GHz, this band typically shows little to no congestion. If your environment supports it, 6 GHz is the best choice for interference-free connectivity.</p>
+
+      <h2>Channel Table</h2>
+      <p>Below each spectrum chart, a channel table summarizes the congestion data numerically:</p>
+      <ul>
+        <li><strong>Congestion bar</strong> &mdash; A visual bar showing the relative congestion level for that channel.</li>
+        <li><strong>AP count</strong> &mdash; The number of access points operating on or overlapping with this channel.</li>
+        <li><strong>Overlap count</strong> &mdash; The number of APs on adjacent channels whose signals overlap into this channel.</li>
+        <li><strong>Strongest signal</strong> &mdash; The highest signal strength (dBm) seen on this channel.</li>
+        <li><strong>Rating</strong> &mdash; An overall congestion rating of <strong>Low</strong>, <strong>Medium</strong>, or <strong>High</strong>.</li>
+      </ul>
+
+      <h2>Channel Detail Card</h2>
+      <p>Click any row in the channel table to expand a detailed card for that channel. The detail card includes:</p>
+      <ul>
+        <li><strong>Co-channel score</strong> &mdash; Interference from APs on the exact same channel.</li>
+        <li><strong>Adjacent overlap score</strong> &mdash; Interference from APs on neighboring channels.</li>
+        <li><strong>Total congestion</strong> &mdash; Combined co-channel and adjacent interference score.</li>
+        <li><strong>Standards breakdown</strong> &mdash; Distribution of Wi-Fi 4/5/6/6E/7 APs on this channel.</li>
+        <li><strong>Width distribution</strong> &mdash; How many APs use 20, 40, 80, 160, or 320 MHz widths.</li>
+        <li><strong>Client counts</strong> &mdash; Total associated stations reported by APs on this channel.</li>
+        <li><strong>Airtime</strong> &mdash; Channel airtime utilization percentage.</li>
+        <li><strong>Signal distribution</strong> &mdash; Range and distribution of signal strengths across APs.</li>
+        <li><strong>Overlap breakdown</strong> &mdash; Which specific APs are overlapping and by how much.</li>
+        <li><strong>Security breakdown</strong> &mdash; Distribution of security types (Open, WPA2, WPA3, etc.).</li>
+        <li><strong>AP tiles</strong> &mdash; Individual tiles for each AP on this channel with full details.</li>
+      </ul>
+
+      <h2>Recommendations</h2>
+      <p>At the top of each band section, the panel displays a <strong>best channel recommendation</strong> computed from the lowest interference score. This is the channel with the least co-channel and adjacent-channel interference, making it the best choice for a new AP deployment or channel change.</p>
+
+      <h2>All Access Points Table</h2>
+      <p>Below the per-band sections, a consolidated table lists every visible AP sorted by signal strength. Each row shows:</p>
+      <ul>
+        <li>Signal strength with a visual bar</li>
+        <li>Channel badge (color-coded by band)</li>
+        <li>Width badge (20/40/80/160/320 MHz)</li>
+        <li>Wi-Fi standard label (Wi-Fi 4/5/6/6E/7)</li>
+        <li>SSID</li>
+        <li>Security type</li>
+      </ul>
+
+      <h2>Tips</h2>
+      <ul>
+        <li>Check the 6 GHz band for clean spectrum if you have Wi-Fi 6E or Wi-Fi 7 access points &mdash; it often has zero congestion.</li>
+        <li>Watch for high airtime utilization percentage even on channels with few APs. A single busy AP can saturate a channel.</li>
+        <li>Use the channel recommendations as a starting point, then verify with the detail cards to understand the full picture.</li>
+        <li>In dense environments, prefer 5 GHz or 6 GHz over 2.4 GHz for better performance.</li>
+      </ul>
+
+      <p class="back-link"><a href="/rockwifi-pro/support/">&larr; Back to RockWiFi Pro Support</a></p>
+
+      <h2>Still need help?</h2>
+      <p>If you're still experiencing issues, <a href="/contact/">contact us</a> or email <a href="mailto:support@rockriverresearch.com">support@rockriverresearch.com</a>.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-content">
+          <p>&copy; 2026 Rock River Research, LLC. All rights reserved.</p>
+          <div class="footer-links">
+            <a href="/privacy/">Privacy Policy</a>
+            <a href="/terms/">Terms of Service</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </div>
+        <img src="/images/logo.png" alt="Rock River Research" class="footer-logo">
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

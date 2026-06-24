@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>Wi-Fi Scan Permissions on Windows — RockWiFi Pro Support — Rock River Research</title>
+  <meta name="description" content="Understanding Wi-Fi scan permissions on Windows — what RockWiFi Pro can access without admin privileges and what requires elevation.">
+  <link rel="canonical" href="https://rockriverresearch.com/rockwifi-pro/support/scan-permissions/">
+  <meta property="og:title" content="Wi-Fi Scan Permissions on Windows — RockWiFi Pro Support — Rock River Research">
+  <meta property="og:description" content="Understanding Wi-Fi scan permissions on Windows — what RockWiFi Pro can access without admin privileges and what requires elevation.">
+  <meta property="og:url" content="https://rockriverresearch.com/rockwifi-pro/support/scan-permissions/">
+  <meta property="og:image" content="https://rockriverresearch.com/images/logo.png">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Rock River Research</a>
+      <nav class="site-nav">
+        <div class="nav-header">
+          <a href="/" class="logo">Rock River Research</a>
+          <button class="nav-close" aria-label="Close menu">&#10005;</button>
+        </div>
+        <ul>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/">RockTerm</a></li>
+              <li><a href="/rockwifi-pro/">RockWiFi Pro</a></li>
+              <li><a href="/rockterm/compare/securecrt/">vs SecureCRT</a></li>
+              <li><a href="/rockterm/compare/termius/">vs Termius</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Support</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/support/">RockTerm Support</a></li>
+              <li><a href="/rockterm/getting-started/">Getting Started (RockTerm)</a></li>
+              <li><a href="/rockterm/faq/">RockTerm FAQ</a></li>
+              <li><a href="/rockwifi-pro/support/">RockWiFi Pro Support</a></li>
+              <li><a href="/rockwifi-pro/getting-started/">Getting Started (RockWiFi)</a></li>
+              <li><a href="/rockwifi-pro/faq/">RockWiFi FAQ</a></li>
+            </ul>
+          </li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Wi-Fi Scan Permissions on Windows</h1>
+      <p class="page-hero-subtitle">RockWiFi Pro Support</p>
+    </div>
+  </section>
+  <main class="page-content">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> <span>&rsaquo;</span>
+        <a href="/rockwifi-pro/">RockWiFi Pro</a> <span>&rsaquo;</span>
+        <a href="/rockwifi-pro/support/">Support</a> <span>&rsaquo;</span>
+        Wi-Fi Scan Permissions on Windows
+      </nav>
+
+      <p>RockWiFi Pro is designed to work without administrator privileges for the complete survey and diagnostic workflow. This article explains what the app can access at standard user level and the rare scenarios that might require elevation.</p>
+
+      <h2>No Admin Privileges Required for Normal Use</h2>
+      <p>RockWiFi Pro uses the standard Windows WLAN API (<code>wlanapi.dll</code>) for Wi-Fi scanning. This is the same API that Windows itself uses to display available networks in the system tray. No elevation is needed.</p>
+
+      <h2>What Works Without Admin</h2>
+      <ul>
+        <li>Viewing your current Wi-Fi connection details</li>
+        <li>Scanning for nearby access points (SSID, signal, channel, band, security)</li>
+        <li>Reading BSS Information Elements (Wi-Fi standard, channel width, max rate, station count, utilization, RSN details, MLO, country code)</li>
+        <li>All network diagnostics (Connection Check, Target Test, DNS Compare, Latency Monitor)</li>
+        <li>Wi-Fi surveys and heatmaps</li>
+        <li>All reporting and export features</li>
+      </ul>
+
+      <h2>What Might Need Admin</h2>
+      <p>The following advanced operations are <strong>not required for normal use</strong> but may require elevation in certain scenarios:</p>
+      <ul>
+        <li>Raw packet capture (advanced feature, not part of the standard workflow)</li>
+        <li>Modifying network adapter settings directly</li>
+        <li>Some advanced ICMP operations on certain Windows configurations</li>
+      </ul>
+
+      <h2>Enterprise Environments</h2>
+      <p>In managed environments with Group Policy restrictions, your IT department may restrict WLAN API access. If scans return empty results on a domain-joined machine, check with your IT team about WLAN policy settings. Common restrictions include:</p>
+      <ul>
+        <li>Policies that disable the WLAN AutoConfig service</li>
+        <li>Restrictions on which applications can call WLAN APIs</li>
+        <li>Network adapter access controls</li>
+      </ul>
+
+      <h2>Microsoft Store and Permissions</h2>
+      <p>Installing RockWiFi Pro from the Microsoft Store uses standard user permissions. The app runs in a normal user context and does not request admin privileges on launch. No UAC prompt should appear during normal operation.</p>
+
+      <h2>Tips for IT Professionals</h2>
+      <ul>
+        <li>If you are scanning a client's environment, a standard user account works in most cases.</li>
+        <li>The app is designed so the complete survey and diagnostic workflow runs without elevation.</li>
+        <li>If you encounter permission issues on a managed machine, the WLAN AutoConfig service status and Group Policy settings are the first things to check.</li>
+      </ul>
+
+      <p class="back-link"><a href="/rockwifi-pro/support/">&larr; Back to Support Articles</a></p>
+
+      <h2>Still need help?</h2>
+      <p>If you're still experiencing issues, <a href="/contact/">contact us</a> or email <a href="mailto:support@rockriverresearch.com">support@rockriverresearch.com</a>.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-content">
+          <p>&copy; 2026 Rock River Research, LLC. All rights reserved.</p>
+          <div class="footer-links">
+            <a href="/privacy/">Privacy Policy</a>
+            <a href="/terms/">Terms of Service</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </div>
+        <img src="/images/logo.png" alt="Rock River Research" class="footer-logo">
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow">
   <title>Features — RockWiFi Pro — Rock River Research</title>
-  <meta name="description" content="RockWiFi Pro features — Wi-Fi survey heatmaps, AP locator with trilateration, connection diagnostics, DNS comparison, latency monitoring, flight recorder, and exportable reports. 9 tools for Wi-Fi professionals.">
+  <meta name="description" content="RockWiFi Pro features — Wi-Fi 7 Ready survey heatmaps, AP locator with trilateration, UltraScan, channel congestion analysis, BSS IE metrics, connection diagnostics, DNS comparison, latency monitoring, flight recorder, and professional reports. 13 tools for Wi-Fi professionals.">
   <link rel="canonical" href="https://rockriverresearch.com/rockwifi-pro/features/">
   <meta property="og:title" content="Features — RockWiFi Pro — Rock River Research">
-  <meta property="og:description" content="RockWiFi Pro features — 9 professional Wi-Fi survey, diagnostic, and reporting tools in a single Windows desktop app.">
+  <meta property="og:description" content="RockWiFi Pro features — 13 professional Wi-Fi 7 Ready survey, diagnostic, and reporting tools in a single Windows desktop app.">
   <meta property="og:url" content="https://rockriverresearch.com/rockwifi-pro/features/">
   <meta property="og:image" content="https://rockriverresearch.com/images/logo.png">
   <meta property="og:type" content="website">
@@ -37,13 +37,12 @@
           <li class="has-dropdown">
             <a href="#" class="dropdown-toggle">Support</a>
             <ul class="dropdown-menu">
-              <li><a href="/rockterm/support/">Support Articles</a></li>
-              <li><a href="/rockterm/getting-started/">Getting Started</a></li>
-              <li><a href="/rockterm/tutorials/">Video Tutorials</a></li>
-              <li><a href="/rockterm/faq/">FAQ</a></li>
-              <li><a href="/rockterm/troubleshooting/">Troubleshooting</a></li>
-              <li><a href="/rockterm/system-requirements/">System Requirements</a></li>
-              <li><a href="/rockterm/support/updates-and-support-policy/">Support &amp; Updates</a></li>
+              <li><a href="/rockterm/support/">RockTerm Support</a></li>
+              <li><a href="/rockterm/getting-started/">Getting Started (RockTerm)</a></li>
+              <li><a href="/rockterm/faq/">RockTerm FAQ</a></li>
+              <li><a href="/rockwifi-pro/support/">RockWiFi Pro Support</a></li>
+              <li><a href="/rockwifi-pro/getting-started/">Getting Started (RockWiFi)</a></li>
+              <li><a href="/rockwifi-pro/faq/">RockWiFi FAQ</a></li>
             </ul>
           </li>
           <li><a href="/about/">About</a></li>
@@ -63,10 +62,10 @@
 
   <main class="page-content">
     <div class="container">
-      <p>RockWiFi Pro ships with 9 integrated tools for Wi-Fi surveying, network diagnostics, and reporting. Everything below is shipping in v1.0.</p>
+      <p>RockWiFi Pro ships with 13 integrated tools for Wi-Fi surveying, network diagnostics, and reporting &mdash; including full Wi-Fi 7 Ready support with 802.11be detection, 6 GHz band analysis, and advanced BSS IE metrics. Everything below is shipping in v1.0.</p>
 
       <h2>Dashboard</h2>
-      <p>The main screen and launch point for every tool. Shows a live Wi-Fi status card with your current SSID, signal strength in both percentage and dBm, frequency band, channel, and a scrolling real-time signal chart. Quick-launch buttons for all 9 tools are pinned to the dashboard so you never need to dig through menus.</p>
+      <p>The main screen and launch point for every tool. Shows a live Wi-Fi status card with your current SSID, signal strength in both percentage and dBm, frequency band, channel, and a scrolling real-time signal chart. Quick-launch buttons for all 13 tools are pinned to the dashboard so you never need to dig through menus.</p>
 
       <h2>Survey &amp; Heatmaps</h2>
       <p>The headline feature. Import a floor plan image or use OpenStreetMap tiles for outdoor surveys. Walk the space and click to drop signal samples at your location on the map. RockWiFi Pro builds a color-coded heatmap using Kriging interpolation to fill in the gaps between sample points.</p>
@@ -110,6 +109,63 @@
 
       <h2>Reports &amp; History</h2>
       <p>Browse past diagnostic results, survey data, and latency logs. Export any result as an HTML report or plain text. HTML reports are self-contained, professional, and readable in any browser &mdash; attach them to tickets, email them to clients, or archive them for compliance.</p>
+
+      <h2>Wi-Fi 7 Ready</h2>
+      <p>RockWiFi Pro detects and reports on 802.11be (Wi-Fi 7) access points as they appear in your environment. Whether you are planning a Wi-Fi 7 migration or auditing an existing deployment, every panel in the application surfaces Wi-Fi 7 capabilities automatically.</p>
+      <ul>
+        <li><strong>320 MHz channel width detection</strong> &mdash; identifies APs operating at the full 320 MHz width introduced by Wi-Fi 7</li>
+        <li><strong>Multi-Link Operation (MLO) awareness</strong> &mdash; detects and flags APs advertising MLO capability for simultaneous multi-band connections</li>
+        <li><strong>6 GHz band support</strong> &mdash; full coverage of the 6 GHz spectrum including UNII-5, UNII-6, UNII-7, and UNII-8 bands</li>
+        <li><strong>4096-QAM recognition</strong> &mdash; identifies APs capable of 4096-QAM modulation for maximum throughput</li>
+        <li><strong>Wi-Fi 7 readiness scoring</strong> &mdash; professional reports include a Wi-Fi 7 readiness score based on current AP capabilities, band availability, and client support</li>
+        <li><strong>Upgrade path recommendations</strong> &mdash; actionable findings that identify which APs should be upgraded and what Wi-Fi 7 benefits the environment would gain</li>
+      </ul>
+
+      <h2>802.11 Standard Detection</h2>
+      <p>RockWiFi Pro parses BSS Information Elements (IEs) from every visible access point to determine the exact 802.11 standard in use. Instead of raw protocol identifiers, every panel displays friendly names &mdash; Wi-Fi 7 (802.11be), Wi-Fi 6E (802.11ax on 6 GHz), Wi-Fi 6 (802.11ax), Wi-Fi 5 (802.11ac), Wi-Fi 4 (802.11n), and legacy 802.11a/b/g. Standard detection is consistent across the Dashboard, AP Locator, UltraScan, Channel Congestion, and all report outputs, so you always know what generation of hardware is on your network.</p>
+
+      <h2>Channel Congestion Analysis</h2>
+      <p>A dedicated spectrum visualization tool that shows every access point on every channel across all three bands. Identify congested channels, find clear spectrum, and make informed channel planning decisions.</p>
+      <ul>
+        <li><strong>Tri-band spectrum charts</strong> &mdash; separate visualizations for 2.4 GHz, 5 GHz, and 6 GHz bands on a single screen</li>
+        <li><strong>UNII band labeling</strong> &mdash; 5 GHz and 6 GHz charts are annotated with UNII-1 through UNII-8 band boundaries for regulatory clarity</li>
+        <li><strong>Per-channel congestion scoring</strong> &mdash; each channel receives a congestion score based on co-channel AP count, adjacent-channel overlap, and aggregate signal levels</li>
+        <li><strong>Channel recommendations</strong> &mdash; automatic best-channel suggestions for each band based on current congestion analysis</li>
+        <li><strong>AP detail cards</strong> &mdash; click any AP on the chart to see its 802.11 standard, channel width, connected client count, airtime utilization, and security configuration</li>
+      </ul>
+
+      <h2>UltraScan</h2>
+      <p>A continuous background AP scanner that tracks every visible access point over time. UltraScan runs passively alongside your other work and builds a complete picture of the RF environment without requiring dedicated survey walks.</p>
+      <ul>
+        <li><strong>Persistent AP tracking</strong> &mdash; maintains a live table of all detected APs with first-seen and last-seen timestamps</li>
+        <li><strong>10 sort modes</strong> &mdash; sort by signal strength, 802.11 standard, channel width, max PHY rate, channel, SSID, security, band, client count, or last seen</li>
+        <li><strong>Per-AP signal history</strong> &mdash; select any AP to view its signal strength over time with stability metrics and trend analysis (improving, degrading, or stable)</li>
+        <li><strong>CSV and HTML export</strong> &mdash; export the full scan results with complete BSS data including all IE-derived metrics</li>
+        <li><strong>Session save and load</strong> &mdash; save a scan session to disk and reload it later for comparison or continued monitoring</li>
+      </ul>
+
+      <h2>Advanced BSS Metrics</h2>
+      <p>Every panel in RockWiFi Pro surfaces detailed BSS (Basic Service Set) metrics parsed directly from 802.11 Information Elements. These metrics appear in the Dashboard, AP Locator, UltraScan, Channel Congestion, and all report outputs:</p>
+      <ul>
+        <li><strong>Channel width</strong> &mdash; 20, 40, 80, 160, or 320 MHz as reported by the AP</li>
+        <li><strong>Max PHY rate</strong> &mdash; the maximum physical-layer data rate in Mbps</li>
+        <li><strong>Station count</strong> &mdash; the number of currently connected clients (from BSS Load IE)</li>
+        <li><strong>Channel utilization</strong> &mdash; airtime percentage consumed on the channel (from BSS Load IE)</li>
+        <li><strong>Beacon interval</strong> &mdash; the AP's beacon transmission interval in milliseconds</li>
+        <li><strong>Short guard interval</strong> &mdash; whether the AP supports short GI for higher throughput</li>
+        <li><strong>RSN security detail</strong> &mdash; full security breakdown including AKM suite (PSK, SAE, 802.1X), pairwise cipher (CCMP, GCMP-256), and group cipher</li>
+        <li><strong>Country code</strong> &mdash; the regulatory domain advertised by the AP</li>
+      </ul>
+
+      <h2>Professional Reports</h2>
+      <p>Generate detailed, client-ready reports that go beyond raw data. The reporting engine analyzes your survey and scan results to produce scored assessments with actionable findings.</p>
+      <ul>
+        <li><strong>Five scored categories</strong> &mdash; coverage quality, channel congestion, signal-to-noise ratio (SNR), roaming readiness, and overall network health, each on a 0&ndash;100 scale</li>
+        <li><strong>Weighted composite score</strong> &mdash; an overall network health score calculated from weighted category scores for a single summary metric</li>
+        <li><strong>Findings engine</strong> &mdash; automatically generated findings with severity ratings (critical, warning, informational) based on detected issues</li>
+        <li><strong>Capability analysis</strong> &mdash; warnings for legacy 802.11 standards still in use, channel width recommendations, WPA3 upgrade suggestions, and Wi-Fi 7 readiness assessment</li>
+        <li><strong>CSV sample data export</strong> &mdash; export raw sample data for further analysis in spreadsheets or other tools</li>
+      </ul>
 
       <h2>Application Design</h2>
 

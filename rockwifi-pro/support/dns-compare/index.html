@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>Comparing DNS Resolvers — RockWiFi Pro Support — Rock River Research</title>
+  <meta name="description" content="How to use RockWiFi Pro's DNS Compare to benchmark DNS resolution speed across multiple resolvers and find the fastest one.">
+  <link rel="canonical" href="https://rockriverresearch.com/rockwifi-pro/support/dns-compare/">
+  <meta property="og:title" content="Comparing DNS Resolvers — RockWiFi Pro Support — Rock River Research">
+  <meta property="og:description" content="How to use RockWiFi Pro's DNS Compare to benchmark DNS resolution speed across multiple resolvers and find the fastest one.">
+  <meta property="og:url" content="https://rockriverresearch.com/rockwifi-pro/support/dns-compare/">
+  <meta property="og:image" content="https://rockriverresearch.com/images/logo.png">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Rock River Research</a>
+      <nav class="site-nav">
+        <div class="nav-header">
+          <a href="/" class="logo">Rock River Research</a>
+          <button class="nav-close" aria-label="Close menu">&#10005;</button>
+        </div>
+        <ul>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/">RockTerm</a></li>
+              <li><a href="/rockwifi-pro/">RockWiFi Pro</a></li>
+              <li><a href="/rockterm/compare/securecrt/">vs SecureCRT</a></li>
+              <li><a href="/rockterm/compare/termius/">vs Termius</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Support</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/support/">RockTerm Support</a></li>
+              <li><a href="/rockterm/getting-started/">Getting Started (RockTerm)</a></li>
+              <li><a href="/rockterm/faq/">RockTerm FAQ</a></li>
+              <li><a href="/rockwifi-pro/support/">RockWiFi Pro Support</a></li>
+              <li><a href="/rockwifi-pro/getting-started/">Getting Started (RockWiFi)</a></li>
+              <li><a href="/rockwifi-pro/faq/">RockWiFi FAQ</a></li>
+            </ul>
+          </li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Comparing DNS Resolvers</h1>
+      <p class="page-hero-subtitle">RockWiFi Pro Support</p>
+    </div>
+  </section>
+  <main class="page-content">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> <span>&rsaquo;</span>
+        <a href="/rockwifi-pro/">RockWiFi Pro</a> <span>&rsaquo;</span>
+        <a href="/rockwifi-pro/support/">Support</a> <span>&rsaquo;</span>
+        Comparing DNS Resolvers
+      </nav>
+
+      <h2>What DNS Compare Does</h2>
+      <p>DNS Compare benchmarks DNS resolution speed across your system resolver and popular public DNS services &mdash; Cloudflare (1.1.1.1), Google (8.8.8.8), Quad9 (9.9.9.9), and others. It helps identify slow DNS as the source of browsing lag or sluggish application performance.</p>
+
+      <h2>Why DNS Matters</h2>
+      <p>Every website visit, app connection, and service lookup starts with a DNS query. A slow resolver adds latency to every single request your device makes. The difference between a 5ms resolver and a 150ms resolver is noticeable in daily use &mdash; pages load faster, apps feel snappier, and VoIP calls connect more quickly when DNS is fast.</p>
+
+      <h2>How to Use It</h2>
+      <ol>
+        <li>Open <strong>DNS Compare</strong> from the sidebar.</li>
+        <li>Click <strong>Run Comparison</strong> &mdash; the tool tests multiple resolvers against a set of popular domains.</li>
+        <li>Review the results table: each resolver shows average resolution time, fastest and slowest query, and reliability (percentage of successful queries).</li>
+      </ol>
+
+      <h2>Reading the Results</h2>
+      <p>The results table color-codes each resolver's performance:</p>
+      <ul>
+        <li><strong>Green</strong> = fast (under 20ms). Your system resolver should ideally be in this range.</li>
+        <li><strong>Yellow</strong> = acceptable (20&ndash;100ms). This might indicate your ISP's resolver is under load.</li>
+        <li><strong>Red</strong> = slow (over 100ms). If this is your default resolver, consider switching.</li>
+      </ul>
+      <p>Pay attention to both speed and reliability. A fast resolver that fails 10% of queries is worse than a slightly slower one that succeeds 100% of the time.</p>
+
+      <h2>Switching DNS</h2>
+      <p>If a public resolver is significantly faster than your system default, you may want to change your DNS settings. On Windows, go to <strong>Settings</strong> &gt; <strong>Network &amp; Internet</strong> &gt; your adapter &gt; <strong>DNS server assignment</strong> and enter the preferred resolver's address.</p>
+      <p>RockWiFi Pro shows you the data &mdash; you decide whether to change. Common fast and reliable options include:</p>
+      <ul>
+        <li><strong>Cloudflare</strong>: <code>1.1.1.1</code> and <code>1.0.0.1</code></li>
+        <li><strong>Google</strong>: <code>8.8.8.8</code> and <code>8.8.4.4</code></li>
+        <li><strong>Quad9</strong>: <code>9.9.9.9</code> and <code>149.112.112.112</code></li>
+      </ul>
+
+      <h2>Tips</h2>
+      <ul>
+        <li>Run the test a few times throughout the day. DNS performance varies by time and load.</li>
+        <li>If your ISP resolver is consistently slow, switching to Cloudflare or Google DNS is a simple win that requires no hardware changes.</li>
+        <li>For enterprise environments, internal DNS servers may be slow because they are overloaded or misconfigured &mdash; DNS Compare gives you evidence to take to the network team.</li>
+        <li>Use DNS Compare alongside <strong>Target Test</strong> to determine whether slow resolution is the bottleneck for a specific service.</li>
+      </ul>
+
+      <p class="back-link"><a href="/rockwifi-pro/support/">&larr; Back to Support Articles</a></p>
+
+      <h2>Still need help?</h2>
+      <p>If you're still experiencing issues, <a href="/contact/">contact us</a> or email <a href="mailto:support@rockriverresearch.com">support@rockriverresearch.com</a>.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-content">
+          <p>&copy; 2026 Rock River Research, LLC. All rights reserved.</p>
+          <div class="footer-links">
+            <a href="/privacy/">Privacy Policy</a>
+            <a href="/terms/">Terms of Service</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </div>
+        <img src="/images/logo.png" alt="Rock River Research" class="footer-logo">
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

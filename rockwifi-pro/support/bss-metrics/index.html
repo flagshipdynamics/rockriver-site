@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>BSS Metrics Explained — RockWiFi Pro Support — Rock River Research</title>
+  <meta name="description" content="What each BSS metric means in RockWiFi Pro — channel width, max rate, station count, channel utilization, beacon interval, short GI, RSN security, and country code.">
+  <link rel="canonical" href="https://rockriverresearch.com/rockwifi-pro/support/bss-metrics/">
+  <meta property="og:title" content="BSS Metrics Explained — RockWiFi Pro Support — Rock River Research">
+  <meta property="og:description" content="What each BSS metric means in RockWiFi Pro — channel width, max rate, station count, channel utilization, beacon interval, short GI, RSN security, and country code.">
+  <meta property="og:url" content="https://rockriverresearch.com/rockwifi-pro/support/bss-metrics/">
+  <meta property="og:image" content="https://rockriverresearch.com/images/logo.png">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Rock River Research</a>
+      <nav class="site-nav">
+        <div class="nav-header">
+          <a href="/" class="logo">Rock River Research</a>
+          <button class="nav-close" aria-label="Close menu">&#10005;</button>
+        </div>
+        <ul>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/">RockTerm</a></li>
+              <li><a href="/rockwifi-pro/">RockWiFi Pro</a></li>
+              <li><a href="/rockterm/compare/securecrt/">vs SecureCRT</a></li>
+              <li><a href="/rockterm/compare/termius/">vs Termius</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Support</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/support/">RockTerm Support</a></li>
+              <li><a href="/rockterm/getting-started/">Getting Started (RockTerm)</a></li>
+              <li><a href="/rockterm/faq/">RockTerm FAQ</a></li>
+              <li><a href="/rockwifi-pro/support/">RockWiFi Pro Support</a></li>
+              <li><a href="/rockwifi-pro/getting-started/">Getting Started (RockWiFi)</a></li>
+              <li><a href="/rockwifi-pro/faq/">RockWiFi FAQ</a></li>
+            </ul>
+          </li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>BSS Metrics Explained</h1>
+      <p class="page-hero-subtitle">RockWiFi Pro Support</p>
+    </div>
+  </section>
+  <main class="page-content">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> <span>&rsaquo;</span>
+        <a href="/rockwifi-pro/">RockWiFi Pro</a> <span>&rsaquo;</span>
+        <a href="/rockwifi-pro/support/">Support</a> <span>&rsaquo;</span>
+        BSS Metrics Explained
+      </nav>
+
+      <p>Every time RockWiFi Pro scans the wireless environment, it collects a rich set of metrics for each BSS (Basic Service Set &mdash; essentially each radio interface on each access point). Understanding what these metrics mean helps you diagnose problems, validate configurations, and produce meaningful reports for your clients. This article explains every BSS metric RockWiFi Pro reports.</p>
+
+      <h2>Wi-Fi Standard</h2>
+
+      <p>The 802.11 generation the AP supports: <strong>be</strong> (Wi-Fi 7), <strong>ax</strong> (Wi-Fi 6/6E), <strong>ac</strong> (Wi-Fi 5), <strong>n</strong> (Wi-Fi 4), <strong>g</strong>, <strong>a</strong>, or <strong>b</strong>. RockWiFi Pro determines the standard from Information Elements in the BSS scan data &mdash; HT Capabilities for 802.11n, VHT Capabilities for 802.11ac, HE Capabilities for 802.11ax, and EHT Capabilities for 802.11be. The highest detected capability determines the reported standard.</p>
+
+      <p>For a detailed breakdown of each standard, see <a href="/rockwifi-pro/support/understanding-wifi-standards/">Understanding Wi-Fi Standards</a>.</p>
+
+      <h2>Channel Width</h2>
+
+      <p>The operating channel width in megahertz: <strong>20</strong>, <strong>40</strong>, <strong>80</strong>, <strong>160</strong>, or <strong>320 MHz</strong>. Wider channels provide more throughput but consume more spectrum, which can increase co-channel interference in dense environments.</p>
+
+      <ul>
+        <li><strong>20 MHz</strong> &mdash; Minimum width. Used by all standards. Best for high-density 2.4 GHz deployments where only three non-overlapping channels exist.</li>
+        <li><strong>40 MHz</strong> &mdash; Available since Wi-Fi 4 (802.11n). Doubles throughput over 20 MHz but halves the number of available non-overlapping channels.</li>
+        <li><strong>80 MHz</strong> &mdash; Available since Wi-Fi 5 (802.11ac). The default for most enterprise 5 GHz deployments.</li>
+        <li><strong>160 MHz</strong> &mdash; Available in Wi-Fi 5 Wave 2, Wi-Fi 6, and Wi-Fi 7. Provides high throughput but limits channel planning options in 5 GHz.</li>
+        <li><strong>320 MHz</strong> &mdash; Wi-Fi 7 only. Exclusively available in the 6 GHz band where sufficient contiguous spectrum exists.</li>
+      </ul>
+
+      <p>If you see an AP running a wider channel than expected, verify it is intentional &mdash; in congested 5 GHz environments, 80 MHz often outperforms 160 MHz in practice because the wider channel overlaps with more neighbors.</p>
+
+      <h2>Max PHY Rate</h2>
+
+      <p>The maximum physical layer data rate the AP advertises, derived from the supported rates Information Element and the AP's capabilities (standard, channel width, spatial streams, guard interval, QAM level). This is a theoretical maximum &mdash; <strong>real-world throughput is typically 50&ndash;70% of the max PHY rate</strong> due to protocol overhead, retransmissions, and environmental factors.</p>
+
+      <p>Use this metric for relative comparisons between APs. An AP advertising 1200 Mbps max rate has significantly more capacity than one showing 300 Mbps, even though neither will deliver exactly that number to clients.</p>
+
+      <h2>Station Count</h2>
+
+      <p>The number of clients currently associated with the AP. This value comes from the <strong>BSS Load Information Element</strong>, which the AP includes in its beacons when the feature is enabled.</p>
+
+      <ul>
+        <li><strong>Low (1&ndash;15)</strong> &mdash; Typical for a healthy AP in a properly designed deployment.</li>
+        <li><strong>Medium (16&ndash;30)</strong> &mdash; Acceptable for Wi-Fi 6 APs with OFDMA, but may cause contention on older standards.</li>
+        <li><strong>High (30+)</strong> &mdash; May indicate an overloaded AP. Consider load balancing, adding APs, or verifying that clients are distributing across available APs.</li>
+      </ul>
+
+      <p>Not all APs include the BSS Load IE. When absent, RockWiFi Pro shows the station count as unavailable rather than guessing.</p>
+
+      <h2>Channel Utilization</h2>
+
+      <p>The percentage of airtime currently in use on the AP's channel, also from the <strong>BSS Load IE</strong>. This includes all traffic on the channel &mdash; the AP's own clients, neighboring APs, and non-Wi-Fi interference.</p>
+
+      <ul>
+        <li><strong>Below 40%</strong> &mdash; Healthy. Plenty of available airtime.</li>
+        <li><strong>40&ndash;60%</strong> &mdash; Moderate. Performance is acceptable but there is limited headroom for traffic spikes.</li>
+        <li><strong>60&ndash;80%</strong> &mdash; Congested. Users will experience increased latency and reduced throughput. Investigate co-channel interference or client distribution.</li>
+        <li><strong>Above 80%</strong> &mdash; Problematic. Significant performance degradation is likely. Immediate action is recommended: change channels, reduce channel width, add APs, or move clients to a less congested band.</li>
+      </ul>
+
+      <h2>Beacon Interval</h2>
+
+      <p>The time between beacon frames, measured in <strong>TU (Time Units)</strong>. One TU equals 1024 microseconds. The standard default is <strong>100 TU</strong>, which results in a beacon approximately every 102.4 milliseconds.</p>
+
+      <p>Most deployments leave this at the default. A shorter interval means clients discover the AP faster and roaming decisions happen more quickly, but it also consumes more airtime. A longer interval saves airtime but can slow roaming. If you see a non-standard beacon interval, verify it was configured intentionally.</p>
+
+      <h2>Short GI (Short Guard Interval)</h2>
+
+      <p>Indicates whether Short Guard Interval is enabled on the AP. The guard interval is a pause between transmitted symbols that prevents inter-symbol interference from multipath reflections.</p>
+
+      <ul>
+        <li><strong>Normal GI</strong> &mdash; 800 nanoseconds (Wi-Fi 4/5) or 800/1600/3200 ns (Wi-Fi 6/7).</li>
+        <li><strong>Short GI</strong> &mdash; 400 nanoseconds (Wi-Fi 4/5). Reduces the gap between symbols, providing approximately <strong>11% throughput improvement</strong>.</li>
+      </ul>
+
+      <p>Short GI works best in environments with low multipath (small rooms, open spaces). In environments with significant multipath reflections (warehouses, long hallways), short GI can actually increase errors. Most enterprise APs enable it by default and fall back to normal GI when conditions require it.</p>
+
+      <h2>RSN AKM (Authentication Key Management)</h2>
+
+      <p>The authentication method advertised in the AP's RSN (Robust Security Network) Information Element. This tells you how clients prove their identity to the network:</p>
+
+      <ul>
+        <li><strong>PSK</strong> &mdash; Pre-Shared Key. WPA2-Personal. All clients share the same passphrase. Simple but offers no per-user accountability.</li>
+        <li><strong>SAE</strong> &mdash; Simultaneous Authentication of Equals. WPA3-Personal. Replaces PSK with a more secure key exchange that is resistant to offline dictionary attacks.</li>
+        <li><strong>EAP</strong> &mdash; Extensible Authentication Protocol. WPA2/WPA3-Enterprise. Each user authenticates individually via a RADIUS server. Required for environments that need per-user access control and audit trails.</li>
+        <li><strong>OWE</strong> &mdash; Opportunistic Wireless Encryption. Enhanced Open. Provides encryption on open networks without requiring a password. Replaces traditional open (no encryption) networks.</li>
+      </ul>
+
+      <p>If you see PSK on an enterprise network, that is typically a finding worth flagging &mdash; it means there is no individual user authentication. If you see no RSN IE at all, the network is fully open with no encryption.</p>
+
+      <h2>RSN Pairwise Cipher</h2>
+
+      <p>The encryption algorithm used for unicast (one-to-one) traffic between the AP and each individual client:</p>
+
+      <ul>
+        <li><strong>CCMP</strong> &mdash; AES-128 in Counter Mode with CBC-MAC. The standard cipher for WPA2 and WPA3. Secure and well-supported across all modern devices.</li>
+        <li><strong>GCMP-256</strong> &mdash; AES-256 in Galois/Counter Mode. Used by Wi-Fi 6E and Wi-Fi 7 in WPA3 mode. Provides stronger encryption with hardware-accelerated authentication.</li>
+        <li><strong>TKIP</strong> &mdash; Temporal Key Integrity Protocol. A legacy cipher from the WPA1 era. <strong>Avoid TKIP.</strong> It has known weaknesses and forces the network to operate at reduced throughput (802.11n and later disable high-throughput features when TKIP is in use).</li>
+      </ul>
+
+      <p>If you find TKIP in a scan, it usually indicates an AP configured for backward compatibility with very old clients. Recommend migrating to CCMP-only or GCMP-256.</p>
+
+      <h2>RSN Group Cipher</h2>
+
+      <p>The encryption algorithm used for broadcast and multicast traffic (frames sent to all clients simultaneously). Typically matches the pairwise cipher, but some mixed-mode configurations use a weaker group cipher to accommodate older clients. For example, an AP might use CCMP for pairwise and TKIP for group if it needs to support legacy devices.</p>
+
+      <p>A mismatch where the group cipher is weaker than the pairwise cipher means broadcast traffic is less protected. In security-sensitive environments, ensure the group cipher is at least CCMP.</p>
+
+      <h2>Country Code</h2>
+
+      <p>A two-letter regulatory domain code (e.g., <strong>US</strong>, <strong>GB</strong>, <strong>DE</strong>, <strong>JP</strong>) from the Country Information Element. This setting determines which channels and transmit power levels are available to the AP based on the local regulatory authority.</p>
+
+      <p>Common issues to watch for:</p>
+      <ul>
+        <li><strong>Mismatched country codes</strong> &mdash; If APs in the same site report different country codes, some may be using channels or power levels not permitted in the actual location.</li>
+        <li><strong>Missing country code</strong> &mdash; Some consumer-grade APs do not include the Country IE. This can cause client devices to restrict their own channel use unnecessarily.</li>
+        <li><strong>Incorrect country code</strong> &mdash; An AP set to the wrong country may use channels that are not legal in the deployment location, or may miss channels that are available.</li>
+      </ul>
+
+      <h2>MLO (Multi-Link Operation)</h2>
+
+      <p>A Wi-Fi 7 feature that allows the AP to aggregate traffic across multiple bands simultaneously (2.4 GHz, 5 GHz, and 6 GHz). RockWiFi Pro detects MLO from the <strong>Multi-Link Information Element</strong> in the BSS scan data.</p>
+
+      <p>When present, MLO means the AP can serve clients on multiple bands at the same time, delivering lower latency (packets take the least congested path), higher aggregate throughput, and smoother transitions between bands. MLO-capable APs are marked with an "MLO" badge throughout the app.</p>
+
+      <p>For more details on MLO and other Wi-Fi 7 capabilities, see <a href="/rockwifi-pro/support/wifi7-features/">Wi-Fi 7 and 6 GHz Band Features</a>.</p>
+
+      <h2>Where These Metrics Appear</h2>
+
+      <p>BSS metrics are available throughout RockWiFi Pro, so you always have the data you need regardless of which feature you are using:</p>
+
+      <ul>
+        <li><strong>UltraScan tiles</strong> &mdash; Each AP tile shows all key metrics at a glance. Click a tile for the complete metric detail view.</li>
+        <li><strong>Connection Check</strong> &mdash; The detail table shows full BSS metrics for the connected AP, useful for correlating connection quality with AP configuration.</li>
+        <li><strong>Signal Strip</strong> &mdash; Metrics are displayed alongside real-time signal strength for each visible AP.</li>
+        <li><strong>AP Locator</strong> &mdash; The target AP's metrics update live as you walk a space, giving you configuration context alongside signal strength.</li>
+        <li><strong>Reports</strong> &mdash; UltraScan HTML and PDF reports include per-AP metric tables and aggregate statistics.</li>
+        <li><strong>CSV Export</strong> &mdash; All metrics are included in CSV exports for further analysis in spreadsheets or BI tools.</li>
+        <li><strong>Flight Recorder</strong> &mdash; Metric changes (e.g., channel width changes, station count spikes) are captured as timestamped events for post-incident analysis.</li>
+      </ul>
+
+      <p class="back-link"><a href="/rockwifi-pro/support/">&larr; Back to RockWiFi Pro Support</a></p>
+
+      <h2>Still need help?</h2>
+      <p>If you have questions about any BSS metric or need help interpreting your scan results, <a href="/contact/">contact us</a> or email <a href="mailto:support@rockriverresearch.com">support@rockriverresearch.com</a>.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-content">
+          <p>&copy; 2026 Rock River Research, LLC. All rights reserved.</p>
+          <div class="footer-links">
+            <a href="/privacy/">Privacy Policy</a>
+            <a href="/terms/">Terms of Service</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </div>
+        <img src="/images/logo.png" alt="Rock River Research" class="footer-logo">
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

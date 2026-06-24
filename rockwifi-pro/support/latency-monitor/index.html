@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>Monitoring Latency Over Time — RockWiFi Pro Support — Rock River Research</title>
+  <meta name="description" content="How to use RockWiFi Pro's Latency Monitor to track network performance over time and identify intermittent issues.">
+  <link rel="canonical" href="https://rockriverresearch.com/rockwifi-pro/support/latency-monitor/">
+  <meta property="og:title" content="Monitoring Latency Over Time — RockWiFi Pro Support — Rock River Research">
+  <meta property="og:description" content="How to use RockWiFi Pro's Latency Monitor to track network performance over time and identify intermittent issues.">
+  <meta property="og:url" content="https://rockriverresearch.com/rockwifi-pro/support/latency-monitor/">
+  <meta property="og:image" content="https://rockriverresearch.com/images/logo.png">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Rock River Research</a>
+      <nav class="site-nav">
+        <div class="nav-header">
+          <a href="/" class="logo">Rock River Research</a>
+          <button class="nav-close" aria-label="Close menu">&#10005;</button>
+        </div>
+        <ul>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/">RockTerm</a></li>
+              <li><a href="/rockwifi-pro/">RockWiFi Pro</a></li>
+              <li><a href="/rockterm/compare/securecrt/">vs SecureCRT</a></li>
+              <li><a href="/rockterm/compare/termius/">vs Termius</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Support</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/support/">RockTerm Support</a></li>
+              <li><a href="/rockterm/getting-started/">Getting Started (RockTerm)</a></li>
+              <li><a href="/rockterm/faq/">RockTerm FAQ</a></li>
+              <li><a href="/rockwifi-pro/support/">RockWiFi Pro Support</a></li>
+              <li><a href="/rockwifi-pro/getting-started/">Getting Started (RockWiFi)</a></li>
+              <li><a href="/rockwifi-pro/faq/">RockWiFi FAQ</a></li>
+            </ul>
+          </li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Monitoring Latency Over Time</h1>
+      <p class="page-hero-subtitle">RockWiFi Pro Support</p>
+    </div>
+  </section>
+  <main class="page-content">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> <span>&rsaquo;</span>
+        <a href="/rockwifi-pro/">RockWiFi Pro</a> <span>&rsaquo;</span>
+        <a href="/rockwifi-pro/support/">Support</a> <span>&rsaquo;</span>
+        Monitoring Latency Over Time
+      </nav>
+
+      <h2>What Latency Monitor Does</h2>
+      <p>Latency Monitor continuously pings your gateway and/or an internet target, charting latency and packet loss over time. It is designed for catching intermittent issues that a one-time connectivity test would miss &mdash; the kind of problems users describe as "the internet is slow sometimes."</p>
+
+      <h2>When to Use It</h2>
+      <ul>
+        <li><strong>Intermittent complaints</strong>: Users report sporadic slowness &mdash; leave Latency Monitor running to capture the drops when they happen.</li>
+        <li><strong>During a network change</strong>: Monitor before, during, and after to verify the change actually improved performance.</li>
+        <li><strong>VoIP quality complaints</strong>: Correlate latency spikes and jitter with call quality issues to pinpoint the cause.</li>
+        <li><strong>Wi-Fi roaming troubleshooting</strong>: Watch for latency spikes as clients move between access points to identify problematic handoffs.</li>
+      </ul>
+
+      <h2>How to Use It</h2>
+      <ol>
+        <li>Open <strong>Latency Monitor</strong> from the sidebar.</li>
+        <li>Choose your target: <strong>Gateway</strong> (tests LAN health) and/or an <strong>internet host</strong> (tests end-to-end connectivity).</li>
+        <li>Click <strong>Start</strong> &mdash; the chart begins plotting latency in real time.</li>
+        <li>Let it run for minutes or hours &mdash; the longer the session, the more data you collect and the more likely you are to catch intermittent issues.</li>
+      </ol>
+
+      <h2>Reading the Chart</h2>
+      <p>The chart plots latency over time. Here is what common patterns mean:</p>
+      <ul>
+        <li><strong>Flat, low line</strong> = stable, healthy connection. This is what you want to see.</li>
+        <li><strong>Periodic spikes</strong> = possible interference, congestion, or access point handoff issues. Note the interval between spikes &mdash; regular patterns often point to scheduled processes or environmental interference.</li>
+        <li><strong>Gradual climb</strong> = increasing congestion or thermal throttling on network equipment.</li>
+        <li><strong>Gaps in the line</strong> = complete packet loss, indicating a dropped connection during that period.</li>
+      </ul>
+
+      <h2>Statistics</h2>
+      <p>Latency Monitor tracks and displays the following metrics throughout the session:</p>
+      <ul>
+        <li><strong>Current latency</strong>: the most recent ping result</li>
+        <li><strong>Average latency</strong>: mean latency across the entire session</li>
+        <li><strong>Min/Max latency</strong>: best and worst results recorded</li>
+        <li><strong>Jitter</strong>: variation in latency between pings</li>
+        <li><strong>Packet loss %</strong>: percentage of pings that received no response</li>
+        <li><strong>Uptime %</strong>: percentage of the session with successful connectivity</li>
+      </ul>
+
+      <h2>Tips</h2>
+      <ul>
+        <li>Run Latency Monitor alongside a Wi-Fi survey to correlate physical location with network performance.</li>
+        <li>Screenshot or export data for documentation &mdash; concrete numbers are more persuasive than anecdotal reports.</li>
+        <li>Check if spikes correlate with specific times of day (lunch hour, backup window, shift changes) to identify congestion patterns.</li>
+        <li>Monitor both the gateway and an internet target simultaneously. If gateway latency is fine but internet latency spikes, the issue is upstream of the local network.</li>
+      </ul>
+
+      <p class="back-link"><a href="/rockwifi-pro/support/">&larr; Back to Support Articles</a></p>
+
+      <h2>Still need help?</h2>
+      <p>If you're still experiencing issues, <a href="/contact/">contact us</a> or email <a href="mailto:support@rockriverresearch.com">support@rockriverresearch.com</a>.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-content">
+          <p>&copy; 2026 Rock River Research, LLC. All rights reserved.</p>
+          <div class="footer-links">
+            <a href="/privacy/">Privacy Policy</a>
+            <a href="/terms/">Terms of Service</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </div>
+        <img src="/images/logo.png" alt="Rock River Research" class="footer-logo">
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

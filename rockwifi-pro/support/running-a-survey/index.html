@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>Running Your First Wi-Fi Survey — RockWiFi Pro Support — Rock River Research</title>
+  <meta name="description" content="Step-by-step guide to creating a Wi-Fi survey in RockWiFi Pro — importing floor plans, calibrating, dropping samples, and generating heatmaps.">
+  <link rel="canonical" href="https://rockriverresearch.com/rockwifi-pro/support/running-a-survey/">
+  <meta property="og:title" content="Running Your First Wi-Fi Survey — RockWiFi Pro Support — Rock River Research">
+  <meta property="og:description" content="Step-by-step guide to creating a Wi-Fi survey in RockWiFi Pro — importing floor plans, calibrating, dropping samples, and generating heatmaps.">
+  <meta property="og:url" content="https://rockriverresearch.com/rockwifi-pro/support/running-a-survey/">
+  <meta property="og:image" content="https://rockriverresearch.com/images/logo.png">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Rock River Research</a>
+      <nav class="site-nav">
+        <div class="nav-header">
+          <a href="/" class="logo">Rock River Research</a>
+          <button class="nav-close" aria-label="Close menu">&#10005;</button>
+        </div>
+        <ul>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/">RockTerm</a></li>
+              <li><a href="/rockwifi-pro/">RockWiFi Pro</a></li>
+              <li><a href="/rockterm/compare/securecrt/">vs SecureCRT</a></li>
+              <li><a href="/rockterm/compare/termius/">vs Termius</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Support</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/support/">RockTerm Support</a></li>
+              <li><a href="/rockterm/getting-started/">Getting Started (RockTerm)</a></li>
+              <li><a href="/rockterm/faq/">RockTerm FAQ</a></li>
+              <li><a href="/rockwifi-pro/support/">RockWiFi Pro Support</a></li>
+              <li><a href="/rockwifi-pro/getting-started/">Getting Started (RockWiFi)</a></li>
+              <li><a href="/rockwifi-pro/faq/">RockWiFi FAQ</a></li>
+            </ul>
+          </li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Running Your First Wi-Fi Survey</h1>
+      <p class="page-hero-subtitle">RockWiFi Pro Support</p>
+    </div>
+  </section>
+  <main class="page-content">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> <span>&rsaquo;</span>
+        <a href="/rockwifi-pro/">RockWiFi Pro</a> <span>&rsaquo;</span>
+        <a href="/rockwifi-pro/support/">Support</a> <span>&rsaquo;</span>
+        Running Your First Wi-Fi Survey
+      </nav>
+
+      <h2>What is a Wi-Fi survey?</h2>
+      <p>A Wi-Fi site survey maps wireless signal coverage across a physical space. Walk through the space, drop signal samples at your location on a floor plan, and RockWiFi Pro builds a heatmap showing coverage quality everywhere.</p>
+
+      <h2>Step 1: Open Wi-Fi Survey</h2>
+      <p>Click <strong>Wi-Fi Survey</strong> in the sidebar. You'll see the survey canvas &mdash; a blank workspace ready for your floor plan.</p>
+
+      <h2>Step 2: Import a floor plan</h2>
+      <p>Click <strong>Import Floor Plan</strong> and select an image (PNG, JPG, BMP). This becomes your survey background. You can also use an OpenStreetMap capture for outdoor surveys.</p>
+
+      <h2>Step 3: Calibrate</h2>
+      <p>Click <strong>Calibrate</strong>, then click two points on the map whose real-world distance you know (e.g., a hallway length). Enter the distance in meters. This lets the app calculate accurate coverage areas and cluster nearby samples.</p>
+      <p>See <a href="/rockwifi-pro/support/survey-calibration/">Calibrating Your Floor Plan</a> for detailed instructions.</p>
+
+      <h2>Step 4: Drop samples</h2>
+      <p>Walk to a location, click that spot on the floor plan. RockWiFi Pro captures your current Wi-Fi signal strength and all visible APs at that point. The sample appears as a colored dot.</p>
+
+      <h2>Step 5: Build coverage</h2>
+      <p>Take 15&ndash;30 samples across the space. Cover corners, hallways, and problem areas. More samples = more accurate heatmap. If you click near an existing sample (within ~1.5m), the readings are merged for better accuracy.</p>
+
+      <h2>Step 6: View the heatmap</h2>
+      <p>The heatmap renders automatically using Kriging interpolation. Colors range from red (weak signal) through yellow to green (strong signal). Switch between layers:</p>
+      <ul>
+        <li>Signal Strength</li>
+        <li>Sample Density</li>
+        <li>SNR</li>
+        <li>Channel Overlap</li>
+        <li>AP Count</li>
+      </ul>
+      <p>See <a href="/rockwifi-pro/support/heatmap-layers/">Understanding Heatmap Layers</a> for a full explanation of each layer.</p>
+
+      <h2>Step 7: Save and export</h2>
+      <p>Save the survey for later review. Export an HTML report for clients or a CSV of raw sample data.</p>
+
+      <h2>Tips</h2>
+      <ul>
+        <li>Survey during normal business hours to capture real interference.</li>
+        <li>Walk at a normal pace.</li>
+        <li>Include areas behind walls and in stairwells.</li>
+        <li>Run UltraScan first to understand the environment.</li>
+      </ul>
+
+      <h2>Next steps</h2>
+      <ul>
+        <li><a href="/rockwifi-pro/support/heatmap-layers/">Understanding Heatmap Layers</a></li>
+        <li><a href="/rockwifi-pro/support/survey-calibration/">Calibrating Your Floor Plan</a></li>
+      </ul>
+
+      <p class="back-link"><a href="/rockwifi-pro/support/">&larr; Back to RockWiFi Pro Support</a></p>
+
+      <h2>Still need help?</h2>
+      <p>If you're still experiencing issues, <a href="/contact/">contact us</a> or email <a href="mailto:support@rockriverresearch.com">support@rockriverresearch.com</a>.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-content">
+          <p>&copy; 2026 Rock River Research, LLC. All rights reserved.</p>
+          <div class="footer-links">
+            <a href="/privacy/">Privacy Policy</a>
+            <a href="/terms/">Terms of Service</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </div>
+        <img src="/images/logo.png" alt="Rock River Research" class="footer-logo">
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

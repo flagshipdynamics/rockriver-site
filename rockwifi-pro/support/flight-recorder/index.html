@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>Using the Flight Recorder — RockWiFi Pro Support — Rock River Research</title>
+  <meta name="description" content="How to use RockWiFi Pro's Flight Recorder to continuously log Wi-Fi and network events for post-incident analysis.">
+  <link rel="canonical" href="https://rockriverresearch.com/rockwifi-pro/support/flight-recorder/">
+  <meta property="og:title" content="Using the Flight Recorder — RockWiFi Pro Support — Rock River Research">
+  <meta property="og:description" content="How to use RockWiFi Pro's Flight Recorder to continuously log Wi-Fi and network events for post-incident analysis.">
+  <meta property="og:url" content="https://rockriverresearch.com/rockwifi-pro/support/flight-recorder/">
+  <meta property="og:image" content="https://rockriverresearch.com/images/logo.png">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Rock River Research</a>
+      <nav class="site-nav">
+        <div class="nav-header">
+          <a href="/" class="logo">Rock River Research</a>
+          <button class="nav-close" aria-label="Close menu">&#10005;</button>
+        </div>
+        <ul>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/">RockTerm</a></li>
+              <li><a href="/rockwifi-pro/">RockWiFi Pro</a></li>
+              <li><a href="/rockterm/compare/securecrt/">vs SecureCRT</a></li>
+              <li><a href="/rockterm/compare/termius/">vs Termius</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Support</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/support/">RockTerm Support</a></li>
+              <li><a href="/rockterm/getting-started/">Getting Started (RockTerm)</a></li>
+              <li><a href="/rockterm/faq/">RockTerm FAQ</a></li>
+              <li><a href="/rockwifi-pro/support/">RockWiFi Pro Support</a></li>
+              <li><a href="/rockwifi-pro/getting-started/">Getting Started (RockWiFi)</a></li>
+              <li><a href="/rockwifi-pro/faq/">RockWiFi FAQ</a></li>
+            </ul>
+          </li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Using the Flight Recorder</h1>
+      <p class="page-hero-subtitle">RockWiFi Pro Support</p>
+    </div>
+  </section>
+  <main class="page-content">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> <span>&rsaquo;</span>
+        <a href="/rockwifi-pro/">RockWiFi Pro</a> <span>&rsaquo;</span>
+        <a href="/rockwifi-pro/support/">Support</a> <span>&rsaquo;</span>
+        Using the Flight Recorder
+      </nav>
+
+      <h2>What Flight Recorder Does</h2>
+      <p>Flight Recorder continuously logs Wi-Fi and network state changes in the background. Like an aircraft's black box, it captures everything that happens on your wireless connection &mdash; so when something goes wrong, you can rewind and see exactly what happened, when it happened, and what the network conditions were at that moment.</p>
+
+      <h2>What It Logs</h2>
+      <p>Flight Recorder captures four categories of data:</p>
+
+      <h3>Wi-Fi State Changes</h3>
+      <ul>
+        <li>SSID switches (connecting to a different network)</li>
+        <li>BSSID roaming events (moving between access points on the same network)</li>
+        <li>Band changes (switching between 2.4 GHz, 5 GHz, and 6 GHz)</li>
+        <li>Signal strength drops and recoveries</li>
+      </ul>
+
+      <h3>Network Events</h3>
+      <ul>
+        <li>Connectivity gained and lost</li>
+        <li>Gateway changes</li>
+        <li>DNS failures</li>
+      </ul>
+
+      <h3>Wi-Fi Metrics</h3>
+      <ul>
+        <li>Signal strength (dBm)</li>
+        <li>Channel and channel width</li>
+        <li>Wi-Fi standard (Wi-Fi 5, 6, 6E, 7)</li>
+        <li>MLO (Multi-Link Operation) status</li>
+        <li>Frequency and maximum data rate</li>
+      </ul>
+
+      <h3>Connection Quality</h3>
+      <ul>
+        <li>Latency to gateway and internet</li>
+        <li>Packet loss percentage</li>
+        <li>DNS resolution time</li>
+      </ul>
+
+      <h2>How to Use It</h2>
+      <ol>
+        <li>Open <strong>Flight Recorder</strong> from the sidebar.</li>
+        <li>Click <strong>Start Recording</strong> &mdash; events begin logging immediately.</li>
+        <li>Go about your work or walk the site &mdash; the recorder runs in the background without affecting your workflow.</li>
+        <li>Come back and review the event timeline to see everything that occurred.</li>
+      </ol>
+
+      <h2>Reading the Timeline</h2>
+      <ul>
+        <li>Each event is timestamped with its type, details, and the current network metrics at that moment.</li>
+        <li>Events are color-coded: <strong>green</strong> = normal operation, <strong>yellow</strong> = warning (e.g., signal dropping), <strong>red</strong> = error (e.g., connectivity lost).</li>
+        <li>Use the event type filter to focus on specific issues &mdash; for example, show only roaming events or only connectivity drops.</li>
+      </ul>
+
+      <h2>Use Cases</h2>
+
+      <h3>Roaming Analysis</h3>
+      <p>Walk between access points and review how your device roams. The log shows which BSSID the device connected to, when the handoff occurred, and what the signal level was at the moment of each roam. This data reveals whether roaming thresholds are too aggressive, too sticky, or working correctly.</p>
+
+      <h3>Intermittent Issues</h3>
+      <p>Leave Flight Recorder running to capture the exact moment connectivity drops. Instead of trying to reproduce a reported issue, let the recorder catch it and then review what happened &mdash; was it a signal drop, a BSSID change, a DNS failure, or something else entirely?</p>
+
+      <h3>Before/After Comparison</h3>
+      <p>Record a session before making network changes, then record another session after. Compare the two to verify that roaming behavior improved, signal drops decreased, or connectivity became more stable.</p>
+
+      <h3>Client Documentation</h3>
+      <p>Export the log as evidence of network issues for client reports or support tickets. The timestamped, detailed event data provides objective proof that goes beyond subjective user complaints.</p>
+
+      <h2>Data Shown Per Event</h2>
+      <p>Each logged event includes: timestamp, event type, SSID, BSSID, signal (dBm), channel, channel width, band, Wi-Fi standard, MLO status, frequency, maximum data rate, gateway status, and internet connectivity status.</p>
+
+      <h2>Tips</h2>
+      <ul>
+        <li>Start the recorder before walking a site &mdash; you want to capture the full picture from the beginning.</li>
+        <li>Let it run for at least 10 minutes to capture enough roaming behavior and environmental variation.</li>
+        <li>Events export to CSV for further analysis in spreadsheets or reporting tools.</li>
+        <li>Combine Flight Recorder data with <strong>Latency Monitor</strong> results for a complete picture of both Wi-Fi behavior and network performance over time.</li>
+      </ul>
+
+      <p class="back-link"><a href="/rockwifi-pro/support/">&larr; Back to Support Articles</a></p>
+
+      <h2>Still need help?</h2>
+      <p>If you're still experiencing issues, <a href="/contact/">contact us</a> or email <a href="mailto:support@rockriverresearch.com">support@rockriverresearch.com</a>.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-content">
+          <p>&copy; 2026 Rock River Research, LLC. All rights reserved.</p>
+          <div class="footer-links">
+            <a href="/privacy/">Privacy Policy</a>
+            <a href="/terms/">Terms of Service</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </div>
+        <img src="/images/logo.png" alt="Rock River Research" class="footer-logo">
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

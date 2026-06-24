@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>Wi-Fi 7 and 6 GHz Band Features — RockWiFi Pro Support — Rock River Research</title>
+  <meta name="description" content="How RockWiFi Pro supports Wi-Fi 7 (802.11be) and the 6 GHz band — 320 MHz channels, Multi-Link Operation, UNII-5 through UNII-8, and readiness reporting.">
+  <link rel="canonical" href="https://rockriverresearch.com/rockwifi-pro/support/wifi7-features/">
+  <meta property="og:title" content="Wi-Fi 7 and 6 GHz Band Features — RockWiFi Pro Support — Rock River Research">
+  <meta property="og:description" content="How RockWiFi Pro supports Wi-Fi 7 (802.11be) and the 6 GHz band — 320 MHz channels, Multi-Link Operation, UNII-5 through UNII-8, and readiness reporting.">
+  <meta property="og:url" content="https://rockriverresearch.com/rockwifi-pro/support/wifi7-features/">
+  <meta property="og:image" content="https://rockriverresearch.com/images/logo.png">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Rock River Research</a>
+      <nav class="site-nav">
+        <div class="nav-header">
+          <a href="/" class="logo">Rock River Research</a>
+          <button class="nav-close" aria-label="Close menu">&#10005;</button>
+        </div>
+        <ul>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/">RockTerm</a></li>
+              <li><a href="/rockwifi-pro/">RockWiFi Pro</a></li>
+              <li><a href="/rockterm/compare/securecrt/">vs SecureCRT</a></li>
+              <li><a href="/rockterm/compare/termius/">vs Termius</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Support</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/support/">RockTerm Support</a></li>
+              <li><a href="/rockterm/getting-started/">Getting Started (RockTerm)</a></li>
+              <li><a href="/rockterm/faq/">RockTerm FAQ</a></li>
+              <li><a href="/rockwifi-pro/support/">RockWiFi Pro Support</a></li>
+              <li><a href="/rockwifi-pro/getting-started/">Getting Started (RockWiFi)</a></li>
+              <li><a href="/rockwifi-pro/faq/">RockWiFi FAQ</a></li>
+            </ul>
+          </li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Wi-Fi 7 and 6 GHz Band Features</h1>
+      <p class="page-hero-subtitle">RockWiFi Pro Support</p>
+    </div>
+  </section>
+  <main class="page-content">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> <span>&rsaquo;</span>
+        <a href="/rockwifi-pro/">RockWiFi Pro</a> <span>&rsaquo;</span>
+        <a href="/rockwifi-pro/support/">Support</a> <span>&rsaquo;</span>
+        Wi-Fi 7 and 6 GHz Band Features
+      </nav>
+
+      <p>Wi-Fi 7 (802.11be) and the 6 GHz band represent the biggest leap in wireless capability in over a decade. RockWiFi Pro gives you full visibility into Wi-Fi 7 features and 6 GHz spectrum usage across your deployments, so you can validate rollouts, identify upgrade opportunities, and document next-generation readiness for your clients.</p>
+
+      <h2>What Is Wi-Fi 7?</h2>
+
+      <p>Wi-Fi 7, based on the IEEE 802.11be standard ratified in 2024, is the latest generation of wireless networking. It builds on the efficiency improvements of Wi-Fi 6 and adds capabilities designed for ultra-high throughput and low-latency applications:</p>
+
+      <ul>
+        <li><strong>Maximum throughput</strong> increases to 46 Gbps (theoretical), up from Wi-Fi 6's 9.6 Gbps.</li>
+        <li><strong>320 MHz channels</strong> double the maximum channel width, providing substantially more bandwidth per radio.</li>
+        <li><strong>Multi-Link Operation (MLO)</strong> allows devices to transmit and receive across multiple bands simultaneously.</li>
+        <li><strong>4096-QAM</strong> packs 20% more data per symbol compared to Wi-Fi 6's 1024-QAM.</li>
+        <li><strong>Preamble puncturing</strong> allows use of a wide channel even when a portion of it is occupied, reducing wasted spectrum.</li>
+      </ul>
+
+      <p>For enterprise and managed networks, Wi-Fi 7 addresses the growing demand from video conferencing, cloud applications, AR/VR, and high-density environments where airtime is at a premium.</p>
+
+      <h2>Key Wi-Fi 7 Features RockWiFi Pro Detects</h2>
+
+      <h3>320 MHz Channels</h3>
+
+      <p>Wi-Fi 7 doubles the maximum channel width from 160 MHz (Wi-Fi 6) to 320 MHz, available exclusively in the 6 GHz band where sufficient contiguous spectrum exists. A 320 MHz channel provides roughly double the throughput capacity of a 160 MHz channel under the same conditions.</p>
+
+      <p>RockWiFi Pro displays channel width throughout the app. When a 320 MHz channel is detected, it is prominently shown in UltraScan tiles, the Dashboard connection card, Signal Strip, AP Locator, and Connection Check. The 6 GHz spectrum chart in the Congestion Panel visualizes these wide channels, making it immediately clear how much of the available spectrum each AP occupies.</p>
+
+      <h3>Multi-Link Operation (MLO)</h3>
+
+      <p>MLO is the signature feature of Wi-Fi 7. It enables a device to maintain simultaneous connections across multiple bands (2.4 GHz, 5 GHz, and 6 GHz) to the same AP. This delivers lower latency (traffic can be steered to the least congested band in real time), higher aggregate throughput, and more resilient connections.</p>
+
+      <p>RockWiFi Pro detects MLO from the <strong>Multi-Link Information Element</strong> in BSS scan data. When an AP advertises MLO capability, RockWiFi Pro displays an <strong>"MLO" badge</strong> in the following locations:</p>
+
+      <ul>
+        <li><strong>UltraScan tiles</strong> &mdash; MLO badge appears next to the standard indicator.</li>
+        <li><strong>Dashboard</strong> &mdash; The connected AP card shows MLO status.</li>
+        <li><strong>Signal Strip</strong> &mdash; MLO-capable APs are marked in the AP list.</li>
+        <li><strong>AP Locator</strong> &mdash; MLO status is shown alongside other target AP metrics.</li>
+        <li><strong>Health Check</strong> &mdash; MLO availability is factored into the connection assessment.</li>
+        <li><strong>Reports</strong> &mdash; MLO-capable APs are identified in UltraScan HTML and PDF reports.</li>
+      </ul>
+
+      <h3>4096-QAM</h3>
+
+      <p>Wi-Fi 7 introduces 4096-QAM (12-bit), which increases the data rate per symbol by approximately 20% over Wi-Fi 6's 1024-QAM (10-bit). This requires a very clean RF environment with high signal-to-noise ratio, so the benefit is most pronounced at close range.</p>
+
+      <p>RockWiFi Pro reflects the higher modulation in the <strong>max PHY rate</strong> displayed for Wi-Fi 7 APs. When comparing APs in UltraScan or reports, the higher max rate of Wi-Fi 7 APs relative to similarly configured Wi-Fi 6 APs is largely due to 4096-QAM.</p>
+
+      <h2>The 6 GHz Band</h2>
+
+      <p>The 6 GHz band (5925&ndash;7125 MHz) provides 1200 MHz of new spectrum &mdash; more than doubling the usable Wi-Fi spectrum that was previously available in 2.4 GHz and 5 GHz combined. Only Wi-Fi 6E and Wi-Fi 7 devices can operate in this band, which means zero interference from legacy devices.</p>
+
+      <h3>UNII Bands</h3>
+
+      <p>The 6 GHz spectrum is divided into four UNII (Unlicensed National Information Infrastructure) sub-bands:</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>UNII Band</th>
+            <th>Frequency Range</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>UNII-5</strong></td>
+            <td>5925 &ndash; 6425 MHz</td>
+            <td>Widest sub-band (500 MHz). Available for low-power indoor and standard power.</td>
+          </tr>
+          <tr>
+            <td><strong>UNII-6</strong></td>
+            <td>6425 &ndash; 6525 MHz</td>
+            <td>100 MHz. Low-power indoor only in most regulatory domains.</td>
+          </tr>
+          <tr>
+            <td><strong>UNII-7</strong></td>
+            <td>6525 &ndash; 6875 MHz</td>
+            <td>350 MHz. Low-power indoor only in most regulatory domains.</td>
+          </tr>
+          <tr>
+            <td><strong>UNII-8</strong></td>
+            <td>6875 &ndash; 7125 MHz</td>
+            <td>250 MHz. Availability varies by country. Not yet open in all regions.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>6 GHz in RockWiFi Pro</h3>
+
+      <ul>
+        <li><strong>No legacy interference</strong> &mdash; Because only Wi-Fi 6E and Wi-Fi 7 devices can use the 6 GHz band, the congestion landscape is fundamentally different from 2.4 GHz and 5 GHz. This makes 6 GHz ideal for high-density deployments.</li>
+        <li><strong>Congestion Panel spectrum chart</strong> &mdash; RockWiFi Pro includes a dedicated 6 GHz spectrum chart in the Congestion Panel. UNII band boundaries are shown as shaded regions so you can see at a glance which sub-bands have active APs and how channels are distributed across the available spectrum.</li>
+        <li><strong>Channel recommendations</strong> &mdash; The findings engine provides channel recommendations specific to the 6 GHz band, taking into account the wider channels available and the current utilization across UNII-5 through UNII-8.</li>
+      </ul>
+
+      <h2>Wi-Fi 7 Readiness in Reports</h2>
+
+      <p>RockWiFi Pro's findings engine produces specific findings related to Wi-Fi 7 and 6 GHz readiness:</p>
+
+      <ul>
+        <li><strong>"Wi-Fi 7 upgrade opportunity"</strong> &mdash; Generated when a site's APs are Wi-Fi 5 or Wi-Fi 6 and could benefit from Wi-Fi 7 features. The finding explains the practical advantages based on the environment (e.g., high station counts that would benefit from MLO, congested channels that would benefit from 320 MHz in the 6 GHz band).</li>
+        <li><strong>"Partial Wi-Fi 7 deployment"</strong> &mdash; Generated when some APs at a site are Wi-Fi 7 but others are not. This helps identify incomplete rollouts where users may have inconsistent experiences.</li>
+        <li><strong>"6 GHz band not in use"</strong> &mdash; Generated when Wi-Fi 6E or Wi-Fi 7 capable APs are detected but no 6 GHz radios are active. This flags an opportunity to enable the 6 GHz band and take advantage of the clean spectrum.</li>
+        <li><strong>"MLO detected"</strong> &mdash; A positive finding confirming that MLO-capable APs are present and advertising multi-link capability.</li>
+      </ul>
+
+      <p>UltraScan HTML reports include a <strong>"Wi-Fi 7 Features" summary card</strong> that aggregates Wi-Fi 7 specific data: number of Wi-Fi 7 APs, MLO-capable APs, 320 MHz channel usage, and 6 GHz band utilization. This provides a single at-a-glance view of next-generation readiness that you can share directly with clients.</p>
+
+      <h2>Backward Compatibility</h2>
+
+      <p>Wi-Fi 7 APs are fully backward compatible with all previous Wi-Fi generations. A Wi-Fi 7 AP will serve Wi-Fi 4, 5, and 6 clients on 2.4 GHz and 5 GHz, while offering full Wi-Fi 7 capabilities to compatible clients. RockWiFi Pro's standard detection shows you the exact generational mix &mdash; so you can see that an AP is Wi-Fi 7 capable even when most of its connected clients are using older standards.</p>
+
+      <p>This is especially useful during phased rollouts: you can verify that new Wi-Fi 7 APs are in place and advertising the expected capabilities while your client fleet gradually upgrades.</p>
+
+      <p class="back-link"><a href="/rockwifi-pro/support/">&larr; Back to RockWiFi Pro Support</a></p>
+
+      <h2>Still need help?</h2>
+      <p>If you have questions about Wi-Fi 7 detection or 6 GHz band features, <a href="/contact/">contact us</a> or email <a href="mailto:support@rockriverresearch.com">support@rockriverresearch.com</a>.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-content">
+          <p>&copy; 2026 Rock River Research, LLC. All rights reserved.</p>
+          <div class="footer-links">
+            <a href="/privacy/">Privacy Policy</a>
+            <a href="/terms/">Terms of Service</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </div>
+        <img src="/images/logo.png" alt="Rock River Research" class="footer-logo">
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

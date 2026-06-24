@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>Calibrating Your Floor Plan — RockWiFi Pro Support — Rock River Research</title>
+  <meta name="description" content="How to calibrate floor plans in RockWiFi Pro for accurate distance calculations, sample clustering, and survey grid generation.">
+  <link rel="canonical" href="https://rockriverresearch.com/rockwifi-pro/support/survey-calibration/">
+  <meta property="og:title" content="Calibrating Your Floor Plan — RockWiFi Pro Support — Rock River Research">
+  <meta property="og:description" content="How to calibrate floor plans in RockWiFi Pro for accurate distance calculations, sample clustering, and survey grid generation.">
+  <meta property="og:url" content="https://rockriverresearch.com/rockwifi-pro/support/survey-calibration/">
+  <meta property="og:image" content="https://rockriverresearch.com/images/logo.png">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Rock River Research</a>
+      <nav class="site-nav">
+        <div class="nav-header">
+          <a href="/" class="logo">Rock River Research</a>
+          <button class="nav-close" aria-label="Close menu">&#10005;</button>
+        </div>
+        <ul>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/">RockTerm</a></li>
+              <li><a href="/rockwifi-pro/">RockWiFi Pro</a></li>
+              <li><a href="/rockterm/compare/securecrt/">vs SecureCRT</a></li>
+              <li><a href="/rockterm/compare/termius/">vs Termius</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Support</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/support/">RockTerm Support</a></li>
+              <li><a href="/rockterm/getting-started/">Getting Started (RockTerm)</a></li>
+              <li><a href="/rockterm/faq/">RockTerm FAQ</a></li>
+              <li><a href="/rockwifi-pro/support/">RockWiFi Pro Support</a></li>
+              <li><a href="/rockwifi-pro/getting-started/">Getting Started (RockWiFi)</a></li>
+              <li><a href="/rockwifi-pro/faq/">RockWiFi FAQ</a></li>
+            </ul>
+          </li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Calibrating Your Floor Plan</h1>
+      <p class="page-hero-subtitle">RockWiFi Pro Support</p>
+    </div>
+  </section>
+  <main class="page-content">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> <span>&rsaquo;</span>
+        <a href="/rockwifi-pro/">RockWiFi Pro</a> <span>&rsaquo;</span>
+        <a href="/rockwifi-pro/support/">Support</a> <span>&rsaquo;</span>
+        Calibrating Your Floor Plan
+      </nav>
+
+      <h2>Why calibrate?</h2>
+      <p>Calibration maps pixels to real-world meters. Without it, the app can't accurately cluster nearby samples, generate survey grids, or report distances. Calibration is optional but strongly recommended for any survey where you need accurate spatial data.</p>
+
+      <h2>How to calibrate</h2>
+      <ol>
+        <li>Click the <strong>Calibrate</strong> button in the survey toolbar.</li>
+        <li>Click a starting point on the floor plan (Point A) &mdash; a crosshair appears.</li>
+        <li>Click an ending point (Point B) &mdash; a dashed reference line is drawn between the two points.</li>
+        <li>Enter the real-world distance between the two points in meters.</li>
+        <li>Done &mdash; the app calculates pixels-per-meter automatically.</li>
+      </ol>
+
+      <h2>Choosing good calibration points</h2>
+      <p>Pick two points whose distance you can measure accurately. Good choices include:</p>
+      <ul>
+        <li>A hallway length</li>
+        <li>A room diagonal</li>
+        <li>Distance between two columns</li>
+        <li>A known wall length</li>
+      </ul>
+      <p>The further apart the points, the more accurate the calibration. Avoid very short reference distances (under 2 meters) as small pixel errors become proportionally larger.</p>
+
+      <h2>OpenStreetMap auto-calibration</h2>
+      <p>If you import a map from OpenStreetMap, calibration is automatic. The app calculates meters-per-pixel from the map's zoom level and latitude. No manual calibration is needed.</p>
+
+      <h2>What calibration enables</h2>
+      <ul>
+        <li><strong>Sample clustering</strong> &mdash; Clicks within 1.5 meters merge automatically, combining signal readings for better accuracy at each location.</li>
+        <li><strong>Guided tour grid</strong> &mdash; Auto-generates evenly spaced waypoints across the floor plan so you don't miss areas.</li>
+        <li><strong>Distance measurements</strong> &mdash; Accurate spacing between samples and between access points.</li>
+        <li><strong>Coverage area estimates</strong> &mdash; Square meters of coverage at each signal level, useful for client reports.</li>
+      </ul>
+
+      <h2>Re-calibrating</h2>
+      <p>You can re-calibrate at any time. Click <strong>Calibrate</strong> again and set new reference points. Previous samples are not affected &mdash; only new distance calculations use the updated calibration.</p>
+
+      <h2>Tips</h2>
+      <ul>
+        <li>Measure your reference distance with a tape measure or laser distance meter for best accuracy.</li>
+        <li>For multi-floor buildings, calibrate each floor separately &mdash; floor plans may be at different scales.</li>
+        <li>If your floor plan has a scale bar printed on it, use that as your calibration reference.</li>
+      </ul>
+
+      <p class="back-link"><a href="/rockwifi-pro/support/">&larr; Back to RockWiFi Pro Support</a></p>
+
+      <h2>Still need help?</h2>
+      <p>If you're still experiencing issues, <a href="/contact/">contact us</a> or email <a href="mailto:support@rockriverresearch.com">support@rockriverresearch.com</a>.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-content">
+          <p>&copy; 2026 Rock River Research, LLC. All rights reserved.</p>
+          <div class="footer-links">
+            <a href="/privacy/">Privacy Policy</a>
+            <a href="/terms/">Terms of Service</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </div>
+        <img src="/images/logo.png" alt="Rock River Research" class="footer-logo">
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>Using Connection Check — RockWiFi Pro Support — Rock River Research</title>
+  <meta name="description" content="How to use RockWiFi Pro's Connection Check for full-stack connectivity diagnostics. Covers Wi-Fi, gateway, DNS, HTTPS, VPN detection, and BSS-informed diagnosis.">
+  <link rel="canonical" href="https://rockriverresearch.com/rockwifi-pro/support/connection-check/">
+  <meta property="og:title" content="Using Connection Check — RockWiFi Pro Support — Rock River Research">
+  <meta property="og:description" content="How to use RockWiFi Pro's Connection Check for full-stack connectivity diagnostics. Covers Wi-Fi, gateway, DNS, HTTPS, VPN detection, and BSS-informed diagnosis.">
+  <meta property="og:url" content="https://rockriverresearch.com/rockwifi-pro/support/connection-check/">
+  <meta property="og:image" content="https://rockriverresearch.com/images/logo.png">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Rock River Research</a>
+      <nav class="site-nav">
+        <div class="nav-header">
+          <a href="/" class="logo">Rock River Research</a>
+          <button class="nav-close" aria-label="Close menu">&#10005;</button>
+        </div>
+        <ul>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/">RockTerm</a></li>
+              <li><a href="/rockwifi-pro/">RockWiFi Pro</a></li>
+              <li><a href="/rockterm/compare/securecrt/">vs SecureCRT</a></li>
+              <li><a href="/rockterm/compare/termius/">vs Termius</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Support</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/support/">RockTerm Support</a></li>
+              <li><a href="/rockterm/getting-started/">Getting Started (RockTerm)</a></li>
+              <li><a href="/rockterm/faq/">RockTerm FAQ</a></li>
+              <li><a href="/rockwifi-pro/support/">RockWiFi Pro Support</a></li>
+              <li><a href="/rockwifi-pro/getting-started/">Getting Started (RockWiFi)</a></li>
+              <li><a href="/rockwifi-pro/faq/">RockWiFi FAQ</a></li>
+            </ul>
+          </li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Using Connection Check</h1>
+      <p class="page-hero-subtitle">RockWiFi Pro Support</p>
+    </div>
+  </section>
+  <main class="page-content">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> <span>&rsaquo;</span>
+        <a href="/rockwifi-pro/">RockWiFi Pro</a> <span>&rsaquo;</span>
+        <a href="/rockwifi-pro/support/">Support</a> <span>&rsaquo;</span>
+        Using Connection Check
+      </nav>
+
+      <p>Connection Check is a full-stack connectivity diagnostic that tests each network layer in sequence to pinpoint exactly where a problem lies. Instead of guessing whether the issue is Wi-Fi, DNS, or something upstream, Connection Check walks through every layer and reports what works, what doesn't, and why.</p>
+
+      <h2>What It Tests</h2>
+      <p>Connection Check runs the following tests in order, stopping at the first failure to identify the root cause:</p>
+      <ol>
+        <li><strong>Wi-Fi Adapter</strong> &mdash; Verifies a wireless adapter is present and connected to a network.</li>
+        <li><strong>Gateway Reachability</strong> &mdash; Pings the default gateway to confirm local network connectivity.</li>
+        <li><strong>Public Internet</strong> &mdash; Tests connectivity to the public internet beyond the local network.</li>
+        <li><strong>DNS Resolution</strong> &mdash; Tests your system DNS resolver, plus Cloudflare (1.1.1.1) and Google (8.8.8.8) as independent references.</li>
+        <li><strong>HTTPS Test</strong> &mdash; Confirms that secure web traffic can complete a full TLS handshake.</li>
+        <li><strong>VPN Detection</strong> &mdash; Identifies active VPN connections that may be affecting routing or DNS behavior.</li>
+      </ol>
+
+      <h2>Wi-Fi Details</h2>
+      <p>When a Wi-Fi connection is active, Connection Check displays detailed information about your current association:</p>
+      <ul>
+        <li><strong>SSID</strong> and <strong>BSSID</strong> &mdash; The network name and the specific access point you are connected to.</li>
+        <li><strong>Signal strength</strong> &mdash; Current signal level in dBm.</li>
+        <li><strong>Wi-Fi standard</strong> &mdash; Shown as a friendly name (Wi-Fi 7, Wi-Fi 6, Wi-Fi 5, Wi-Fi 4).</li>
+        <li><strong>Channel and width</strong> &mdash; The channel number and bandwidth (20/40/80/160/320 MHz).</li>
+        <li><strong>Max rate</strong> &mdash; The maximum PHY rate negotiated with the AP.</li>
+        <li><strong>Station count</strong> &mdash; Number of clients associated to the same AP (when reported by the AP).</li>
+        <li><strong>Airtime utilization</strong> &mdash; Percentage of channel airtime in use.</li>
+        <li><strong>Beacon interval</strong> &mdash; Time between AP beacons in milliseconds.</li>
+        <li><strong>Short GI</strong> &mdash; Whether short guard interval is in use.</li>
+        <li><strong>Country code</strong> &mdash; The regulatory domain reported by the AP.</li>
+        <li><strong>MLO status</strong> &mdash; Multi-Link Operation status for Wi-Fi 7 connections.</li>
+        <li><strong>Authentication</strong> &mdash; RSN-level authentication detail (e.g., SAE, RSN-PSK, 802.1X).</li>
+        <li><strong>Cipher</strong> &mdash; The encryption cipher in use (e.g., CCMP, GCMP-256).</li>
+        <li><strong>Security rating</strong> &mdash; An overall assessment of the connection's security posture.</li>
+      </ul>
+
+      <h2>Reading the Diagnosis</h2>
+      <p>After all tests complete, Connection Check provides a structured diagnosis:</p>
+      <ul>
+        <li><strong>Likely issue</strong> &mdash; A plain-language description of the most probable problem.</li>
+        <li><strong>Confidence level</strong> &mdash; How certain the diagnosis is based on the evidence gathered.</li>
+        <li><strong>Evidence list</strong> &mdash; The specific test results that support the diagnosis.</li>
+        <li><strong>Next steps</strong> &mdash; Recommended actions to resolve the issue.</li>
+        <li><strong>Ruled-out causes</strong> &mdash; Problems that were eliminated by passing tests, so you don't waste time investigating them.</li>
+      </ul>
+
+      <h2>BSS-Informed Next Steps</h2>
+      <p>Connection Check uses the BSS (Basic Service Set) data from your current association to provide targeted recommendations:</p>
+      <ul>
+        <li><strong>Legacy standard warning</strong> &mdash; If you are connected using Wi-Fi 4 or older when the AP supports newer standards, Connection Check recommends upgrading your adapter.</li>
+        <li><strong>Narrow channel suggestion</strong> &mdash; If the connection is using a 20 MHz channel when wider channels are available, it suggests checking AP configuration.</li>
+        <li><strong>High utilization alert</strong> &mdash; If airtime utilization is high, it recommends checking for congestion or moving to a less busy channel or band.</li>
+      </ul>
+
+      <h2>VPN Detection</h2>
+      <p>When a VPN is active, Connection Check identifies it and reports:</p>
+      <ul>
+        <li><strong>Adapter name</strong> &mdash; The virtual network adapter created by the VPN client.</li>
+        <li><strong>Routing mode</strong> &mdash; Whether the VPN is using split tunnel (only some traffic goes through the VPN) or full tunnel (all traffic routes through the VPN).</li>
+        <li><strong>DNS changes</strong> &mdash; Whether the VPN has overridden your DNS servers, which can affect resolution behavior.</li>
+      </ul>
+
+      <h2>Tips</h2>
+      <ul>
+        <li>Run Connection Check before and after making changes to verify improvement.</li>
+        <li>Use the <strong>Re-run</strong> button for a quick retest without navigating away.</li>
+        <li>If Connection Check passes all layers but you still have issues, the problem may be application-specific or server-side rather than network-related.</li>
+      </ul>
+
+      <p class="back-link"><a href="/rockwifi-pro/support/">&larr; Back to RockWiFi Pro Support</a></p>
+
+      <h2>Still need help?</h2>
+      <p>If you're still experiencing issues, <a href="/contact/">contact us</a> or email <a href="mailto:support@rockriverresearch.com">support@rockriverresearch.com</a>.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-content">
+          <p>&copy; 2026 Rock River Research, LLC. All rights reserved.</p>
+          <div class="footer-links">
+            <a href="/privacy/">Privacy Policy</a>
+            <a href="/terms/">Terms of Service</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </div>
+        <img src="/images/logo.png" alt="Rock River Research" class="footer-logo">
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

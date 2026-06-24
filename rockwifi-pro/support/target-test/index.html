@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>Testing Specific Hosts with Target Test — RockWiFi Pro Support — Rock River Research</title>
+  <meta name="description" content="How to use RockWiFi Pro's Target Test to diagnose connectivity to specific servers, services, or IP addresses.">
+  <link rel="canonical" href="https://rockriverresearch.com/rockwifi-pro/support/target-test/">
+  <meta property="og:title" content="Testing Specific Hosts with Target Test — RockWiFi Pro Support — Rock River Research">
+  <meta property="og:description" content="How to use RockWiFi Pro's Target Test to diagnose connectivity to specific servers, services, or IP addresses.">
+  <meta property="og:url" content="https://rockriverresearch.com/rockwifi-pro/support/target-test/">
+  <meta property="og:image" content="https://rockriverresearch.com/images/logo.png">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Rock River Research</a>
+      <nav class="site-nav">
+        <div class="nav-header">
+          <a href="/" class="logo">Rock River Research</a>
+          <button class="nav-close" aria-label="Close menu">&#10005;</button>
+        </div>
+        <ul>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/">RockTerm</a></li>
+              <li><a href="/rockwifi-pro/">RockWiFi Pro</a></li>
+              <li><a href="/rockterm/compare/securecrt/">vs SecureCRT</a></li>
+              <li><a href="/rockterm/compare/termius/">vs Termius</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Support</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/support/">RockTerm Support</a></li>
+              <li><a href="/rockterm/getting-started/">Getting Started (RockTerm)</a></li>
+              <li><a href="/rockterm/faq/">RockTerm FAQ</a></li>
+              <li><a href="/rockwifi-pro/support/">RockWiFi Pro Support</a></li>
+              <li><a href="/rockwifi-pro/getting-started/">Getting Started (RockWiFi)</a></li>
+              <li><a href="/rockwifi-pro/faq/">RockWiFi FAQ</a></li>
+            </ul>
+          </li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Testing Specific Hosts with Target Test</h1>
+      <p class="page-hero-subtitle">RockWiFi Pro Support</p>
+    </div>
+  </section>
+  <main class="page-content">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> <span>&rsaquo;</span>
+        <a href="/rockwifi-pro/">RockWiFi Pro</a> <span>&rsaquo;</span>
+        <a href="/rockwifi-pro/support/">Support</a> <span>&rsaquo;</span>
+        Testing Specific Hosts with Target Test
+      </nav>
+
+      <h2>What Target Test Does</h2>
+      <p>Target Test checks connectivity to any hostname or IP address you specify. It is designed for diagnosing why a specific service &mdash; a VoIP server, cloud application, file share, or any other network resource &mdash; is unreachable or slow. Rather than testing general internet connectivity, Target Test focuses on the exact destination that matters to you.</p>
+
+      <h2>How to Use It</h2>
+      <ol>
+        <li>Open <strong>Target Test</strong> from the sidebar.</li>
+        <li>Enter a hostname (e.g., <code>voip.company.com</code>) or IP address (e.g., <code>192.168.1.50</code>).</li>
+        <li>Click <strong>Test</strong> &mdash; the app runs DNS resolution, ICMP ping, TCP connect, and HTTP(S) reachability checks in sequence.</li>
+      </ol>
+
+      <h2>What It Shows</h2>
+      <p>Each test phase produces detailed results:</p>
+
+      <h3>DNS Resolution</h3>
+      <ul>
+        <li>IP address(es) returned for the hostname</li>
+        <li>Resolution time in milliseconds</li>
+        <li>Which DNS server answered the query</li>
+      </ul>
+
+      <h3>ICMP Ping</h3>
+      <ul>
+        <li>Round-trip time for each ping</li>
+        <li>Packet loss percentage over multiple pings</li>
+        <li>Jitter (variation in round-trip time)</li>
+      </ul>
+
+      <h3>TCP Connect</h3>
+      <ul>
+        <li>Port reachability (whether the port is open and accepting connections)</li>
+        <li>Connection time in milliseconds</li>
+      </ul>
+
+      <h3>HTTP(S) Reachability</h3>
+      <ul>
+        <li>HTTP status code returned</li>
+        <li>Response time</li>
+        <li>TLS certificate information (issuer, expiry, validity)</li>
+      </ul>
+
+      <h2>Use Cases</h2>
+
+      <h3>VoIP Quality</h3>
+      <p>Test the SIP or VoIP server before and during a call quality complaint. High latency, jitter, or packet loss in the ICMP results directly explains choppy audio or dropped calls.</p>
+
+      <h3>Cloud Service Access</h3>
+      <p>Verify the network path to Microsoft 365, Google Workspace, Salesforce, or other cloud endpoints. If DNS resolution is slow or TCP connect times are high, you have identified the bottleneck.</p>
+
+      <h3>Internal Resources</h3>
+      <p>Test reachability of file servers, printers, or other LAN devices. Target Test confirms whether the issue is network-level (device unreachable) or application-level (device reachable but service not responding).</p>
+
+      <h3>Before/After Comparison</h3>
+      <p>Run Target Test before a network change, then again after, to verify improvement. The detailed metrics give you concrete numbers to compare rather than relying on subjective reports.</p>
+
+      <h2>Tips</h2>
+      <ul>
+        <li>Run Target Test alongside <strong>Latency Monitor</strong> for continuous monitoring of the same host over time.</li>
+        <li>Save results for documentation &mdash; the detailed output is useful in support tickets and network change reports.</li>
+        <li>If DNS resolution fails but you can reach the IP directly, the issue is DNS-specific. Use <strong>DNS Compare</strong> to investigate further.</li>
+      </ul>
+
+      <p class="back-link"><a href="/rockwifi-pro/support/">&larr; Back to Support Articles</a></p>
+
+      <h2>Still need help?</h2>
+      <p>If you're still experiencing issues, <a href="/contact/">contact us</a> or email <a href="mailto:support@rockriverresearch.com">support@rockriverresearch.com</a>.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-content">
+          <p>&copy; 2026 Rock River Research, LLC. All rights reserved.</p>
+          <div class="footer-links">
+            <a href="/privacy/">Privacy Policy</a>
+            <a href="/terms/">Terms of Service</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </div>
+        <img src="/images/logo.png" alt="Rock River Research" class="footer-logo">
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

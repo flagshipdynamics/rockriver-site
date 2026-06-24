@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>Using UltraScan for AP Discovery — RockWiFi Pro Support — Rock River Research</title>
+  <meta name="description" content="How to use RockWiFi Pro's UltraScan for continuous AP discovery. Covers AP tiles, sort modes, signal analysis, CSV export, HTML reports, and session saving.">
+  <link rel="canonical" href="https://rockriverresearch.com/rockwifi-pro/support/ultrascan/">
+  <meta property="og:title" content="Using UltraScan for AP Discovery — RockWiFi Pro Support — Rock River Research">
+  <meta property="og:description" content="How to use RockWiFi Pro's UltraScan for continuous AP discovery. Covers AP tiles, sort modes, signal analysis, CSV export, HTML reports, and session saving.">
+  <meta property="og:url" content="https://rockriverresearch.com/rockwifi-pro/support/ultrascan/">
+  <meta property="og:image" content="https://rockriverresearch.com/images/logo.png">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Rock River Research</a>
+      <nav class="site-nav">
+        <div class="nav-header">
+          <a href="/" class="logo">Rock River Research</a>
+          <button class="nav-close" aria-label="Close menu">&#10005;</button>
+        </div>
+        <ul>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/">RockTerm</a></li>
+              <li><a href="/rockwifi-pro/">RockWiFi Pro</a></li>
+              <li><a href="/rockterm/compare/securecrt/">vs SecureCRT</a></li>
+              <li><a href="/rockterm/compare/termius/">vs Termius</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Support</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/support/">RockTerm Support</a></li>
+              <li><a href="/rockterm/getting-started/">Getting Started (RockTerm)</a></li>
+              <li><a href="/rockterm/faq/">RockTerm FAQ</a></li>
+              <li><a href="/rockwifi-pro/support/">RockWiFi Pro Support</a></li>
+              <li><a href="/rockwifi-pro/getting-started/">Getting Started (RockWiFi)</a></li>
+              <li><a href="/rockwifi-pro/faq/">RockWiFi FAQ</a></li>
+            </ul>
+          </li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Using UltraScan for AP Discovery</h1>
+      <p class="page-hero-subtitle">RockWiFi Pro Support</p>
+    </div>
+  </section>
+  <main class="page-content">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> <span>&rsaquo;</span>
+        <a href="/rockwifi-pro/">RockWiFi Pro</a> <span>&rsaquo;</span>
+        <a href="/rockwifi-pro/support/">Support</a> <span>&rsaquo;</span>
+        Using UltraScan
+      </nav>
+
+      <p>UltraScan is a continuous background AP scanner that tracks every visible access point over time, building a comprehensive catalog of your wireless environment. Unlike a single-pass scan, UltraScan accumulates data across multiple scan cycles, catching intermittent APs and tracking signal trends.</p>
+
+      <h2>Starting a Scan</h2>
+      <p>Click the <strong>Start</strong> button to begin scanning. UltraScan runs a scan every few seconds, automatically adding newly discovered APs and updating metrics for previously seen APs. The scan continues until you click <strong>Stop</strong>, allowing you to build a cumulative picture of your environment over time.</p>
+
+      <h2>What Each AP Tile Shows</h2>
+      <p>Every discovered access point is displayed as a tile with the following information:</p>
+      <ul>
+        <li><strong>SSID</strong> &mdash; The network name (hidden networks are labeled as such).</li>
+        <li><strong>BSSID</strong> &mdash; The MAC address of the access point.</li>
+        <li><strong>Wi-Fi standard</strong> &mdash; Shown as a friendly name (Wi-Fi 7, Wi-Fi 6, Wi-Fi 5, Wi-Fi 4).</li>
+        <li><strong>Band</strong> &mdash; 2.4 GHz, 5 GHz, or 6 GHz.</li>
+        <li><strong>Channel and width</strong> &mdash; Channel number and bandwidth (20/40/80/160/320 MHz).</li>
+        <li><strong>Frequency</strong> &mdash; The exact center frequency in MHz.</li>
+        <li><strong>Signal strength</strong> &mdash; Current signal in dBm and as a percentage, with a quality rating.</li>
+        <li><strong>Signal min/max/avg</strong> &mdash; The lowest, highest, and average signal observed across all scan cycles.</li>
+        <li><strong>Stability</strong> &mdash; A rating of how consistent the signal has been (stable, moderate, or unstable).</li>
+        <li><strong>Trend</strong> &mdash; Whether the signal is improving, declining, or stable over time.</li>
+        <li><strong>SNR</strong> &mdash; Signal-to-noise ratio.</li>
+        <li><strong>Max rate</strong> &mdash; Maximum PHY rate supported by the AP.</li>
+        <li><strong>Station count</strong> &mdash; Number of associated clients (when reported).</li>
+        <li><strong>Airtime</strong> &mdash; Channel airtime utilization.</li>
+        <li><strong>Beacon interval</strong> &mdash; Time between beacons in milliseconds.</li>
+        <li><strong>SGI</strong> &mdash; Whether short guard interval is supported.</li>
+        <li><strong>MLO badge</strong> &mdash; Indicates Wi-Fi 7 Multi-Link Operation capability.</li>
+        <li><strong>RSN auth/cipher</strong> &mdash; Authentication method and encryption cipher.</li>
+        <li><strong>Country code</strong> &mdash; Regulatory domain reported by the AP.</li>
+        <li><strong>Scan count</strong> &mdash; How many scan cycles have detected this AP.</li>
+        <li><strong>First/last seen</strong> &mdash; Timestamps for when the AP was first and most recently observed.</li>
+      </ul>
+
+      <h2>Sort Modes</h2>
+      <p>UltraScan provides 10 sort modes to help you find what you need quickly:</p>
+      <ol>
+        <li><strong>Signal (strongest first)</strong> &mdash; Default. Puts the strongest APs at the top.</li>
+        <li><strong>Signal (weakest first)</strong> &mdash; Useful for finding APs at the edge of coverage.</li>
+        <li><strong>SSID A&ndash;Z</strong> &mdash; Alphabetical by network name.</li>
+        <li><strong>SSID Z&ndash;A</strong> &mdash; Reverse alphabetical.</li>
+        <li><strong>Channel</strong> &mdash; Groups APs by channel number.</li>
+        <li><strong>Band</strong> &mdash; Groups APs by frequency band (2.4 / 5 / 6 GHz).</li>
+        <li><strong>Standard (newest first)</strong> &mdash; Wi-Fi 7 at the top, Wi-Fi 4 at the bottom.</li>
+        <li><strong>Width (widest first)</strong> &mdash; 320 MHz channels at the top, 20 MHz at the bottom.</li>
+        <li><strong>Max Rate</strong> &mdash; Sorted by maximum PHY rate.</li>
+        <li><strong>Last Seen</strong> &mdash; Most recently seen APs at the top, useful for spotting APs that have gone offline.</li>
+      </ol>
+
+      <h2>Signal Analysis</h2>
+      <p>Each AP tile includes a signal analysis section with:</p>
+      <ul>
+        <li><strong>History chart</strong> &mdash; A time-series chart showing how the signal has changed across scan cycles.</li>
+        <li><strong>Stability rating</strong> &mdash; Based on the standard deviation of signal measurements: <strong>stable</strong> (low deviation), <strong>moderate</strong> (medium deviation), or <strong>unstable</strong> (high deviation).</li>
+        <li><strong>Trend</strong> &mdash; Whether the signal is <strong>improving</strong> (getting stronger over time), <strong>declining</strong> (getting weaker), or <strong>stable</strong> (no significant change).</li>
+      </ul>
+
+      <h2>CSV Export</h2>
+      <p>Export all scan data to a CSV file for analysis in a spreadsheet. The export includes 30+ columns covering every BSS metric: SSID, BSSID, signal statistics, channel, width, frequency, standard, security, station count, airtime, beacon interval, and all other fields shown on the AP tiles.</p>
+      <p>CSV export is useful for comparing environments before and after changes, creating inventory reports, or feeding data into external analysis tools.</p>
+
+      <h2>HTML Report</h2>
+      <p>Generate a professional dark-themed HTML report that includes:</p>
+      <ul>
+        <li><strong>Summary statistics</strong> &mdash; Total APs, band distribution, average signal levels.</li>
+        <li><strong>Standards breakdown</strong> &mdash; How many APs use Wi-Fi 4, 5, 6, 6E, and 7.</li>
+        <li><strong>Band breakdown</strong> &mdash; Distribution across 2.4 GHz, 5 GHz, and 6 GHz.</li>
+        <li><strong>Width breakdown</strong> &mdash; Distribution of channel widths.</li>
+        <li><strong>Security breakdown</strong> &mdash; Distribution of security types (Open, WPA2, WPA3, etc.).</li>
+        <li><strong>Wi-Fi 7 features</strong> &mdash; MLO status, 320 MHz usage, and other Wi-Fi 7 capabilities.</li>
+        <li><strong>Full AP detail table</strong> &mdash; Every AP with all metrics, suitable for printing or sharing.</li>
+      </ul>
+
+      <h2>Session Save</h2>
+      <p>UltraScan automatically saves scan sessions for later review. You can reload a previous session to examine the data without rescanning. This is useful for comparing different locations or time periods.</p>
+
+      <h2>Tips</h2>
+      <ul>
+        <li>Let UltraScan run for 5 or more minutes to catch intermittent APs that may not be visible on every scan cycle.</li>
+        <li>Use the <strong>Standard</strong> sort mode to quickly find all Wi-Fi 7 access points in your environment.</li>
+        <li>Export a CSV before and after network changes for a data-driven comparison.</li>
+        <li>Check the <strong>Last Seen</strong> sort to identify APs that have gone offline during your scan session.</li>
+        <li>Use the signal stability rating to identify APs with inconsistent coverage &mdash; these may indicate physical obstructions or interference issues.</li>
+      </ul>
+
+      <p class="back-link"><a href="/rockwifi-pro/support/">&larr; Back to RockWiFi Pro Support</a></p>
+
+      <h2>Still need help?</h2>
+      <p>If you're still experiencing issues, <a href="/contact/">contact us</a> or email <a href="mailto:support@rockriverresearch.com">support@rockriverresearch.com</a>.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-content">
+          <p>&copy; 2026 Rock River Research, LLC. All rights reserved.</p>
+          <div class="footer-links">
+            <a href="/privacy/">Privacy Policy</a>
+            <a href="/terms/">Terms of Service</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </div>
+        <img src="/images/logo.png" alt="Rock River Research" class="footer-logo">
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
