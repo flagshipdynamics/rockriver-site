@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>Privacy Policy — RockWiFi — Rock River Research</title>
+  <meta name="description" content="How RockWiFi handles your data: local-first, no account, no telemetry, and no data upload. What network connections its diagnostics make, and why.">
+  <link rel="canonical" href="https://rockriverresearch.com/rockwifi-pro/privacy/">
+  <meta property="og:title" content="Privacy Policy — RockWiFi — Rock River Research">
+  <meta property="og:description" content="How RockWiFi handles your data: local-first, no account, no telemetry, and no data upload. What network connections its diagnostics make, and why.">
+  <meta property="og:url" content="https://rockriverresearch.com/rockwifi-pro/privacy/">
+  <meta property="og:image" content="https://rockriverresearch.com/images/logo.png">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Rock River Research</a>
+      <nav class="site-nav">
+        <div class="nav-header">
+          <a href="/" class="logo">Rock River Research</a>
+          <button class="nav-close" aria-label="Close menu">&#10005;</button>
+        </div>
+        <ul>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Products</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/">RockTerm</a></li>
+              <li><a href="/rockwifi-pro/">RockWiFi Pro</a></li>
+              <li><a href="/rockterm/compare/securecrt/">vs SecureCRT</a></li>
+              <li><a href="/rockterm/compare/termius/">vs Termius</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Support</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockterm/support/">RockTerm Support</a></li>
+              <li><a href="/rockterm/getting-started/">Getting Started (RockTerm)</a></li>
+              <li><a href="/rockterm/faq/">RockTerm FAQ</a></li>
+              <li><a href="/rockwifi-pro/support/">RockWiFi Pro Support</a></li>
+              <li><a href="/rockwifi-pro/getting-started/">Getting Started (RockWiFi)</a></li>
+              <li><a href="/rockwifi-pro/faq/">RockWiFi FAQ</a></li>
+            </ul>
+          </li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Privacy Policy</h1>
+      <p class="page-hero-subtitle">RockWiFi</p>
+    </div>
+  </section>
+  <main class="page-content">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> <span>&rsaquo;</span>
+        <a href="/rockwifi-pro/">RockWiFi Pro</a> <span>&rsaquo;</span>
+        Privacy Policy
+      </nav>
+
+      <p><em>Last updated: July 2, 2026</em></p>
+
+      <p>RockWiFi is designed with privacy as a core principle. This policy explains what data RockWiFi collects, stores, and transmits. It applies to <strong>RockWiFi Essentials</strong> and <strong>RockWiFi Pro</strong>; where a behavior is specific to one edition, it is labeled.</p>
+
+      <p>Because RockWiFi is a <strong>network diagnostics tool</strong>, running a test makes outbound network connections <em>by design</em> &mdash; that is how it measures reachability, DNS behavior, and latency. The key distinction, spelled out below, is that these are <strong>measurements, not data uploads</strong>: RockWiFi does not send your data, scans, or any telemetry to us or anyone else.</p>
+
+      <h2>Privacy Summary</h2>
+      <p><strong>RockWiFi does not collect, transmit, or store any of your data on external servers.</strong></p>
+      <ul>
+        <li>No analytics or telemetry.</li>
+        <li>No usage tracking or feature-usage reporting.</li>
+        <li>No cloud synchronization.</li>
+        <li>No account or login required.</li>
+        <li>No scan data, test results, or Wi-Fi information is ever uploaded.</li>
+        <li>All configuration, history, and results are stored locally on your machine.</li>
+        <li>The app makes outbound network connections <strong>only</strong> to run the diagnostic tests you initiate (reachability, DNS, latency, and target checks).</li>
+      </ul>
+
+      <h2>Data Collection</h2>
+      <h3>What RockWiFi Collects</h3>
+      <p><strong>Nothing.</strong> RockWiFi does not:</p>
+      <ul>
+        <li>Send usage statistics or analytics.</li>
+        <li>Track feature usage.</li>
+        <li>Report errors or crashes to external services.</li>
+        <li>Collect hardware, software, or Wi-Fi environment data for us.</li>
+        <li>Create user profiles or identifiers.</li>
+        <li>Phone home for license verification (licensing is handled by the Microsoft Store).</li>
+        <li>Check for updates itself (updates are delivered by the Microsoft Store).</li>
+      </ul>
+
+      <h3>What RockWiFi Stores Locally</h3>
+      <p>All data stays on your machine:</p>
+      <table>
+        <thead>
+          <tr><th>Data</th><th>Purpose</th><th>Location (Windows)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Test history (Connection Check, Target Test, DNS Compare runs)</td><td>Recent Activity + History</td><td><code>%LOCALAPPDATA%\RockWiFiPro\rockwifi.db</code></td></tr>
+          <tr><td>UltraScan sessions (nearby-AP catalogs)</td><td>History / review</td><td><code>%LOCALAPPDATA%\RockWiFiPro\rockwifi.db</code></td></tr>
+          <tr><td>Channel-congestion recordings (spectral timeseries)</td><td>Replay / history</td><td><code>%LOCALAPPDATA%\RockWiFiPro\congestion_recordings\</code></td></tr>
+          <tr><td>Exported reports (HTML / JSON / CSV)</td><td>Documentation you choose to create</td><td><code>Documents\RockWiFi Reports\</code> (configurable)</td></tr>
+          <tr><td>Preferences (theme, timeouts, export path, history on/off)</td><td>Remember your settings</td><td>Per-user Windows settings for this app</td></tr>
+          <tr><td>Survey projects &amp; map tiles <em>(Pro only)</em></td><td>Site-survey work</td><td><code>%LOCALAPPDATA%\RockWiFiPro\surveys\</code>, <code>…\map_tiles\</code></td></tr>
+        </tbody>
+      </table>
+
+      <h2>Local Data Storage</h2>
+      <ul>
+        <li><strong>rockwifi.db</strong> &mdash; a local SQLite database holding your saved test runs, UltraScan sessions, and references to recordings. It contains the network/Wi-Fi measurements you captured (host names you tested, resolver answers, signal readings). It never leaves your machine unless you export or share it.</li>
+        <li><strong>Exports</strong> &mdash; when you click <em>Export Report</em> / <em>Copy Summary</em> in any tool, RockWiFi writes an HTML, JSON, or CSV file to your chosen folder. These files are yours; the app does not transmit them anywhere.</li>
+        <li><strong>Preferences</strong> &mdash; stored in the standard per-user Windows settings location for the application.</li>
+        <li>RockWiFi requires no account, no sign-in, and no cloud service to function.</li>
+      </ul>
+
+      <h2>Network Communications</h2>
+      <p>RockWiFi connects to hosts over the network <strong>only</strong> to perform the diagnostics you run. No user data or telemetry is transmitted; these connections exist to measure whether a host is reachable and how quickly it responds.</p>
+
+      <h3>When RockWiFi Communicates Over the Network</h3>
+      <table>
+        <thead>
+          <tr><th>Action (you initiate it)</th><th>Destination</th><th>What is sent</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Connection Check</strong></td><td>Your gateway, your DNS server, well-known public servers (below), and an HTTPS test to a public host</td><td>Standard connectivity probes (TCP connect, DNS query, HTTPS request); no personal data</td></tr>
+          <tr><td><strong>Internet-reachability test</strong></td><td>Public anycast endpoints: Cloudflare <code>1.1.1.1</code>, Google <code>8.8.8.8</code>, Quad9 <code>9.9.9.9</code> (TCP :443)</td><td>A TCP connection attempt, timed. No payload/data sent</td></tr>
+          <tr><td><strong>DNS Compare</strong></td><td>Your system resolver + Cloudflare (<code>1.1.1.1</code>), Google (<code>8.8.8.8</code>), Quad9 (<code>9.9.9.9</code>), OpenDNS (<code>208.67.222.222</code>)</td><td>A DNS lookup for the hostname you enter</td></tr>
+          <tr><td><strong>Target Test</strong></td><td>The host and port <strong>you</strong> specify</td><td>TCP connect, optional TLS handshake, optional HTTP request, optional route trace to that target</td></tr>
+          <tr><td><strong>Latency Monitor</strong></td><td>The host <strong>you</strong> specify</td><td>ICMP or TCP echo/connect probes, repeated on your chosen interval</td></tr>
+          <tr><td><strong>OpenStreetMap import</strong> <em>(Pro only, Survey feature)</em></td><td>OpenStreetMap tile servers</td><td>A map-tile request for the area you view. Not used or reachable in RockWiFi Essentials</td></tr>
+        </tbody>
+      </table>
+      <p>Wi-Fi scanning, nearby-AP discovery (UltraScan / Nearby APs), and channel-congestion analysis read data from your computer's <strong>local Wi-Fi adapter</strong> through the operating system. They do <strong>not</strong> connect to the internet.</p>
+
+      <h3>When RockWiFi Does NOT Communicate</h3>
+      <ul>
+        <li>At launch and at exit.</li>
+        <li>When idle, or while you browse existing results/history.</li>
+        <li>During configuration or settings changes.</li>
+        <li>For license validation or "phone-home" checks.</li>
+        <li>For update checks (handled by the Microsoft Store).</li>
+        <li>To send analytics, telemetry, crash reports, or any of your data to us.</li>
+      </ul>
+
+      <h2>External Endpoints</h2>
+      <p>RockWiFi does not integrate any third-party analytics, advertising, or cloud services, and it does not share your data with any third party.</p>
+      <p>The public endpoints it contacts (Cloudflare, Google, and Quad9 for reachability/DNS, OpenDNS for DNS Compare, and &mdash; in RockWiFi Pro only &mdash; OpenStreetMap for optional map tiles) are <strong>network targets it measures</strong>, not services it hands your data to. Only the standard information required to make that connection (for example, a DNS query for a hostname you typed) is exchanged. Your use of those public services is subject to their respective operators' policies.</p>
+      <p>You can avoid contacting the public reachability/DNS endpoints by simply not running the Connection Check, DNS Compare, or internet-reachability tests. Target Test and Latency Monitor only ever contact the host you enter.</p>
+
+      <h2>Data Retention</h2>
+      <h3>On Your Machine</h3>
+      <ul>
+        <li>History, recordings, and exported files persist until you delete them.</li>
+        <li><strong>Settings &gt; Privacy</strong> includes <strong>Clear Measurement History</strong>, which deletes saved test runs. You can also cap how many history entries are kept.</li>
+        <li>Uninstalling RockWiFi removes the application; you can additionally delete <code>%LOCALAPPDATA%\RockWiFiPro\</code> and your exports folder to remove all local data.</li>
+      </ul>
+      <h3>On External Servers</h3>
+      <ul>
+        <li><strong>None.</strong> RockWiFi stores nothing about you on any server we operate &mdash; we do not operate any data-collection servers for the app.</li>
+      </ul>
+
+      <h2>Your Rights</h2>
+      <p>Because everything is local, you are always in full control of your data.</p>
+      <h3>Access</h3>
+      <ul>
+        <li><code>%LOCALAPPDATA%\RockWiFiPro\</code> &mdash; history database and recordings.</li>
+        <li><code>Documents\RockWiFi Reports\</code> (or your configured folder) &mdash; exported HTML/JSON/CSV.</li>
+      </ul>
+      <h3>Export</h3>
+      <p>Use each tool's <strong>Export Report</strong> / <strong>Copy Summary</strong> to save results as HTML, JSON, or CSV.</p>
+      <h3>Delete</h3>
+      <ol>
+        <li>Use <strong>Settings &gt; Privacy &gt; Clear Measurement History</strong> to clear saved runs, then</li>
+        <li>Uninstall RockWiFi, and</li>
+        <li>Delete the <code>%LOCALAPPDATA%\RockWiFiPro\</code> folder and any exported files you created.</li>
+      </ol>
+
+      <h2>Contact</h2>
+      <p>RockWiFi is published by <strong>Rock River Research, LLC</strong>. For privacy questions or requests, <a href="/contact/">contact us</a> or email <a href="mailto:support@rockriverresearch.com">support@rockriverresearch.com</a>.</p>
+      <p><em>This policy covers the RockWiFi desktop application. It does not govern the Microsoft Store, which handles purchase, delivery, and updates under Microsoft's own terms and privacy policy.</em></p>
+
+      <p class="back-link"><a href="/rockwifi-pro/">&larr; Back to RockWiFi Pro</a></p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-content">
+          <p>&copy; 2026 Rock River Research, LLC. All rights reserved.</p>
+          <div class="footer-links">
+            <a href="/privacy/">Privacy Policy</a>
+            <a href="/terms/">Terms of Service</a>
+            <a href="/contact/">Contact</a>
+          </div>
+        </div>
+        <img src="/images/logo.png" alt="Rock River Research" class="footer-logo">
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
