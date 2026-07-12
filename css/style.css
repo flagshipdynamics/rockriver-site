@@ -1394,6 +1394,53 @@ tbody tr:hover {
   border: 1px solid rgba(37, 99, 235, 0.2);
 }
 
+/* ===== Dropdown category labels ===== */
+.dropdown-label {
+  padding: 10px 16px 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #64748b;
+  cursor: default;
+}
+
+.dropdown-label:first-child {
+  padding-top: 4px;
+}
+
+.dropdown-muted {
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  color: #4b5563;
+  cursor: default;
+}
+
+/* ===== Coming Soon badge ===== */
+.badge-coming-soon {
+  color: #fbbf24;
+  background: rgba(251, 191, 36, 0.1);
+  border: 1px solid rgba(251, 191, 36, 0.2);
+  font-size: 0.7rem;
+  padding: 4px 12px;
+}
+
+/* ===== Vertical section intro ===== */
+.vertical-intro {
+  text-align: center;
+  padding: 64px 0 32px;
+}
+
+.vertical-intro .section-heading {
+  margin-top: 12px;
+}
+
+.vertical-intro p {
+  max-width: 640px;
+  margin: 0 auto;
+  color: #94a3b8;
+}
+
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
   h1 { font-size: 1.8rem; }
@@ -1655,6 +1702,18 @@ tbody tr:hover {
 
   .site-nav .dropdown-toggle::after {
     display: none;
+  }
+
+  .site-nav .dropdown-label {
+    padding: 12px 0 2px;
+    font-size: 0.7rem;
+    color: #64748b;
+  }
+
+  .site-nav .dropdown-muted {
+    padding: 6px 0;
+    font-size: 0.95rem;
+    color: #4b5563;
   }
 
   .nav-toggle {
