@@ -310,7 +310,7 @@ body.mobile-nav-open {
 
 /* ===== Footer ===== */
 .site-footer {
-  padding: 48px 0;
+  padding: 56px 0 40px;
   background: #0a0a14;
   margin-top: 0;
   color: #8b92a0;
@@ -318,15 +318,41 @@ body.mobile-nav-open {
   border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.footer-inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 32px;
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+  align-items: start;
 }
 
-.footer-content {
-  flex: 1;
+.footer-brand p {
+  color: #64748b;
+  font-size: 0.85rem;
+  margin-top: 8px;
+  margin-bottom: 0;
+}
+
+.footer-col h4 {
+  color: #94a3b8;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 14px;
+}
+
+.footer-col a {
+  display: block;
+  color: #64748b;
+  font-size: 0.9rem;
+  padding: 3px 0;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.footer-col a:hover {
+  color: #93b4f5;
+  text-decoration: none;
 }
 
 .site-footer a {
@@ -334,17 +360,10 @@ body.mobile-nav-open {
 }
 
 .footer-logo {
-  height: 160px;
+  height: 80px;
   width: auto;
-  opacity: 0.85;
+  opacity: 0.7;
   flex-shrink: 0;
-}
-
-.footer-links {
-  display: flex;
-  gap: 24px;
-  flex-wrap: wrap;
-  margin: 10px 0;
 }
 
 /* ===== Hero (Homepage) ===== */
@@ -1616,18 +1635,18 @@ tbody tr:hover {
     font-size: 1.3rem;
   }
 
-  .footer-inner {
-    flex-direction: column;
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px 24px;
+  }
+
+  .footer-brand {
+    grid-column: 1 / -1;
     text-align: center;
   }
 
   .footer-logo {
-    height: 80px;
-    order: -1;
-  }
-
-  .footer-links {
-    justify-content: center;
+    height: 60px;
   }
 
   /* Mobile nav: transform site-nav into full-screen overlay */
