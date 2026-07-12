@@ -31,9 +31,9 @@ img {
 
 /* ===== Layout ===== */
 .container {
-  max-width: 960px;
+  max-width: 1120px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 24px;
 }
 
 /* ===== Typography ===== */
@@ -368,7 +368,7 @@ body.mobile-nav-open {
 
 /* ===== Hero (Homepage) ===== */
 .hero {
-  padding: 100px 0 80px;
+  padding: 72px 0 56px;
   background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(37, 99, 235, 0.15), transparent),
               linear-gradient(180deg, #0d0d1a 0%, #131327 100%);
   border-bottom: none;
@@ -418,7 +418,7 @@ body.mobile-nav-open {
 
 .hero .subtitle {
   font-size: 1.15rem;
-  color: #94a3b8;
+  color: #b0b8cc;
   line-height: 1.7;
   max-width: 640px;
   margin-bottom: 0;
@@ -454,10 +454,82 @@ body.mobile-nav-open {
 }
 
 .hero-bottom-item p {
-  color: #64748b;
+  color: #8893a8;
   font-size: 0.92rem;
   line-height: 1.65;
   margin-bottom: 0;
+}
+
+/* ===== Hero eyebrow ===== */
+.hero-eyebrow {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #93b4f5;
+  margin-bottom: 16px;
+}
+
+/* ===== Hero showcase (product screenshots) ===== */
+.hero-showcase {
+  flex: 0 1 46%;
+  position: relative;
+  min-height: 240px;
+}
+
+.showcase-primary {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5),
+              0 0 0 1px rgba(255, 255, 255, 0.08);
+  position: relative;
+  z-index: 2;
+}
+
+.showcase-secondary {
+  position: absolute;
+  bottom: -20px;
+  right: -16px;
+  width: 48%;
+  border-radius: 8px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5),
+              0 0 0 1px rgba(255, 255, 255, 0.06);
+  z-index: 3;
+}
+
+/* ===== Hero CTA row ===== */
+.hero-cta {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+
+/* ===== Proof strip ===== */
+.proof-strip {
+  display: flex;
+  gap: 24px;
+  margin-top: 28px;
+  font-size: 0.85rem;
+  color: #8893a8;
+  flex-wrap: wrap;
+}
+
+.proof-strip span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.proof-strip span::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  border-radius: 50%;
+  flex-shrink: 0;
 }
 
 /* ===== Product Hero (RockTerm page) ===== */
@@ -546,7 +618,7 @@ body.mobile-nav-open {
 }
 
 .spotlight-tagline {
-  color: #94a3b8;
+  color: #b0b8cc;
   font-size: 1.1rem;
   max-width: 600px;
   margin: 0 auto;
@@ -570,7 +642,7 @@ body.mobile-nav-open {
 }
 
 .spotlight-feature p {
-  color: #94a3b8;
+  color: #a0a8bc;
   font-size: 0.92rem;
   line-height: 1.65;
   margin-bottom: 0;
@@ -1477,6 +1549,32 @@ tbody tr:hover {
   .hero-logo {
     height: 140px;
     order: -1;
+  }
+
+  .hero-showcase {
+    order: -1;
+    min-height: 0;
+    margin-bottom: 24px;
+  }
+
+  .showcase-secondary {
+    display: none;
+  }
+
+  .proof-strip {
+    justify-content: center;
+    gap: 12px 20px;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-cta .btn {
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
   }
 
   .hero h1 {
