@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow">
   <title>RockSolid Money — Local-First Personal Finance for Windows | Rock River Research</title>
-  <meta name="description" content="RockSolid Money is a local-first personal finance app for Windows — a modern replacement for Microsoft Money and Quicken. Import from any bank, track accounts, budgets, cash flow, investments, and net worth. No cloud, no subscription.">
+  <meta name="description" content="RockSolid Money is a desktop personal finance application for Windows. Import transactions from banks, credit cards, and brokerages, and track accounts, budgets, cash flow, investments, and net worth. Data stored locally. One-time purchase.">
   <link rel="canonical" href="https://rockriverresearch.com/rocksolid-money/">
   <meta property="og:title" content="RockSolid Money — Local-First Personal Finance for Windows">
-  <meta property="og:description" content="Import from any bank, track accounts, budgets, cash flow, investments, and net worth — all on your own machine. A modern Microsoft Money replacement. No cloud, no subscription.">
+  <meta property="og:description" content="A desktop personal finance application for Windows. Import from banks and brokerages; track accounts, budgets, cash flow, investments, and net worth. Data stored locally.">
   <meta property="og:url" content="https://rockriverresearch.com/rocksolid-money/">
   <meta property="og:image" content="https://rockriverresearch.com/images/logo.png">
   <meta property="og:type" content="website">
@@ -19,7 +19,7 @@
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": "RockSolid Money",
-    "description": "A local-first personal finance app for Windows. Import from any bank, track accounts, budgets, cash flow, investments, and net worth. Local-first with no cloud or subscription required.",
+    "description": "A desktop personal finance application for Windows. Imports transactions from banks, credit cards, and brokerages and tracks accounts, budgets, cash flow, investments, and net worth. Data is stored locally.",
     "url": "https://rockriverresearch.com/rocksolid-money/",
     "applicationCategory": "FinanceApplication",
     "operatingSystem": "Windows",
@@ -56,6 +56,7 @@
               <li><a href="/rockterm/">RockTerm</a></li>
               <li class="dropdown-label">Finance</li>
               <li><a href="/rocksolid-money/">RockSolid Money</a></li>
+              <li><a href="/rocksolid-money/features/">RockSolid Money Features</a></li>
               <li class="dropdown-muted">RockSolid Trader &mdash; Coming Soon</li>
             </ul>
           </li>
@@ -68,6 +69,7 @@
               <li><a href="/rockterm/support/">RockTerm Support</a></li>
               <li><a href="/rockterm/getting-started/">Getting Started (RockTerm)</a></li>
               <li><a href="/rockterm/faq/">RockTerm FAQ</a></li>
+              <li><a href="/rocksolid-money/faq/">RockSolid Money FAQ</a></li>
             </ul>
           </li>
           <li><a href="/about/">About</a></li>
@@ -81,14 +83,14 @@
   <section class="hero product-hero">
     <div class="container">
       <div class="product-hero-content">
-        <span class="badge badge-coming-soon">In Development &mdash; Coming Soon</span>
-        <h1>Your money. Your machine. No cloud.</h1>
-        <p class="subtitle">RockSolid Money is a local-first personal finance app for Windows &mdash; a modern replacement for Microsoft Money and Quicken. Import from any bank, reconcile every account, and watch your net worth grow, without ever handing your financial life to a subscription platform.</p>
+        <span class="badge badge-coming-soon">In Development</span>
+        <h1>Local-first personal finance for Windows.</h1>
+        <p class="subtitle">RockSolid Money is a desktop application for managing personal finances. It imports transactions from banks, credit cards, and brokerages, and tracks accounts, budgets, cash flow, investments, and net worth. Your records are stored in a file on your own machine.</p>
         <div class="hero-actions">
           <a href="/contact/" class="btn btn-primary">Get Notified at Launch</a>
-          <a href="#features" class="btn btn-secondary btn-on-dark">See What It Does</a>
+          <a href="/rocksolid-money/features/" class="btn btn-secondary btn-on-dark">Full Feature List</a>
         </div>
-        <p class="hero-meta">One-time purchase. No account required. No subscription. Your data never leaves your PC.</p>
+        <p class="hero-meta">One-time purchase. No account required. No subscription. Data stored locally.</p>
       </div>
     </div>
   </section>
@@ -96,19 +98,19 @@
   <section class="section">
     <div class="container">
       <div class="product-pitch">
-        <h2>Personal finance the way it used to be &mdash; only better.</h2>
-        <p>Microsoft Money and Quicken taught a generation to manage money on their own computer. Then everything moved to the cloud, wrapped in subscriptions and built to mine your transactions. RockSolid Money brings it home: every account, every transaction, every investment lives in a local file you own. It imports the thousands of ways banks export data, treats those files as <em>evidence</em> to be verified &mdash; never as gospel &mdash; and only ever proposes changes you approve.</p>
+        <h2>A modern replacement for Microsoft Money and Quicken.</h2>
+        <p>RockSolid Money follows the model those applications established: financial records live in a file on your own computer rather than in a hosted service. It reads the export formats banks and brokerages actually produce, checks each file against your account balances before anything is recorded, and proposes changes for your review rather than writing them straight to the ledger.</p>
       </div>
       <div class="icon-strip reveal">
-        <img src="/images/rocksolid/banking.png" alt="Banking" title="Accounts">
+        <img src="/images/rocksolid/banking.png" alt="Accounts" title="Accounts">
         <img src="/images/rocksolid/import.png" alt="Import" title="Import">
-        <img src="/images/rocksolid/budget.png" alt="Budget" title="Budgets">
+        <img src="/images/rocksolid/budget.png" alt="Budgets" title="Budgets">
         <img src="/images/rocksolid/cash-flow.png" alt="Cash flow" title="Cash flow">
         <img src="/images/rocksolid/investments.png" alt="Investments" title="Investments">
         <img src="/images/rocksolid/net-worth.png" alt="Net worth" title="Net worth">
         <img src="/images/rocksolid/reports.png" alt="Reports" title="Reports">
         <img src="/images/rocksolid/tax-center.png" alt="Tax center" title="Tax center">
-        <img src="/images/rocksolid/security.png" alt="Security" title="Local &amp; private">
+        <img src="/images/rocksolid/security.png" alt="Local and private" title="Local and private">
       </div>
     </div>
   </section>
@@ -119,86 +121,89 @@
       <div class="grid-3">
         <div class="feature-card reveal">
           <div class="feature-icon icon-img"><img src="/images/rocksolid/import.png" alt="Import"></div>
-          <h3>Import From Any Bank</h3>
-          <p>The heart of the app. Drop in a CSV, OFX, QFX, or QIF from any bank, card, or brokerage and RockSolid Money learns the format, verifies the signs against your running balance, and proposes clean transactions. Imported files are treated as evidence &mdash; nothing touches your ledger until you approve it.</p>
+          <h3>Import From Banks and Brokerages</h3>
+          <p>Reads CSV, OFX, QFX, and QIF exports from banks, credit cards, and brokerages. The app determines the file's column layout, checks its sign convention against the running balance, and proposes transactions for review. Nothing is written to the ledger until you approve it.</p>
         </div>
         <div class="feature-card reveal reveal-delay-1">
           <div class="feature-icon icon-img"><img src="/images/rocksolid/banking.png" alt="Accounts"></div>
-          <h3>All Your Accounts</h3>
-          <p>Checking, savings, credit cards, loans, cash, and investment accounts side by side. One consolidated picture of everything you own and owe &mdash; kept in a single local file, not scattered across bank logins.</p>
+          <h3>Accounts</h3>
+          <p>Checking, savings, credit cards, loans, cash, and investment accounts in one place, with balances kept in a single local file rather than spread across separate bank logins.</p>
         </div>
         <div class="feature-card reveal reveal-delay-2">
           <div class="feature-icon icon-img"><img src="/images/rocksolid/transactions.png" alt="Transactions"></div>
-          <h3>Transactions &amp; Transfers</h3>
-          <p>A fast register with categories, payees, memos, tags, and splits. Transfers between your own accounts are matched automatically, and re-importing a statement never silently duplicates what's already there.</p>
+          <h3>Transactions and Transfers</h3>
+          <p>A transaction register with categories, payees, memos, tags, and splits. Transfers between your own accounts are matched automatically, and re-importing a statement does not create duplicates.</p>
         </div>
         <div class="feature-card reveal">
           <div class="feature-icon icon-img"><img src="/images/rocksolid/budget.png" alt="Budgets"></div>
           <h3>Budgets</h3>
-          <p>Set category budgets and watch actual spending fill them in as transactions land. See where the money went this month, and where it's on track to go next &mdash; without any guesswork about the numbers.</p>
+          <p>Set budgets by category and track actual spending against them as transactions are imported. Compare planned to actual for any period, with each figure traceable to the transactions behind it.</p>
         </div>
         <div class="feature-card reveal reveal-delay-1">
           <div class="feature-icon icon-img"><img src="/images/rocksolid/cash-flow.png" alt="Cash flow"></div>
           <h3>Cash Flow</h3>
-          <p>Money in versus money out, month over month. Recurring income and expenses are detected and projected forward so you can see a low balance coming before it becomes an overdraft.</p>
+          <p>Income and expenses summarized by month. Recurring items are identified and projected forward, so an upcoming shortfall is visible before it happens.</p>
         </div>
         <div class="feature-card reveal reveal-delay-2">
           <div class="feature-icon icon-img"><img src="/images/rocksolid/recurring-bills.png" alt="Bills"></div>
-          <h3>Bills &amp; Reminders</h3>
-          <p>Track recurring bills and subscriptions, get reminded before they're due, and spot the creeping charges you forgot you signed up for. Your calendar of obligations, in one place.</p>
+          <h3>Bills and Reminders</h3>
+          <p>Track recurring bills and subscriptions with due-date reminders, and review what is scheduled in the period ahead.</p>
         </div>
         <div class="feature-card reveal">
           <div class="feature-icon icon-img"><img src="/images/rocksolid/investments.png" alt="Investments"></div>
-          <h3>Investments &amp; Holdings</h3>
-          <p>Import brokerage activity and track holdings lot by lot with accurate cost basis. Stocks, ETFs, bonds, and crypto are handled with per-lot precision &mdash; because a portfolio that's off by a rounding error isn't a portfolio you can trust.</p>
+          <h3>Investments and Holdings</h3>
+          <p>Import brokerage activity and track holdings lot by lot with cost basis. Stocks, ETFs, bonds, and crypto are recorded per lot, with quantities and basis carried through to valuation and tax reporting.</p>
         </div>
         <div class="feature-card reveal reveal-delay-1">
           <div class="feature-icon icon-img"><img src="/images/rocksolid/net-worth.png" alt="Net worth"></div>
-          <h3>Net Worth Over Time</h3>
-          <p>Every asset weighed against every liability, tracked as a single line that (hopefully) climbs. Watch the trend across months and years and see the effect of paying down debt or growing savings.</p>
+          <h3>Net Worth</h3>
+          <p>Assets and liabilities totaled and tracked over time, with history by month so the effect of paying down debt or adding savings is visible as a trend.</p>
         </div>
         <div class="feature-card reveal reveal-delay-2">
           <div class="feature-icon icon-img"><img src="/images/rocksolid/reports.png" alt="Reports"></div>
           <h3>Reports</h3>
-          <p>Spending by category, income by source, net worth trend, and account activity &mdash; clear reports that answer real questions about your money. Everything is computed from your ledger, so the numbers always reconcile.</p>
+          <p>Spending by category and payee, income and expenses, monthly cash flow, account balances, and net worth history. Every total drills through to the exact transactions it was computed from.</p>
         </div>
+      </div>
+      <div class="spotlight-cta" style="margin-top: 32px; text-align: center;">
+        <a href="/rocksolid-money/features/" class="btn btn-secondary">See the Full Feature List</a>
       </div>
     </div>
   </section>
 
   <section class="section section-border">
     <div class="container">
-      <h2 class="section-heading">Goes Deeper When You Need It</h2>
+      <h2 class="section-heading">Additional Capabilities</h2>
       <div class="grid-3">
         <div class="feature-card reveal">
           <div class="feature-icon icon-img"><img src="/images/rocksolid/tax-center.png" alt="Tax center"></div>
           <h3>Tax Center</h3>
-          <p>Capital gains computed per lot with long-term and short-term split out the way Form 8949 expects. Retirement accounts are excluded from taxable gains, and cost basis is never fabricated &mdash; if a lot's basis is unknown, it says so instead of inventing a number.</p>
+          <p>Capital gains computed per lot, with long-term and short-term separated as Form 8949 requires. Retirement accounts are excluded from taxable gains. Where cost basis is unknown it is reported as unknown rather than as zero.</p>
         </div>
         <div class="feature-card reveal reveal-delay-1">
           <div class="feature-icon icon-img"><img src="/images/rocksolid/performance.png" alt="Performance"></div>
           <h3>Investment Performance</h3>
-          <p>See how holdings have performed with realized and unrealized gains, using the same per-lot accounting the tax reports rely on. One source of truth &mdash; your performance numbers and your tax numbers can't disagree.</p>
+          <p>Realized and unrealized gains calculated from the same per-lot records the tax reports use, so performance and tax figures are derived from one set of numbers.</p>
         </div>
         <div class="feature-card reveal reveal-delay-2">
           <div class="feature-icon icon-img"><img src="/images/rocksolid/allocation.png" alt="Allocation"></div>
           <h3>Asset Allocation</h3>
-          <p>Break your portfolio down by asset class and account so you can see concentration and drift at a glance. Know what you actually hold, across every account, without a spreadsheet.</p>
+          <p>Portfolio composition by asset class and account, consolidated across every investment account in the file.</p>
         </div>
         <div class="feature-card reveal">
           <div class="feature-icon icon-img"><img src="/images/rocksolid/loans-debt.png" alt="Loans and debt"></div>
-          <h3>Loans &amp; Debt</h3>
-          <p>Mortgages, auto loans, and other debts tracked alongside your assets, so your net worth reflects the whole picture &mdash; not just the balances that make you feel good.</p>
+          <h3>Loans and Debt</h3>
+          <p>Mortgages, auto loans, and other liabilities tracked alongside assets so net worth reflects both sides of the balance sheet.</p>
         </div>
         <div class="feature-card reveal reveal-delay-1">
           <div class="feature-icon icon-img"><img src="/images/rocksolid/insights.png" alt="Insights"></div>
           <h3>Insights</h3>
-          <p>Plain-language observations about your spending, recurring charges, and unusual activity &mdash; suggestions you can act on, never automated decisions about your money. The app can point things out; you stay in charge.</p>
+          <p>Observations about spending patterns, recurring charges, and unusual activity. These are suggestions for review; the application does not reclassify or record anything on your behalf.</p>
         </div>
         <div class="feature-card reveal reveal-delay-2">
           <div class="feature-icon icon-img"><img src="/images/rocksolid/document-vault.png" alt="Document vault"></div>
           <h3>Document Vault</h3>
-          <p>Keep statements, receipts, and tax documents attached to the transactions and accounts they belong to. Your financial paperwork, organized and searchable, stored locally with everything else.</p>
+          <p>Attach statements, receipts, and tax documents to the accounts and transactions they relate to, stored locally alongside the ledger.</p>
         </div>
       </div>
     </div>
@@ -206,20 +211,20 @@
 
   <section class="section-dark">
     <div class="container">
-      <h2 class="section-heading">Imports You Can Actually Trust</h2>
+      <h2 class="section-heading">How Importing Works</h2>
       <div class="spotlight-details">
         <div class="spotlight-features">
           <div class="spotlight-feature reveal">
-            <h4>Files Are Evidence, Not Truth</h4>
-            <p>An imported statement is a claim about what happened &mdash; not a transaction. RockSolid Money interprets, matches, and validates every row, and only ever proposes ledger changes you review and approve. Ambiguous input fails safe instead of quietly guessing wrong.</p>
+            <h4>Files are evidence, not transactions</h4>
+            <p>An imported row is a claim about what happened, not a ledger entry. Each row is interpreted, matched against existing records, and validated before it is proposed for review. Input that cannot be interpreted unambiguously is reported rather than guessed at.</p>
           </div>
           <div class="spotlight-feature reveal reveal-delay-1">
-            <h4>It Learns Your Bank's Format</h4>
-            <p>Unrecognized CSV? The app suggests a column mapping, proves the sign convention against your running balance ("verified against 143 balances," not a checkbox), and figures out the date format from the data itself. Confirm it once and the next import just works.</p>
+            <h4>Format detection</h4>
+            <p>For an unrecognized CSV, the app proposes a column mapping, determines the sign convention by testing it against the running balance, and infers the date format from the data itself. Confirm it once and later files from that institution use the saved profile.</p>
           </div>
           <div class="spotlight-feature reveal reveal-delay-2">
-            <h4>Never Duplicates, Never Overwrites</h4>
-            <p>Re-import the same statement and nothing doubles up. Your edits &mdash; categories, memos, payees, reconciliation status &mdash; are never silently overwritten. Every commit is atomic, with a clean path to roll it back.</p>
+            <h4>Re-import safety</h4>
+            <p>Importing the same statement twice does not create duplicate transactions. Fields you have edited &mdash; category, memo, payee, reconciliation status &mdash; are not overwritten by a later import. Commits are applied atomically and can be rolled back.</p>
           </div>
         </div>
       </div>
@@ -228,19 +233,19 @@
 
   <section class="section section-border">
     <div class="container">
-      <h2 class="section-heading">How People Use RockSolid Money</h2>
+      <h2 class="section-heading">Common Workflows</h2>
       <div class="workflow-grid">
         <div class="workflow-card reveal">
-          <h4>"I just switched banks."</h4>
-          <p>Export the last few years from the old bank and drop the file in. RockSolid Money maps the columns, verifies the signs against your balances, and brings your whole history over &mdash; then the new bank's exports import the same way from then on.</p>
+          <h4>Switching banks</h4>
+          <p>Export history from the previous bank and import the file. The app proposes a column mapping, verifies the sign convention against the balances in the file, and brings the history across. Later exports from the new bank import against the saved profile.</p>
         </div>
         <div class="workflow-card reveal reveal-delay-1">
-          <h4>"I need to reconcile this statement."</h4>
-          <p>Import the month's activity, match it against what's already in your register, and clear each transaction against the statement balance. Duplicates are caught automatically, and anything ambiguous is flagged for you rather than guessed.</p>
+          <h4>Reconciling a statement</h4>
+          <p>Import the period's activity, match it against the existing register, and clear each transaction against the statement balance. Duplicates are detected automatically, and anything ambiguous is flagged for review rather than resolved silently.</p>
         </div>
         <div class="workflow-card reveal reveal-delay-2">
-          <h4>"It's tax season."</h4>
-          <p>Pull realized capital gains split into long-term and short-term, one line per lot, with retirement accounts left out of the taxable total. Attach the brokerage 1099s in the document vault and hand your accountant a clean picture.</p>
+          <h4>Preparing for tax season</h4>
+          <p>Produce realized capital gains separated into long-term and short-term, one line per lot, with retirement accounts excluded from the taxable total. Keep the related 1099s in the document vault with the accounts they belong to.</p>
         </div>
       </div>
     </div>
@@ -248,23 +253,23 @@
 
   <section class="section section-border">
     <div class="container">
-      <h2 class="section-heading">Two Editions, One Honest App</h2>
+      <h2 class="section-heading">Editions</h2>
       <div class="product-pitch">
-        <p>RockSolid Money comes in two editions built from a single codebase. <strong>Essentials</strong> gives you the complete importing engine and everyday money management. <strong>Pro</strong> layers on advanced reporting and analytics for people who want to go deeper. Safety and accuracy are never gated &mdash; both editions get the same trustworthy import and ledger core.</p>
+        <p>RockSolid Money is available in two editions built from a single codebase. <strong>Essentials</strong> includes the complete import engine and day-to-day money management. <strong>Pro</strong> adds advanced reporting, tax reporting, and investment analytics. Import accuracy and ledger safety are identical in both editions.</p>
       </div>
       <div class="grid-2" style="margin-top: 32px;">
         <div class="feature-card reveal">
           <h3>RockSolid Money Essentials</h3>
-          <p style="margin-bottom: 12px;">Everything you need to manage your money locally.</p>
+          <p style="margin-bottom: 12px;">Day-to-day money management, with the full import engine.</p>
           <ul style="list-style: none; padding: 0; margin: 0; font-size: 0.95rem; line-height: 1.8;">
-            <li>&#10003; Import from any bank, card &amp; brokerage</li>
-            <li>&#10003; All account types in one place</li>
-            <li>&#10003; Transactions, transfers &amp; splits</li>
-            <li>&#10003; Budgets &amp; cash flow</li>
-            <li>&#10003; Bills &amp; reminders</li>
-            <li>&#10003; Investments &amp; crypto with cost basis</li>
+            <li>&#10003; Import from banks, cards, and brokerages</li>
+            <li>&#10003; All account types in one file</li>
+            <li>&#10003; Transactions, transfers, and splits</li>
+            <li>&#10003; Budgets and cash flow</li>
+            <li>&#10003; Bills and reminders</li>
+            <li>&#10003; Investments and crypto with cost basis</li>
             <li>&#10003; Net worth tracking</li>
-            <li>&#10003; Core spending &amp; income reports</li>
+            <li>&#10003; Core spending and income reports</li>
           </ul>
         </div>
         <div class="feature-card reveal reveal-delay-1">
@@ -274,10 +279,10 @@
             <li>&#10003; Tax Center (per-lot capital gains, Form 8949)</li>
             <li>&#10003; Investment performance analytics</li>
             <li>&#10003; Asset allocation breakdowns</li>
-            <li>&#10003; Advanced &amp; custom reporting</li>
-            <li>&#10003; Deeper spending insights</li>
-            <li>&#10003; Document vault &amp; attachments</li>
-            <li>&#10003; Larger-scale &amp; household use</li>
+            <li>&#10003; Advanced and custom reporting</li>
+            <li>&#10003; Additional spending insights</li>
+            <li>&#10003; Document vault and attachments</li>
+            <li style="margin-top: 12px;"><a href="/rocksolid-money/features/" style="font-weight: 600;">Compare editions in detail &rarr;</a></li>
           </ul>
         </div>
       </div>
@@ -286,31 +291,31 @@
 
   <section class="section section-border">
     <div class="container">
-      <h2 class="section-heading">Built the RockSolid Way</h2>
+      <h2 class="section-heading">What You're Getting</h2>
       <div class="trust-grid">
         <div class="trust-detail reveal">
-          <h4>Local-First, Always</h4>
-          <p>Your accounts, transactions, and documents live in a file on your machine. No cloud sync, no external servers holding your financial life.</p>
+          <h4>Local Data</h4>
+          <p>Accounts, transactions, and documents are stored in a file on your machine. No cloud sync and no hosted account.</p>
         </div>
         <div class="trust-detail reveal reveal-delay-1">
           <h4>No Subscription</h4>
-          <p>One-time purchase. The license is yours. No annual renewals, no paywalled features you already paid for, no surprise charges.</p>
+          <p>One-time purchase. The license is yours, with no annual renewal and no recurring fees.</p>
         </div>
         <div class="trust-detail reveal reveal-delay-2">
           <h4>No Telemetry</h4>
-          <p>RockSolid Money does not track you, does not phone home, and does not sell &mdash; or even see &mdash; your transactions. That's the whole point.</p>
+          <p>The application does not send telemetry, analytics, or usage data, and does not transmit your transactions.</p>
         </div>
         <div class="trust-detail reveal">
-          <h4>Accurate to the Penny</h4>
-          <p>Money is handled with exact decimal arithmetic, never floating point. Investment lots, multipliers, and cost basis are computed the careful way, so the totals reconcile every time.</p>
+          <h4>Exact Arithmetic</h4>
+          <p>Money is handled with decimal arithmetic rather than floating point. Investment lots, contract multipliers, and cost basis are computed per lot so totals reconcile.</p>
         </div>
         <div class="trust-detail reveal reveal-delay-1">
-          <h4>You Stay in Control</h4>
-          <p>The app can suggest, match, and flag &mdash; but it never decides financial truth for you. Every proposed change is yours to approve, edit, or reject.</p>
+          <h4>You Approve Changes</h4>
+          <p>The application suggests, matches, and flags. Every proposed ledger change is yours to approve, edit, or reject.</p>
         </div>
         <div class="trust-detail reveal reveal-delay-2">
           <h4>Direct Support</h4>
-          <p>Email the people who build the product. No ticket queues, no chatbots, no support tiers &mdash; just the developers.</p>
+          <p>Support is handled by the developers who build the product, by email.</p>
         </div>
       </div>
     </div>
@@ -318,11 +323,11 @@
 
   <section class="cta-section">
     <div class="container">
-      <h2>RockSolid Money is on the way.</h2>
-      <p>A local-first Microsoft Money replacement, built with the same honest, no-subscription philosophy as the rest of Rock River. Want to know when it launches?</p>
+      <h2>RockSolid Money is in development.</h2>
+      <p>Built with the same local-first, one-time-purchase approach as the rest of the Rock River product line. Sign up to be notified when it is released.</p>
       <div class="cta-actions">
         <a href="/contact/" class="btn btn-primary">Get Notified at Launch</a>
-        <a href="/about/" class="btn btn-secondary btn-on-dark">About Rock River Research</a>
+        <a href="/rocksolid-money/faq/" class="btn btn-secondary btn-on-dark">Read the FAQ</a>
       </div>
     </div>
   </section>
@@ -342,10 +347,10 @@
           <a href="/rocksolid-money/">RockSolid Money</a>
         </div>
         <div class="footer-col">
-          <h4>Support</h4>
-          <a href="/rockwifi-pro/support/">RockWiFi Pro Support</a>
-          <a href="/rockterm/support/">RockTerm Support</a>
-          <a href="/contact/">Contact Us</a>
+          <h4>RockSolid Money</h4>
+          <a href="/rocksolid-money/features/">Features</a>
+          <a href="/rocksolid-money/faq/">FAQ</a>
+          <a href="/rocksolid-money/system-requirements/">System Requirements</a>
         </div>
         <div class="footer-col">
           <h4>Company</h4>

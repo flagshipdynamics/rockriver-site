@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>FAQ — RockSolid Money — Rock River Research</title>
+  <meta name="description" content="Frequently asked questions about RockSolid Money: supported banks and file formats, where your data is stored, editions and pricing, importing, investments, taxes, and migrating from Microsoft Money or Quicken.">
+  <link rel="canonical" href="https://rockriverresearch.com/rocksolid-money/faq/">
+  <meta property="og:title" content="FAQ — RockSolid Money — Rock River Research">
+  <meta property="og:description" content="Frequently asked questions about RockSolid Money: file formats, data storage, editions, importing, investments, and taxes.">
+  <meta property="og:url" content="https://rockriverresearch.com/rocksolid-money/faq/">
+  <meta property="og:image" content="https://rockriverresearch.com/images/logo.png">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/favicon.ico">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is RockSolid Money?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "RockSolid Money is a desktop personal finance application for Windows, designed as a modern replacement for Microsoft Money and Quicken. It imports transactions from banks, credit cards, and brokerages, and tracks accounts, budgets, cash flow, investments, and net worth. Your records are stored in a file on your own machine."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Where is my financial data stored?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "In a file on your own computer. There is no cloud sync, no hosted account, and no server holding your transactions. The application does not send telemetry, analytics, or usage data."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does RockSolid Money connect to my bank?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. It does not ask for your online banking credentials and does not log in to your accounts. You download an export from your bank, credit card, or brokerage and import the file. This means no third party holds your banking logins."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What file formats can it import?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "CSV and TSV exports from banks, credit cards, and brokerages, plus OFX, QFX, and QIF. Profiles for major US banks and card issuers ship with the application, and unrecognized CSV layouts can be mapped once and saved."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens if my bank is not recognized?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The application proposes a column mapping based on the header names and the shape of the data, shows you a sample of rows interpreted under that mapping, and verifies the sign convention against the running balance in the file. Once you confirm it, later files from that institution import against the saved profile."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Will re-importing the same statement create duplicates?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. Duplicate detection compares what the file contains against what the ledger already holds, so importing an overlapping statement does not double up transactions. Anything ambiguous is surfaced for review rather than resolved silently."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I migrate from Microsoft Money or Quicken?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "QIF and OFX/QFX import are supported, which covers the common export paths out of both applications. Direct reading of legacy Money and Quicken database files is planned but not available yet."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between Essentials and Pro?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Essentials includes the complete import engine and day-to-day money management: all account types, the register, budgets, cash flow, goals, bills, investments and crypto with cost basis, net worth tracking, and core reports. Pro adds advanced reporting, tax reporting including per-lot capital gains, investment performance and allocation analysis, and the document vault. Import accuracy and ledger safety are identical in both editions."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is it a subscription?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. RockSolid Money is a one-time purchase with no subscription, no recurring fees, and no account required."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does it track investments and crypto?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Brokerage activity is imported and holdings are tracked lot by lot with cost basis, covering stocks, ETFs, bonds, mutual funds, money-market sweep funds, options, and crypto. Investment and crypto import are included in both editions; the advanced performance, allocation, and tax reporting built on top of them are Pro features."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can it help with taxes?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pro produces realized capital gains one line per lot, with long-term and short-term separated as Form 8949 requires, and excludes retirement accounts from taxable gains. Where a lot's cost basis is unknown it is reported as unknown rather than as zero. RockSolid Money is not tax software and does not file returns."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "When will RockSolid Money be released?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It is in active development and does not have a public release date yet. It will be distributed through the Microsoft Store like the rest of the Rock River product line. Contact us to be notified at launch."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Rock River Research</a>
+      <nav class="site-nav">
+        <div class="nav-header">
+          <a href="/" class="logo">Rock River Research</a>
+          <button class="nav-close" aria-label="Close menu">&#10005;</button>
+        </div>
+        <ul>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Products</a>
+            <ul class="dropdown-menu">
+              <li class="dropdown-label">Network Operations</li>
+              <li><a href="/rockwifi-pro/">RockWiFi Pro</a></li>
+              <li><a href="/rockwifi-essentials/">RockWiFi Essentials</a></li>
+              <li><a href="/rockterm/">RockTerm</a></li>
+              <li class="dropdown-label">Finance</li>
+              <li><a href="/rocksolid-money/">RockSolid Money</a></li>
+              <li><a href="/rocksolid-money/features/">RockSolid Money Features</a></li>
+              <li class="dropdown-muted">RockSolid Trader &mdash; Coming Soon</li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Support</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockwifi-pro/support/">RockWiFi Pro Support</a></li>
+              <li><a href="/rockwifi-pro/getting-started/">Getting Started (RockWiFi Pro)</a></li>
+              <li><a href="/rockwifi-pro/faq/">RockWiFi Pro FAQ</a></li>
+              <li><a href="/rockterm/support/">RockTerm Support</a></li>
+              <li><a href="/rockterm/getting-started/">Getting Started (RockTerm)</a></li>
+              <li><a href="/rockterm/faq/">RockTerm FAQ</a></li>
+              <li><a href="/rocksolid-money/faq/">RockSolid Money FAQ</a></li>
+            </ul>
+          </li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>RockSolid Money FAQ</h1>
+      <p class="page-hero-subtitle">Common questions about the application, its data, and its editions.</p>
+    </div>
+  </section>
+
+  <main class="page-content">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> <span>&rsaquo;</span>
+        <a href="/rocksolid-money/">RockSolid Money</a> <span>&rsaquo;</span>
+        FAQ
+      </nav>
+
+      <h2>General</h2>
+
+      <details class="reveal">
+        <summary>What is RockSolid Money?</summary>
+        <div class="details-content">
+          <p>RockSolid Money is a desktop personal finance application for Windows, designed as a modern replacement for Microsoft Money and Quicken. It imports transactions from banks, credit cards, and brokerages, and tracks accounts, budgets, cash flow, investments, and net worth.</p>
+          <p>It is built and supported by <a href="/about/">Rock River Research, LLC</a>, and follows the same approach as the rest of the product line: a one-time purchase, data stored on your own machine, and no telemetry.</p>
+        </div>
+      </details>
+
+      <details class="reveal">
+        <summary>When will it be released?</summary>
+        <div class="details-content">
+          <p>RockSolid Money is in active development and does not have a public release date yet. It will be distributed through the Microsoft Store like the rest of the Rock River product line. <a href="/contact/">Contact us</a> to be notified at launch.</p>
+        </div>
+      </details>
+
+      <details class="reveal">
+        <summary>Is it a subscription?</summary>
+        <div class="details-content">
+          <p>No. RockSolid Money is a one-time purchase &mdash; no subscription, no recurring fees, and no account required.</p>
+        </div>
+      </details>
+
+      <details class="reveal">
+        <summary>What operating systems are supported?</summary>
+        <div class="details-content">
+          <p>Windows 10 and Windows 11, 64-bit. See <a href="/rocksolid-money/system-requirements/">system requirements</a> for details.</p>
+        </div>
+      </details>
+
+      <h2>Your Data</h2>
+
+      <details class="reveal">
+        <summary>Where is my financial data stored?</summary>
+        <div class="details-content">
+          <p>In a file on your own computer. There is no cloud sync, no hosted account, and no server holding your transactions.</p>
+          <p>The application does not send telemetry, analytics, or usage data. Your imported statements, the ledger built from them, and any attached documents stay on your machine.</p>
+        </div>
+      </details>
+
+      <details class="reveal">
+        <summary>Does RockSolid Money connect to my bank?</summary>
+        <div class="details-content">
+          <p>No. It does not ask for your online banking credentials and does not log in to your accounts on your behalf. You download an export from your bank, credit card, or brokerage and import the file.</p>
+          <p>This is a deliberate design choice: no third party holds your banking logins, and there is no aggregator relationship between you and your bank.</p>
+        </div>
+      </details>
+
+      <details class="reveal">
+        <summary>Can I back up my data?</summary>
+        <div class="details-content">
+          <p>Yes. The data file can be backed up on demand and restored. Backup status is shown in the application, so a long gap since the last backup is visible rather than forgotten.</p>
+        </div>
+      </details>
+
+      <details class="reveal">
+        <summary>Does the application use AI?</summary>
+        <div class="details-content">
+          <p>Any assistive feature may suggest &mdash; a category, a match, a mapping &mdash; but never determines financial truth on its own. Every proposed change to the ledger is yours to approve, edit, or reject.</p>
+        </div>
+      </details>
+
+      <h2>Importing</h2>
+
+      <details class="reveal">
+        <summary>What file formats can it import?</summary>
+        <div class="details-content">
+          <p>CSV and TSV exports from banks, credit cards, and brokerages, plus OFX, QFX, and QIF. Profiles for major US banks and card issuers ship with the application.</p>
+          <p>Formats that cannot be recognized are quarantined and explained rather than partially parsed into something that looks plausible but is wrong.</p>
+        </div>
+      </details>
+
+      <details class="reveal">
+        <summary>What happens if my bank is not recognized?</summary>
+        <div class="details-content">
+          <p>The application proposes a column mapping based on the header names and the shape of the data, and shows you a sample of rows interpreted under that mapping before anything is recorded.</p>
+          <p>Where the file carries a running balance, the sign convention is proven arithmetically against it rather than guessed. If the arithmetic cannot settle it, you are asked in plain language &mdash; for a card, whether a row is a purchase, a payment, or a refund; for a checking account, whether the balance went up or down. Confirm the format once and later files from that institution import against the saved profile.</p>
+        </div>
+      </details>
+
+      <details class="reveal">
+        <summary>Will re-importing the same statement create duplicates?</summary>
+        <div class="details-content">
+          <p>No. Duplicate detection compares what the file contains against what the ledger already holds, so importing an overlapping statement does not double up transactions.</p>
+          <p>Anything genuinely ambiguous is surfaced for review rather than resolved silently.</p>
+        </div>
+      </details>
+
+      <details class="reveal">
+        <summary>Will an import overwrite my edits?</summary>
+        <div class="details-content">
+          <p>No. Categories, memos, tags, payee overrides, and reconciliation status are yours. A later import may propose a revision to a transaction the bank has restated, but it will be shown for approval rather than applied quietly.</p>
+        </div>
+      </details>
+
+      <details class="reveal">
+        <summary>Can I undo an import?</summary>
+        <div class="details-content">
+          <p>Yes. Each import is recorded and can be rolled back as a unit. If a rollback would discard work you have done since the import, the application tells you rather than proceeding.</p>
+        </div>
+      </details>
+
+      <details class="reveal">
+        <summary>Can I migrate from Microsoft Money or Quicken?</summary>
+        <div class="details-content">
+          <p>QIF and OFX/QFX import are supported, which covers the common export paths out of both applications.</p>
+          <p>Direct reading of legacy Money and Quicken database files is planned but not available yet.</p>
+        </div>
+      </details>
+
+      <h2>Investments and Taxes</h2>
+
+      <details class="reveal">
+        <summary>Does it track investments and crypto?</summary>
+        <div class="details-content">
+          <p>Yes. Brokerage activity is imported and holdings are tracked lot by lot with cost basis, covering stocks, ETFs, bonds, mutual funds, money-market sweep funds, options, and crypto.</p>
+          <p>Investment and crypto import are included in <strong>both</strong> editions. The advanced performance, allocation, and tax reporting built on top of them are Pro features.</p>
+        </div>
+      </details>
+
+      <details class="reveal">
+        <summary>How is cost basis handled?</summary>
+        <div class="details-content">
+          <p>Per lot, with FIFO matching by trade date &mdash; so a statement imported newest-first cannot close a lot before it opened.</p>
+          <p>Where a lot's cost basis is unknown, it is reported as unknown rather than as zero. A fabricated zero basis would produce a plausible-looking gain that is entirely wrong, so the application declines to invent one.</p>
+        </div>
+      </details>
+
+      <details class="reveal">
+        <summary>Can it help with taxes?</summary>
+        <div class="details-content">
+          <p>Pro produces realized capital gains one line per lot, with long-term and short-term separated as Form 8949 requires, and excludes retirement accounts from taxable gains.</p>
+          <p>RockSolid Money is not tax software and does not file returns. It produces the figures and the per-lot detail behind them so you or your accountant can work from records that reconcile.</p>
+        </div>
+      </details>
+
+      <h2>Editions and Support</h2>
+
+      <details class="reveal">
+        <summary>What is the difference between Essentials and Pro?</summary>
+        <div class="details-content">
+          <p><strong>Essentials</strong> includes the complete import engine and day-to-day money management: all account types, the register, budgets, cash flow, goals, bills, investments and crypto with cost basis, net worth tracking, and core reports.</p>
+          <p><strong>Pro</strong> adds advanced reporting, tax reporting including per-lot capital gains, investment performance and allocation analysis, and the document vault.</p>
+          <p>Import accuracy and ledger safety are identical in both. See the <a href="/rocksolid-money/features/#editions">full edition comparison</a>.</p>
+        </div>
+      </details>
+
+      <details class="reveal">
+        <summary>Will there be a free trial?</summary>
+        <div class="details-content">
+          <p>The rest of the Rock River product line offers a free trial with full functionality before purchase, and we intend to do the same here. Specifics will be confirmed closer to release.</p>
+        </div>
+      </details>
+
+      <details class="reveal">
+        <summary>How do I get support?</summary>
+        <div class="details-content">
+          <p>By email, from the developers who build the product &mdash; no ticket queues, chatbots, or support tiers. <a href="/contact/">Contact us</a>.</p>
+        </div>
+      </details>
+    </div>
+  </main>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2>Still have a question?</h2>
+      <p>Email us and you will reach the people who build RockSolid Money.</p>
+      <div class="cta-actions">
+        <a href="/contact/" class="btn btn-primary">Contact Us</a>
+        <a href="/rocksolid-money/features/" class="btn btn-secondary btn-on-dark">Full Feature List</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col footer-brand">
+          <img src="/images/logo.png" alt="Rock River Research" class="footer-logo">
+          <p>&copy; 2026 Rock River Research, LLC.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Products</h4>
+          <a href="/rockwifi-pro/">RockWiFi Pro</a>
+          <a href="/rockwifi-essentials/">RockWiFi Essentials</a>
+          <a href="/rockterm/">RockTerm</a>
+          <a href="/rocksolid-money/">RockSolid Money</a>
+        </div>
+        <div class="footer-col">
+          <h4>RockSolid Money</h4>
+          <a href="/rocksolid-money/features/">Features</a>
+          <a href="/rocksolid-money/faq/">FAQ</a>
+          <a href="/rocksolid-money/system-requirements/">System Requirements</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="/about/">About</a>
+          <a href="/privacy/">Privacy Policy</a>
+          <a href="/terms/">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
