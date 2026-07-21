@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow">
   <title>First-Run Setup — RockSolid Money Support — Rock River Research</title>
-  <meta name="description" content="The setup interview: household name, accounts with opening balances, and starter categories.">
+  <meta name="description" content="The setup interview — household, accounts, categories — and the Import Wizard that fills them.">
   <link rel="canonical" href="https://rockriverresearch.com/rocksolid-money/support/first-run-setup/">
   <meta property="og:title" content="First-Run Setup — RockSolid Money Support — Rock River Research">
-  <meta property="og:description" content="The setup interview: household name, accounts with opening balances, and starter categories.">
+  <meta property="og:description" content="The setup interview — household, accounts, categories — and the Import Wizard that fills them.">
   <meta property="og:url" content="https://rockriverresearch.com/rocksolid-money/support/first-run-setup/">
   <meta property="og:image" content="https://rockriverresearch.com/images/logo.png">
   <meta property="og:type" content="website">
@@ -87,7 +87,17 @@
       <p>A new file has <em>no</em> categories, and categories are what power the budget and reports. Setup offers a common starter set (Salary, Groceries, Housing, Utilities, and so on) &mdash; uncheck any you don't want, or skip the step entirely and build your own list later under <strong>Tools &gt; Categories &amp; Payees&hellip;</strong></p>
 
       <h2>Step 4 — Finish</h2>
-      <p>The last page summarizes exactly what will be created. Optionally check <strong>Import bank or card statements right after setup</strong> to go straight into your first import (see <a href="/rocksolid-money/support/importing-your-first-statement/">Importing Your First Statement</a>).</p>
+      <p>The last page summarizes exactly what will be created &mdash; nothing is written until you click <strong>Finish</strong>. Check <strong>Import bank or card statements right after setup</strong> and Finish hands you directly to the Import Wizard.</p>
+
+      <h2>Step 5 — Bring in your history: the Import Wizard</h2>
+      <p>Setup gives you accounts with today's balances; the <strong>Import Wizard</strong> is what fills them with history &mdash; and it's where the dashboard, budget, and reports come to life. If you didn't check the import option, start it any time with the <strong>Import</strong> button in the top bar or <strong>File &gt; Import File&hellip;</strong> (Ctrl+I).</p>
+      <p>Point it at a file downloaded from your bank, card, or brokerage (CSV, OFX/QFX, or QIF) and it walks you through the rest:</p>
+      <ul>
+        <li>Files from recognized institutions import against a shipped profile &mdash; usually nothing to do but review the preview and commit.</li>
+        <li>For an unrecognized layout, the wizard proposes a column mapping, shows your own rows interpreted under it, and <em>proves</em> the money-in/money-out direction against the file's running balance instead of guessing. Confirm once and later files from that bank import in one step.</li>
+        <li>Nothing reaches the ledger until you commit, every import can be rolled back as a unit, and every imported transaction keeps evidence of the exact source row it came from.</li>
+      </ul>
+      <p>Start with one or two months from your main checking account and a credit card &mdash; the balances you anchored in Step&nbsp;2 stay correct as history arrives. The full walkthrough is in <a href="/rocksolid-money/support/importing-your-first-statement/">Importing Your First Statement</a>.</p>
 
       <h2>If you skipped setup</h2>
       <p>Nothing is lost. Add accounts from the <strong>Accounts</strong> screen or the <strong>+ New</strong> button, categories from <strong>Tools &gt; Categories &amp; Payees&hellip;</strong>, and run the interview any time from <strong>Help &gt; Get Started&hellip;</strong> (it only offers itself automatically on an empty file).</p>
