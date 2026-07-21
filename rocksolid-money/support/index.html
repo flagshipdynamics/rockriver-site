@@ -277,6 +277,13 @@
       .escalation-actions { flex-direction: column; align-items: center; }
     }
   </style>
+  <style>
+    .category-icon { background: rgba(37, 99, 235, 0.10); }
+    .category-icon img { width: 26px; height: 26px; display: block; }
+    .support-card-modern { display: flex; gap: 14px; align-items: flex-start; }
+    .support-card-modern .card-icon { width: 34px; height: 34px; flex-shrink: 0; margin-top: 2px; }
+    .support-card-modern .card-body { min-width: 0; }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -341,145 +348,260 @@
 
       <section class="category-section reveal">
         <div class="category-header">
-          <div class="category-icon">&#128640;</div>
+          <div class="category-icon"><img src="/images/rocksolid-money/icons/home.png" alt=""></div>
           <h2>Getting Started</h2>
         </div>
         <div class="support-grid">
           <a href="/rocksolid-money/support/first-run-setup/" class="support-card-modern reveal">
-            <h3>First-Run Setup</h3>
-            <p>The setup interview — household, accounts, categories — and the Import Wizard that fills them.</p>
+            <img class="card-icon" src="/images/rocksolid-money/icons/household.png" alt="">
+            <div class="card-body">
+              <h3>First-Run Setup</h3>
+              <p>The setup interview — household, accounts, categories — and the Import Wizard that fills them.</p>
+            </div>
           </a>
           <a href="/rocksolid-money/support/importing-your-first-statement/" class="support-card-modern reveal">
-            <h3>Importing Your First Statement</h3>
-            <p>Download a file from your bank, review how it will be interpreted, and commit it.</p>
+            <img class="card-icon" src="/images/rocksolid-money/icons/import.png" alt="">
+            <div class="card-body">
+              <h3>Importing Your First Statement</h3>
+              <p>Download a file from your bank, review how it will be interpreted, and commit it.</p>
+            </div>
           </a>
           <a href="/rocksolid-money/support/finding-your-way-around/" class="support-card-modern reveal">
-            <h3>Finding Your Way Around</h3>
-            <p>The navigation rail, command bar, tabs, Inspector, search, and the F1 user guide.</p>
+            <img class="card-icon" src="/images/rocksolid-money/icons/search.png" alt="">
+            <div class="card-body">
+              <h3>Finding Your Way Around</h3>
+              <p>The navigation rail, command bar, tabs, Inspector, search, and the F1 user guide.</p>
+            </div>
+          </a>
+          <a href="/rocksolid-money/support/overview-dashboard/" class="support-card-modern reveal">
+            <img class="card-icon" src="/images/rocksolid-money/icons/home.png" alt="">
+            <div class="card-body">
+              <h3>The Overview Dashboard</h3>
+              <p>The four tiles, the trend, Needs Attention, and what every panel links to.</p>
+            </div>
+          </a>
+          <a href="/rocksolid-money/support/keyboard-shortcuts/" class="support-card-modern reveal">
+            <img class="card-icon" src="/images/rocksolid-money/icons/help.png" alt="">
+            <div class="card-body">
+              <h3>Keyboard Shortcuts</h3>
+              <p>The keys that drive the application.</p>
+            </div>
           </a>
         </div>
       </section>
       <section class="category-section reveal">
         <div class="category-header">
-          <div class="category-icon">&#128229;</div>
+          <div class="category-icon"><img src="/images/rocksolid-money/icons/import.png" alt=""></div>
           <h2>Importing</h2>
         </div>
         <div class="support-grid">
           <a href="/rocksolid-money/support/supported-file-formats/" class="support-card-modern reveal">
-            <h3>Supported File Formats</h3>
-            <p>CSV, TSV, OFX, QFX, and QIF — and what happens when a file can't be recognized.</p>
+            <img class="card-icon" src="/images/rocksolid-money/icons/statements.png" alt="">
+            <div class="card-body">
+              <h3>Supported File Formats</h3>
+              <p>CSV, TSV, OFX, QFX, and QIF — and what happens when a file can't be recognized.</p>
+            </div>
           </a>
           <a href="/rocksolid-money/support/unrecognized-bank-formats/" class="support-card-modern reveal">
-            <h3>When Your Bank Isn't Recognized</h3>
-            <p>The guided mapping flow: propose columns, prove the sign against the balance, save the profile.</p>
+            <img class="card-icon" src="/images/rocksolid-money/icons/checking.png" alt="">
+            <div class="card-body">
+              <h3>When Your Bank Isn't Recognized</h3>
+              <p>The guided mapping flow: propose columns, prove the sign against the balance, save the profile.</p>
+            </div>
           </a>
           <a href="/rocksolid-money/support/duplicate-detection/" class="support-card-modern reveal">
-            <h3>Duplicate Detection</h3>
-            <p>Why overlapping statements never double up — and what happens with genuinely identical rows.</p>
+            <img class="card-icon" src="/images/rocksolid-money/icons/tasks.png" alt="">
+            <div class="card-body">
+              <h3>Duplicate Detection</h3>
+              <p>Why overlapping statements never double up — and what happens with genuinely identical rows.</p>
+            </div>
           </a>
           <a href="/rocksolid-money/support/import-history-and-rollback/" class="support-card-modern reveal">
-            <h3>Import History and Rollback</h3>
-            <p>Every import is a recorded session — inspect it, preview a rollback, undo it as a unit.</p>
+            <img class="card-icon" src="/images/rocksolid-money/icons/document-vault.png" alt="">
+            <div class="card-body">
+              <h3>Import History and Rollback</h3>
+              <p>Every import is a recorded session — inspect it, preview a rollback, undo it as a unit.</p>
+            </div>
           </a>
           <a href="/rocksolid-money/support/import-evidence/" class="support-card-modern reveal">
-            <h3>Import Evidence</h3>
-            <p>Every imported number can show the exact source row it came from.</p>
+            <img class="card-icon" src="/images/rocksolid-money/icons/attachments.png" alt="">
+            <div class="card-body">
+              <h3>Import Evidence</h3>
+              <p>Every imported number can show the exact source row it came from.</p>
+            </div>
           </a>
         </div>
       </section>
       <section class="category-section reveal">
         <div class="category-header">
-          <div class="category-icon">&#127974;</div>
+          <div class="category-icon"><img src="/images/rocksolid-money/icons/banking.png" alt=""></div>
           <h2>Accounts &amp; Everyday Money</h2>
         </div>
         <div class="support-grid">
           <a href="/rocksolid-money/support/accounts-and-balances/" class="support-card-modern reveal">
-            <h3>Accounts and Balances</h3>
-            <p>Account types, anchored opening balances, and why a card reads “$415.12 owed.”</p>
+            <img class="card-icon" src="/images/rocksolid-money/icons/accounts.png" alt="">
+            <div class="card-body">
+              <h3>Accounts and Balances</h3>
+              <p>Account types, anchored opening balances, and why a card reads “$415.12 owed.”</p>
+            </div>
           </a>
           <a href="/rocksolid-money/support/reconciling-an-account/" class="support-card-modern reveal">
-            <h3>Reconciling an Account</h3>
-            <p>Check the ledger against a real statement, transaction by transaction.</p>
+            <img class="card-icon" src="/images/rocksolid-money/icons/check-printing.png" alt="">
+            <div class="card-body">
+              <h3>Reconciling an Account</h3>
+              <p>Check the ledger against a real statement, transaction by transaction.</p>
+            </div>
           </a>
           <a href="/rocksolid-money/support/categories-and-payees/" class="support-card-modern reveal">
-            <h3>Categories and Payees</h3>
-            <p>The category list that powers budgets and reports, and how payee names work.</p>
+            <img class="card-icon" src="/images/rocksolid-money/icons/tags.png" alt="">
+            <div class="card-body">
+              <h3>Categories and Payees</h3>
+              <p>The category list that powers budgets and reports, and how payee names work.</p>
+            </div>
+          </a>
+          <a href="/rocksolid-money/support/register-and-transactions/" class="support-card-modern reveal">
+            <img class="card-icon" src="/images/rocksolid-money/icons/transactions.png" alt="">
+            <div class="card-body">
+              <h3>The Register and All Transactions</h3>
+              <p>Reading and editing transactions: running balance, inline edits, filters, and copy-out.</p>
+            </div>
+          </a>
+          <a href="/rocksolid-money/support/transfers-between-accounts/" class="support-card-modern reveal">
+            <img class="card-icon" src="/images/rocksolid-money/icons/transfer-accounts.png" alt="">
+            <div class="card-body">
+              <h3>Transfers Between Accounts</h3>
+              <p>Money moved is not money spent — recording linked transfers correctly.</p>
+            </div>
           </a>
         </div>
       </section>
       <section class="category-section reveal">
         <div class="category-header">
-          <div class="category-icon">&#128197;</div>
+          <div class="category-icon"><img src="/images/rocksolid-money/icons/calendar.png" alt=""></div>
           <h2>Planning</h2>
         </div>
         <div class="support-grid">
           <a href="/rocksolid-money/support/budgets/" class="support-card-modern reveal">
-            <h3>Budgets</h3>
-            <p>Planned vs. actual by category — and why buying crypto isn't counted as spending.</p>
+            <img class="card-icon" src="/images/rocksolid-money/icons/budget.png" alt="">
+            <div class="card-body">
+              <h3>Budgets</h3>
+              <p>Planned vs. actual by category — and why buying crypto isn't counted as spending.</p>
+            </div>
           </a>
           <a href="/rocksolid-money/support/cash-flow-forecast/" class="support-card-modern reveal">
-            <h3>Cash Flow Forecast</h3>
-            <p>Project your balance forward: the chart, the lowest point, scenario items, and overdraft warnings.</p>
+            <img class="card-icon" src="/images/rocksolid-money/icons/cash-flow.png" alt="">
+            <div class="card-body">
+              <h3>Cash Flow Forecast</h3>
+              <p>Project your balance forward: the chart, the lowest point, scenario items, and overdraft warnings.</p>
+            </div>
           </a>
           <a href="/rocksolid-money/support/bills-and-income/" class="support-card-modern reveal">
-            <h3>Bills and Income</h3>
-            <p>Scheduled items: recurrence, fixed vs. variable amounts, and the upcoming timeline.</p>
+            <img class="card-icon" src="/images/rocksolid-money/icons/bills.png" alt="">
+            <div class="card-body">
+              <h3>Bills and Income</h3>
+              <p>Scheduled items: recurrence, fixed vs. variable amounts, and the upcoming timeline.</p>
+            </div>
           </a>
           <a href="/rocksolid-money/support/goals/" class="support-card-modern reveal">
-            <h3>Goals</h3>
-            <p>Savings targets with progress and required contribution — plus crypto allocation caps.</p>
+            <img class="card-icon" src="/images/rocksolid-money/icons/goals.png" alt="">
+            <div class="card-body">
+              <h3>Goals</h3>
+              <p>Savings targets with progress and required contribution — plus crypto allocation caps.</p>
+            </div>
           </a>
         </div>
       </section>
       <section class="category-section reveal">
         <div class="category-header">
-          <div class="category-icon">&#128200;</div>
+          <div class="category-icon"><img src="/images/rocksolid-money/icons/investments.png" alt=""></div>
           <h2>Investments &amp; Crypto</h2>
         </div>
         <div class="support-grid">
           <a href="/rocksolid-money/support/investment-accounts-and-holdings/" class="support-card-modern reveal">
-            <h3>Investment Accounts and Holdings</h3>
-            <p>Brokerage and retirement accounts, holdings, prices — and why “unpriced” is never $0.00.</p>
+            <img class="card-icon" src="/images/rocksolid-money/icons/performance.png" alt="">
+            <div class="card-body">
+              <h3>Investment Accounts and Holdings</h3>
+              <p>Brokerage and retirement accounts, holdings, prices — and why “unpriced” is never $0.00.</p>
+            </div>
           </a>
           <a href="/rocksolid-money/support/cost-basis-and-tax-lots/" class="support-card-modern reveal">
-            <h3>Cost Basis and Tax Lots</h3>
-            <p>FIFO lots, unknown-never-zero basis, and per-lot capital gains for taxes (Pro).</p>
+            <img class="card-icon" src="/images/rocksolid-money/icons/tax-center.png" alt="">
+            <div class="card-body">
+              <h3>Cost Basis and Tax Lots</h3>
+              <p>FIFO lots, unknown-never-zero basis, and per-lot capital gains for taxes (Pro).</p>
+            </div>
           </a>
           <a href="/rocksolid-money/support/crypto-wallets-and-exchanges/" class="support-card-modern reveal">
-            <h3>Crypto Wallets and Exchanges</h3>
-            <p>Track wallets by public address only, match transfers, and handle spam tokens safely.</p>
-          </a>
-          <a href="/rocksolid-money/support/net-worth-tracking/" class="support-card-modern reveal">
-            <h3>Net Worth Tracking</h3>
-            <p>Assets minus liabilities: the breakdown, manual property values, snapshots, and the trend.</p>
+            <img class="card-icon" src="/images/rocksolid-money/icons/crypto.png" alt="">
+            <div class="card-body">
+              <h3>Crypto Wallets and Exchanges</h3>
+              <p>Track wallets by public address only, match transfers, and handle spam tokens safely.</p>
+            </div>
           </a>
         </div>
       </section>
       <section class="category-section reveal">
         <div class="category-header">
-          <div class="category-icon">&#128737;</div>
+          <div class="category-icon"><img src="/images/rocksolid-money/icons/reports.png" alt=""></div>
+          <h2>Reports &amp; Analysis</h2>
+        </div>
+        <div class="support-grid">
+          <a href="/rocksolid-money/support/reports/" class="support-card-modern reveal">
+            <img class="card-icon" src="/images/rocksolid-money/icons/reports.png" alt="">
+            <div class="card-body">
+              <h3>Reports</h3>
+              <p>The report library: run, favorite, drill down to transactions, print, and export.</p>
+            </div>
+          </a>
+          <a href="/rocksolid-money/support/net-worth-tracking/" class="support-card-modern reveal">
+            <img class="card-icon" src="/images/rocksolid-money/icons/net-worth.png" alt="">
+            <div class="card-body">
+              <h3>Net Worth Tracking</h3>
+              <p>Assets minus liabilities: the breakdown, manual property values, snapshots, and the trend.</p>
+            </div>
+          </a>
+        </div>
+      </section>
+      <section class="category-section reveal">
+        <div class="category-header">
+          <div class="category-icon"><img src="/images/rocksolid-money/icons/app.png" alt=""></div>
           <h2>Your Data &amp; the Application</h2>
         </div>
         <div class="support-grid">
           <a href="/rocksolid-money/support/backups-and-restore/" class="support-card-modern reveal">
-            <h3>Backups and Restore</h3>
-            <p>Back up on demand, watch the status, verify the archive, restore when needed.</p>
+            <img class="card-icon" src="/images/rocksolid-money/icons/backup.png" alt="">
+            <div class="card-body">
+              <h3>Backups and Restore</h3>
+              <p>Back up on demand, watch the status, verify the archive, restore when needed.</p>
+            </div>
           </a>
           <a href="/rocksolid-money/support/file-profiles/" class="support-card-modern reveal">
-            <h3>Multiple Financial Files (Profiles)</h3>
-            <p>Separate files for separate lives — switch, create, and try the sample data safely.</p>
+            <img class="card-icon" src="/images/rocksolid-money/icons/settings.png" alt="">
+            <div class="card-body">
+              <h3>Multiple Financial Files (Profiles)</h3>
+              <p>Separate files for separate lives — switch, create, and try the sample data safely.</p>
+            </div>
           </a>
           <a href="/rocksolid-money/support/privacy-and-your-data/" class="support-card-modern reveal">
-            <h3>Privacy and Your Data</h3>
-            <p>Local file, no telemetry, no bank credentials, no cloud — what that means concretely.</p>
+            <img class="card-icon" src="/images/rocksolid-money/icons/security.png" alt="">
+            <div class="card-body">
+              <h3>Privacy and Your Data</h3>
+              <p>Local file, no telemetry, no bank credentials, no cloud — what that means concretely.</p>
+            </div>
           </a>
           <a href="/rocksolid-money/support/display-and-readability/" class="support-card-modern reveal">
-            <h3>Display and Readability</h3>
-            <p>Dark and light themes, Bold Mode for readability, and a layout that adapts.</p>
+            <img class="card-icon" src="/images/rocksolid-money/icons/insights.png" alt="">
+            <div class="card-body">
+              <h3>Display and Readability</h3>
+              <p>Dark and light themes, Bold Mode for readability, and a layout that adapts.</p>
+            </div>
           </a>
           <a href="/rocksolid-money/support/editions-essentials-and-pro/" class="support-card-modern reveal">
-            <h3>Editions: Essentials and Pro</h3>
-            <p>What's in each edition — and what is never gated.</p>
+            <img class="card-icon" src="/images/rocksolid-money/icons/about.png" alt="">
+            <div class="card-body">
+              <h3>Editions: Essentials and Pro</h3>
+              <p>What's in each edition — and what is never gated.</p>
+            </div>
           </a>
         </div>
       </section>
@@ -541,6 +663,8 @@
       {title: "First-Run Setup", url: "/rocksolid-money/support/first-run-setup/", keywords: "setup wizard first run onboarding household accounts opening balance categories import get started"},
       {title: "Importing Your First Statement", url: "/rocksolid-money/support/importing-your-first-statement/", keywords: "import first statement csv ofx qfx download bank review commit workbench"},
       {title: "Finding Your Way Around", url: "/rocksolid-money/support/finding-your-way-around/", keywords: "navigation layout window nav rail inspector tabs search interface tour"},
+      {title: "The Overview Dashboard", url: "/rocksolid-money/support/overview-dashboard/", keywords: "overview dashboard home tiles needs attention trend upcoming spending recent"},
+      {title: "Keyboard Shortcuts", url: "/rocksolid-money/support/keyboard-shortcuts/", keywords: "keyboard shortcuts hotkeys keys ctrl f1"},
       {title: "Supported File Formats", url: "/rocksolid-money/support/supported-file-formats/", keywords: "csv tsv ofx qfx qif formats supported files quicken money export"},
       {title: "When Your Bank Isn't Recognized", url: "/rocksolid-money/support/unrecognized-bank-formats/", keywords: "unknown bank csv mapping columns sign convention balance profile format"},
       {title: "Duplicate Detection", url: "/rocksolid-money/support/duplicate-detection/", keywords: "duplicates overlap statement reimport double transactions dedupe"},
@@ -549,6 +673,8 @@
       {title: "Accounts and Balances", url: "/rocksolid-money/support/accounts-and-balances/", keywords: "accounts types balance opening anchored owed credit liability hide"},
       {title: "Reconciling an Account", url: "/rocksolid-money/support/reconciling-an-account/", keywords: "reconcile statement match cleared balance check"},
       {title: "Categories and Payees", url: "/rocksolid-money/support/categories-and-payees/", keywords: "categories payees manage income expense budget rename"},
+      {title: "The Register and All Transactions", url: "/rocksolid-money/support/register-and-transactions/", keywords: "register transactions edit category memo filter running balance copy"},
+      {title: "Transfers Between Accounts", url: "/rocksolid-money/support/transfers-between-accounts/", keywords: "transfer move money between accounts pay credit card linked"},
       {title: "Budgets", url: "/rocksolid-money/support/budgets/", keywords: "budget planned actual monthly category over overspent"},
       {title: "Cash Flow Forecast", url: "/rocksolid-money/support/cash-flow-forecast/", keywords: "cash flow forecast projection overdraft lowest balance scenario what if"},
       {title: "Bills and Income", url: "/rocksolid-money/support/bills-and-income/", keywords: "bills income scheduled recurring due paycheck timeline variable"},
@@ -556,6 +682,7 @@
       {title: "Investment Accounts and Holdings", url: "/rocksolid-money/support/investment-accounts-and-holdings/", keywords: "investments brokerage retirement holdings positions price unpriced portfolio"},
       {title: "Cost Basis and Tax Lots", url: "/rocksolid-money/support/cost-basis-and-tax-lots/", keywords: "cost basis tax lots fifo capital gains 8949 long short term"},
       {title: "Crypto Wallets and Exchanges", url: "/rocksolid-money/support/crypto-wallets-and-exchanges/", keywords: "crypto bitcoin wallet exchange transfer spam token staking private key"},
+      {title: "Reports", url: "/rocksolid-money/support/reports/", keywords: "reports spending payee income cash flow allocation capital gains tax export print csv"},
       {title: "Net Worth Tracking", url: "/rocksolid-money/support/net-worth-tracking/", keywords: "net worth assets liabilities trend snapshot property spendable cash"},
       {title: "Backups and Restore", url: "/rocksolid-money/support/backups-and-restore/", keywords: "backup restore verify status archive data safety"},
       {title: "Multiple Financial Files (Profiles)", url: "/rocksolid-money/support/file-profiles/", keywords: "profiles multiple files switch household separate demo sample data"},
