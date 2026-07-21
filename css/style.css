@@ -325,11 +325,16 @@ body.mobile-nav-open {
   border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.footer-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
-  gap: 40px;
-  align-items: start;
+.footer-brand {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.footer-logo {
+  height: 200px;
+  width: auto;
+  opacity: 0.95;
+  margin-bottom: 16px;
 }
 
 .footer-brand p {
@@ -345,6 +350,13 @@ body.mobile-nav-open {
   margin-top: 12px;
   margin-bottom: 0;
   line-height: 1.5;
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+  align-items: start;
 }
 
 .footer-col h4 {
@@ -372,14 +384,6 @@ body.mobile-nav-open {
 
 .site-footer a {
   color: #93b4f5;
-}
-
-.footer-logo {
-  height: 140px;
-  width: auto;
-  opacity: 0.95;
-  flex-shrink: 0;
-  margin-bottom: 12px;
 }
 
 /* ===== Hero (Homepage) ===== */
@@ -1918,18 +1922,13 @@ tbody tr:hover {
     font-size: 0.85rem;
   }
 
-  .footer-grid {
+  .footer-links {
     grid-template-columns: 1fr 1fr;
     gap: 32px 24px;
   }
 
-  .footer-brand {
-    grid-column: 1 / -1;
-    text-align: center;
-  }
-
   .footer-logo {
-    height: 100px;
+    height: 140px;
   }
 
   /* Mobile nav: transform site-nav into full-screen overlay */
