@@ -24,7 +24,8 @@
       "Bash(git -C /home/aquamarine/Desktop/rockriver-site log --oneline -5)",
       "Bash(git commit -m ' *)",
       "Bash(python3 -c \"import ast; ast.parse\\(open\\('src/ui/ap_locator_panel.py'\\).read\\(\\)\\); print\\('OK'\\)\")",
-      "Bash(grep -n \"price\\\\|pricing\\\\|\\\\$199\\\\|\\\\$99\\\\|free\\\\|Free\\\\|FREE\" /home/aquamarine/Desktop/NetCheckPro/docs/STORE_LISTING_PRO.md /home/aquamarine/Desktop/NetCheckPro/docs/STORE_LISTING_ESSENTIALS.md /home/aquamarine/Desktop/NetCheckPro/ROCKWIFI_ESSENTIALS_STORE_LISTING_HANDOFF.md)"
+      "Bash(grep -n \"price\\\\|pricing\\\\|\\\\$199\\\\|\\\\$99\\\\|free\\\\|Free\\\\|FREE\" /home/aquamarine/Desktop/NetCheckPro/docs/STORE_LISTING_PRO.md /home/aquamarine/Desktop/NetCheckPro/docs/STORE_LISTING_ESSENTIALS.md /home/aquamarine/Desktop/NetCheckPro/ROCKWIFI_ESSENTIALS_STORE_LISTING_HANDOFF.md)",
+      "Bash(python3 /tmp/claude-1000/-home-aquamarine-Desktop-rockriver-site/3e5d7f30-7d43-4528-8589-509638475509/scratchpad/add_tm_footer.py)"
     ]
   }
 }
