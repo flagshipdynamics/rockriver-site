@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>Support — RockSolid Money — Rock River Research</title>
+  <meta name="description" content="RockSolid Money support center — setup, importing, planning, investing, and data safety articles.">
+  <link rel="canonical" href="https://rockriverresearch.com/rocksolid-money/support/">
+  <meta property="og:title" content="Support — RockSolid Money — Rock River Research">
+  <meta property="og:description" content="RockSolid Money support center — setup, importing, planning, investing, and data safety articles.">
+  <meta property="og:url" content="https://rockriverresearch.com/rocksolid-money/support/">
+  <meta property="og:image" content="https://rockriverresearch.com/images/logo.png">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/favicon.ico">
+  <style>
+    .support-hero {
+      background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(37, 99, 235, 0.15), transparent), linear-gradient(180deg, #0d0d1a 0%, #131327 100%);
+      padding: 64px 0;
+      text-align: center;
+      color: #ffffff;
+    }
+    .support-hero h1 {
+      color: #ffffff;
+      font-size: 2.4rem;
+      margin-bottom: 12px;
+    }
+    .support-hero p {
+      color: #cbd5e1;
+      font-size: 1.1rem;
+      max-width: 560px;
+      margin: 0 auto 28px;
+    }
+    .search-box {
+      max-width: 480px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .search-box input {
+      width: 100%;
+      padding: 14px 20px 14px 44px;
+      border: 1px solid #334155;
+      background: rgba(255,255,255,0.07);
+      border-radius: 8px;
+      font-size: 1rem;
+      color: #ffffff;
+      outline: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .search-box input::placeholder {
+      color: #94a3b8;
+    }
+    .search-box input:focus {
+      border-color: #60a5fa;
+      background: rgba(255,255,255,0.1);
+    }
+    .search-box svg {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 18px;
+      height: 18px;
+      color: #94a3b8;
+    }
+    .search-results {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: #1a1a2e;
+      border: 1px solid #2d2d4a;
+      border-radius: 8px;
+      margin-top: 4px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+      z-index: 50;
+      display: none;
+      max-height: 320px;
+      overflow-y: auto;
+    }
+    .search-results.active {
+      display: block;
+    }
+    .search-results a {
+      display: block;
+      padding: 12px 16px;
+      color: #cbd5e1;
+      text-decoration: none;
+      border-bottom: 1px solid #2d2d4a;
+      font-size: 0.92rem;
+    }
+    .search-results a:last-child {
+      border-bottom: none;
+    }
+    .search-results a:hover {
+      background: rgba(37, 99, 235, 0.1);
+      color: #93b4f5;
+    }
+    .search-results .no-results {
+      padding: 16px;
+      color: #94a3b8;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    .quick-links {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .quick-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid #334155;
+      border-radius: 20px;
+      color: #cbd5e1;
+      font-size: 0.85rem;
+      text-decoration: none;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .quick-links a:hover {
+      background: rgba(255,255,255,0.12);
+      border-color: #60a5fa;
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    .category-section {
+      padding: 56px 0 0;
+    }
+    .category-section:first-of-type {
+      padding-top: 48px;
+    }
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .category-icon {
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(37, 99, 235, 0.12);
+      border-radius: 8px;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .category-header h2 {
+      margin: 0;
+      padding: 0;
+      border: none;
+      font-size: 1.4rem;
+    }
+
+    .support-card-modern {
+      background: #1a1a2e;
+      border: 1px solid #2d2d4a;
+      border-radius: 10px;
+      padding: 20px 24px;
+      text-decoration: none;
+      display: block;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+    }
+    .support-card-modern:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(37, 99, 235, 0.15);
+      border-color: rgba(37, 99, 235, 0.3);
+      text-decoration: none;
+    }
+    .support-card-modern h3 {
+      color: #e2e8f0;
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+    .support-card-modern:hover h3 {
+      color: #93b4f5;
+    }
+    .support-card-modern p {
+      color: #94a3b8;
+      font-size: 0.88rem;
+      margin-bottom: 0;
+      line-height: 1.5;
+    }
+
+    .escalation-banner {
+      background: linear-gradient(135deg, #1e293b 0%, #1a1a2e 100%);
+      border-radius: 12px;
+      padding: 40px;
+      text-align: center;
+      margin-top: 56px;
+      position: relative;
+      overflow: hidden;
+    }
+    .escalation-banner::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(37,99,235,0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .escalation-banner h2 {
+      color: #ffffff;
+      border: none;
+      margin: 0 0 8px;
+      padding: 0;
+      font-size: 1.5rem;
+      position: relative;
+    }
+    .escalation-banner p {
+      color: #94a3b8;
+      max-width: 480px;
+      margin: 0 auto 24px;
+      position: relative;
+    }
+    .escalation-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      position: relative;
+    }
+    .escalation-actions .btn-chat {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background: #2563eb;
+      color: #ffffff;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .escalation-actions .btn-chat:hover {
+      background: #1d4ed8;
+      text-decoration: none;
+    }
+    .escalation-actions .btn-email {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      background: transparent;
+      color: #cbd5e1;
+      border: 1px solid #4b5563;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .escalation-actions .btn-email:hover {
+      border-color: #93b4f5;
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      .support-hero { padding: 40px 0; }
+      .support-hero h1 { font-size: 1.8rem; }
+      .quick-links { gap: 8px; }
+      .quick-links a { font-size: 0.8rem; padding: 6px 12px; }
+      .escalation-banner { padding: 28px 20px; }
+      .escalation-actions { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Rock River Research</a>
+      <nav class="site-nav">
+        <div class="nav-header">
+          <a href="/" class="logo">Rock River Research</a>
+          <button class="nav-close" aria-label="Close menu">&#10005;</button>
+        </div>
+        <ul>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Products</a>
+            <ul class="dropdown-menu">
+              <li class="dropdown-label">Network &amp; IT</li>
+              <li><a href="/rockwifi-pro/">RockWiFi Pro</a></li>
+              <li><a href="/rockwifi-essentials/">RockWiFi Essentials</a></li>
+              <li><a href="/rockterm/">RockTerm</a></li>
+              <li class="dropdown-label">Finance</li>
+              <li><a href="/rocksolid-money/">RockSolid Money</a></li>
+              <li class="dropdown-muted">RockSolid Trader &mdash; Coming Soon</li>
+              <li class="dropdown-divider"></li>
+              <li><a href="/products/">All Software &rarr;</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Support</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockwifi-pro/support/">RockWiFi Support</a></li>
+              <li><a href="/rockterm/support/">RockTerm Support</a></li>
+              <li><a href="/rocksolid-money/support/">RockSolid Money Support</a></li>
+            </ul>
+          </li>
+          <li><a href="/#why-rockriver">Why Rock River</a></li>
+          <li><a href="/about/">About</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
+    </div>
+  </header>
+
+  <section class="support-hero">
+    <div class="container">
+      <h1>How can we help?</h1>
+      <p>Search the RockSolid Money knowledge base or browse by category below.</p>
+      <div class="search-box">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        <input type="text" id="support-search" placeholder="Search support articles..." autocomplete="off">
+        <div class="search-results" id="search-results"></div>
+      </div>
+      <div class="quick-links">
+        <a href="/rocksolid-money/support/first-run-setup/">Getting Started</a>
+        <a href="/rocksolid-money/faq/">FAQ</a>
+        <a href="/rocksolid-money/features/">Features</a>
+        <a href="/rocksolid-money/system-requirements/">System Requirements</a>
+      </div>
+    </div>
+  </section>
+
+  <main class="page-content">
+    <div class="container">
+
+      <section class="category-section reveal">
+        <div class="category-header">
+          <div class="category-icon">&#128640;</div>
+          <h2>Getting Started</h2>
+        </div>
+        <div class="support-grid">
+          <a href="/rocksolid-money/support/first-run-setup/" class="support-card-modern reveal">
+            <h3>First-Run Setup</h3>
+            <p>The setup interview: household name, accounts with opening balances, and starter categories.</p>
+          </a>
+          <a href="/rocksolid-money/support/importing-your-first-statement/" class="support-card-modern reveal">
+            <h3>Importing Your First Statement</h3>
+            <p>Download a file from your bank, review how it will be interpreted, and commit it.</p>
+          </a>
+          <a href="/rocksolid-money/support/finding-your-way-around/" class="support-card-modern reveal">
+            <h3>Finding Your Way Around</h3>
+            <p>The navigation rail, command bar, tabs, Inspector, search, and the F1 user guide.</p>
+          </a>
+        </div>
+      </section>
+      <section class="category-section reveal">
+        <div class="category-header">
+          <div class="category-icon">&#128229;</div>
+          <h2>Importing</h2>
+        </div>
+        <div class="support-grid">
+          <a href="/rocksolid-money/support/supported-file-formats/" class="support-card-modern reveal">
+            <h3>Supported File Formats</h3>
+            <p>CSV, TSV, OFX, QFX, and QIF — and what happens when a file can't be recognized.</p>
+          </a>
+          <a href="/rocksolid-money/support/unrecognized-bank-formats/" class="support-card-modern reveal">
+            <h3>When Your Bank Isn't Recognized</h3>
+            <p>The guided mapping flow: propose columns, prove the sign against the balance, save the profile.</p>
+          </a>
+          <a href="/rocksolid-money/support/duplicate-detection/" class="support-card-modern reveal">
+            <h3>Duplicate Detection</h3>
+            <p>Why overlapping statements never double up — and what happens with genuinely identical rows.</p>
+          </a>
+          <a href="/rocksolid-money/support/import-history-and-rollback/" class="support-card-modern reveal">
+            <h3>Import History and Rollback</h3>
+            <p>Every import is a recorded session — inspect it, preview a rollback, undo it as a unit.</p>
+          </a>
+          <a href="/rocksolid-money/support/import-evidence/" class="support-card-modern reveal">
+            <h3>Import Evidence</h3>
+            <p>Every imported number can show the exact source row it came from.</p>
+          </a>
+        </div>
+      </section>
+      <section class="category-section reveal">
+        <div class="category-header">
+          <div class="category-icon">&#127974;</div>
+          <h2>Accounts &amp; Everyday Money</h2>
+        </div>
+        <div class="support-grid">
+          <a href="/rocksolid-money/support/accounts-and-balances/" class="support-card-modern reveal">
+            <h3>Accounts and Balances</h3>
+            <p>Account types, anchored opening balances, and why a card reads “$415.12 owed.”</p>
+          </a>
+          <a href="/rocksolid-money/support/reconciling-an-account/" class="support-card-modern reveal">
+            <h3>Reconciling an Account</h3>
+            <p>Check the ledger against a real statement, transaction by transaction.</p>
+          </a>
+          <a href="/rocksolid-money/support/categories-and-payees/" class="support-card-modern reveal">
+            <h3>Categories and Payees</h3>
+            <p>The category list that powers budgets and reports, and how payee names work.</p>
+          </a>
+        </div>
+      </section>
+      <section class="category-section reveal">
+        <div class="category-header">
+          <div class="category-icon">&#128197;</div>
+          <h2>Planning</h2>
+        </div>
+        <div class="support-grid">
+          <a href="/rocksolid-money/support/budgets/" class="support-card-modern reveal">
+            <h3>Budgets</h3>
+            <p>Planned vs. actual by category — and why buying crypto isn't counted as spending.</p>
+          </a>
+          <a href="/rocksolid-money/support/cash-flow-forecast/" class="support-card-modern reveal">
+            <h3>Cash Flow Forecast</h3>
+            <p>Project your balance forward: the chart, the lowest point, scenario items, and overdraft warnings.</p>
+          </a>
+          <a href="/rocksolid-money/support/bills-and-income/" class="support-card-modern reveal">
+            <h3>Bills and Income</h3>
+            <p>Scheduled items: recurrence, fixed vs. variable amounts, and the upcoming timeline.</p>
+          </a>
+          <a href="/rocksolid-money/support/goals/" class="support-card-modern reveal">
+            <h3>Goals</h3>
+            <p>Savings targets with progress and required contribution — plus crypto allocation caps.</p>
+          </a>
+        </div>
+      </section>
+      <section class="category-section reveal">
+        <div class="category-header">
+          <div class="category-icon">&#128200;</div>
+          <h2>Investments &amp; Crypto</h2>
+        </div>
+        <div class="support-grid">
+          <a href="/rocksolid-money/support/investment-accounts-and-holdings/" class="support-card-modern reveal">
+            <h3>Investment Accounts and Holdings</h3>
+            <p>Brokerage and retirement accounts, holdings, prices — and why “unpriced” is never $0.00.</p>
+          </a>
+          <a href="/rocksolid-money/support/cost-basis-and-tax-lots/" class="support-card-modern reveal">
+            <h3>Cost Basis and Tax Lots</h3>
+            <p>FIFO lots, unknown-never-zero basis, and per-lot capital gains for taxes (Pro).</p>
+          </a>
+          <a href="/rocksolid-money/support/crypto-wallets-and-exchanges/" class="support-card-modern reveal">
+            <h3>Crypto Wallets and Exchanges</h3>
+            <p>Track wallets by public address only, match transfers, and handle spam tokens safely.</p>
+          </a>
+          <a href="/rocksolid-money/support/net-worth-tracking/" class="support-card-modern reveal">
+            <h3>Net Worth Tracking</h3>
+            <p>Assets minus liabilities: the breakdown, manual property values, snapshots, and the trend.</p>
+          </a>
+        </div>
+      </section>
+      <section class="category-section reveal">
+        <div class="category-header">
+          <div class="category-icon">&#128737;</div>
+          <h2>Your Data &amp; the Application</h2>
+        </div>
+        <div class="support-grid">
+          <a href="/rocksolid-money/support/backups-and-restore/" class="support-card-modern reveal">
+            <h3>Backups and Restore</h3>
+            <p>Back up on demand, watch the status, verify the archive, restore when needed.</p>
+          </a>
+          <a href="/rocksolid-money/support/file-profiles/" class="support-card-modern reveal">
+            <h3>Multiple Financial Files (Profiles)</h3>
+            <p>Separate files for separate lives — switch, create, and try the sample data safely.</p>
+          </a>
+          <a href="/rocksolid-money/support/privacy-and-your-data/" class="support-card-modern reveal">
+            <h3>Privacy and Your Data</h3>
+            <p>Local file, no telemetry, no bank credentials, no cloud — what that means concretely.</p>
+          </a>
+          <a href="/rocksolid-money/support/display-and-readability/" class="support-card-modern reveal">
+            <h3>Display and Readability</h3>
+            <p>Dark and light themes, Bold Mode for readability, and a layout that adapts.</p>
+          </a>
+          <a href="/rocksolid-money/support/editions-essentials-and-pro/" class="support-card-modern reveal">
+            <h3>Editions: Essentials and Pro</h3>
+            <p>What's in each edition — and what is never gated.</p>
+          </a>
+        </div>
+      </section>
+
+      <div class="escalation-banner reveal">
+        <h2>Still need help?</h2>
+        <p>Couldn't find the answer in our articles? Reach out &mdash; you will get the people who build RockSolid Money, not a ticket queue.</p>
+        <div class="escalation-actions">
+          <a href="mailto:support@rockriverresearch.com" class="btn-chat">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            Email Support
+          </a>
+          <a href="/contact/" class="btn-email">Contact Us</a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col footer-brand">
+          <img src="/images/logo.png" alt="Rock River Research" class="footer-logo">
+          <p>&copy; 2026 Rock River Research, LLC.</p>
+          <p class="footer-tm">RockWiFi, RockTerm, RockSolid Money, and RockSolid Trader are trademarks of Rock River Research, LLC.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Products</h4>
+          <a href="/rockwifi-pro/">RockWiFi Pro</a>
+          <a href="/rockwifi-essentials/">RockWiFi Essentials</a>
+          <a href="/rockterm/">RockTerm</a>
+          <a href="/rocksolid-money/">RockSolid Money</a>
+        </div>
+        <div class="footer-col">
+          <h4>RockSolid Money</h4>
+          <a href="/rocksolid-money/support/">Support</a>
+          <a href="/rocksolid-money/features/">Features</a>
+          <a href="/rocksolid-money/faq/">FAQ</a>
+          <a href="/rocksolid-money/system-requirements/">System Requirements</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="/about/">About</a>
+          <a href="/privacy/">Privacy Policy</a>
+          <a href="/terms/">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+  <script>
+  (function() {
+    var articles = [
+      {title: "FAQ", url: "/rocksolid-money/faq/", keywords: "frequently asked questions common release subscription"},
+      {title: "Features", url: "/rocksolid-money/features/", keywords: "features editions essentials pro comparison"},
+      {title: "System Requirements", url: "/rocksolid-money/system-requirements/", keywords: "windows specs hardware minimum requirements"},
+      {title: "First-Run Setup", url: "/rocksolid-money/support/first-run-setup/", keywords: "setup wizard first run onboarding household accounts opening balance categories get started"},
+      {title: "Importing Your First Statement", url: "/rocksolid-money/support/importing-your-first-statement/", keywords: "import first statement csv ofx qfx download bank review commit workbench"},
+      {title: "Finding Your Way Around", url: "/rocksolid-money/support/finding-your-way-around/", keywords: "navigation layout window nav rail inspector tabs search interface tour"},
+      {title: "Supported File Formats", url: "/rocksolid-money/support/supported-file-formats/", keywords: "csv tsv ofx qfx qif formats supported files quicken money export"},
+      {title: "When Your Bank Isn't Recognized", url: "/rocksolid-money/support/unrecognized-bank-formats/", keywords: "unknown bank csv mapping columns sign convention balance profile format"},
+      {title: "Duplicate Detection", url: "/rocksolid-money/support/duplicate-detection/", keywords: "duplicates overlap statement reimport double transactions dedupe"},
+      {title: "Import History and Rollback", url: "/rocksolid-money/support/import-history-and-rollback/", keywords: "rollback undo import history session revert dry run"},
+      {title: "Import Evidence", url: "/rocksolid-money/support/import-evidence/", keywords: "evidence provenance source row explain audit trail why"},
+      {title: "Accounts and Balances", url: "/rocksolid-money/support/accounts-and-balances/", keywords: "accounts types balance opening anchored owed credit liability hide"},
+      {title: "Reconciling an Account", url: "/rocksolid-money/support/reconciling-an-account/", keywords: "reconcile statement match cleared balance check"},
+      {title: "Categories and Payees", url: "/rocksolid-money/support/categories-and-payees/", keywords: "categories payees manage income expense budget rename"},
+      {title: "Budgets", url: "/rocksolid-money/support/budgets/", keywords: "budget planned actual monthly category over overspent"},
+      {title: "Cash Flow Forecast", url: "/rocksolid-money/support/cash-flow-forecast/", keywords: "cash flow forecast projection overdraft lowest balance scenario what if"},
+      {title: "Bills and Income", url: "/rocksolid-money/support/bills-and-income/", keywords: "bills income scheduled recurring due paycheck timeline variable"},
+      {title: "Goals", url: "/rocksolid-money/support/goals/", keywords: "goals savings target progress emergency fund allocation cap"},
+      {title: "Investment Accounts and Holdings", url: "/rocksolid-money/support/investment-accounts-and-holdings/", keywords: "investments brokerage retirement holdings positions price unpriced portfolio"},
+      {title: "Cost Basis and Tax Lots", url: "/rocksolid-money/support/cost-basis-and-tax-lots/", keywords: "cost basis tax lots fifo capital gains 8949 long short term"},
+      {title: "Crypto Wallets and Exchanges", url: "/rocksolid-money/support/crypto-wallets-and-exchanges/", keywords: "crypto bitcoin wallet exchange transfer spam token staking private key"},
+      {title: "Net Worth Tracking", url: "/rocksolid-money/support/net-worth-tracking/", keywords: "net worth assets liabilities trend snapshot property spendable cash"},
+      {title: "Backups and Restore", url: "/rocksolid-money/support/backups-and-restore/", keywords: "backup restore verify status archive data safety"},
+      {title: "Multiple Financial Files (Profiles)", url: "/rocksolid-money/support/file-profiles/", keywords: "profiles multiple files switch household separate demo sample data"},
+      {title: "Privacy and Your Data", url: "/rocksolid-money/support/privacy-and-your-data/", keywords: "privacy local data telemetry cloud security credentials"},
+      {title: "Display and Readability", url: "/rocksolid-money/support/display-and-readability/", keywords: "theme dark light bold mode readability font size display accessibility"},
+      {title: "Editions: Essentials and Pro", url: "/rocksolid-money/support/editions-essentials-and-pro/", keywords: "editions essentials pro compare difference upgrade price"}
+    ];
+
+    var input = document.getElementById('support-search');
+    var results = document.getElementById('search-results');
+    if (!input || !results) return;
+
+    input.addEventListener('input', function() {
+      var q = this.value.trim().toLowerCase();
+      if (q.length < 2) { results.classList.remove('active'); return; }
+      var matches = articles.filter(function(a) {
+        return a.title.toLowerCase().indexOf(q) !== -1 || a.keywords.indexOf(q) !== -1;
+      });
+      if (matches.length === 0) {
+        results.innerHTML = '<div class="no-results">No articles found. Try different keywords or <a href="mailto:support@rockriverresearch.com">email support</a>.</div>';
+      } else {
+        results.innerHTML = matches.slice(0, 8).map(function(a) {
+          return '<a href="' + a.url + '">' + a.title + '</a>';
+        }).join('');
+      }
+      results.classList.add('active');
+    });
+
+    document.addEventListener('click', function(e) {
+      if (!input.contains(e.target) && !results.contains(e.target)) {
+        results.classList.remove('active');
+      }
+    });
+  })();
+  </script>
+</body>
+</html>

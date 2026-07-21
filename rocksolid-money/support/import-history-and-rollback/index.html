@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>Import History and Rollback — RockSolid Money Support — Rock River Research</title>
+  <meta name="description" content="Every import is a recorded session — inspect it, preview a rollback, undo it as a unit.">
+  <link rel="canonical" href="https://rockriverresearch.com/rocksolid-money/support/import-history-and-rollback/">
+  <meta property="og:title" content="Import History and Rollback — RockSolid Money Support — Rock River Research">
+  <meta property="og:description" content="Every import is a recorded session — inspect it, preview a rollback, undo it as a unit.">
+  <meta property="og:url" content="https://rockriverresearch.com/rocksolid-money/support/import-history-and-rollback/">
+  <meta property="og:image" content="https://rockriverresearch.com/images/logo.png">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Rock River Research</a>
+      <nav class="site-nav">
+        <div class="nav-header">
+          <a href="/" class="logo">Rock River Research</a>
+          <button class="nav-close" aria-label="Close menu">&#10005;</button>
+        </div>
+        <ul>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Products</a>
+            <ul class="dropdown-menu">
+              <li class="dropdown-label">Network &amp; IT</li>
+              <li><a href="/rockwifi-pro/">RockWiFi Pro</a></li>
+              <li><a href="/rockwifi-essentials/">RockWiFi Essentials</a></li>
+              <li><a href="/rockterm/">RockTerm</a></li>
+              <li class="dropdown-label">Finance</li>
+              <li><a href="/rocksolid-money/">RockSolid Money</a></li>
+              <li class="dropdown-muted">RockSolid Trader &mdash; Coming Soon</li>
+              <li class="dropdown-divider"></li>
+              <li><a href="/products/">All Software &rarr;</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Support</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockwifi-pro/support/">RockWiFi Support</a></li>
+              <li><a href="/rockterm/support/">RockTerm Support</a></li>
+              <li><a href="/rocksolid-money/support/">RockSolid Money Support</a></li>
+            </ul>
+          </li>
+          <li><a href="/#why-rockriver">Why Rock River</a></li>
+          <li><a href="/about/">About</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
+    </div>
+  </header>
+  <section class="page-hero">
+    <div class="container">
+      <h1>Import History and Rollback</h1>
+      <p class="page-hero-subtitle">RockSolid Money Support</p>
+    </div>
+  </section>
+  <main class="page-content">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> <span>&rsaquo;</span>
+        <a href="/rocksolid-money/">RockSolid Money</a> <span>&rsaquo;</span>
+        <a href="/rocksolid-money/support/">Support</a> <span>&rsaquo;</span>
+        Import History and Rollback
+      </nav>
+
+      <p>Every import commit is recorded as a session: when it ran, what file it read, and exactly what it did &mdash; transactions created, updated, linked, and skipped as duplicates. Find it under <strong>Data &gt; Import History</strong> (Ctrl+H).</p>
+
+      <h2>Inspecting a session</h2>
+      <p>Select a session to see its details in the Inspector. This is the audit trail for the question &ldquo;where did these transactions come from?&rdquo; &mdash; and each individual transaction also carries its own <a href="/rocksolid-money/support/import-evidence/">import evidence</a>.</p>
+
+      <h2>Previewing a rollback</h2>
+      <p><strong>Preview Rollback (dry run)</strong> shows what undoing a session <em>would</em> do &mdash; which transactions would be removed and what would be affected &mdash; without changing anything. Read it before rolling back a session you committed weeks ago.</p>
+
+      <h2>Rolling back</h2>
+      <p><strong>Roll Back</strong> undoes the session as a unit. If the rollback would discard work you've done since the import &mdash; categorizations, a reconciliation that includes those transactions &mdash; the application tells you what's at stake instead of proceeding silently.</p>
+
+      <h2>What rollback is for</h2>
+      <ul>
+        <li>You imported a file into the wrong account.</li>
+        <li>You confirmed a mapping and then realized a column was misassigned.</li>
+        <li>You want to re-import the same file under a corrected profile.</li>
+      </ul>
+      <p>Roll the session back, fix the cause, import again. Duplicate detection makes the re-import safe.</p>
+
+      <p class="back-link"><a href="/rocksolid-money/support/">&larr; Back to Support Articles</a></p>
+
+      <h2>Still need help?</h2>
+      <p>If you're still stuck, <a href="/contact/">contact us</a> or email <a href="mailto:support@rockriverresearch.com">support@rockriverresearch.com</a> &mdash; you will reach the people who build RockSolid Money.</p>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col footer-brand">
+          <img src="/images/logo.png" alt="Rock River Research" class="footer-logo">
+          <p>&copy; 2026 Rock River Research, LLC.</p>
+          <p class="footer-tm">RockWiFi, RockTerm, RockSolid Money, and RockSolid Trader are trademarks of Rock River Research, LLC.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Products</h4>
+          <a href="/rockwifi-pro/">RockWiFi Pro</a>
+          <a href="/rockwifi-essentials/">RockWiFi Essentials</a>
+          <a href="/rockterm/">RockTerm</a>
+          <a href="/rocksolid-money/">RockSolid Money</a>
+        </div>
+        <div class="footer-col">
+          <h4>RockSolid Money</h4>
+          <a href="/rocksolid-money/support/">Support</a>
+          <a href="/rocksolid-money/features/">Features</a>
+          <a href="/rocksolid-money/faq/">FAQ</a>
+          <a href="/rocksolid-money/system-requirements/">System Requirements</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="/about/">About</a>
+          <a href="/privacy/">Privacy Policy</a>
+          <a href="/terms/">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

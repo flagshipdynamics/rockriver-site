@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>When Your Bank Isn't Recognized — RockSolid Money Support — Rock River Research</title>
+  <meta name="description" content="The guided mapping flow: propose columns, prove the sign against the balance, save the profile.">
+  <link rel="canonical" href="https://rockriverresearch.com/rocksolid-money/support/unrecognized-bank-formats/">
+  <meta property="og:title" content="When Your Bank Isn't Recognized — RockSolid Money Support — Rock River Research">
+  <meta property="og:description" content="The guided mapping flow: propose columns, prove the sign against the balance, save the profile.">
+  <meta property="og:url" content="https://rockriverresearch.com/rocksolid-money/support/unrecognized-bank-formats/">
+  <meta property="og:image" content="https://rockriverresearch.com/images/logo.png">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Rock River Research</a>
+      <nav class="site-nav">
+        <div class="nav-header">
+          <a href="/" class="logo">Rock River Research</a>
+          <button class="nav-close" aria-label="Close menu">&#10005;</button>
+        </div>
+        <ul>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Products</a>
+            <ul class="dropdown-menu">
+              <li class="dropdown-label">Network &amp; IT</li>
+              <li><a href="/rockwifi-pro/">RockWiFi Pro</a></li>
+              <li><a href="/rockwifi-essentials/">RockWiFi Essentials</a></li>
+              <li><a href="/rockterm/">RockTerm</a></li>
+              <li class="dropdown-label">Finance</li>
+              <li><a href="/rocksolid-money/">RockSolid Money</a></li>
+              <li class="dropdown-muted">RockSolid Trader &mdash; Coming Soon</li>
+              <li class="dropdown-divider"></li>
+              <li><a href="/products/">All Software &rarr;</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Support</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockwifi-pro/support/">RockWiFi Support</a></li>
+              <li><a href="/rockterm/support/">RockTerm Support</a></li>
+              <li><a href="/rocksolid-money/support/">RockSolid Money Support</a></li>
+            </ul>
+          </li>
+          <li><a href="/#why-rockriver">Why Rock River</a></li>
+          <li><a href="/about/">About</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
+    </div>
+  </header>
+  <section class="page-hero">
+    <div class="container">
+      <h1>When Your Bank Isn't Recognized</h1>
+      <p class="page-hero-subtitle">RockSolid Money Support</p>
+    </div>
+  </section>
+  <main class="page-content">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> <span>&rsaquo;</span>
+        <a href="/rocksolid-money/">RockSolid Money</a> <span>&rsaquo;</span>
+        <a href="/rocksolid-money/support/">Support</a> <span>&rsaquo;</span>
+        When Your Bank Isn't Recognized
+      </nav>
+
+      <p>When a CSV doesn't match any shipped profile, RockSolid Money doesn't guess quietly. It walks you through a short interpretation flow, shows its reasoning, and saves the result so the next file from that institution imports in one step.</p>
+
+      <h2>1. A proposed mapping</h2>
+      <p>The application reads the header row and the shape of the data and proposes which column is the date, the description, the amount, and so on. You see sample rows from <em>your file</em> interpreted under that proposal &mdash; not an abstract settings form.</p>
+
+      <h2>2. The sign convention is proven, not guessed</h2>
+      <p>The most dangerous thing an importer can do is guess which direction money moved. Where your file carries a running balance column, RockSolid Money checks the arithmetic: if a $50 row makes the balance go down, that row is money out &mdash; <em>proven</em>, for every row in the file.</p>
+      <p>If the file has no balance column and the arithmetic cannot settle it, you're asked in plain language &mdash; for a credit card, whether a sample row is a purchase, a payment, or a refund; for a bank account, whether the balance went up or down.</p>
+
+      <h2>3. Dates are checked the same way</h2>
+      <p>Ambiguous date formats (is 03/04 March&nbsp;4 or April&nbsp;3?) are resolved from evidence in the file where possible, and confirmed with you where not.</p>
+
+      <h2>4. The profile is saved</h2>
+      <p>Once you confirm, the mapping is stored as an import profile for that institution. Future files import against it directly. Profiles are plain data &mdash; they describe columns and formats, and can never run code.</p>
+
+      <h2>If the file still can't be interpreted</h2>
+      <p>It is quarantined with an explanation of what was missing. Nothing partial reaches your ledger. Try a different export format from your bank (OFX/QFX are the most reliable), or email the header row (no amounts needed) to <a href="mailto:support@rockriverresearch.com">support@rockriverresearch.com</a> and we'll help.</p>
+
+      <p class="back-link"><a href="/rocksolid-money/support/">&larr; Back to Support Articles</a></p>
+
+      <h2>Still need help?</h2>
+      <p>If you're still stuck, <a href="/contact/">contact us</a> or email <a href="mailto:support@rockriverresearch.com">support@rockriverresearch.com</a> &mdash; you will reach the people who build RockSolid Money.</p>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col footer-brand">
+          <img src="/images/logo.png" alt="Rock River Research" class="footer-logo">
+          <p>&copy; 2026 Rock River Research, LLC.</p>
+          <p class="footer-tm">RockWiFi, RockTerm, RockSolid Money, and RockSolid Trader are trademarks of Rock River Research, LLC.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Products</h4>
+          <a href="/rockwifi-pro/">RockWiFi Pro</a>
+          <a href="/rockwifi-essentials/">RockWiFi Essentials</a>
+          <a href="/rockterm/">RockTerm</a>
+          <a href="/rocksolid-money/">RockSolid Money</a>
+        </div>
+        <div class="footer-col">
+          <h4>RockSolid Money</h4>
+          <a href="/rocksolid-money/support/">Support</a>
+          <a href="/rocksolid-money/features/">Features</a>
+          <a href="/rocksolid-money/faq/">FAQ</a>
+          <a href="/rocksolid-money/system-requirements/">System Requirements</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="/about/">About</a>
+          <a href="/privacy/">Privacy Policy</a>
+          <a href="/terms/">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

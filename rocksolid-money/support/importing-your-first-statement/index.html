@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>Importing Your First Statement — RockSolid Money Support — Rock River Research</title>
+  <meta name="description" content="Download a file from your bank, review how it will be interpreted, and commit it.">
+  <link rel="canonical" href="https://rockriverresearch.com/rocksolid-money/support/importing-your-first-statement/">
+  <meta property="og:title" content="Importing Your First Statement — RockSolid Money Support — Rock River Research">
+  <meta property="og:description" content="Download a file from your bank, review how it will be interpreted, and commit it.">
+  <meta property="og:url" content="https://rockriverresearch.com/rocksolid-money/support/importing-your-first-statement/">
+  <meta property="og:image" content="https://rockriverresearch.com/images/logo.png">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/favicon.ico">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Rock River Research</a>
+      <nav class="site-nav">
+        <div class="nav-header">
+          <a href="/" class="logo">Rock River Research</a>
+          <button class="nav-close" aria-label="Close menu">&#10005;</button>
+        </div>
+        <ul>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Products</a>
+            <ul class="dropdown-menu">
+              <li class="dropdown-label">Network &amp; IT</li>
+              <li><a href="/rockwifi-pro/">RockWiFi Pro</a></li>
+              <li><a href="/rockwifi-essentials/">RockWiFi Essentials</a></li>
+              <li><a href="/rockterm/">RockTerm</a></li>
+              <li class="dropdown-label">Finance</li>
+              <li><a href="/rocksolid-money/">RockSolid Money</a></li>
+              <li class="dropdown-muted">RockSolid Trader &mdash; Coming Soon</li>
+              <li class="dropdown-divider"></li>
+              <li><a href="/products/">All Software &rarr;</a></li>
+            </ul>
+          </li>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Support</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockwifi-pro/support/">RockWiFi Support</a></li>
+              <li><a href="/rockterm/support/">RockTerm Support</a></li>
+              <li><a href="/rocksolid-money/support/">RockSolid Money Support</a></li>
+            </ul>
+          </li>
+          <li><a href="/#why-rockriver">Why Rock River</a></li>
+          <li><a href="/about/">About</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
+    </div>
+  </header>
+  <section class="page-hero">
+    <div class="container">
+      <h1>Importing Your First Statement</h1>
+      <p class="page-hero-subtitle">RockSolid Money Support</p>
+    </div>
+  </section>
+  <main class="page-content">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Home</a> <span>&rsaquo;</span>
+        <a href="/rocksolid-money/">RockSolid Money</a> <span>&rsaquo;</span>
+        <a href="/rocksolid-money/support/">Support</a> <span>&rsaquo;</span>
+        Importing Your First Statement
+      </nav>
+
+      <p>RockSolid Money never connects to your bank and never asks for banking credentials. You download an export from your bank's website and import the file &mdash; the application does the rest, and shows its work.</p>
+
+      <h2>1. Download an export from your bank</h2>
+      <p>Log in to your bank, card, or brokerage site and look for <em>Download</em>, <em>Export</em>, or <em>Statements &amp; Documents</em>. Choose CSV, OFX/QFX, or QIF (see <a href="/rocksolid-money/support/supported-file-formats/">Supported File Formats</a>). Any date range works &mdash; overlapping ranges are safe (see <a href="/rocksolid-money/support/duplicate-detection/">Duplicate Detection</a>).</p>
+
+      <h2>2. Start the import</h2>
+      <p>Click <strong>Import</strong> in the top bar, or <strong>File &gt; Import File&hellip;</strong> (Ctrl+I), and choose the downloaded file.</p>
+
+      <h2>3. Review the interpretation</h2>
+      <p>Before anything is recorded, the import workbench shows you how the file will be read:</p>
+      <ul>
+        <li><strong>Recognized bank?</strong> Files from known institutions import against a shipped profile &mdash; usually nothing to review but the preview.</li>
+        <li><strong>Unrecognized format?</strong> The application proposes a column mapping and shows sample rows interpreted under it. Where the file carries a running balance, the sign convention (is this row money in or money out?) is <em>proven arithmetically</em> against that balance rather than guessed. If arithmetic can't settle it, you are asked in plain language. See <a href="/rocksolid-money/support/unrecognized-bank-formats/">When Your Bank Isn't Recognized</a>.</li>
+        <li><strong>Which account?</strong> Confirm which of your accounts the file belongs to, or create the account right there.</li>
+      </ul>
+
+      <h2>4. Commit</h2>
+      <p>Click <strong>Commit</strong> to write the transactions. The commit is recorded as an import session you can inspect and &mdash; if needed &mdash; roll back as a unit (see <a href="/rocksolid-money/support/import-history-and-rollback/">Import History and Rollback</a>).</p>
+
+      <h2>After the import</h2>
+      <ul>
+        <li>Every imported transaction can show the exact source row it came from &mdash; select it and use <strong>View Import Evidence</strong> (see <a href="/rocksolid-money/support/import-evidence/">Import Evidence</a>).</li>
+        <li>Imports don't assign categories automatically. Categorize from the register, and see <a href="/rocksolid-money/support/categories-and-payees/">Categories and Payees</a>.</li>
+        <li>Import the next statement whenever you like &mdash; the saved profile makes later files from the same institution one-click.</li>
+      </ul>
+
+      <p class="back-link"><a href="/rocksolid-money/support/">&larr; Back to Support Articles</a></p>
+
+      <h2>Still need help?</h2>
+      <p>If you're still stuck, <a href="/contact/">contact us</a> or email <a href="mailto:support@rockriverresearch.com">support@rockriverresearch.com</a> &mdash; you will reach the people who build RockSolid Money.</p>
+    </div>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col footer-brand">
+          <img src="/images/logo.png" alt="Rock River Research" class="footer-logo">
+          <p>&copy; 2026 Rock River Research, LLC.</p>
+          <p class="footer-tm">RockWiFi, RockTerm, RockSolid Money, and RockSolid Trader are trademarks of Rock River Research, LLC.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Products</h4>
+          <a href="/rockwifi-pro/">RockWiFi Pro</a>
+          <a href="/rockwifi-essentials/">RockWiFi Essentials</a>
+          <a href="/rockterm/">RockTerm</a>
+          <a href="/rocksolid-money/">RockSolid Money</a>
+        </div>
+        <div class="footer-col">
+          <h4>RockSolid Money</h4>
+          <a href="/rocksolid-money/support/">Support</a>
+          <a href="/rocksolid-money/features/">Features</a>
+          <a href="/rocksolid-money/faq/">FAQ</a>
+          <a href="/rocksolid-money/system-requirements/">System Requirements</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="/about/">About</a>
+          <a href="/privacy/">Privacy Policy</a>
+          <a href="/terms/">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
