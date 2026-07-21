@@ -211,16 +211,8 @@ pre code {
   gap: 10px;
 }
 
-/* The company mark rides beside the wordmark in every header — the brand
-   was previously a bare text link with the artwork confined to a small,
-   washed-out footer image. */
 .logo-mark {
-  height: 38px;
-  width: auto;
-  flex-shrink: 0;
-  border-radius: 6px;
-  background: #ffffff;
-  padding: 3px;
+  display: none;
 }
 
 .site-header .logo:hover {
@@ -383,10 +375,11 @@ body.mobile-nav-open {
 }
 
 .footer-logo {
-  height: 104px;
+  height: 140px;
   width: auto;
   opacity: 0.95;
   flex-shrink: 0;
+  margin-bottom: 12px;
 }
 
 /* ===== Hero (Homepage) ===== */
@@ -1936,12 +1929,7 @@ tbody tr:hover {
   }
 
   .footer-logo {
-    height: 72px;
-  }
-
-  .logo-mark {
-    height: 32px;
-    width: auto;
+    height: 100px;
   }
 
   /* Mobile nav: transform site-nav into full-screen overlay */
