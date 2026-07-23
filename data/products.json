@@ -21,11 +21,12 @@
           "name": "Pro",
           "licensing": "subscription",
           "priceText": "Monthly subscription",
-          "status": "available",
+          "status": "launching",
+          "launchDate": "2026-08-31",
           "url": "/rockwifi-pro/",
           "supportUrl": "/rockwifi-pro/support/",
           "storeUrl": null,
-          "trialAvailable": true
+          "trialAvailable": false
         }
       ],
       "heroImage": "/images/rockwifi-congestion-24ghz.png",
