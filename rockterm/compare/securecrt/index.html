@@ -25,14 +25,14 @@
       .pricing-showdown { grid-template-columns: 1fr; }
     }
     .pricing-card {
-      background: #1a1a2e;
-      border: 1px solid #2d2d4a;
+      background: var(--surface);
+      border: 1px solid var(--border-light);
       border-radius: 10px;
       padding: 2rem;
       text-align: center;
     }
     .pricing-card.highlight {
-      border-color: #93b4f5;
+      border-color: var(--brand);
       box-shadow: 0 0 24px rgba(147, 180, 245, 0.08);
     }
     .pricing-card h3 {
@@ -47,7 +47,7 @@
       letter-spacing: 0.08em;
       padding: 4px 12px;
       border-radius: 100px;
-      color: #6ee7b7;
+      color: var(--success);
       background: rgba(110, 231, 183, 0.12);
       border: 1px solid rgba(110, 231, 183, 0.25);
       margin-bottom: 0.5rem;
@@ -55,44 +55,44 @@
     .pricing-card .price {
       font-size: 2.5rem;
       font-weight: 700;
-      color: #e2e8f0;
+      color: var(--text-primary);
       margin: 0.75rem 0 0.25rem;
     }
     .pricing-card .price-note {
-      color: #94a3b8;
+      color: var(--text-secondary);
       font-size: 0.9rem;
       margin-bottom: 1rem;
     }
     .pricing-card .price-detail {
-      color: #94a3b8;
+      color: var(--text-secondary);
       font-size: 0.85rem;
       line-height: 1.6;
     }
     .pricing-card .price-detail strong {
-      color: #e2e8f0;
+      color: var(--text-primary);
     }
 
     .savings-banner {
-      background: linear-gradient(135deg, #1a2e1a, #1a1a2e);
-      border: 1px solid #2d4a2d;
+      background: var(--success-bg);
+      border: 1px solid rgba(21, 128, 61, 0.2);
       border-radius: 10px;
       padding: 2rem;
       text-align: center;
       margin: 2rem 0;
     }
     .savings-banner h3 {
-      color: #6ee7b7;
+      color: var(--success);
       font-size: 1.5rem;
       margin: 0 0 0.5rem;
     }
     .savings-banner p {
-      color: #94a3b8;
+      color: var(--text-secondary);
       margin: 0;
     }
     .savings-banner .save-amount {
       font-size: 1.8rem;
       font-weight: 700;
-      color: #6ee7b7;
+      color: var(--success);
     }
 
     .compare-table-wrap {
@@ -108,11 +108,11 @@
     .compare-table td {
       padding: 0.75rem 1rem;
       text-align: left;
-      border-bottom: 1px solid #2d2d4a;
+      border-bottom: 1px solid var(--border-light);
     }
     .compare-table thead th {
-      background: #1a1a2e;
-      color: #e2e8f0;
+      background: var(--surface-subtle);
+      color: var(--text-primary);
       font-weight: 600;
       position: sticky;
       top: 0;
@@ -125,31 +125,31 @@
       border-radius: 0 8px 0 0;
     }
     .compare-table tbody tr:hover {
-      background: rgba(147, 180, 245, 0.04);
+      background: var(--surface-subtle);
     }
     .compare-table td:first-child {
-      color: #e2e8f0;
+      color: var(--text-primary);
       font-weight: 500;
     }
     .compare-table .yes {
-      color: #6ee7b7;
+      color: var(--success);
       font-weight: 600;
     }
     .compare-table .no {
-      color: #64748b;
+      color: var(--text-muted);
     }
     .compare-table .partial {
-      color: #fbbf24;
+      color: var(--warning);
     }
     .compare-table .category-row td {
-      background: #131328;
-      color: #93b4f5;
+      background: var(--surface-subtle);
+      color: var(--brand);
       font-weight: 700;
       font-size: 0.85rem;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       padding-top: 1.25rem;
-      border-bottom: 2px solid #2d2d4a;
+      border-bottom: 2px solid var(--border-light);
     }
 
     .advantage-grid {
@@ -159,34 +159,34 @@
       margin: 2rem 0;
     }
     .advantage-card {
-      background: #1a1a2e;
-      border: 1px solid #2d2d4a;
+      background: var(--surface);
+      border: 1px solid var(--border-light);
       border-radius: 8px;
       padding: 1.5rem;
     }
     .advantage-card h4 {
       margin: 0 0 0.5rem;
-      color: #e2e8f0;
+      color: var(--text-primary);
     }
     .advantage-card p {
       margin: 0;
-      color: #94a3b8;
+      color: var(--text-secondary);
       font-size: 0.9rem;
       line-height: 1.6;
     }
 
     .fair-note {
-      background: #1a1a2e;
-      border: 1px solid #2d2d4a;
+      background: var(--surface);
+      border: 1px solid var(--border-light);
       border-radius: 8px;
       padding: 1.5rem;
       margin: 2rem 0;
-      color: #94a3b8;
+      color: var(--text-secondary);
       font-size: 0.9rem;
       line-height: 1.6;
     }
     .fair-note h4 {
-      color: #e2e8f0;
+      color: var(--text-primary);
       margin: 0 0 0.5rem;
     }
   </style>
@@ -480,25 +480,25 @@
       <div class="savings-banner reveal">
         <h3>Total cost over 3 years</h3>
         <p>One RockTerm license vs SecureCRT + SecureFX bundle with renewals:</p>
-        <p><strong style="color:#6ee7b7;">RockTerm: $49.99</strong> &nbsp;vs&nbsp; <strong style="color:#ef4444;">SecureCRT+SecureFX: $233</strong></p>
-        <p style="margin-top: 0.75rem;">With a 5-person team, you'd spend <strong>$1,165 over 3 years</strong> on SecureCRT+SecureFX.<br>Five RockTerm licenses: <strong>$249.95 total</strong>. You save <strong style="color:#6ee7b7;">$915</strong>.</p>
+        <p><strong style="color:var(--success);">RockTerm: $49.99</strong> &nbsp;vs&nbsp; <strong style="color:#ef4444;">SecureCRT+SecureFX: $233</strong></p>
+        <p style="margin-top: 0.75rem;">With a 5-person team, you'd spend <strong>$1,165 over 3 years</strong> on SecureCRT+SecureFX.<br>Five RockTerm licenses: <strong>$249.95 total</strong>. You save <strong style="color:var(--success);">$915</strong>.</p>
       </div>
 
       <!-- Fair note -->
       <div class="fair-note reveal">
         <h4>Where SecureCRT has the edge</h4>
         <p>SecureCRT has been in active development since 1998. That 28-year head start shows in a few areas:</p>
-        <ul style="margin: 0.75rem 0 1rem 1.5rem; color: #94a3b8; line-height: 1.8;">
-          <li><strong style="color: #e2e8f0;">Cross-platform</strong> &mdash; SecureCRT runs on Windows, macOS, and Linux. RockTerm is Windows-only.</li>
-          <li><strong style="color: #e2e8f0;">Legacy terminal emulation</strong> &mdash; If you need TN3270 (IBM mainframes), Wyse 50/60, or TVI910/925, SecureCRT supports those. RockTerm focuses on VT/ANSI/Xterm.</li>
-          <li><strong style="color: #e2e8f0;">FIPS 140-2 &amp; Smart Card auth</strong> &mdash; Government and military environments that require FIPS compliance or X.509/PIV/CAC smart card authentication are well served by SecureCRT. RockTerm doesn't support these yet.</li>
-          <li><strong style="color: #e2e8f0;">VBScript/JScript</strong> &mdash; SecureCRT supports VBScript and JScript in addition to Python. If you have legacy VBScripts, they'll run in SecureCRT but not in RockTerm.</li>
-          <li><strong style="color: #e2e8f0;">Enterprise deployment</strong> &mdash; MSI installers and Group Policy deployment make SecureCRT straightforward to roll out across an enterprise. RockTerm distributes through the Microsoft Store.</li>
+        <ul style="margin: 0.75rem 0 1rem 1.5rem; color: var(--text-secondary); line-height: 1.8;">
+          <li><strong style="color: var(--text-primary);">Cross-platform</strong> &mdash; SecureCRT runs on Windows, macOS, and Linux. RockTerm is Windows-only.</li>
+          <li><strong style="color: var(--text-primary);">Legacy terminal emulation</strong> &mdash; If you need TN3270 (IBM mainframes), Wyse 50/60, or TVI910/925, SecureCRT supports those. RockTerm focuses on VT/ANSI/Xterm.</li>
+          <li><strong style="color: var(--text-primary);">FIPS 140-2 &amp; Smart Card auth</strong> &mdash; Government and military environments that require FIPS compliance or X.509/PIV/CAC smart card authentication are well served by SecureCRT. RockTerm doesn't support these yet.</li>
+          <li><strong style="color: var(--text-primary);">VBScript/JScript</strong> &mdash; SecureCRT supports VBScript and JScript in addition to Python. If you have legacy VBScripts, they'll run in SecureCRT but not in RockTerm.</li>
+          <li><strong style="color: var(--text-primary);">Enterprise deployment</strong> &mdash; MSI installers and Group Policy deployment make SecureCRT straightforward to roll out across an enterprise. RockTerm distributes through the Microsoft Store.</li>
         </ul>
         <p>If those specific features are requirements for your environment, SecureCRT is a proven choice. For the majority of network engineers and sysadmins &mdash; people who SSH into switches, configure firewalls, manage servers, and need practical daily tools &mdash; RockTerm delivers more functionality at a lower total cost.</p>
       </div>
 
-      <p class="reveal" style="text-align: center; margin-top: 2rem; color: #94a3b8;">Also see: <a href="/rockterm/compare/termius/">RockTerm vs Termius</a></p>
+      <p class="reveal" style="text-align: center; margin-top: 2rem; color: var(--text-secondary);">Also see: <a href="/rockterm/compare/termius/">RockTerm vs Termius</a></p>
 
       <!-- CTA -->
       <section class="cta-section" style="margin: 3rem -1rem 0; border-radius: 10px;">
