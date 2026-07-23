@@ -190,8 +190,17 @@ pre code {
 .site-header {
   padding: 16px 0;
   background: #0d0d1a;
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 100;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  transition: background 0.2s ease, backdrop-filter 0.2s ease;
+}
+
+.site-header.scrolled {
+  background: rgba(13, 13, 26, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .site-header .container {

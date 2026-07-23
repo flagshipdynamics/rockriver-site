@@ -1,0 +1,115 @@
+{
+  "products": [
+    {
+      "id": "rockwifi",
+      "name": "RockWiFi",
+      "trademark": true,
+      "category": "Wi-Fi and Network Analysis",
+      "shortDescription": "Wi-Fi scanning, channel analysis, network diagnostics, professional site surveys, heatmaps, AP locating, and reporting for Windows.",
+      "editions": [
+        {
+          "name": "Essentials",
+          "licensing": "one_time",
+          "priceText": "One-time purchase",
+          "status": "available",
+          "url": "/rockwifi-essentials/",
+          "supportUrl": "/rockwifi-pro/support/",
+          "storeUrl": null,
+          "trialAvailable": true
+        },
+        {
+          "name": "Pro",
+          "licensing": "subscription",
+          "priceText": "Monthly subscription",
+          "status": "available",
+          "url": "/rockwifi-pro/",
+          "supportUrl": "/rockwifi-pro/support/",
+          "storeUrl": null,
+          "trialAvailable": true
+        }
+      ],
+      "heroImage": "/images/rockwifi-congestion-24ghz.png",
+      "cardImage": "/images/rockwifi-congestion-24ghz.png",
+      "altText": "RockWiFi — 2.4 GHz channel congestion chart showing overlapping Wi-Fi networks"
+    },
+    {
+      "id": "rockterm",
+      "name": "RockTerm",
+      "trademark": true,
+      "category": "Terminal and Remote Access",
+      "shortDescription": "A professional Windows terminal emulator for SSH, Telnet, Serial, RDP, SFTP, scripting, tunneling, and network operations.",
+      "editions": [
+        {
+          "name": null,
+          "licensing": "one_time",
+          "priceText": "$49.99 one-time purchase",
+          "displayPrice": "$49.99",
+          "status": "available",
+          "url": "/rockterm/",
+          "supportUrl": "/rockterm/support/",
+          "storeUrl": "https://apps.microsoft.com/store/detail/9NTVNL8G7NHR?cid=DevShareMCLPCB",
+          "trialAvailable": true
+        }
+      ],
+      "heroImage": "/images/goodsplash.png",
+      "cardImage": "/images/goodsplash.png",
+      "altText": "RockTerm — terminal emulator with tabbed SSH, Telnet, and serial sessions"
+    },
+    {
+      "id": "rocksolid-money",
+      "name": "RockSolid Money",
+      "trademark": true,
+      "category": "Personal Finance",
+      "shortDescription": "Local-first personal finance software for accounts, transactions, budgets, investments, taxes, reports, and long-term financial records.",
+      "editions": [
+        {
+          "name": "Essentials",
+          "licensing": "one_time",
+          "priceText": "One-time purchase",
+          "status": "launching",
+          "launchDate": "2026-07-31",
+          "url": "/rocksolid-money/",
+          "supportUrl": "/rocksolid-money/support/",
+          "storeUrl": null,
+          "trialAvailable": false
+        },
+        {
+          "name": "Pro",
+          "licensing": "one_time",
+          "priceText": "One-time purchase",
+          "status": "planned",
+          "launchDate": null,
+          "url": "/rocksolid-money/",
+          "supportUrl": "/rocksolid-money/support/",
+          "storeUrl": null,
+          "trialAvailable": false
+        }
+      ],
+      "heroImage": "/images/RockSolidMoneyPRO.png",
+      "cardImage": "/images/RockSolidMoneyPRO.png",
+      "altText": "RockSolid Money — personal finance application for Windows"
+    },
+    {
+      "id": "rocksolid-trader",
+      "name": "RockSolid Trader",
+      "trademark": true,
+      "category": "Trading",
+      "shortDescription": "A local-first trading platform with real-time market data, technical charting, order management, and strategy backtesting.",
+      "editions": [
+        {
+          "name": null,
+          "licensing": null,
+          "priceText": null,
+          "status": "coming_soon",
+          "url": null,
+          "supportUrl": null,
+          "storeUrl": null,
+          "trialAvailable": false
+        }
+      ],
+      "heroImage": null,
+      "cardImage": "/images/rocksolid/performance.png",
+      "altText": "RockSolid Trader — trading platform"
+    }
+  ]
+}

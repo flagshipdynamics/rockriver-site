@@ -11,19 +11,25 @@
     document.body.classList.add('mobile-nav-open');
   });
 
-  if (closeBtn) {
-    closeBtn.addEventListener('click', function () {
-      nav.classList.remove('active');
-      document.body.classList.remove('mobile-nav-open');
-    });
+  function closeNav() {
+    nav.classList.remove('active');
+    document.body.classList.remove('mobile-nav-open');
   }
 
-  // Close mobile nav when clicking a non-dropdown link
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeNav);
+  }
+
   nav.querySelectorAll('a:not(.dropdown-toggle):not(.logo)').forEach(function (link) {
-    link.addEventListener('click', function () {
-      nav.classList.remove('active');
-      document.body.classList.remove('mobile-nav-open');
-    });
+    link.addEventListener('click', closeNav);
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      closeNav();
+      var openDropdown = document.querySelector('.has-dropdown.open');
+      if (openDropdown) openDropdown.classList.remove('open');
+    }
   });
 })();
 
@@ -41,6 +47,19 @@
       menu.style.display = isOpen ? 'none' : 'block';
     });
   });
+})();
+
+// Header background on scroll
+(function () {
+  var header = document.querySelector('.site-header');
+  if (!header) return;
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 20) {
+      header.classList.add('scrolled');
+    } else {
+      header.classList.remove('scrolled');
+    }
+  }, { passive: true });
 })();
 
 // Scroll reveal animations
