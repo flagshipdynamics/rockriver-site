@@ -10,7 +10,7 @@
   <meta property="og:title" content="RockWiFi Pro — Wi-Fi Survey, Heatmap, and Network Diagnostics for Windows">
   <meta property="og:description" content="Professional Wi-Fi surveys, heatmaps, AP locating, and network diagnostics for Windows. No cloud, no account. Monthly subscription.">
   <meta property="og:url" content="https://rockriverresearch.com/rockwifi-pro/">
-  <meta property="og:image" content="https://rockriverresearch.com/images/logo.png">
+  <meta property="og:image" content="https://rockriverresearch.com/images/rockwifi-congestion-24ghz.png">
   <meta property="og:type" content="website">
   <link rel="stylesheet" href="/css/style.css">
   <link rel="icon" href="/favicon.ico">
@@ -78,17 +78,23 @@
     </div>
   </header>
 
-  <section class="hero product-hero">
+  <section class="hero">
     <div class="container">
-      <div class="product-hero-content">
-        <span class="badge badge-dark">Wi-Fi 7 Ready</span>
-        <h1>Professional Wi-Fi surveys, heatmaps, and diagnostics &mdash; without the enterprise price tag.</h1>
-        <p class="subtitle">RockWiFi&trade; Pro gives IT consultants, MSPs, and network admins the tools to survey, troubleshoot, and document Wi-Fi networks &mdash; with Wi-Fi 7 detection, 6 GHz band support, and 320 MHz channel analysis built in. Local-first. No cloud. Monthly subscription.</p>
-        <div class="hero-actions">
-          <a href="#" class="btn btn-primary">Get RockWiFi Pro on the Microsoft Store</a>
-          <a href="/rockwifi-pro/features/" class="btn btn-secondary btn-on-dark">See All Features</a>
+      <div class="hero-split">
+        <div class="hero-text">
+          <span class="hero-eyebrow">Wi-Fi 7 Ready</span>
+          <h1>Professional Wi-Fi surveys, heatmaps, and diagnostics &mdash; without the enterprise price tag.</h1>
+          <p class="subtitle">RockWiFi&trade; Pro gives IT consultants, MSPs, and network admins the tools to survey, troubleshoot, and document Wi-Fi networks &mdash; with Wi-Fi 7 detection, 6 GHz band support, and 320 MHz channel analysis built in. Local-first. No cloud. Monthly subscription.</p>
+          <div class="hero-cta">
+            <a href="#" class="btn btn-primary btn-lg">Get RockWiFi Pro on the Microsoft Store</a>
+            <a href="/rockwifi-pro/features/" class="btn btn-secondary btn-on-dark btn-lg">See All Features</a>
+          </div>
+          <p class="hero-meta" style="margin-top: 16px; font-size: 0.88rem; color: #64748b;">Free trial available. Monthly subscription. No account required.</p>
         </div>
-        <p class="hero-meta">Free trial available. Monthly subscription. No account required.</p>
+        <div class="hero-showcase">
+          <img src="/images/rockwifi-congestion-24ghz.png" alt="RockWiFi Pro — 2.4 GHz channel congestion analysis showing overlapping Wi-Fi networks" class="showcase-primary">
+          <img src="/images/rockwifi-nearby-aps.png" alt="RockWiFi — nearby access point scanner with signal strength, band, and channel details" class="showcase-secondary">
+        </div>
       </div>
     </div>
   </section>
@@ -99,37 +105,70 @@
         <h2>Wi-Fi tools that belong on every tech's laptop.</h2>
         <p>Whether you're surveying a warehouse, tracking down a rogue AP, or documenting coverage for a client, RockWiFi Pro puts professional-grade Wi-Fi analysis in a single desktop app. No cloud accounts. No sending your client's floor plans to someone else's servers.</p>
       </div>
+      <div class="screenshot-showcase reveal" style="margin-top: 48px;">
+        <img src="/images/rockwifi-dashboard.png" alt="RockWiFi Pro dashboard — live Wi-Fi signal gauge, latency monitors, diagnosis, and RF environment summary">
+      </div>
     </div>
   </section>
 
   <section class="section section-border">
     <div class="container">
       <h2 class="section-heading">What RockWiFi Pro Does</h2>
-      <div class="grid-3">
-        <div class="feature-card reveal">
-          <div class="feature-icon">&#128225;</div>
-          <h3>Dashboard</h3>
-          <p>Live Wi-Fi status at a glance &mdash; SSID, signal strength (% and dBm), band, channel, Wi-Fi standard (Wi-Fi 7/6/5/4), MLO status, channel width, and a scrolling signal chart. Quick-launch buttons for every tool.</p>
+
+      <div class="feature-row reveal">
+        <div class="feature-row-image">
+          <img src="/images/rockwifi-congestion-24ghz.png" alt="2.4 GHz channel congestion visualization with overlapping network curves">
         </div>
-        <div class="feature-card reveal reveal-delay-1">
+        <div class="feature-row-text">
+          <h3>Channel Congestion</h3>
+          <p>Full spectrum visualization for 2.4, 5, and 6 GHz bands. See exactly which channels are crowded, where networks overlap, and which APs are creating interference.</p>
+          <p>Per-channel scoring, UNII band labeling, channel recommendations, and AP detail cards make it easy to identify congestion sources and recommend changes to clients.</p>
+        </div>
+      </div>
+
+      <div class="feature-row row-reverse reveal">
+        <div class="feature-row-image">
+          <img src="/images/rockwifi-connection-full.png" alt="Connection Check results showing gateway, DNS, internet, and HTTPS status with adapter and latency details">
+        </div>
+        <div class="feature-row-text">
+          <h3>Connection Check</h3>
+          <p>One-click connectivity diagnostic that tests every layer &mdash; adapter, gateway, DNS, internet, and HTTPS. Know exactly where the connection breaks in seconds.</p>
+          <p>Detailed results show adapter config, Wi-Fi signal, and latency stats. Recommended next steps guide you to the right tool for follow-up. Export or copy for documentation.</p>
+        </div>
+      </div>
+
+      <div class="feature-row reveal">
+        <div class="feature-row-image">
+          <img src="/images/rockwifi-nearby-aps.png" alt="Nearby APs scanner showing SSIDs, signal strength in dBm, band, channel, and Wi-Fi standard">
+        </div>
+        <div class="feature-row-text">
+          <h3>AP Scanner &amp; UltraScan</h3>
+          <p>See every access point in range with signal strength, band, channel, Wi-Fi standard, and channel width. Continuous background scanning tracks all visible APs over time.</p>
+          <p>Signal history, stability analysis, 10 sort modes, and CSV/HTML export for thorough site documentation. Know what's in the RF environment before you start troubleshooting.</p>
+        </div>
+      </div>
+
+      <div class="feature-row row-reverse reveal">
+        <div class="feature-row-image">
+          <img src="/images/rockwifi-target-result.png" alt="Target Test results showing DNS lookup, TCP connect, TLS handshake, and HTTP response timeline">
+        </div>
+        <div class="feature-row-text">
+          <h3>Target Test</h3>
+          <p>Probe any host or port with ping, TCP connect, HTTP, traceroute, and TLS certificate inspection. A connection timeline breaks down DNS lookup, TCP connect, TLS handshake, and first byte.</p>
+          <p>Know whether the problem is the network, DNS, the certificate, or the service itself &mdash; with actual numbers, not guesswork.</p>
+        </div>
+      </div>
+
+      <div class="grid-3" style="margin-top: 56px;">
+        <div class="feature-card reveal">
           <div class="feature-icon">&#128506;</div>
           <h3>Wi-Fi Survey &amp; Heatmaps</h3>
-          <p>Click-to-sample heatmaps on imported floor plans or OpenStreetMap tiles. Kriging interpolation, multi-sample clustering, and a guided tour mode for consistent coverage walks.</p>
-        </div>
-        <div class="feature-card reveal reveal-delay-2">
-          <div class="feature-icon">&#128301;</div>
-          <h3>AP Locator</h3>
-          <p>Hot/cold signal gauge to physically walk to any access point. Pin positions on a floor plan for trilateration. BSS metrics including station count, channel utilization, and Wi-Fi standard detection. Channel congestion chart shows co-channel interference at a glance.</p>
-        </div>
-        <div class="feature-card reveal">
-          <div class="feature-icon">&#128268;</div>
-          <h3>Connection Check</h3>
-          <p>Full connectivity diagnostic &mdash; adapter, gateway, internet, DNS, latency, jitter, and packet loss. One click to find out exactly where the connection breaks.</p>
+          <p>Click-to-sample heatmaps on imported floor plans or OpenStreetMap tiles. Kriging interpolation, multi-sample clustering, and guided tour mode for consistent coverage walks.</p>
         </div>
         <div class="feature-card reveal reveal-delay-1">
-          <div class="feature-icon">&#127919;</div>
-          <h3>Target Test</h3>
-          <p>Probe a specific host or port with ping, TCP connect, HTTP, traceroute, and TLS certificate inspection. Know whether the problem is the network or the service.</p>
+          <div class="feature-icon">&#128301;</div>
+          <h3>AP Locator</h3>
+          <p>Hot/cold signal gauge to physically walk to any access point. Pin positions on a floor plan for trilateration. BSS metrics with station count and utilization data.</p>
         </div>
         <div class="feature-card reveal reveal-delay-2">
           <div class="feature-icon">&#128218;</div>
@@ -149,17 +188,7 @@
         <div class="feature-card reveal reveal-delay-2">
           <div class="feature-icon">&#128196;</div>
           <h3>Reports &amp; History</h3>
-          <p>Browse past results, export HTML or text reports for client deliverables. Built-in findings engine with per-tool scoring, capability analysis, and actionable recommendations. Professional output without extra formatting work.</p>
-        </div>
-        <div class="feature-card reveal">
-          <div class="feature-icon">&#128225;</div>
-          <h3>UltraScan</h3>
-          <p>Continuous background AP scanner tracking all visible access points over time. Signal history, stability analysis, 10 sort modes, and CSV/HTML export for thorough site documentation.</p>
-        </div>
-        <div class="feature-card reveal reveal-delay-1">
-          <div class="feature-icon">&#128246;</div>
-          <h3>Channel Congestion</h3>
-          <p>Full spectrum visualization for 2.4, 5, and 6 GHz bands. Per-channel scoring, UNII band labeling, channel recommendations, and AP detail cards to identify interference sources.</p>
+          <p>Browse past results, export HTML or text reports for client deliverables. Built-in findings engine with per-tool scoring and actionable recommendations.</p>
         </div>
       </div>
       <p class="features-link" style="margin-top: 40px;">See the <a href="/rockwifi-pro/features/">full feature breakdown</a> for detailed descriptions.</p>
