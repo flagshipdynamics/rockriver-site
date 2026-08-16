@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="index, follow">
+  <title>JUNKSPACE | Rock River Interactive</title>
+  <meta name="description" content="JUNKSPACE is currently in development at Rock River Interactive, a division of Rock River Research.">
+  <link rel="canonical" href="https://rockriverresearch.com/interactive/junkspace/">
+  <meta property="og:title" content="JUNKSPACE | Rock River Interactive">
+  <meta property="og:description" content="JUNKSPACE is currently in development at Rock River Interactive, a division of Rock River Research.">
+  <meta property="og:url" content="https://rockriverresearch.com/interactive/junkspace/">
+  <meta property="og:image" content="https://rockriverresearch.com/images/junkspace/junkspace-key-art-02.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="JUNKSPACE | Rock River Interactive">
+  <meta name="twitter:description" content="JUNKSPACE is currently in development at Rock River Interactive, a division of Rock River Research.">
+  <meta name="twitter:image" content="https://rockriverresearch.com/images/junkspace/junkspace-key-art-02.png">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/favicon.ico">
+  <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
+  <style>
+    .js-hero {
+      background: #030608;
+      min-height: 100vh;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .js-hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+
+    .js-hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      opacity: 0.35;
+    }
+
+    .js-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(3, 6, 8, 0.2) 0%,
+        rgba(3, 6, 8, 0.4) 40%,
+        rgba(3, 6, 8, 0.85) 75%,
+        #030608 100%
+      );
+      z-index: 1;
+    }
+
+    .js-hero-content {
+      position: relative;
+      z-index: 2;
+      margin-top: auto;
+      padding: 0 0 80px;
+      text-align: center;
+    }
+
+    .js-hero-title {
+      font-size: 4rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      color: #f0f4f8;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    .js-hero-tagline {
+      font-size: 1.1rem;
+      color: #7a8da3;
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+
+    .js-hero-division {
+      font-size: 0.78rem;
+      color: #4a5a6e;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 600;
+    }
+
+    .js-body {
+      background: #030608;
+    }
+
+    .js-artwork-section {
+      padding: 0 0 80px;
+    }
+
+    .js-artwork-layout {
+      display: grid;
+      grid-template-columns: 5fr 6fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .js-artwork-frame {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 32px 80px rgba(0, 0, 0, 0.6),
+                  0 0 0 1px rgba(255, 255, 255, 0.03);
+    }
+
+    .js-artwork-frame img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .js-about {
+      padding-top: 32px;
+    }
+
+    .js-about h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #d0d8e4;
+      margin-bottom: 20px;
+      border: none;
+    }
+
+    .js-about p {
+      color: #7a8da3;
+      font-size: 1.02rem;
+      line-height: 1.8;
+      margin-bottom: 16px;
+      max-width: none;
+    }
+
+    .js-status {
+      margin-top: 32px;
+      padding: 20px 24px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .js-status-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--brand-focus);
+      margin-bottom: 6px;
+    }
+
+    .js-status p {
+      color: #5a6a80;
+      font-size: 0.92rem;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    .js-division-section {
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      padding: 64px 0;
+      text-align: center;
+    }
+
+    .js-division-section p {
+      color: #4a5a6e;
+      font-size: 0.92rem;
+      max-width: 520px;
+      margin: 0 auto 24px;
+      line-height: 1.65;
+    }
+
+    .js-division-section .btn-back {
+      display: inline-block;
+      padding: 12px 28px;
+      font-weight: 600;
+      font-size: 0.92rem;
+      border-radius: 8px;
+      text-decoration: none;
+      color: #8a9bb5;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      transition: all 0.2s ease;
+    }
+
+    .js-division-section .btn-back:hover {
+      color: #f0f4f8;
+      border-color: rgba(255, 255, 255, 0.16);
+      background: rgba(255, 255, 255, 0.04);
+      text-decoration: none;
+    }
+
+    @media (max-width: 768px) {
+      .js-hero {
+        min-height: 80vh;
+        min-height: 80svh;
+      }
+
+      .js-hero-title {
+        font-size: 2.4rem;
+      }
+
+      .js-hero-content {
+        padding: 0 0 48px;
+      }
+
+      .js-artwork-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .js-about h2 {
+        font-size: 1.4rem;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .js-hero-bg img {
+        object-fit: contain;
+        object-position: center top;
+        max-height: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .js-division-section .btn-back {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="logo">Rock River Research</a>
+      <nav class="site-nav">
+        <div class="nav-header">
+          <a href="/" class="logo">Rock River Research</a>
+          <button class="nav-close" aria-label="Close menu">&#10005;</button>
+        </div>
+        <ul>
+          <li class="has-dropdown">
+            <a href="/products/" class="dropdown-toggle">Software</a>
+            <ul class="dropdown-menu">
+              <li class="dropdown-label">Network &amp; IT</li>
+              <li><a href="/rockwifi-pro/">RockWiFi Pro</a></li>
+              <li><a href="/rockwifi-essentials/">RockWiFi Essentials</a></li>
+              <li><a href="/rockterm/">RockTerm</a></li>
+              <li class="dropdown-label">Personal Finance</li>
+              <li><a href="/rocksolid-money/">RockSolid Money</a></li>
+              <li class="dropdown-muted">RockSolid Trader &mdash; Coming Soon</li>
+              <li class="dropdown-divider"></li>
+              <li><a href="/products/">All Software &rarr;</a></li>
+            </ul>
+          </li>
+          <li><a href="/interactive/">Interactive</a></li>
+          <li><a href="/#why-rock-river">Why Rock River</a></li>
+          <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Support</a>
+            <ul class="dropdown-menu">
+              <li><a href="/rockwifi-pro/support/">RockWiFi Support</a></li>
+              <li><a href="/rockterm/support/">RockTerm Support</a></li>
+              <li><a href="/rocksolid-money/support/">RockSolid Money Support</a></li>
+              <li><a href="/contact/">Contact Support</a></li>
+            </ul>
+          </li>
+          <li><a href="/about/">About</a></li>
+        </ul>
+      </nav>
+      <button class="nav-toggle" aria-label="Open menu">&#9776;</button>
+    </div>
+  </header>
+
+  <section class="js-hero">
+    <div class="js-hero-bg">
+      <img src="/images/junkspace/junkspace-key-art-01.png" alt="JUNKSPACE key art — a figure in worn space gear stands before a massive derelict station, helmet in hand" width="1024" height="1536">
+    </div>
+    <div class="js-hero-overlay"></div>
+    <div class="container js-hero-content">
+      <h1 class="js-hero-title">JUNKSPACE</h1>
+      <p class="js-hero-tagline">Currently in development at Rock River Interactive.</p>
+      <p class="js-hero-division">A game from Rock River Interactive</p>
+    </div>
+  </section>
+
+  <div class="js-body">
+    <section class="js-artwork-section">
+      <div class="container">
+        <div class="js-artwork-layout reveal">
+          <div class="js-artwork-frame">
+            <img src="/images/junkspace/junkspace-key-art-02.png" alt="JUNKSPACE — a figure in battered space gear surveys a vast derelict station interior" width="1254" height="1254" loading="lazy">
+          </div>
+          <div class="js-about">
+            <h2>About the Project</h2>
+            <p>JUNKSPACE is currently in development at Rock River Interactive, the game-development division of Rock River Research.</p>
+            <p>More details will be revealed as development progresses.</p>
+            <div class="js-status">
+              <p class="js-status-label">Status</p>
+              <p>In Development</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="js-division-section">
+      <div class="container">
+        <p>Rock River Interactive is the game-development division of Rock River Research&mdash;the same team behind RockWiFi, RockTerm, and RockSolid Money.</p>
+        <a href="/interactive/" class="btn-back">&larr; Rock River Interactive</a>
+      </div>
+    </section>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-brand">
+        <img src="/images/logo.png" alt="Rock River Research" class="footer-logo">
+        <p>&copy; 2026 Rock River Research, LLC.</p>
+        <p class="footer-tm">RockWiFi&trade;, RockTerm&trade;, RockSolid Money&trade;, and RockSolid Trader&trade; are trademarks of Rock River Research, LLC.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Software</h4>
+          <a href="/products/">All Software</a>
+          <a href="/rockwifi-pro/">RockWiFi</a>
+          <a href="/rockterm/">RockTerm</a>
+          <a href="/rocksolid-money/">RockSolid Money</a>
+        </div>
+        <div class="footer-col">
+          <h4>Interactive</h4>
+          <a href="/interactive/">Rock River Interactive</a>
+          <a href="/interactive/junkspace/">JUNKSPACE</a>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <a href="/rockwifi-pro/support/">RockWiFi Support</a>
+          <a href="/rockterm/support/">RockTerm Support</a>
+          <a href="/rocksolid-money/support/">RockSolid Money Support</a>
+          <a href="/contact/">Contact Us</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="/about/">About</a>
+          <a href="/privacy/">Privacy Policy</a>
+          <a href="/terms/">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>

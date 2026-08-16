@@ -19,6 +19,14 @@
   <link rel="stylesheet" href="/css/style.css">
   <link rel="icon" href="/favicon.ico">
   <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
+  <style>
+    @media (max-width: 768px) {
+      .interactive-teaser-grid {
+        grid-template-columns: 1fr !important;
+        gap: 32px !important;
+      }
+    }
+  </style>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -59,6 +67,7 @@
               <li><a href="/products/">All Software &rarr;</a></li>
             </ul>
           </li>
+          <li><a href="/interactive/">Interactive</a></li>
           <li><a href="#why-rock-river">Why Rock River</a></li>
           <li class="has-dropdown">
             <a href="#" class="dropdown-toggle">Support</a>
@@ -200,6 +209,23 @@
     </div>
   </section>
 
+  <section class="section-dark" style="background: #080e16; border-top: 1px solid rgba(255,255,255,0.04);">
+    <div class="container">
+      <div class="interactive-teaser-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;">
+        <div class="reveal" style="border-radius: 12px; overflow: hidden; box-shadow: 0 16px 48px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.04);">
+          <img src="/images/junkspace/junkspace-key-art-02.png" alt="JUNKSPACE — a figure in battered space gear surveys a vast derelict station interior" width="1254" height="1254" loading="lazy" style="display: block; width: 100%; height: auto;">
+        </div>
+        <div class="reveal reveal-delay-1">
+          <span style="display: inline-block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--brand-focus); margin-bottom: 16px;">Rock River Interactive</span>
+          <h2 style="color: var(--text-on-dark); font-size: 1.8rem; margin-bottom: 12px;">We're building games, too.</h2>
+          <p style="color: var(--text-on-dark-muted); font-size: 1.02rem; line-height: 1.7; margin-bottom: 8px;">JUNKSPACE is currently in development at Rock River Interactive, our game-development division.</p>
+          <p style="color: #4a5a6e; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; margin-bottom: 28px;">In Development</p>
+          <a href="/interactive/" class="btn btn-secondary btn-on-dark">Explore Interactive &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="cta-section">
     <div class="container">
       <h2 class="reveal">Find the right software for your work</h2>
@@ -225,6 +251,11 @@
           <a href="/rockwifi-pro/">RockWiFi</a>
           <a href="/rockterm/">RockTerm</a>
           <a href="/rocksolid-money/">RockSolid Money</a>
+        </div>
+        <div class="footer-col">
+          <h4>Interactive</h4>
+          <a href="/interactive/">Rock River Interactive</a>
+          <a href="/interactive/junkspace/">JUNKSPACE</a>
         </div>
         <div class="footer-col">
           <h4>Support</h4>
