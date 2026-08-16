@@ -21,68 +21,54 @@
   <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
   <style>
     .interactive-hero {
-      background: #030608;
-      min-height: 70vh;
-      min-height: 70svh;
-      display: flex;
-      align-items: flex-end;
+      background: #080e16;
+      padding: 72px 0 56px;
       text-align: center;
       position: relative;
       overflow: hidden;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
     }
 
-    .interactive-hero-bg {
+    .interactive-hero::before {
+      content: '';
       position: absolute;
-      inset: 0;
-      z-index: 0;
-    }
-
-    .interactive-hero-bg img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top center;
-      opacity: 0.18;
-    }
-
-    .interactive-hero-overlay {
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse at 50% 20%, rgba(37, 99, 235, 0.07) 0%, transparent 60%),
-        linear-gradient(to bottom, rgba(3, 6, 8, 0.1) 0%, rgba(3, 6, 8, 0.3) 40%, rgba(3, 6, 8, 0.8) 75%, #030608 100%);
-      z-index: 1;
+      top: -40%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(37, 99, 235, 0.08) 0%, transparent 70%);
+      pointer-events: none;
     }
 
     .interactive-hero-content {
       position: relative;
-      z-index: 2;
-      width: 100%;
-      padding-bottom: 64px;
-    }
-
-    .interactive-hero h1 {
-      font-size: 3rem;
-      font-weight: 800;
-      letter-spacing: 0.05em;
-      color: #f0f4f8;
-      margin-bottom: 20px;
-    }
-
-    .interactive-hero .subtitle {
-      font-size: 1.15rem;
-      color: #8a9bb5;
-      max-width: 540px;
-      margin: 0 auto 16px;
-      line-height: 1.65;
+      z-index: 1;
     }
 
     .interactive-hero .division-note {
-      font-size: 0.78rem;
-      color: #4a5a6e;
+      font-size: 0.72rem;
+      color: var(--brand-focus);
       text-transform: uppercase;
-      letter-spacing: 0.12em;
-      font-weight: 600;
+      letter-spacing: 0.14em;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .interactive-hero h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      color: #f0f4f8;
+      margin-bottom: 16px;
+    }
+
+    .interactive-hero .subtitle {
+      font-size: 1.08rem;
+      color: #7a8da3;
+      max-width: 500px;
+      margin: 0 auto;
+      line-height: 1.65;
     }
 
     .featured-section {
@@ -181,26 +167,13 @@
       line-height: 1.65;
     }
 
-    @media (min-width: 769px) {
-      .interactive-hero-bg img {
-        object-fit: contain;
-        object-position: center top;
-        max-height: 100%;
-      }
-    }
-
     @media (max-width: 768px) {
       .interactive-hero {
-        min-height: 50vh;
-        min-height: 50svh;
-      }
-
-      .interactive-hero-content {
-        padding-bottom: 48px;
+        padding: 48px 0 40px;
       }
 
       .interactive-hero h1 {
-        font-size: 2rem;
+        font-size: 1.8rem;
       }
 
       .junkspace-feature {
@@ -274,14 +247,12 @@
   </header>
 
   <section class="interactive-hero">
-    <div class="interactive-hero-bg">
-      <img src="/images/junkspace/junkspace-key-art-01.png" alt="" width="1024" height="1536" aria-hidden="true">
-    </div>
-    <div class="interactive-hero-overlay"></div>
-    <div class="container interactive-hero-content">
-      <h1>Rock River Interactive</h1>
-      <p class="subtitle">Games built around systems, places, and stories worth getting lost in.</p>
-      <p class="division-note">A division of Rock River Research</p>
+    <div class="container">
+      <div class="interactive-hero-content">
+        <p class="division-note">Rock River Research</p>
+        <h1>Interactive</h1>
+        <p class="subtitle">Games built around systems, places, and stories worth getting lost in.</p>
+      </div>
     </div>
   </section>
 
