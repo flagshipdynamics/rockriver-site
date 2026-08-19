@@ -36,6 +36,7 @@
       z-index: 0;
     }
 
+    .js-hero-bg video,
     .js-hero-bg img {
       width: 100%;
       height: 100%;
@@ -227,6 +228,9 @@
     }
 
     @media (prefers-reduced-motion: reduce) {
+      .js-hero-bg video {
+        display: none;
+      }
       .js-division-section .btn-back {
         transition: none;
       }
@@ -277,7 +281,10 @@
 
   <section class="js-hero">
     <div class="js-hero-bg">
-      <img src="/images/junkspace/junkspace-key-art-01.png" alt="JUNKSPACE key art — a figure in worn space gear stands before a massive derelict station, helmet in hand" width="1024" height="1536">
+      <video autoplay muted playsinline poster="/images/junkspace/junkspace-key-art-01.png" aria-hidden="true">
+        <source src="/interactive/junkspace/junkspace-cinematic.mp4" type="video/mp4">
+        <img src="/images/junkspace/junkspace-key-art-01.png" alt="" width="1024" height="1536">
+      </video>
     </div>
     <div class="js-hero-overlay"></div>
     <div class="container js-hero-content">
