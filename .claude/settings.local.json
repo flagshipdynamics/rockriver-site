@@ -30,7 +30,10 @@
       "Bash(grep -rn '\\\\$99\\\\|\\\\$149' /home/aquamarine/Desktop/rockriver-site/rockterm/ --include=\"*.html\")",
       "Bash(grep -rn '\\\\$99\\\\|\\\\$149' /home/aquamarine/Desktop/rockriver-site/rockterm/support/ /home/aquamarine/Desktop/rockriver-site/rockterm/faq/ --include=\"*.html\")",
       "Bash(grep -n '\\\\$99\\\\|\\\\$149' /home/aquamarine/Desktop/rockriver-site/rockterm/compare/securecrt/index.html)",
-      "Bash(grep -rn '\\\\$99\\\\|\\\\$149' /home/aquamarine/Desktop/rockriver-site/ --include=\"*.html\")"
+      "Bash(grep -rn '\\\\$99\\\\|\\\\$149' /home/aquamarine/Desktop/rockriver-site/ --include=\"*.html\")",
+      "Bash(python3 /tmp/claude-1000/-home-aquamarine-Desktop-rockriver-site/3e5d7f30-7d43-4528-8589-509638475509/scratchpad/batch_update.py)",
+      "Bash(python3 -c ' *)",
+      "Bash(python3 /tmp/claude-1000/-home-aquamarine-Desktop-rockriver-site/3e5d7f30-7d43-4528-8589-509638475509/scratchpad/add_contact_support.py)"
     ]
   }
 }

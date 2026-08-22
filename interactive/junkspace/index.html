@@ -5,22 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="index, follow">
   <title>JUNKSPACE | Rock River Interactive</title>
-  <meta name="description" content="JUNKSPACE is currently in development at Rock River Interactive, a division of Rock River Research.">
+  <meta name="description" content="JUNKSPACE is a story-driven science-fiction adventure about a salvage contractor who finds evidence of a civilization deliberately removed from the record — and a Company that may know why. In development at Rock River Interactive.">
   <link rel="canonical" href="https://rockriverresearch.com/interactive/junkspace/">
-  <meta property="og:title" content="JUNKSPACE | Rock River Interactive">
-  <meta property="og:description" content="JUNKSPACE is currently in development at Rock River Interactive, a division of Rock River Research.">
+  <meta property="og:title" content="JUNKSPACE | Some places are abandoned. Others were erased.">
+  <meta property="og:description" content="A story-driven science-fiction adventure about a salvage contractor who finds evidence of a civilization deliberately removed from the record — and a Company that may know why.">
   <meta property="og:url" content="https://rockriverresearch.com/interactive/junkspace/">
   <meta property="og:image" content="https://rockriverresearch.com/images/junkspace/junkspace-key-art-02.png">
   <meta property="og:type" content="website">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="JUNKSPACE | Rock River Interactive">
-  <meta name="twitter:description" content="JUNKSPACE is currently in development at Rock River Interactive, a division of Rock River Research.">
+  <meta name="twitter:title" content="JUNKSPACE | Some places are abandoned. Others were erased.">
+  <meta name="twitter:description" content="A story-driven science-fiction adventure about a salvage contractor who finds evidence of a civilization deliberately removed from the record — and a Company that may know why.">
   <meta name="twitter:image" content="https://rockriverresearch.com/images/junkspace/junkspace-key-art-02.png">
   <link rel="stylesheet" href="/css/style.css">
   <link rel="icon" href="/favicon.ico">
   <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
   <noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
   <style>
+    /* ---------- tokens ---------- */
+    .js-page {
+      --js-bg: #030608;
+      --js-bg-alt: #060b11;
+      --js-line: rgba(255, 255, 255, 0.06);
+      --js-head: #f0f4f8;
+      --js-body: #8a9cb0;
+      --js-muted: #4a5a6e;
+      --js-record: #5f9ae8;   /* the official record */
+      --js-machine: #d9a441;  /* what the machine says */
+    }
+
+    .js-page {
+      background: var(--js-bg);
+    }
+
+    /* ---------- hero ---------- */
     .js-hero {
       background: #030608;
       min-height: 100vh;
@@ -63,114 +80,487 @@
       position: relative;
       z-index: 2;
       margin-top: auto;
-      padding: 0 0 80px;
+      padding: 0 0 72px;
       text-align: center;
     }
 
-    .js-hero-title {
-      font-size: 4rem;
+    .js-wordmark {
+      font-size: 0.95rem;
       font-weight: 800;
-      letter-spacing: 0.1em;
-      color: #f0f4f8;
-      margin-bottom: 16px;
+      letter-spacing: 0.42em;
+      text-indent: 0.42em;
       text-transform: uppercase;
+      color: #c3d0e0;
+      margin-bottom: 26px;
     }
 
-    .js-hero-tagline {
-      font-size: 1.1rem;
-      color: #7a8da3;
-      margin-bottom: 8px;
-      line-height: 1.6;
+    .js-hero-statement {
+      font-size: clamp(1.65rem, 4.6vw, 3.25rem);
+      line-height: 1.16;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: var(--js-head);
+      margin-bottom: 28px;
+      text-shadow: 0 2px 40px rgba(0, 0, 0, 0.8);
+    }
+
+    .js-hero-statement .erased {
+      display: block;
+      color: #ffffff;
+      text-shadow: 0 0 44px rgba(140, 180, 235, 0.28), 0 2px 40px rgba(0, 0, 0, 0.8);
+    }
+
+    .js-hero-logline {
+      font-size: 1.02rem;
+      line-height: 1.75;
+      color: #93a6bb;
+      max-width: 660px;
+      margin: 0 auto 22px;
     }
 
     .js-hero-division {
-      font-size: 0.78rem;
-      color: #4a5a6e;
+      font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+      font-size: 0.72rem;
+      color: var(--js-muted);
       text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    /* ---------- shared section furniture ---------- */
+    .js-body {
+      background: var(--js-bg);
+    }
+
+    .js-section {
+      padding: 96px 0;
+      border-top: 1px solid var(--js-line);
+    }
+
+    .js-section--flush {
+      border-top: none;
+    }
+
+    .js-narrow {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .js-eyebrow {
+      font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+      font-size: 0.68rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--js-record);
+      margin-bottom: 22px;
+    }
+
+    .js-h2 {
+      font-size: clamp(1.5rem, 3.2vw, 2.15rem);
+      font-weight: 800;
+      line-height: 1.22;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: var(--js-head);
+      margin-bottom: 26px;
+      border: none;
+    }
+
+    .js-section p {
+      color: var(--js-body);
+      font-size: 1.05rem;
+      line-height: 1.85;
+      margin-bottom: 18px;
+      max-width: none;
+    }
+
+    .js-section p:last-child {
+      margin-bottom: 0;
+    }
+
+    .js-lede {
+      font-size: 1.15rem !important;
+      color: #a4b5c8 !important;
+    }
+
+    /* short declarative lines set as their own beat */
+    .js-beat {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: var(--js-body);
+      margin: 0 0 6px;
+    }
+
+    .js-beat + .js-beat {
+      margin-top: 0;
+    }
+
+    .js-pull {
+      display: block;
+      font-size: clamp(2.4rem, 8vw, 4.5rem);
+      font-weight: 800;
       letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #ffffff;
+      text-align: center;
+      margin: 48px 0;
+      text-shadow: 0 0 60px rgba(140, 180, 235, 0.22);
+    }
+
+    .js-emph {
+      color: var(--js-head);
       font-weight: 600;
     }
 
-    .js-body {
-      background: #030608;
+    /* ---------- prologue ---------- */
+    .js-prologue {
+      padding: 104px 0 96px;
     }
 
-    .js-artwork-section {
-      padding: 0 0 80px;
+    /* ---------- job manifest ---------- */
+    .js-manifest {
+      list-style: none;
+      margin: 28px 0;
+      padding: 0;
+      border-left: 2px solid rgba(95, 154, 232, 0.28);
     }
 
-    .js-artwork-layout {
+    .js-manifest li {
+      position: relative;
+      padding: 0 0 0 22px;
+      margin-bottom: 12px;
+      color: var(--js-body);
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .js-manifest li::before {
+      content: '';
+      position: absolute;
+      left: -2px;
+      top: 0.72em;
+      width: 12px;
+      height: 2px;
+      background: rgba(95, 154, 232, 0.4);
+    }
+
+    /* ---------- discrepancy log (what the machine says) ---------- */
+    .js-log {
+      list-style: none;
+      margin: 32px 0;
+      padding: 0;
+    }
+
+    .js-log li {
+      position: relative;
+      padding: 14px 0 14px 30px;
+      border-bottom: 1px solid var(--js-line);
+      color: #9aabbf;
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+
+    .js-log li:first-child {
+      border-top: 1px solid var(--js-line);
+    }
+
+    .js-log li::before {
+      content: '\203A';
+      position: absolute;
+      left: 6px;
+      top: 13px;
+      color: var(--js-machine);
+      font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+      font-size: 1.05rem;
+    }
+
+    /* ---------- media ---------- */
+    .js-shot {
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 32px 80px rgba(0, 0, 0, 0.7),
+                  0 0 0 1px rgba(255, 255, 255, 0.05);
+    }
+
+    .js-shot img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .js-caption {
+      font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+      font-size: 0.7rem !important;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--js-muted) !important;
+      margin-top: 14px !important;
+      text-align: center;
+    }
+
+    .js-media-block {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    /* ---------- split layout ---------- */
+    .js-split {
       display: grid;
-      grid-template-columns: 5fr 6fr;
+      grid-template-columns: 1fr 1fr;
       gap: 64px;
+      align-items: center;
+    }
+
+    .js-split--art {
+      grid-template-columns: 5fr 6fr;
       align-items: start;
     }
 
-    .js-artwork-frame {
+    .js-split .js-shot img,
+    .js-split .js-frame img {
+      width: 100%;
+    }
+
+    .js-frame {
       border-radius: 12px;
       overflow: hidden;
       box-shadow: 0 32px 80px rgba(0, 0, 0, 0.6),
                   0 0 0 1px rgba(255, 255, 255, 0.03);
     }
 
-    .js-artwork-frame img {
+    .js-frame img {
       display: block;
       width: 100%;
       height: auto;
     }
 
-    .js-about {
-      padding-top: 32px;
+    /* ---------- solutions list ---------- */
+    .js-solutions {
+      list-style: none;
+      counter-reset: sol;
+      margin: 32px 0 0;
+      padding: 0;
+      display: grid;
+      gap: 2px;
     }
 
-    .js-about h2 {
-      font-size: 1.6rem;
-      font-weight: 700;
-      color: #d0d8e4;
+    .js-solutions li {
+      counter-increment: sol;
+      position: relative;
+      padding: 18px 20px 18px 62px;
+      background: rgba(255, 255, 255, 0.02);
+      color: #9aabbf;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .js-solutions li::before {
+      content: counter(sol, decimal-leading-zero);
+      position: absolute;
+      left: 20px;
+      top: 18px;
+      font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+      font-size: 0.78rem;
+      color: var(--js-machine);
+      letter-spacing: 0.06em;
+    }
+
+    /* ---------- choice pairs ---------- */
+    .js-choices {
+      list-style: none;
+      margin: 32px 0 0;
+      padding: 0;
+    }
+
+    .js-choices li {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 20px;
+      align-items: center;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--js-line);
+      font-size: 1rem;
+      color: #9aabbf;
+    }
+
+    .js-choices li:first-child {
+      border-top: 1px solid var(--js-line);
+    }
+
+    .js-choices .opt-a {
+      text-align: right;
+    }
+
+    .js-choices .opt-b {
+      text-align: left;
+    }
+
+    .js-choices .opt-or {
+      font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--js-muted);
+    }
+
+    /* ---------- two stories ---------- */
+    .js-stories {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      margin-top: 36px;
+      border: 1px solid var(--js-line);
+    }
+
+    .js-story {
+      padding: 32px 30px;
+      background: rgba(255, 255, 255, 0.015);
+    }
+
+    .js-story h3 {
+      font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
       margin-bottom: 20px;
       border: none;
     }
 
-    .js-about p {
-      color: #7a8da3;
-      font-size: 1.02rem;
-      line-height: 1.8;
-      margin-bottom: 16px;
-      max-width: none;
+    .js-story--record {
+      border-right: 1px solid var(--js-line);
     }
 
-    .js-status {
-      margin-top: 32px;
-      padding: 20px 24px;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      border-radius: 10px;
-      background: rgba(255, 255, 255, 0.02);
-    }
+    .js-story--record h3 { color: var(--js-record); }
+    .js-story--left h3 { color: var(--js-machine); }
 
-    .js-status-label {
-      font-size: 0.72rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--brand-focus);
-      margin-bottom: 6px;
-    }
-
-    .js-status p {
-      color: #5a6a80;
-      font-size: 0.92rem;
+    .js-story ul {
+      list-style: none;
       margin: 0;
-      line-height: 1.6;
+      padding: 0;
     }
 
+    .js-story li {
+      padding: 10px 0;
+      color: #93a4b8;
+      font-size: 0.96rem;
+      line-height: 1.6;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.035);
+    }
+
+    .js-story li:last-child {
+      border-bottom: none;
+    }
+
+    .js-story li .src {
+      display: block;
+      font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+      font-size: 0.66rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--js-muted);
+      margin-bottom: 3px;
+    }
+
+    /* ---------- question close ---------- */
+    .js-question {
+      text-align: center;
+      padding: 96px 0;
+      border-top: 1px solid var(--js-line);
+    }
+
+    .js-question .q {
+      font-size: clamp(1.35rem, 3.4vw, 2.1rem);
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: var(--js-head);
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+
+    .js-question .q-sub {
+      font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--js-muted);
+      margin-bottom: 26px;
+    }
+
+    .js-question .q-why {
+      font-size: clamp(2rem, 6vw, 3.4rem);
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-indent: 0.18em;
+      color: #ffffff;
+      text-shadow: 0 0 50px rgba(140, 180, 235, 0.22);
+    }
+
+    /* ---------- closing card ---------- */
+    .js-close {
+      text-align: center;
+      padding: 104px 0;
+      border-top: 1px solid var(--js-line);
+      background: linear-gradient(180deg, #050a10 0%, #030608 100%);
+    }
+
+    .js-close .js-wordmark {
+      font-size: 1.35rem;
+      color: var(--js-head);
+      margin-bottom: 22px;
+    }
+
+    .js-close .tagline {
+      font-size: 1.12rem;
+      font-weight: 600;
+      color: #b9c7d8;
+      letter-spacing: 0.02em;
+      margin-bottom: 22px;
+    }
+
+    .js-close .blurb {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--js-body);
+      max-width: 620px;
+      margin: 0 auto 32px;
+    }
+
+    .js-status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 22px;
+      border: 1px solid rgba(217, 164, 65, 0.28);
+      border-radius: 999px;
+      background: rgba(217, 164, 65, 0.05);
+      font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #d9a441;
+    }
+
+    .js-status-pill::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #d9a441;
+      box-shadow: 0 0 10px rgba(217, 164, 65, 0.8);
+    }
+
+    /* ---------- division footer ---------- */
     .js-division-section {
-      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      border-top: 1px solid var(--js-line);
       padding: 64px 0;
       text-align: center;
     }
 
     .js-division-section p {
-      color: #4a5a6e;
+      color: var(--js-muted);
       font-size: 0.92rem;
       max-width: 520px;
       margin: 0 auto 24px;
@@ -196,35 +586,63 @@
       text-decoration: none;
     }
 
-    @media (max-width: 768px) {
-      .js-hero {
-        min-height: 80vh;
-        min-height: 80svh;
-      }
-
-      .js-hero-title {
-        font-size: 2.4rem;
-      }
-
-      .js-hero-content {
-        padding: 0 0 48px;
-      }
-
-      .js-artwork-layout {
+    /* ---------- responsive ---------- */
+    @media (max-width: 860px) {
+      .js-split,
+      .js-split--art {
         grid-template-columns: 1fr;
         gap: 40px;
       }
 
-      .js-about h2 {
-        font-size: 1.4rem;
+      .js-stories {
+        grid-template-columns: 1fr;
+      }
+
+      .js-story--record {
+        border-right: none;
+        border-bottom: 1px solid var(--js-line);
       }
     }
 
-    @media (min-width: 769px) {
-      .js-hero-bg img {
-        object-fit: contain;
-        object-position: center top;
-        max-height: 100%;
+    @media (max-width: 768px) {
+      .js-hero {
+        min-height: 88vh;
+        min-height: 88svh;
+      }
+
+      .js-hero-content {
+        padding: 0 0 52px;
+      }
+
+      .js-wordmark {
+        font-size: 0.78rem;
+        letter-spacing: 0.34em;
+        text-indent: 0.34em;
+      }
+
+      .js-section,
+      .js-question,
+      .js-close {
+        padding: 68px 0;
+      }
+
+      .js-prologue {
+        padding: 72px 0 68px;
+      }
+
+      .js-pull {
+        margin: 36px 0;
+      }
+
+      .js-choices li {
+        grid-template-columns: 1fr;
+        gap: 4px;
+        text-align: center;
+      }
+
+      .js-choices .opt-a,
+      .js-choices .opt-b {
+        text-align: center;
       }
     }
 
@@ -238,7 +656,7 @@
     }
   </style>
 </head>
-<body>
+<body class="js-page">
   <header class="site-header">
     <div class="container">
       <a href="/interactive/" class="logo">Rock River Interactive</a>
@@ -289,29 +707,237 @@
     </div>
     <div class="js-hero-overlay"></div>
     <div class="container js-hero-content">
-      <h1 class="js-hero-title">JUNKSPACE&trade;</h1>
-      <p class="js-hero-tagline">Currently in development at Rock River Interactive.</p>
-      <p class="js-hero-division">A game from Rock River Interactive</p>
+      <p class="js-wordmark">Junkspace&trade;</p>
+      <h1 class="js-hero-statement">
+        Some places are abandoned.
+        <span class="erased">Others were erased.</span>
+      </h1>
+      <p class="js-hero-logline">JUNKSPACE is a story-driven science-fiction adventure about a salvage contractor who finds evidence of a civilization deliberately removed from the record&mdash;and a Company that may know why.</p>
+      <p class="js-hero-division">In development at Rock River Interactive</p>
     </div>
   </section>
 
   <div class="js-body">
-    <section class="js-artwork-section">
+
+    <!-- The erasure -->
+    <section class="js-section js-section--flush js-prologue">
       <div class="container">
-        <div class="js-artwork-layout reveal">
-          <div class="js-artwork-frame">
-            <img src="/images/junkspace/junkspace-key-art-02.png" alt="JUNKSPACE — a figure in battered space gear surveys a vast derelict station interior" width="1254" height="1254" loading="lazy">
+        <div class="js-narrow reveal">
+          <p class="js-lede">Humanity spread across the stars a long time ago.</p>
+          <p>Colonies became cities. Shipping lanes became routine. Corporations built ports, moved cargo, stripped worlds, lost ships, filed reports and kept civilization running.</p>
+          <p>And somewhere along the way, an entire inhabited destination disappeared.</p>
+          <p class="js-beat">Not destroyed.</p>
+          <strong class="js-pull">Erased</strong>
+          <p>Its routes vanished from navigation systems. Its records disappeared from databases. Official histories stopped mentioning it.</p>
+          <p>As if millions of lives had simply never been there.</p>
+          <p class="js-emph">But not everything was deleted.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Player role -->
+    <section class="js-section">
+      <div class="container">
+        <div class="js-split js-split--art reveal">
+          <div class="js-frame">
+            <img src="/images/junkspace/junkspace-key-art-01.png" alt="JUNKSPACE key art &mdash; a salvage contractor in worn space gear stands before a massive derelict station, helmet in hand" width="1024" height="1536" loading="lazy">
           </div>
-          <div class="js-about">
-            <h2>About the Project</h2>
-            <p>JUNKSPACE is currently in development at Rock River Interactive, the game-development division of Rock River Research.</p>
-            <p>More details will be revealed as development progresses.</p>
-            <div class="js-status">
-              <p class="js-status-label">Status</p>
-              <p>In Development</p>
-            </div>
+          <div>
+            <p class="js-eyebrow">The Contract</p>
+            <h2 class="js-h2">You weren&rsquo;t looking for a conspiracy.</h2>
+            <p class="js-lede">You were looking for a paycheck.</p>
+            <p>In JUNKSPACE you work the forgotten edges of civilization as an independent salvage contractor aboard <span class="js-emph">The Wayward</span>.</p>
+            <p>The jobs aren&rsquo;t glamorous.</p>
+            <ul class="js-manifest">
+              <li>Recover a navigation core from a dead freighter.</li>
+              <li>Restore power to an abandoned ship.</li>
+              <li>Inspect a damaged station.</li>
+              <li>Retrieve equipment.</li>
+              <li>Find out why something stopped working &mdash; and what&rsquo;s still worth bringing home.</li>
+            </ul>
+            <p>Then one routine recovery produces something that shouldn&rsquo;t exist: <span class="js-emph">a valid navigation route to a place that isn&rsquo;t in the records anymore.</span></p>
+            <p>The deeper you dig, the less accidental the absence begins to look.</p>
+            <p>Someone removed this place from the galaxy. And the Company may know why.</p>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- The records say one thing -->
+    <section class="js-section">
+      <div class="container">
+        <div class="js-narrow reveal">
+          <p class="js-eyebrow">Evidence</p>
+          <h2 class="js-h2">The records say one thing.<br>The ship says another.</h2>
+          <p>Officially, ships suffer failures. Crews evacuate. Cargo gets abandoned. Contracts get closed. Life moves on.</p>
+          <p class="js-emph">But machinery keeps its own history.</p>
+          <ul class="js-log">
+            <li>A terminal that was accessed after the supposed evacuation.</li>
+            <li>A system deliberately isolated instead of damaged.</li>
+            <li>A crew log that doesn&rsquo;t match the official report.</li>
+            <li>A navigation computer carrying coordinates that every modern database insists don&rsquo;t exist.</li>
+          </ul>
+          <p>Piece by piece, ordinary salvage jobs begin exposing a much larger story.</p>
+          <p>And the people paying you to recover the evidence may have reasons for wanting it back.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gameplay shot 1 -->
+    <section class="js-section">
+      <div class="container">
+        <div class="js-media-block reveal">
+          <div class="js-shot">
+            <img src="/images/junkspace/junkspace-gameplay-01.jpg" alt="In-game view: a salvage contractor works a ship&rsquo;s power distribution board, breakers and bus-loading gauges lit in the dark" width="1610" height="805" loading="lazy">
+          </div>
+          <p class="js-caption">In-engine capture &mdash; work in progress</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Working future -->
+    <section class="js-section">
+      <div class="container">
+        <div class="js-narrow reveal">
+          <p class="js-eyebrow">The World</p>
+          <h2 class="js-h2">This is a working future.</h2>
+          <p>JUNKSPACE isn&rsquo;t a universe of spotless starships and gleaming corridors. It&rsquo;s a future built by people who had budgets.</p>
+          <p>Freighters are patched together. Industrial stations have service corridors behind the nice parts. Machines have breakers, access panels, maintenance routes and warning labels. Ports are crowded with workers, cargo, equipment and decades of accumulated infrastructure.</p>
+          <p class="js-beat">Things wear out.</p>
+          <p class="js-beat">Things get repaired.</p>
+          <p class="js-beat">Things get bypassed.</p>
+          <p class="js-beat">And sometimes things are deliberately made to stop working.</p>
+          <p style="margin-top:18px;" class="js-emph">Understanding these places is part of playing the game.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gameplay shot 2 -->
+    <section class="js-section">
+      <div class="container">
+        <div class="js-media-block reveal">
+          <div class="js-shot">
+            <img src="/images/junkspace/junkspace-gameplay-02.jpg" alt="In-game view: looking down through a caged service walkway into a station corridor, breaker panels and warning signage in the foreground" width="1610" height="805" loading="lazy">
+          </div>
+          <p class="js-caption">In-engine capture &mdash; work in progress</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problems not puzzles -->
+    <section class="js-section">
+      <div class="container">
+        <div class="js-narrow reveal">
+          <p class="js-eyebrow">Systems</p>
+          <h2 class="js-h2">Solve problems, not puzzles.</h2>
+          <p>A locked door isn&rsquo;t locked because the game wants you to hunt for the blue key.</p>
+          <p class="js-emph">It&rsquo;s locked because something locked it.</p>
+          <ul class="js-solutions">
+            <li>Find the right crew credential.</li>
+            <li>Restore power and manipulate the security system.</li>
+            <li>Discover enough information to invoke legitimate salvage authority.</li>
+            <li>Find another way around.</li>
+            <li>Or cut through the damn thing.</li>
+          </ul>
+          <p style="margin-top:32px;">JUNKSPACE is built around problems with multiple legitimate solutions. What you carry matters. What you&rsquo;ve repaired matters. What you&rsquo;ve discovered matters.</p>
+          <p class="js-emph">And sometimes what you know is more useful than what you own.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Consequences -->
+    <section class="js-section">
+      <div class="container">
+        <div class="js-narrow reveal">
+          <p class="js-eyebrow">Consequence</p>
+          <h2 class="js-h2">The world remembers what you did.</h2>
+          <p>JUNKSPACE doesn&rsquo;t reduce your decisions to a dialogue option marked GOOD or BAD. Choices happen through action.</p>
+          <ul class="js-choices">
+            <li><span class="opt-a">Repair something</span><span class="opt-or">or</span><span class="opt-b">bypass it</span></li>
+            <li><span class="opt-a">Preserve the ship</span><span class="opt-or">or</span><span class="opt-b">damage it</span></li>
+            <li><span class="opt-a">Search deeper</span><span class="opt-or">or</span><span class="opt-b">finish the contract</span></li>
+            <li><span class="opt-a">Turn over what you found</span><span class="opt-or">or</span><span class="opt-b">keep digging</span></li>
+            <li><span class="opt-a">Take the clean route</span><span class="opt-or">or</span><span class="opt-b">take the expensive one</span></li>
+          </ul>
+          <p style="margin-top:32px;">The game remembers the actual state of the world: the systems you changed, the things you recovered, the information you learned and the damage you left behind.</p>
+          <p>There isn&rsquo;t always a correct solution. <span class="js-emph">There are consequences.</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Two stories -->
+    <section class="js-section">
+      <div class="container">
+        <div class="js-narrow reveal">
+          <p class="js-eyebrow">Environmental Storytelling</p>
+          <h2 class="js-h2">Every wreck has two stories.</h2>
+          <p>There is the story in the report. And there is the story left behind.</p>
+          <div class="js-stories">
+            <div class="js-story js-story--record">
+              <h3>In the report</h3>
+              <ul>
+                <li>Catastrophic system failure</li>
+                <li>Crew evacuated safely</li>
+                <li>Cargo written off</li>
+                <li>Contract closed</li>
+                <li>No further action required</li>
+              </ul>
+            </div>
+            <div class="js-story js-story--left">
+              <h3>Left behind</h3>
+              <ul>
+                <li><span class="src">The ship</span>How its crew lived</li>
+                <li><span class="src">Maintenance records</span>What kept breaking</li>
+                <li><span class="src">Power system</span>What was shut down</li>
+                <li><span class="src">Terminals</span>Who was still aboard</li>
+                <li><span class="src">Navigation</span>Where it went</li>
+              </ul>
+            </div>
+          </div>
+          <p style="margin-top:32px;">And sometimes those stories don&rsquo;t agree with the one you were given.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Wayward -->
+    <section class="js-section">
+      <div class="container">
+        <div class="js-split js-split--art reveal">
+          <div class="js-frame">
+            <img src="/images/junkspace/junkspace-key-art-02.png" alt="JUNKSPACE key art &mdash; a figure in battered space gear surveys a vast derelict station interior" width="1254" height="1254" loading="lazy">
+          </div>
+          <div>
+            <p class="js-eyebrow">Home Base</p>
+            <h2 class="js-h2">The Wayward</h2>
+            <p>Between contracts, you return to The Wayward.</p>
+            <p class="js-beat">Your ship.</p>
+            <p class="js-beat">Your workshop.</p>
+            <p class="js-beat">Your transport.</p>
+            <p class="js-beat">Your home.</p>
+            <p style="margin-top:18px;">What begins as a series of salvage jobs gradually becomes a journey across ports, derelicts, industrial installations and forgotten corners of inhabited space.</p>
+            <p>Every contract can pay the bills. Some can improve your ship. Some uncover pieces of the past.</p>
+            <p class="js-emph">And some lead back toward the same impossible question.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- The question -->
+    <section class="js-question">
+      <div class="container reveal">
+        <p class="q">How do you erase a civilization?</p>
+        <p class="q-sub">And perhaps more importantly</p>
+        <p class="q-why">Why</p>
+      </div>
+    </section>
+
+    <!-- Close -->
+    <section class="js-close">
+      <div class="container reveal">
+        <p class="js-wordmark">Junkspace&trade;</p>
+        <p class="tagline">Salvage the wrecks. Follow the evidence. Find what was erased.</p>
+        <p class="blurb">A story-driven science-fiction adventure built around exploration, environmental storytelling, systemic problem solving and a conspiracy buried in the infrastructure of the human frontier.</p>
+        <p class="js-status-pill">In development at Rock River Interactive</p>
       </div>
     </section>
 
